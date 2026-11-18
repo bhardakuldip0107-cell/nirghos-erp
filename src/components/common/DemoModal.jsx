@@ -21,7 +21,12 @@ import {
   CreditCard,
   Tag,
   Landmark,
-  Receipt
+  Receipt,
+  FileSpreadsheet,
+  Lock,
+  Filter,
+  ArrowDownToLine,
+  BadgeCheck
 } from 'lucide-react';
 import { useDemo } from '../../context/DemoContext';
 import { industriesData } from '../../data/industries';
@@ -49,6 +54,13 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
     method: '',
     category: '',
     refNumber: ''
+  });
+
+  // Export configuration state
+  const [exportConfig, setExportConfig] = useState({
+    scope: 'gl-all',
+    range: 'current-fy',
+    includeAuditHash: true
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -96,10 +108,18 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
   };
 
   const handleExport = (format) => {
-    showToast(`Generating ${format.toUpperCase()} export file for Nirghos ERP... Download started!`, 'success');
+    const scopeNames = {
+      'gl-all': 'General Ledger & Chart of Accounts',
+      'pnl': 'P&L and Balance Sheet',
+      'aging': 'AR & AP Aging Ledger',
+      'tax': 'GST & Tax Compliance Pack',
+      'stock': 'Inventory Valuation & Batch Trace'
+    };
+    const scopeLabel = scopeNames[exportConfig.scope] || 'Enterprise Dataset';
+    showToast(`Generating ${format.toUpperCase()} export for ${scopeLabel}... Download started!`, 'success');
     setTimeout(() => {
       onClose();
-    }, 1000);
+    }, 1200);
   };
 
   return (
@@ -112,6 +132,8 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
         <div className={`absolute top-0 inset-x-0 h-2 bg-gradient-to-r ${
           type === 'new-txn' 
             ? 'from-emerald-500 via-teal-500 to-brand-500' 
+            : type === 'export'
+            ? 'from-brand-500 via-indigo-600 to-sky-400'
             : 'from-brand-500 via-indigo-600 to-sky-400'
         }`}></div>
 
@@ -138,7 +160,7 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
             {type === 'export' && (
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-200/80 text-[11px] font-black uppercase tracking-wider shadow-2xs">
                 <Download className="w-3.5 h-3.5 text-brand-600" />
-                <span>Compliance & Audit Export</span>
+                <span>Compliance & Audit Export Engine</span>
               </div>
             )}
 
@@ -150,7 +172,7 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
               {type === 'book-demo' && 'Experience tailored workflows for your industry in a live 30-minute interactive session.'}
               {type === 'new-txn' && 'Post journal vouchers, sales invoices, or purchase orders directly to double-entry general ledger.'}
-              {type === 'export' && 'Download compliance statements, P&L statements, and cryptographic audit sheets.'}
+              {type === 'export' && 'Download compliance statements, P&L statements, and cryptographic audit sheets in bank-grade formats.'}
             </p>
           </div>
           <button
@@ -194,6 +216,24 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
             <div className="flex items-center gap-1.5 text-navy-900 font-extrabold">
               <CheckCircle2 className="w-3.5 h-3.5 text-teal-600" />
               <span>SHA-256 Audit Stream</span>
+            </div>
+          </div>
+        )}
+
+        {/* Live Export Telemetry Micro-Strip for Export */}
+        {type === 'export' && (
+          <div className="px-6 sm:px-8 py-3 bg-gradient-to-r from-brand-50/70 via-indigo-50/40 to-sky-50/50 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3 text-[11px] font-bold text-slate-600">
+            <div className="flex items-center gap-1.5 text-navy-900 font-extrabold">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <span>SOC-2 & ISO 27001 Reconciled</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-navy-900 font-extrabold">
+              <Zap className="w-3.5 h-3.5 text-brand-600" />
+              <span>Sub-Second Stream Generation</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-navy-900 font-extrabold">
+              <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600" />
+              <span>SHA-256 Tamper-Proof Seal</span>
             </div>
           </div>
         )}
@@ -550,44 +590,183 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
           )}
 
           {type === 'export' && (
-            <div className="space-y-5">
-              <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                Choose the desired format to export filtered transactions, ledger entries, and KPI analytics:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                <button
-                  onClick={() => handleExport('excel')}
-                  className="p-5 border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 rounded-2xl flex flex-col items-center justify-center text-center transition-all group cursor-pointer shadow-xs hover:shadow-md"
-                >
-                  <FileText className="w-8 h-8 text-emerald-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-black text-navy-950">Microsoft Excel</span>
-                  <span className="text-[11px] text-slate-500 mt-0.5">.xlsx spreadsheet</span>
-                </button>
+            <div className="space-y-6">
+              {/* Report Scope & Filter Controls */}
+              <div className="p-4 rounded-2xl bg-slate-50/80 border-2 border-slate-200/90 space-y-3.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-wider text-navy-950 flex items-center gap-1.5">
+                    <Filter className="w-3.5 h-3.5 text-brand-600" />
+                    Export Ledger Scope & Filters
+                  </span>
+                  <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 font-bold flex items-center gap-1">
+                    <BadgeCheck className="w-3 h-3 text-emerald-600" />
+                    All 25 Modules Synced
+                  </span>
+                </div>
 
-                <button
-                  onClick={() => handleExport('pdf')}
-                  className="p-5 border-2 border-slate-200 hover:border-rose-500 hover:bg-rose-50/30 rounded-2xl flex flex-col items-center justify-center text-center transition-all group cursor-pointer shadow-xs hover:shadow-md"
-                >
-                  <Download className="w-8 h-8 text-rose-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-black text-navy-950">Audit PDF</span>
-                  <span className="text-[11px] text-slate-500 mt-0.5">Official statement</span>
-                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div>
+                    <label className="block text-[11px] font-bold text-slate-600 mb-1">Report Module / Dataset</label>
+                    <select
+                      value={exportConfig.scope}
+                      onChange={(e) => setExportConfig({ ...exportConfig, scope: e.target.value })}
+                      className="w-full px-3.5 py-2 text-xs rounded-xl border-2 border-slate-200 hover:border-slate-300 focus:outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15 transition-all text-navy-950 font-bold bg-white cursor-pointer"
+                    >
+                      <option value="gl-all">General Ledger & Chart of Accounts</option>
+                      <option value="pnl">Consolidated P&L & Balance Sheet</option>
+                      <option value="aging">AR & AP Aging Ledger (30-60-90 Days)</option>
+                      <option value="tax">GST, E-Way Bill & Tax Compliance Pack</option>
+                      <option value="stock">Inventory Valuation & Batch Lot Drift</option>
+                    </select>
+                  </div>
 
-                <button
-                  onClick={() => handleExport('csv')}
-                  className="p-5 border-2 border-slate-200 hover:border-brand-500 hover:bg-brand-50/30 rounded-2xl flex flex-col items-center justify-center text-center transition-all group cursor-pointer shadow-xs hover:shadow-md"
-                >
-                  <FileText className="w-8 h-8 text-brand-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-black text-navy-950">Raw CSV</span>
-                  <span className="text-[11px] text-slate-500 mt-0.5">Universal raw data</span>
-                </button>
+                  <div>
+                    <label className="block text-[11px] font-bold text-slate-600 mb-1">Audit Fiscal Timeline</label>
+                    <select
+                      value={exportConfig.range}
+                      onChange={(e) => setExportConfig({ ...exportConfig, range: e.target.value })}
+                      className="w-full px-3.5 py-2 text-xs rounded-xl border-2 border-slate-200 hover:border-slate-300 focus:outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15 transition-all text-navy-950 font-bold bg-white cursor-pointer"
+                    >
+                      <option value="current-fy">Current Fiscal Year (2025-2026)</option>
+                      <option value="q3">Current Quarter (Q3 Audited)</option>
+                      <option value="30d">Last 30 Days (Rolling Operations)</option>
+                      <option value="lifetime">Complete Lifetime Ledger Archive</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-              <div className="text-right pt-2 border-t border-slate-100">
+
+              {/* 3 High-Tech Download Format Pods */}
+              <div className="space-y-2.5">
+                <span className="text-xs font-black uppercase tracking-wider text-slate-400 block">
+                  Select Bank-Grade Output Format
+                </span>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                  {/* Excel Card */}
+                  <div className="group relative p-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-emerald-500 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="space-y-3">
+                      <div className="w-12 h-12 rounded-2xl bg-emerald-50 border-2 border-emerald-200 text-emerald-600 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <FileSpreadsheet className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h5 className="text-sm font-black text-navy-950 group-hover:text-emerald-700 transition-colors">
+                          Microsoft Excel
+                        </h5>
+                        <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                          Multi-tab workbook with active formulas & pivot grids.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200">
+                          .XLSX
+                        </span>
+                        <span className="text-[10px] font-mono text-slate-400">
+                          Formulas Intact
+                        </span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleExport('excel')}
+                      className="mt-4 w-full py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-600 text-emerald-700 hover:text-white font-black text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-emerald-200 group-hover:border-emerald-600 shadow-2xs group-hover:shadow-md"
+                    >
+                      <ArrowDownToLine className="w-3.5 h-3.5" />
+                      <span>Export Excel</span>
+                    </button>
+                  </div>
+
+                  {/* Audit PDF Card */}
+                  <div className="group relative p-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-rose-500 hover:shadow-xl hover:shadow-rose-500/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-rose-500 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="space-y-3">
+                      <div className="w-12 h-12 rounded-2xl bg-rose-50 border-2 border-rose-200 text-rose-600 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all">
+                        <FileText className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h5 className="text-sm font-black text-navy-950 group-hover:text-rose-700 transition-colors">
+                          Audit PDF Statement
+                        </h5>
+                        <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                          Official digitally signed statement for auditors & banks.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="text-[10px] font-mono font-bold bg-rose-50 text-rose-700 px-2 py-0.5 rounded border border-rose-200">
+                          .PDF
+                        </span>
+                        <span className="text-[10px] font-mono text-slate-400">
+                          Digital Seal
+                        </span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleExport('pdf')}
+                      className="mt-4 w-full py-2.5 rounded-xl bg-rose-50 hover:bg-rose-600 text-rose-700 hover:text-white font-black text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-rose-200 group-hover:border-rose-600 shadow-2xs group-hover:shadow-md"
+                    >
+                      <ArrowDownToLine className="w-3.5 h-3.5" />
+                      <span>Export PDF</span>
+                    </button>
+                  </div>
+
+                  {/* Universal Raw CSV Card */}
+                  <div className="group relative p-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-brand-500 hover:shadow-xl hover:shadow-brand-500/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-500 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="space-y-3">
+                      <div className="w-12 h-12 rounded-2xl bg-brand-50 border-2 border-brand-200 text-brand-600 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white transition-all">
+                        <Download className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h5 className="text-sm font-black text-navy-950 group-hover:text-brand-700 transition-colors">
+                          Raw CSV / BI Feed
+                        </h5>
+                        <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                          Uncompressed rows ready for PowerBI, Tableau, or python.
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="text-[10px] font-mono font-bold bg-brand-50 text-brand-700 px-2 py-0.5 rounded border border-brand-200">
+                          .CSV
+                        </span>
+                        <span className="text-[10px] font-mono text-slate-400">
+                          Zero Truncation
+                        </span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleExport('csv')}
+                      className="mt-4 w-full py-2.5 rounded-xl bg-brand-50 hover:bg-brand-600 text-brand-700 hover:text-white font-black text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-brand-200 group-hover:border-brand-600 shadow-2xs group-hover:shadow-md"
+                    >
+                      <ArrowDownToLine className="w-3.5 h-3.5" />
+                      <span>Export CSV</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Security & Watermark Footer */}
+              <div className="p-3.5 rounded-2xl bg-slate-900 text-white flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono border border-slate-800 shadow-inner">
+                <div className="flex items-center gap-2">
+                  <Lock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="text-slate-300 truncate">
+                    Cryptographic Watermark • SHA-256 Checksum Envelope Attached
+                  </span>
+                </div>
+                <span className="text-emerald-400 font-bold font-mono text-[10px] shrink-0">
+                  100% Audit-Proof
+                </span>
+              </div>
+
+              <div className="pt-2 flex items-center justify-end border-t border-slate-100">
                 <button
+                  type="button"
                   onClick={onClose}
-                  className="px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-navy-950 hover:bg-slate-100 rounded-xl transition cursor-pointer"
+                  className="px-6 py-2.5 text-sm font-bold text-slate-600 hover:text-navy-950 hover:bg-slate-100 rounded-xl transition cursor-pointer"
                 >
-                  Close
+                  Close Window
                 </button>
               </div>
             </div>
