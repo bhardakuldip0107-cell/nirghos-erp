@@ -51,6 +51,8 @@ export const Home = () => {
   const [activeTabFeature, setActiveTabFeature] = useState(coreFeatures[0].id);
   const [showAllIndustries, setShowAllIndustries] = useState(false);
   const [sliderMode, setSliderMode] = useState('categories'); // 'categories' | 'brands'
+  const [activeErpProduct, setActiveErpProduct] = useState('gsoft');
+  const [productSlideIndex, setProductSlideIndex] = useState(0);
 
   // Hero interactive sector switcher preview (defaults to registered sector if authenticated)
   const [heroSector, setHeroSector] = useState(profile?.slug || 'manufacturing');
@@ -293,6 +295,166 @@ export const Home = () => {
     'security-facility': { bg: 'bg-slate-100', text: 'text-slate-800', border: 'border-slate-300', badge: 'Facility & Guards' },
     'professional-services': { bg: 'bg-teal-50', text: 'text-teal-800', border: 'border-teal-200', badge: 'Audit & Consulting' }
   };
+
+  // 7 Core Flagship ERP Products (Matching User Screenshot)
+  const erpProducts = [
+    {
+      id: 'gsoft',
+      name: 'Gsoft ERP',
+      tabImg: '/products/tab-gsoft.png',
+      badge: 'Apparel & Footwear',
+      heading: 'Apparel-Lifestyle and Footwear Industry',
+      desc: 'G-Soft ERP delivers a complete, user-friendly ERP Software for the Apparel-Lifestyle and Footwear Industry with POS, Inventory, Accounting, CRM, BI Reports, Web Reports and Mobile Apps.',
+      monitorCaption: 'Gsoft Desktop ERP Dashboard',
+      slides: [
+        'Gsoft Desktop ERP Dashboard',
+        'Gsoft Multi-Size & Matrix POS Billing',
+        'Gsoft Real-time Warehouse Inventory'
+      ],
+      link: '/industries/textile',
+      categorySlug: 'textile',
+      bulletPoints: [
+        'Multi-Size & Color Matrix Management',
+        'Barcode & RFID Tag Generation',
+        'Fast POS Billing with Loyalty Points',
+        'Central Head-Office & Multi-Store Sync'
+      ]
+    },
+    {
+      id: 'jsoft',
+      name: 'Jsoft ERP',
+      tabImg: '/products/tab-jsoft.png',
+      badge: 'Jewellery & Diamond',
+      heading: 'Jewellery and Diamond Industry',
+      desc: 'J-Soft ERP is a comprehensive, specialized Jewellery ERP Software covering Retail, Wholesale, Karigar/Goldsmith Job Work, Gold Scheme, Barcode/RFID, and Real-Time Bullion Rate Accounting.',
+      monitorCaption: 'Jsoft Jewellery ERP & POS Console',
+      slides: [
+        'Jsoft Jewellery ERP & POS Console',
+        'Jsoft Karigar & Job Work Tracking',
+        'Jsoft Live Gold & Bullion Rate Ledger'
+      ],
+      link: '/industries/jewellery',
+      categorySlug: 'jewellery',
+      bulletPoints: [
+        'Live Bullion & Daily Gold/Silver Rate Fixation',
+        'Melting, Wastage & Purity Touch Loss Calculations',
+        'High-Speed RFID Tray Scanning for Stock Audits',
+        'Government Hallmark & HUID Statutory Compliance'
+      ]
+    },
+    {
+      id: 'bizpro',
+      name: 'Alpha BIZPRO',
+      tabImg: '/products/tab-alpha-bizpro.png',
+      badge: 'Trading & Distribution',
+      heading: 'Trading, Distribution & Wholesale ERP',
+      desc: 'Alpha BIZPRO provides end-to-end supply chain distribution, multi-warehouse stock management, automated credit limits, e-way bill generation, and GST compliance for high-volume traders.',
+      monitorCaption: 'Alpha BIZPRO Supply Chain & Distribution Suite',
+      slides: [
+        'Alpha BIZPRO Supply Chain & Distribution Suite',
+        'Alpha BIZPRO Multi-Warehouse Bin Control',
+        'Alpha BIZPRO Automated E-Way Bill & GST'
+      ],
+      link: '/industries/trading',
+      categorySlug: 'trading',
+      bulletPoints: [
+        'Tier-wise Customer Rate Contracts & Schemes',
+        'Automated Receivables & Ageing Credit Lock',
+        'Batch-wise FIFO Inventory & Expiry Alerts',
+        'Direct GST E-Invoicing & Automated E-Way Bills'
+      ]
+    },
+    {
+      id: 'omni',
+      name: 'Alpha Omni',
+      tabImg: '/products/tab-alpha-omni.png',
+      badge: 'Omnichannel & Sync',
+      heading: 'Omnichannel Retail & E-Commerce Sync',
+      desc: 'Unify your offline retail POS counters with online marketplaces (Amazon, Flipkart, Shopify, WooCommerce) in real time with central inventory sync, barcode dispatch, and returns management.',
+      monitorCaption: 'Alpha Omni E-Commerce Sync Control Center',
+      slides: [
+        'Alpha Omni E-Commerce Sync Control Center',
+        'Alpha Omni Central Marketplace Inventory',
+        'Alpha Omni Automated Order Dispatch Hub'
+      ],
+      link: '/industries/ecommerce',
+      categorySlug: 'ecommerce',
+      bulletPoints: [
+        'Real-time Multi-Channel Inventory Reconciliation',
+        'Instant Auto-Sync with Amazon, Flipkart & Shopify',
+        'Central Barcode Verification & Fast Courier Manifest',
+        'Automated Return to Origin (RTO) Tracking'
+      ]
+    },
+    {
+      id: 'gorder',
+      name: 'G ORDER',
+      tabImg: '/products/tab-g-order.png',
+      badge: 'B2B Mobile Ordering',
+      heading: 'B2B Mobile Ordering & Sales Force App',
+      desc: 'Enable your retail dealers and traveling sales representatives to browse live digital catalogs, book orders instantly on mobile, check outstanding ledgers, and track delivery status.',
+      monitorCaption: 'G ORDER Digital Catalog & Order Booking App',
+      slides: [
+        'G ORDER Digital Catalog & Order Booking App',
+        'G ORDER Dealer Order Processing Screen',
+        'G ORDER Sales Representative Route Planner'
+      ],
+      link: '/industries/retail',
+      categorySlug: 'retail',
+      bulletPoints: [
+        'High-Resolution Visual B2B Mobile Catalog',
+        '24/7 Self-Service Dealer Order Booking',
+        'Instant Customer Outstanding Ledger Check',
+        'GPS-Enabled Sales Representative Field Routing'
+      ]
+    },
+    {
+      id: 'jeweldeal',
+      name: 'JewelDeal',
+      tabImg: '/products/tab-jeweldeal.png',
+      badge: 'Jewellery B2B Portal',
+      heading: 'Digital Jewellery B2B Marketplace & Virtual Showroom',
+      desc: 'An exclusive virtual B2B jewellery showroom and digital catalog platform connecting jewellery manufacturers, wholesalers, and retail buyers with real-time rate calculators and secure booking.',
+      monitorCaption: 'JewelDeal Virtual Showroom & Booking Platform',
+      slides: [
+        'JewelDeal Virtual Showroom & Booking Platform',
+        'JewelDeal Manufacturer Catalog Showcase',
+        'JewelDeal Secure Wholesale Quotation Engine'
+      ],
+      link: '/industries/jewellery',
+      categorySlug: 'jewellery',
+      bulletPoints: [
+        'Virtual HD 360° Jewellery Exhibition Showcase',
+        'Restricted Verified Buyer Access Controls',
+        'Instant Live Metal & Diamond Weight Pricing Calculator',
+        'Confidential Quotations & Custom Design Inquiries'
+      ]
+    },
+    {
+      id: 'chatbox',
+      name: 'Alpha CHATBOX',
+      tabImg: '/products/tab-chatbox.png',
+      badge: 'WhatsApp Automation',
+      heading: 'WhatsApp Automated Customer Engagement Hub',
+      desc: 'Automate payment reminders, GST invoice PDFs, order dispatches, OTP confirmations, and promotional broadcast campaigns directly via official Meta WhatsApp Business API.',
+      monitorCaption: 'Alpha CHATBOX Smart WhatsApp Dispatch Engine',
+      slides: [
+        'Alpha CHATBOX Smart WhatsApp Dispatch Engine',
+        'Alpha CHATBOX Automated Invoice Dispatcher',
+        'Alpha CHATBOX Customer Broadcast Campaigns'
+      ],
+      link: '/contact',
+      categorySlug: 'service-maintenance',
+      bulletPoints: [
+        'Official Meta WhatsApp Cloud API Verified Integration',
+        'Automated PDF Invoice & Payment Receipt Delivery',
+        'Scheduled Outstanding Ledger Payment Reminders',
+        'Bulk Promotional Campaigns with Rich Media & Buttons'
+      ]
+    }
+  ];
+
+  const currentProduct = erpProducts.find(p => p.id === activeErpProduct) || erpProducts[0];
 
   // Real enterprise testimonials across diverse industries
   const testimonials = [
@@ -654,6 +816,144 @@ export const Home = () => {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 3. OUR PRODUCTS SECTION (EXACT MATCH TO USER SCREENSHOT)                  */}
+      {/* ========================================================================= */}
+      <section id="our-products-section" className="py-14 lg:py-20 bg-gradient-to-b from-[#f9fbfe] via-white to-[#f9fbfe] relative overflow-hidden border-b border-slate-200/80">
+        
+        {/* Soft Background Grid Tiles Matching Screenshot */}
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-60 pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header Title & Orange Accent Underline */}
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+              Our Products
+            </h2>
+            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+          </div>
+
+          {/* 7 Horizontal Product Card Tabs (Exact Match to Screenshot) */}
+          <div className="flex items-center justify-start lg:justify-center gap-2.5 sm:gap-3.5 overflow-x-auto pb-4 scrollbar-none select-none">
+            {erpProducts.map((prod) => {
+              const isActive = activeErpProduct === prod.id;
+              return (
+                <button
+                  key={prod.id}
+                  type="button"
+                  onClick={() => {
+                    setActiveErpProduct(prod.id);
+                    setProductSlideIndex(0);
+                  }}
+                  className={`w-28 sm:w-32 h-14 sm:h-16 rounded-2xl bg-white flex items-center justify-center p-2.5 transition-all transform shrink-0 cursor-pointer shadow-xs ${
+                    isActive
+                      ? 'border-2 border-[#0060b9] shadow-md shadow-blue-500/15 -translate-y-1'
+                      : 'border border-slate-200/90 hover:border-slate-300 hover:shadow-xs'
+                  }`}
+                  aria-label={prod.name}
+                >
+                  <img 
+                    src={prod.tabImg} 
+                    alt={prod.name} 
+                    className="max-h-9 w-auto object-contain select-none pointer-events-none" 
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Main Active Product Showcase Box (Large Card Container) */}
+          <div className="mt-4 bg-white rounded-3xl border border-sky-100/90 shadow-[0_20px_50px_-15px_rgba(0,96,185,0.08),0_0_1px_1px_rgba(0,0,0,0.03)] p-6 sm:p-10 lg:p-12 transition-all">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Column: Heading, Description, Bullet Points & Explore More Button */}
+              <div className="lg:col-span-6 space-y-5 text-left">
+                
+                <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-slate-900 tracking-tight leading-tight">
+                  {currentProduct.heading}
+                </h3>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {currentProduct.desc}
+                </p>
+
+                {/* 4 Feature Bullet Points */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                  {currentProduct.bulletPoints.map((point, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs font-semibold text-slate-700">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>{point}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Explore More Button */}
+                <div className="pt-3 flex flex-wrap items-center gap-3.5">
+                  <Link
+                    to={currentProduct.link}
+                    className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+                  >
+                    Explore More
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsDemoModalOpen(true)}
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-slate-300 hover:border-orange-300 hover:text-[#f25c05] bg-white text-slate-700 font-bold text-sm transition-all shadow-2xs cursor-pointer"
+                  >
+                    Request Live Demo
+                  </button>
+                </div>
+
+              </div>
+
+              {/* Right Column: Desktop iMac / Monitor Display & Pagination Dots */}
+              <div className="lg:col-span-6 flex flex-col items-center justify-center">
+                
+                {/* Desktop Monitor Graphics */}
+                <div className="relative w-full max-w-[480px] group">
+                  <div className="relative rounded-2xl overflow-hidden drop-shadow-2xl transition-transform duration-300 group-hover:scale-[1.02]">
+                    <img 
+                      src="/products/monitor-gsoft.png" 
+                      alt={currentProduct.monitorCaption} 
+                      className="w-full h-auto object-contain select-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Monitor Caption */}
+                <span className="text-xs sm:text-sm font-bold text-slate-700 mt-4 text-center">
+                  {currentProduct.slides[productSlideIndex] || currentProduct.monitorCaption}
+                </span>
+
+                {/* 3 Pagination Carousel Dots (Exact Match) */}
+                <div className="flex items-center justify-center gap-2 mt-2.5">
+                  {[0, 1, 2].map((dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      type="button"
+                      onClick={() => setProductSlideIndex(dotIdx)}
+                      className={`transition-all rounded-full cursor-pointer ${
+                        productSlideIndex === dotIdx
+                          ? 'w-6 h-2 bg-[#0060b9]'
+                          : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                      }`}
+                      aria-label={`Slide ${dotIdx + 1}`}
+                    />
+                  ))}
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
       </section>
 
