@@ -799,7 +799,7 @@ export const Home = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. ABOUT ALPHA SECTION (EXACT MATCH TO USER SCREENSHOT)                   */}
+      {/* 2. ABOUT NIRGHOS ERP SECTION (EXACT MATCH TO USER SCREENSHOT)              */}
       {/* ========================================================================= */}
       <section id="about-section" className="py-12 lg:py-20 bg-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -810,7 +810,7 @@ export const Home = () => {
               <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl bg-slate-50 group">
                 <img 
                   src="/about-team.jpg" 
-                  alt="Alpha ERP Solutions Leadership Team" 
+                  alt="Nirghos ERP Solutions Leadership Team" 
                   className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -845,12 +845,12 @@ export const Home = () => {
               </div>
             </div>
 
-            {/* Right Column: About Alpha, Line, Text, Know More Button */}
+            {/* Right Column: About Nirghos ERP, Line, Text, Know More Button */}
             <div className="lg:col-span-6 space-y-4 text-left">
               
               {/* Heading */}
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-tight">
-                About Alpha
+                About Nirghos ERP
               </h2>
 
               {/* Orange Horizontal Accent Line */}
@@ -858,7 +858,7 @@ export const Home = () => {
 
               {/* Exact Description Paragraph */}
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
-                Alpha ERP Solutions Pvt. Ltd. provides absolute ERP, Desktop, Mobile application and Cloud Based Solutions for the Retailers, Distributors, and Manufacturers to enhance them with advanced technology and contains expertise of 25 years. We are accomplished to deliver quality software products and solutions. We have successfully served 5,000+ clients across 400+ cities, including major cities and small towns in Gujarat, Rajasthan, Maharashtra, Madhya Pradesh, Delhi, Hyderabad, and Haryana, supported by a strong team of 250+ employees.
+                Nirghos ERP Solutions Pvt. Ltd. provides absolute ERP, Desktop, Mobile application and Cloud Based Solutions for the Retailers, Distributors, and Manufacturers to enhance them with advanced technology and contains expertise of 25 years. We are accomplished to deliver quality software products and solutions. We have successfully served 5,000+ clients across 400+ cities, including major cities and small towns in Gujarat, Rajasthan, Maharashtra, Madhya Pradesh, Delhi, Hyderabad, and Haryana, supported by a strong team of 250+ employees.
               </p>
 
               {/* Blue "Know More" Button */}
