@@ -1310,6 +1310,145 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* ========================================================================= */}
+      {/* 6. OUR PROUD STATISTICS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
+      {/* ========================================================================= */}
+      <section id="our-stats-section" className="py-14 lg:py-20 bg-white relative overflow-hidden border-b border-slate-200/80">
+        
+        {/* Subtle Decorative Dot Matrix in Corners (Exact Match to Screenshot) */}
+        <div className="absolute top-6 left-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0060b9_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
+        <div className="absolute bottom-6 right-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0060b9_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header: Our Proud Statistics & Orange Accent Underline */}
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+              Our Proud Statistics
+            </h2>
+            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+          </div>
+
+          {/* Statistics Showcase: 4 Circular Badges Flanking Center India Map */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-items-center">
+            
+            {/* Desktop Left Column (Stats 1 & 2) / Mobile Top Pair */}
+            <div className="w-full lg:col-span-3 flex lg:flex-col items-center justify-around sm:justify-center gap-6 sm:gap-12 lg:gap-16 order-1">
+              
+              {/* Stat 1: 5,000+ Happy Clients */}
+              <div className="relative group">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  {/* Outer Orbit Satellite Dot */}
+                  <div className="absolute -top-1 left-7 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+                  
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                    <AnimatedCounter target={5000} suffix="+" duration={2200} />
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                    Happy Clients
+                  </span>
+                </div>
+              </div>
+
+              {/* Stat 2: 4.8+ Google Rating (Desktop Only on Left) */}
+              <div className="relative group hidden lg:block">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  {/* Outer Orbit Satellite Dot */}
+                  <div className="absolute -bottom-1 left-9 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                    <AnimatedCounter target={4.8} decimals={1} suffix="+" duration={2000} />
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                    Google Rating
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Middle Column: India Map with Client Density Points & State Capitals */}
+            <div className="w-full lg:col-span-6 flex items-center justify-center relative py-2 order-2">
+              <div className="relative group max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] w-full">
+                <img 
+                  src="/stats/india-stats-map-hd.png" 
+                  alt="Nirghos ERP Pan-India Client Statistics Map" 
+                  className="w-full h-auto object-contain select-none transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+            </div>
+
+            {/* Desktop Right Column (Stats 3 & 4) / Mobile Bottom Pair */}
+            <div className="w-full lg:col-span-3 flex lg:flex-col items-center justify-around sm:justify-center gap-6 sm:gap-12 lg:gap-16 order-3">
+              
+              {/* Stat 3: 250+ Employees */}
+              <div className="relative group">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  {/* Outer Orbit Satellite Dot */}
+                  <div className="absolute -top-1 right-7 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                    <AnimatedCounter target={250} suffix="+" duration={2000} />
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                    Employees
+                  </span>
+                </div>
+              </div>
+
+              {/* Stat 4: 400+ Cities */}
+              <div className="relative group hidden lg:block">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  {/* Outer Orbit Satellite Dot */}
+                  <div className="absolute -bottom-1 right-9 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                    <AnimatedCounter target={400} suffix="+" duration={2200} />
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                    Cities
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Mobile / Tablet Bottom Pair (Google Rating & Cities visible on < lg screens) */}
+            <div className="w-full flex lg:hidden items-center justify-around sm:justify-center gap-6 sm:gap-12 order-4">
+              
+              {/* Stat 2: 4.8+ Google Rating (Mobile) */}
+              <div className="relative group">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  <div className="absolute -bottom-1 left-9 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                    <AnimatedCounter target={4.8} decimals={1} suffix="+" duration={2000} />
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                    Google Rating
+                  </span>
+                </div>
+              </div>
+
+              {/* Stat 4: 400+ Cities (Mobile) */}
+              <div className="relative group">
+                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  <div className="absolute -bottom-1 right-9 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                    <AnimatedCounter target={400} suffix="+" duration={2200} />
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                    Cities
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* 2. INDUSTRIES SECTION (ALL 25 CATEGORIES WITH LIVE SEARCH & FILTERS) */}
       <section id="industries-section" className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 relative">
         
