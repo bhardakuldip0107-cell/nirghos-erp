@@ -7,6 +7,12 @@ import IndustryDetails from '../pages/IndustryDetails/IndustryDetails';
 import Features from '../pages/Features/Features';
 import About from '../pages/About/About';
 import Contact from '../pages/Contact/Contact';
+import Careers from '../pages/Careers/Careers';
+import Life from '../pages/Life/Life';
+import Team from '../pages/Team/Team';
+import Blogs from '../pages/Blogs/Blogs';
+import Events from '../pages/Events/Events';
+import Testimonials from '../pages/Testimonials/Testimonials';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import Dashboard from '../pages/Dashboard/Dashboard';
@@ -22,6 +28,12 @@ export const AppRoutes = () => {
         <Route path="/features" element={<Features />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/life" element={<Life />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>
@@ -36,4 +48,3 @@ export const AppRoutes = () => {
 };
 
 export default AppRoutes;
-

@@ -25,7 +25,13 @@ import {
   Star,
   Activity,
   ArrowUpRight,
-  Calculator
+  Calculator,
+  Shirt,
+  Gem,
+  MessageSquare,
+  Store,
+  UtensilsCrossed,
+  Truck
 } from 'lucide-react';
 import { industriesData, industryCategories } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
@@ -115,6 +121,148 @@ export const Home = () => {
 
   const currentHeroPreview = heroPreviews[heroSector] || heroPreviews.manufacturing;
 
+  // Trusted Client Brand Logos for the Right-to-Left Marquee Slider (Exact match to screenshot)
+  const brandLogos = [
+    {
+      id: 'shreeman',
+      name: 'Shreeman',
+      render: () => (
+        <div className="flex flex-col items-center justify-center">
+          <span className="text-xl sm:text-2xl font-black text-[#d32f2f] tracking-tight font-serif leading-none">
+            Shreeman
+          </span>
+          <span className="text-[9px] text-slate-500 italic tracking-wider mt-0.5 font-serif">
+            Elegance has a name
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'samor',
+      name: 'SAMOR GOLD',
+      render: () => (
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className="flex items-center text-lg sm:text-xl font-black text-slate-900 font-serif tracking-widest leading-none">
+            <span>SAM</span>
+            <span className="relative inline-flex items-center justify-center w-4 h-4 mx-0.5">
+              <span className="w-3.5 h-3.5 rounded-full border-2 border-amber-500 inline-block"></span>
+              <span className="absolute -top-1 w-1.5 h-1.5 bg-amber-400 rotate-45"></span>
+            </span>
+            <span>R</span>
+          </div>
+          <span className="text-[8px] sm:text-[9px] font-black tracking-[0.3em] text-amber-600 mt-0.5">
+            G O L D
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'deepkala',
+      name: 'DEEPKALA heritage',
+      render: () => (
+        <div className="flex items-baseline gap-1">
+          <span className="text-base sm:text-lg font-black text-[#e53935] tracking-tight font-serif uppercase">
+            DEEPKALA
+          </span>
+          <span className="text-sm sm:text-base font-bold text-[#00acc1] font-sans italic -ml-0.5">
+            heritage
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'fritzberg',
+      name: 'FRITZBERG',
+      render: () => (
+        <div className="bg-[#d32f2f] px-3.5 py-1.5 rounded-xs flex flex-col items-center shadow-2xs border-b-2 border-slate-700">
+          <div className="w-5 h-0.5 bg-white mb-0.5 transform -skew-x-12"></div>
+          <span className="text-xs sm:text-sm font-black text-white tracking-widest italic font-sans leading-none">
+            FRITZBËRG
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'laavian',
+      name: 'laavian',
+      render: () => (
+        <div className="flex items-center">
+          <span className="text-xl sm:text-2xl font-black text-[#f43f5e] tracking-tight font-sans">
+            laavīan
+          </span>
+          <span className="text-[8px] text-slate-400 -mt-2 ml-0.5">™</span>
+        </div>
+      )
+    },
+    {
+      id: 'sachins',
+      name: "SACHIN'S Men's World",
+      render: () => (
+        <div className="flex flex-col items-center text-center">
+          <span className="text-sm sm:text-base font-black text-[#ea580c] tracking-wider font-sans leading-none">
+            SACHIN'S
+          </span>
+          <span className="text-[9px] font-semibold text-slate-600 tracking-wide mt-0.5">
+            Men's World
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'sia',
+      name: 'SIA',
+      render: () => (
+        <div className="bg-[#b91c1c] px-4 py-1.5 rounded-xs border-2 border-white/60 shadow-2xs flex items-center justify-center">
+          <span className="text-xs sm:text-sm font-black text-white tracking-widest font-sans">
+            SIA
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'navbharat',
+      name: 'NAVBHARAT',
+      render: () => (
+        <div className="flex flex-col items-center">
+          <div className="flex gap-0.5 mb-1">
+            <div className="w-2.5 h-1 bg-cyan-500 rounded-2xs"></div>
+            <div className="w-2.5 h-1 bg-pink-500 rounded-2xs"></div>
+            <div className="w-2.5 h-1 bg-amber-400 rounded-2xs"></div>
+          </div>
+          <span className="text-xs sm:text-sm font-black text-slate-900 tracking-wider font-sans">
+            NAVBHARAT
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'osomengel',
+      name: 'osomengel',
+      render: () => (
+        <div className="bg-[#f59e0b] px-3.5 py-1.5 rounded-xs flex items-center gap-1.5 shadow-2xs">
+          <div className="w-2.5 h-2.5 bg-slate-900 rotate-45 shrink-0"></div>
+          <span className="text-xs sm:text-sm font-black text-slate-900 tracking-wide font-sans">
+            osomengel
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'sequinze',
+      name: 'SEQUINZE',
+      render: () => (
+        <div className="bg-[#881337] px-3.5 py-1.5 rounded-xs text-center shadow-2xs">
+          <span className="text-xs sm:text-sm font-black text-white tracking-widest font-serif block leading-none">
+            SEQUINZE
+          </span>
+          <span className="text-[6.5px] text-rose-200 tracking-widest uppercase block mt-0.5">
+            WHERE STYLE FINDS SOUL
+          </span>
+        </div>
+      )
+    }
+  ];
+
   // Real enterprise testimonials across diverse industries
   const testimonials = [
     {
@@ -194,147 +342,137 @@ export const Home = () => {
   return (
     <div className="space-y-28 pb-24 overflow-hidden">
       
-      {/* 1. HERO SECTION WITH DYNAMIC SECTOR PREVIEW SIMULATOR */}
-      <section className="relative pt-10 pb-24 lg:pt-18 lg:pb-36 bg-navy-950 text-white border-b border-navy-800/80 overflow-hidden">
+      {/* ========================================================================= */}
+      {/* 1. HERO SECTION (EXACT MATCH TO USER'S SCREENSHOT)                        */}
+      {/* ========================================================================= */}
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 bg-gradient-to-b from-[#fffcf8] via-white to-slate-50/60 border-b border-slate-200/80 overflow-hidden text-center">
         
-        {/* Modern ambient radial glow effects */}
-        <div className="absolute inset-0 pointer-events-none opacity-20 bg-grid-pattern"></div>
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        {/* Soft Warm Ambient Radial Glow Accents */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[550px] h-[380px] bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[550px] h-[380px] bg-orange-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+        {/* Faint dot matrix patterns on corners (matching screenshot) */}
+        <div className="absolute bottom-6 right-8 w-36 h-28 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-75 pointer-events-none"></div>
+        <div className="absolute bottom-6 left-8 w-36 h-28 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-40 pointer-events-none"></div>
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           
-          <div className="text-center max-w-3xl mx-auto space-y-6">
-            
-            {/* Tagline / Tenant Pill */}
-            {isAuthenticated ? (
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs sm:text-sm font-bold tracking-wide shadow-md">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Active Registered Tenant: <strong>{profile?.name}</strong> • {profile?.industry}</span>
-              </div>
-            ) : (
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-300 text-xs sm:text-sm font-bold tracking-wide shadow-inner">
-                <Sparkles className="w-4 h-4 text-brand-400 animate-spin" style={{ animationDuration: '6s' }} />
-                <span>One Platform. Every Business.</span>
-              </div>
-            )}
+          {/* Line 1: Trusted ERP Software (Orange) */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#f25c05] tracking-tight leading-tight">
+            Trusted ERP Software
+          </h2>
 
-            {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
-              {isAuthenticated && profile?.name ? (
-                <>
-                  <span className="text-brand-300">{profile.name}</span> <br />
-                  <span className="text-3xl sm:text-4xl lg:text-5xl bg-gradient-to-r from-emerald-300 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
-                    {profile?.industry} Workspace
-                  </span>
-                </>
-              ) : (
-                <>
-                  Manage Every Business. <br />
-                  <span className="bg-gradient-to-r from-brand-300 via-sky-400 to-indigo-300 bg-clip-text text-transparent">
-                    In One Place.
-                  </span>
-                </>
-              )}
-            </h1>
+          {/* Line 2 & 3: For Apparel-Lifestyle, Footwear & Jewellery Businesses in India (Blue) */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#0060b9] tracking-tight leading-[1.18]">
+            For Apparel-Lifestyle, Footwear & <br className="hidden sm:inline" />
+            Jewellery Businesses in India
+          </h1>
 
-            {/* Subheading */}
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
-              {isAuthenticated ? (
-                <>
-                  Welcome back, <strong>{profile?.owner || 'Administrator'}</strong>. Your dedicated <strong>{profile?.industry}</strong> operations engine, live inventory catalogs, and compliance rules are synchronized.
-                </>
-              ) : (
-                <>
-                  Smart ERP Solutions Designed for Every Industry. Eliminate fragmented legacy tools with <strong>25+ specialized industry modules</strong> configured out-of-the-box.
-                </>
-              )}
-            </p>
-
-            {/* Industry Search Bar */}
-            <div className="max-w-2xl mx-auto pt-2">
-              <SearchBar 
-                onSearchChange={(q) => setSearchQuery(q)}
-                placeholder="Search any of 25 industries (e.g. Manufacturing, Retail, Hospital, Pharma, Logistics)..."
-              />
-              <div className="flex flex-wrap items-center justify-center gap-2 pt-3.5 text-xs text-slate-400">
-                <span className="font-semibold text-slate-300">Quick Category:</span>
-                {['manufacturing', 'retail', 'hospital', 'trading', 'construction', 'textile'].map(slug => {
-                  const item = industriesData.find(i => i.slug === slug);
-                  const isUserSector = isAuthenticated && profile?.slug === slug;
-                  const linkTarget = !isAuthenticated 
-                    ? `/register?industry=${slug}` 
-                    : `/industries/${profile?.slug || 'manufacturing'}`;
-
-                  return (
-                    <Link 
-                      key={slug} 
-                      to={linkTarget}
-                      className={`px-2.5 py-1 rounded-lg border transition text-[11px] font-semibold ${
-                        isUserSector
-                          ? 'bg-emerald-600 text-white border-emerald-500 font-bold shadow-sm'
-                          : 'bg-navy-900 hover:bg-brand-600 hover:text-white text-slate-300 border border-navy-800'
-                      }`}
-                    >
-                      {item?.name.split('&')[0]} {isUserSector ? '✓' : ''}
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Hero CTA Buttons */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-              {isAuthenticated ? (
-                <>
-                  <Link
-                    to={`/dashboard?industry=${profile?.slug || 'manufacturing'}`}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-extrabold text-navy-950 bg-gradient-to-r from-emerald-300 via-teal-300 to-sky-300 hover:brightness-110 shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-2 transition transform active:scale-95 text-sm"
-                  >
-                    <LayoutDashboard className="w-4 h-4" />
-                    <span>Open {profile?.name?.split(' ')[0] || 'My'} ERP Workspace</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-
-                  <Link
-                    to={`/industries/${profile?.slug || 'manufacturing'}`}
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-white bg-navy-850 hover:bg-navy-800 border border-navy-700/80 shadow-md flex items-center justify-center gap-2 transition text-sm"
-                  >
-                    <span>View {profile?.industry?.split(' ')[0] || 'Industry'} Blueprint</span>
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <Link
-                    to="/register"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-extrabold text-navy-950 bg-gradient-to-r from-brand-300 via-brand-400 to-sky-300 hover:brightness-110 shadow-xl shadow-brand-500/25 flex items-center justify-center gap-2 transition transform active:scale-95 text-sm"
-                  >
-                    <span>Register Free Trial</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-
-                  <Link
-                    to="/industries"
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-2xl font-bold text-white bg-navy-850 hover:bg-navy-800 border border-navy-700/80 shadow-md flex items-center justify-center gap-2 transition text-sm"
-                  >
-                    <span>Explore All 25 Industries</span>
-                  </Link>
-                </>
-              )}
-
-              <button
-                onClick={() => setIsDemoModalOpen(true)}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl font-semibold text-slate-300 hover:text-white hover:bg-navy-850/60 transition text-sm flex items-center justify-center gap-2"
-              >
-                <Award className="w-4 h-4 text-brand-400" />
-                <span>Book 1-on-1 Call</span>
-              </button>
-            </div>
-
+          {/* Line 4: 25+ Years of Trust | 5000+ Clients | 400+ Cities across India */}
+          <div className="pt-3 pb-2 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-slate-800 text-sm sm:text-base md:text-lg font-bold">
+            <span><strong className="font-black text-slate-900">25+</strong> Years of Trust</span>
+            <span className="text-slate-300 font-normal">|</span>
+            <span><strong className="font-black text-slate-900">5000+</strong> Clients</span>
+            <span className="text-slate-300 font-normal">|</span>
+            <span><strong className="font-black text-slate-900">400+</strong> Cities across India</span>
           </div>
 
-          {/* DYNAMIC HERO DASHBOARD SIMULATOR BOX */}
-          <div className="mt-14 lg:mt-18 relative max-w-[1440px] mx-auto">
+          {/* Line 5: Orange Pill "Get Demo" Button & Line 6: Hand-Drawn Sky Blue Curly Arrow */}
+          <div className="pt-2 flex flex-col items-center justify-center">
+            <button
+              type="button"
+              onClick={() => setIsDemoModalOpen(true)}
+              className="px-8 py-3.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            >
+              Get Demo
+            </button>
+
+            {/* Hand-Drawn Light Blue Curly Arrow */}
+            <div className="mt-2 text-[#60a5fa] select-none pointer-events-none">
+              <svg 
+                width="72" 
+                height="46" 
+                viewBox="0 0 75 48" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="transform -rotate-3"
+              >
+                <path 
+                  d="M48 2 C58 12, 60 22, 44 26 C32 29, 24 25, 22 19 C20 12, 32 10, 40 16 C48 22, 42 34, 18 37" 
+                  stroke="#60A5FA" 
+                  strokeWidth="2.4" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+                <path 
+                  d="M25 31 L 17 37 L 23 43" 
+                  stroke="#60A5FA" 
+                  strokeWidth="2.4" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+
+          {/* ========================================================================= */}
+          {/* CONTINUOUS RIGHT-TO-LEFT CLIENT BRAND LOGOS SLIDER (EXACT MATCH)           */}
+          {/* ========================================================================= */}
+          <div className="pt-6 pb-2 w-full relative">
+            {/* Overflow wrapper with gradient fade masks */}
+            <div className="overflow-hidden relative py-3">
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10"></div>
+
+              {/* Slider Track Moving Right-to-Left */}
+              <div className="animate-marquee-rtl flex items-center gap-3.5 sm:gap-4 hover:[animation-play-state:paused]">
+                {[...brandLogos, ...brandLogos].map((brand, idx) => (
+                  <div
+                    key={`${brand.id}-${idx}`}
+                    className="w-44 h-18 sm:w-52 sm:h-22 bg-white rounded-2xl border border-sky-100/90 hover:border-orange-300 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-md transition-all flex items-center justify-center px-4 py-2 shrink-0 select-none group cursor-pointer"
+                    onClick={() => setIsDemoModalOpen(true)}
+                  >
+                    {brand.render()}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Search bar & quick category exploration */}
+          <div className="max-w-2xl mx-auto pt-8">
+            <SearchBar 
+              onSearchChange={(q) => setSearchQuery(q)}
+              placeholder="Search specialized industry ERPs (e.g. Apparel, Jewellery, Footwear, Manufacturing, Healthcare)..."
+            />
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-3.5 text-xs text-slate-500">
+              <span className="font-bold text-slate-700">Quick Blueprints:</span>
+              {['textile', 'manufacturing', 'retail', 'hospital', 'trading', 'construction'].map(slug => {
+                const item = industriesData.find(i => i.slug === slug);
+                return (
+                  <Link 
+                    key={slug} 
+                    to={`/industries/${slug}`}
+                    className="px-2.5 py-1 rounded-lg border border-slate-200 bg-white hover:bg-orange-50 hover:border-orange-200 hover:text-[#f25c05] transition text-[11px] font-semibold text-slate-700 shadow-2xs"
+                  >
+                    {item?.name.split('&')[0]}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 2. DYNAMIC HERO DASHBOARD SIMULATOR BOX                                  */}
+      {/* ========================================================================= */}
+      <section className="relative pt-6 pb-20 bg-navy-950 text-white border-b border-navy-800/80 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-20 bg-grid-pattern"></div>
+        <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+          
+          <div className="mt-8 relative max-w-[1440px] mx-auto">
             
             {/* Interactive Sector Switcher Tabs on top of the preview */}
             <div className="flex items-center justify-center gap-2 pb-3 overflow-x-auto scrollbar-none">

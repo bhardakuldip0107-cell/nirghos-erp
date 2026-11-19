@@ -68,16 +68,28 @@ export const Footer = () => {
                 <Link to="/" className="hover:text-brand-400 transition">Homepage</Link>
               </li>
               <li>
-                <Link to="/industries" className="hover:text-brand-400 transition">All 25 Industries</Link>
-              </li>
-              <li>
-                <Link to="/features" className="hover:text-brand-400 transition">Core ERP Modules</Link>
-              </li>
-              <li>
                 <Link to="/about" className="hover:text-brand-400 transition">About Nirghos</Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-brand-400 transition">Contact & Support</Link>
+                <Link to="/team" className="hover:text-brand-400 transition">Team Nirghos</Link>
+              </li>
+              <li>
+                <Link to="/life" className="hover:text-brand-400 transition">Life @ Nirghos ERP</Link>
+              </li>
+              <li>
+                <Link to="/blogs" className="hover:text-brand-400 transition">Blogs &amp; Insights</Link>
+              </li>
+              <li>
+                <Link to="/events" className="hover:text-brand-400 transition">Nirghos's Events</Link>
+              </li>
+              <li>
+                <Link to="/testimonials" className="hover:text-brand-400 transition">Client Testimonials</Link>
+              </li>
+              <li>
+                <Link to="/careers" className="hover:text-brand-400 transition">Careers &amp; Join Us</Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-brand-400 transition">Contact &amp; Support</Link>
               </li>
               <li>
                 <Link to="/dashboard" className="text-brand-400 font-semibold hover:text-brand-300 transition flex items-center gap-1">

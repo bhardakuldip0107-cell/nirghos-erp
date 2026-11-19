@@ -1,54 +1,70 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { 
-  Layers, 
   Menu, 
   X, 
   ChevronDown, 
   ArrowRight, 
   LayoutDashboard, 
   Sparkles,
-  ShieldCheck,
+  Info,
   PhoneCall,
-  Search,
-  ExternalLink
+  HeartHandshake,
+  Users,
+  FileText,
+  CalendarCheck,
+  MessageSquareQuote,
+  Building2,
+  Shirt,
+  Gem,
+  Store,
+  Truck,
+  Cpu,
+  MessageSquare,
+  Smartphone,
+  Cloud,
+  Headphones,
+  TrendingUp,
+  Eye,
+  Glasses,
+  Zap,
+  Briefcase,
+  UtensilsCrossed,
+  ShieldCheck
 } from 'lucide-react';
 import { useDemo } from '../../context/DemoContext';
-import { industriesData, industryCategories } from '../../data/industries';
-import DynamicIcon from '../common/DynamicIcon';
+import DemoModal from '../common/DemoModal';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [industriesDropdownOpen, setIndustriesDropdownOpen] = useState(false);
-  const [activeMegaCategory, setActiveMegaCategory] = useState('All');
-  const [searchMegaQuery, setSearchMegaQuery] = useState('');
+  const [activeDropdown, setActiveDropdown] = useState(null); // 'products' | 'services' | 'explore' | 'ai' | null
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  const erpDropdownRef = useRef(null);
+  const headerNavRef = useRef(null);
   const hoverTimeoutRef = useRef(null);
 
   const { isAuthenticated, profile, logoutUser } = useDemo();
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setIndustriesDropdownOpen(false);
+    setActiveDropdown(null);
   }, [location.pathname]);
 
-  // Close ERP dropdown on click outside or Escape key
+  // Close dropdown on click outside or Escape
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (erpDropdownRef.current && !erpDropdownRef.current.contains(event.target)) {
-        setIndustriesDropdownOpen(false);
+      if (headerNavRef.current && !headerNavRef.current.contains(event.target)) {
+        setActiveDropdown(null);
       }
     };
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
-        setIndustriesDropdownOpen(false);
+        setActiveDropdown(null);
       }
     };
-    if (industriesDropdownOpen) {
+    if (activeDropdown) {
       document.addEventListener('mousedown', handleClickOutside);
       document.addEventListener('keydown', handleKeyDown);
     }
@@ -56,455 +72,650 @@ export const Header = () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [industriesDropdownOpen]);
+  }, [activeDropdown]);
 
-  // Safe debounce for hover so moving cursor to dropdown never abruptly closes it
-  const handleMouseEnter = () => {
+  // Safe hover debounce
+  const handleMouseEnter = (menuKey) => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    setIndustriesDropdownOpen(true);
+    setActiveDropdown(menuKey);
   };
 
   const handleMouseLeave = () => {
     hoverTimeoutRef.current = setTimeout(() => {
-      setIndustriesDropdownOpen(false);
-    }, 350);
+      setActiveDropdown(null);
+    }, 250);
   };
 
-  const handleErpToggle = (e) => {
+  const handleToggle = (menuKey, e) => {
     e.preventDefault();
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    setIndustriesDropdownOpen(prev => !prev);
+    setActiveDropdown(prev => prev === menuKey ? null : menuKey);
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'ERP', path: '/industries', hasDropdown: true },
-    { name: 'Features', path: '/features' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+  // 1. Explore Nirghos Dropdown Items (Exact 4-column card grid from screenshot)
+  const exploreCards = [
+    {
+      title: 'About Us',
+      desc: 'Nirghos ERP Solutions Pvt. Ltd. helps Businesses thrive with modern AI automation.',
+      icon: Info,
+      path: '/about'
+    },
+    {
+      title: 'Contact Us',
+      desc: 'Nirghos ERP Solutions Provides Exact Answers and 24/7 dedicated enterprise support.',
+      icon: PhoneCall,
+      path: '/contact'
+    },
+    {
+      title: 'Life @ Nirghos ERP',
+      desc: 'We bring passion to our work and energy to every business milestone we build.',
+      icon: HeartHandshake,
+      path: '/life'
+    },
+    {
+      title: 'Team Nirghos',
+      desc: 'We are a team of believers, thinkers, and software creators revolutionizing ERP.',
+      icon: Users,
+      path: '/team'
+    },
+    {
+      title: 'Blogs',
+      desc: 'Explore the latest business trends, ERP updates, GST rules, and AI innovations.',
+      icon: FileText,
+      path: '/blogs'
+    },
+    {
+      title: "Nirghos's Events",
+      desc: 'Where Technology meets Memorable Experiences, ERP summits, and innovation days.',
+      icon: CalendarCheck,
+      path: '/events'
+    },
+    {
+      title: 'Testimonials',
+      desc: 'Every testimonial represents a relationship built on trust, scale, and high ROI.',
+      icon: MessageSquareQuote,
+      path: '/testimonials'
+    }
   ];
 
-  const megaFilteredIndustries = industriesData.filter(i => {
-    const matchesCategory = activeMegaCategory === 'All' || i.category === activeMegaCategory;
-    const matchesSearch = !searchMegaQuery.trim() || 
-      i.name.toLowerCase().includes(searchMegaQuery.toLowerCase()) || 
-      i.category.toLowerCase().includes(searchMegaQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  // 2. Products Dropdown Items (Specialized Industry Suites)
+  const productsCards = [
+    {
+      title: 'G-Soft Apparel & Lifestyle ERP',
+      desc: 'Style-Color-Size matrix, barcode scanning, digital job cards & wholesale order booking.',
+      icon: Shirt,
+      path: '/industries/textile-garment'
+    },
+    {
+      title: 'J-Soft Jewellery & Bullion ERP',
+      desc: 'Hallmark & HUID tracking, Karigar wastage, metal rate-cut & certified bullion ledger.',
+      icon: Gem,
+      path: '/industries/gems-jewelry'
+    },
+    {
+      title: 'Alpha Chatbox (WhatsApp ERP)',
+      desc: 'Automated GST invoice dispatch, payment reminder bots & customer WhatsApp catalog.',
+      icon: MessageSquare,
+      path: '/features'
+    },
+    {
+      title: 'Retail POS & Supermarket ERP',
+      desc: 'Sub-second touchscreen checkout, barcode billing, loyalty points & table order maps.',
+      icon: Store,
+      path: '/industries/retail-supermarket'
+    },
+    {
+      title: 'Core Enterprise ERP Suite',
+      desc: 'HRMS, Payroll, double-entry General Ledger, multi-branch inventory & CRM pipeline.',
+      icon: Cpu,
+      path: '/features'
+    },
+    {
+      title: 'Wholesale & Distribution ERP',
+      desc: 'Inter-branch stock transfers, automated credit limits, transporter E-way bill & dispatch.',
+      icon: Truck,
+      path: '/industries/wholesale-trading'
+    },
+    {
+      title: 'Food, Cafe & Restaurant ERP',
+      desc: 'KOT kitchen display, recipe costing, table reservations & omnichannel delivery sync.',
+      icon: UtensilsCrossed,
+      path: '/industries/hospitality-tourism'
+    },
+    {
+      title: 'Browse All 25 Industries',
+      desc: 'Explore the complete directory of sector-specific live modules and workflows.',
+      icon: Building2,
+      path: '/industries'
+    }
+  ];
+
+  // 3. Services Dropdown Items
+  const servicesCards = [
+    {
+      title: 'B2B & B2C Mobile Applications',
+      desc: 'Native iOS & Android apps for sales reps, wholesale order booking & customer portals.',
+      icon: Smartphone,
+      path: '/features'
+    },
+    {
+      title: 'Digital Marketing & Growth',
+      desc: 'Take your business to the next level with ROI-focused digital marketing and SEO.',
+      icon: TrendingUp,
+      path: '/features'
+    },
+    {
+      title: 'Custom ERP Implementation',
+      desc: 'End-to-end enterprise blueprinting, legacy data migration & personalized rollout.',
+      icon: Briefcase,
+      path: '/contact'
+    },
+    {
+      title: 'Cloud & API Integration Hub',
+      desc: 'Real-time sync with GST Portal, E-way bill, Tally, bank payment gateways & Shopify.',
+      icon: Cloud,
+      path: '/features'
+    },
+    {
+      title: '24/7 Enterprise Support & SLA',
+      desc: 'Dedicated technical architect desk, SOC2 audited security, and 99.99% uptime guarantee.',
+      icon: Headphones,
+      path: '/contact'
+    },
+    {
+      title: 'WhatsApp Automation & CRM',
+      desc: 'Turn WhatsApp into an automated sales and support engine for your customers.',
+      icon: MessageSquare,
+      path: '/features'
+    }
+  ];
+
+  // 4. AI Tools Dropdown Items
+  const aiToolsCards = [
+    {
+      title: 'Nirghos Vision (AlphaCam 360)',
+      desc: 'AI CCTV video analytics: Footfall counting, dwell time, peak hours & store heatmaps.',
+      icon: Eye,
+      path: '/features'
+    },
+    {
+      title: 'AI Product Photoshoot Studio',
+      desc: 'Generate photorealistic apparel & jewellery models without expensive physical shoots.',
+      icon: Sparkles,
+      path: '/features'
+    },
+    {
+      title: 'AI Virtual 3D Try-On',
+      desc: 'Realistic interactive product visualization for rings, necklaces, watches & fashion garments.',
+      icon: Glasses,
+      path: '/features'
+    },
+    {
+      title: 'Predictive Demand & Forecasting',
+      desc: 'Machine learning algorithms forecasting replenishment schedules, stockouts & cash flow.',
+      icon: TrendingUp,
+      path: '/features'
+    }
+  ];
 
   return (
-    <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-navy-950/95 backdrop-blur-xl shadow-2xl border-b border-navy-800/80' 
-        : 'bg-navy-950 border-b border-navy-800/50 text-white'
-    }`}>
-      {/* Top micro announcement bar */}
-      <div className="hidden lg:block bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950 border-b border-navy-800/40 py-1.5 px-6 text-xs text-slate-300">
-        <div className="max-w-[1600px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-brand-500/20 text-brand-300 border border-brand-500/30 shimmer-badge">
-              <Sparkles className="w-3 h-3 text-brand-300" /> NEW v2.8 RELEASE
-            </span>
-            <span className="text-slate-300">Unified Multi-Industry Architecture • Zero Code Silos</span>
-          </div>
-          <div className="flex items-center gap-5 text-slate-300 text-xs">
-            <span className="flex items-center gap-1.5 font-medium text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              99.99% Cloud SLA
-            </span>
-            <span className="text-slate-700">|</span>
-            <span className="flex items-center gap-1.5 text-slate-300">
-              <ShieldCheck className="w-3.5 h-3.5 text-brand-400" /> ISO 27001 & SOC2 Certified
-            </span>
-            <span className="text-slate-700">|</span>
-            <Link to="/contact" className="hover:text-brand-300 transition flex items-center gap-1 font-medium">
-              <PhoneCall className="w-3 h-3 text-slate-400" /> Enterprise Desk: +1 (800) NIRGHOS
-            </Link>
+    <>
+      <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-xl shadow-md border-b border-slate-200' 
+          : 'bg-white border-b border-slate-200 text-slate-800'
+      }`}>
+        
+        {/* ========================================================================= */}
+        {/* 1. TOP ORANGE ANNOUNCEMENT BANNER (Exact Style from Screenshot)           */}
+        {/* ========================================================================= */}
+        <div className="w-full bg-[#f25c05] text-white py-2 px-4 text-center select-none shadow-xs">
+          <div className="max-w-[1600px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
+            <span>&ldquo;Alpha E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Alpha ERP Solutions Pvt. Ltd.&rdquo;</span>
           </div>
         </div>
-      </div>
 
-      {/* Main Navigation Bar */}
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="flex items-center justify-between h-20">
-          
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3.5 group focus:outline-none">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 via-sky-500 to-brand-400 flex items-center justify-center shadow-lg shadow-brand-500/30 group-hover:scale-105 group-hover:shadow-brand-500/50 transition-all duration-300 border border-white/20">
-              <div className="grid grid-cols-2 gap-1 p-2">
-                <div className="w-2 h-2 rounded-xs bg-white shadow-xs"></div>
-                <div className="w-2 h-2 rounded-xs bg-brand-200"></div>
-                <div className="w-2 h-2 rounded-xs bg-brand-200"></div>
-                <div className="w-2 h-2 rounded-xs bg-white shadow-xs"></div>
+        {/* ========================================================================= */}
+        {/* 2. MAIN NAVIGATION BAR                                                    */}
+        {/* ========================================================================= */}
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 relative" ref={headerNavRef}>
+          <div className="flex items-center justify-between h-20">
+            
+            {/* Logo on Left */}
+            <Link to="/" className="flex items-center gap-2.5 group focus:outline-none shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-sky-500 to-brand-500 flex items-center justify-center shadow-md shadow-brand-500/25 group-hover:scale-105 transition-all">
+                <span className="text-white font-black text-xl italic tracking-tighter">N</span>
               </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-black tracking-tight text-white flex items-center gap-0.5">
-                Nirghos<span className="bg-gradient-to-r from-brand-400 to-sky-300 bg-clip-text text-transparent">ERP</span>
-              </span>
-              <span className="text-[10px] uppercase font-extrabold tracking-widest text-slate-400 -mt-1">
-                One Platform. Every Business.
-              </span>
-            </div>
-          </Link>
-
-          {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-            {navLinks.map((link) => {
-              if (link.hasDropdown) {
-                return (
-                  <div 
-                    key={link.name} 
-                    ref={erpDropdownRef}
-                    className="relative"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <button
-                      type="button"
-                      onClick={handleErpToggle}
-                      className={`px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 cursor-pointer border ${
-                        industriesDropdownOpen || location.pathname.startsWith('/industries')
-                          ? 'text-brand-300 bg-navy-850/95 border-brand-500/60 shadow-lg shadow-brand-500/20' 
-                          : 'text-slate-300 hover:text-white hover:bg-navy-850/80 border-transparent hover:border-navy-700/80'
-                      }`}
-                    >
-                      <Layers className={`w-4 h-4 transition-colors ${industriesDropdownOpen ? 'text-brand-400' : 'text-slate-400'}`} />
-                      <span>{link.name}</span>
-                      <span className="px-1.5 py-0.5 rounded-md bg-brand-500/20 text-brand-300 text-[10px] font-black border border-brand-500/30">
-                        25
-                      </span>
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${industriesDropdownOpen ? 'rotate-180 text-brand-400' : 'text-slate-400'}`} />
-                    </button>
-
-                    {/* Mega Dropdown for Industries */}
-                    {industriesDropdownOpen && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                        <div className="w-[920px] lg:w-[980px] bg-gradient-to-b from-navy-950 via-slate-950 to-navy-950 border-2 border-brand-500/30 rounded-3xl shadow-[0_30px_70px_-15px_rgba(0,0,0,0.85),0_0_50px_-10px_rgba(37,99,235,0.25)] p-6 sm:p-7 backdrop-blur-2xl ring-1 ring-white/10 relative overflow-hidden">
-                          
-                          {/* Top Glow Ambient Line */}
-                          <div className="absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r from-transparent via-brand-400 to-transparent"></div>
-
-                          {/* Header Bar */}
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b border-navy-800/90">
-                            <div>
-                              <div className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                                <span className="text-xs font-black uppercase tracking-wider bg-gradient-to-r from-brand-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
-                                  {isAuthenticated ? `Active Tenant: ${profile?.industry}` : '25 Specialized ERP Blueprints'}
-                                </span>
-                              </div>
-                              <p className="text-xs text-slate-400 mt-0.5">
-                                {isAuthenticated 
-                                  ? `Signed in as ${profile?.name}. Workspace locked to your registered sector.` 
-                                  : 'Select any industry category to explore its tailored live modules and cloud blueprint.'}
-                              </p>
-                            </div>
-                            
-                            <div className="flex items-center gap-3">
-                              {/* Search Box inside Mega Dropdown */}
-                              <div className="relative">
-                                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                                <input
-                                  type="text"
-                                  value={searchMegaQuery}
-                                  onChange={(e) => setSearchMegaQuery(e.target.value)}
-                                  placeholder="Search 25 industries..."
-                                  className="pl-8 pr-7 py-1.5 rounded-xl bg-navy-900 border border-navy-700/80 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/30 w-48 transition-all"
-                                />
-                                {searchMegaQuery && (
-                                  <button 
-                                    onClick={() => setSearchMegaQuery('')}
-                                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs font-bold"
-                                    title="Clear search"
-                                  >
-                                    ×
-                                  </button>
-                                )}
-                              </div>
-
-                              <Link 
-                                to="/industries"
-                                onClick={() => setIndustriesDropdownOpen(false)}
-                                className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 text-xs font-bold text-white flex items-center gap-1.5 shadow-md shadow-brand-600/30 transition border border-brand-400/40 shrink-0"
-                              >
-                                <span>Directory</span>
-                                <ArrowRight className="w-3.5 h-3.5" />
-                              </Link>
-                            </div>
-                          </div>
-
-                          {/* Category Filter Pills */}
-                          <div className="flex items-center gap-1.5 overflow-x-auto pb-3 mb-3.5 border-b border-navy-800/80 scrollbar-none">
-                            {industryCategories.map((cat) => (
-                              <button
-                                key={cat}
-                                onClick={() => {
-                                  setActiveMegaCategory(cat);
-                                  setSearchMegaQuery('');
-                                }}
-                                className={`px-3 py-1.5 rounded-xl text-[11px] font-extrabold whitespace-nowrap transition-all border ${
-                                  activeMegaCategory === cat
-                                    ? 'bg-gradient-to-r from-brand-600 to-blue-600 text-white border-brand-400 shadow-md shadow-brand-600/30'
-                                    : 'bg-navy-900/90 text-slate-400 hover:text-white hover:bg-navy-850 border-navy-800/90'
-                                }`}
-                              >
-                                {cat}
-                              </button>
-                            ))}
-                          </div>
-
-                          {/* Grid of Industry Cards */}
-                          <div className="grid grid-cols-3 gap-3 max-h-[350px] overflow-y-auto pr-1.5 scrollbar-thin scrollbar-thumb-navy-700 scrollbar-track-navy-900">
-                            {megaFilteredIndustries.length > 0 ? (
-                              megaFilteredIndustries.map((ind) => {
-                                const isUserSector = isAuthenticated && profile?.slug === ind.slug;
-                                const itemUrl = `/industries/${ind.slug}`;
-
-                                return (
-                                  <Link
-                                    key={ind.slug}
-                                    to={itemUrl}
-                                    onClick={() => {
-                                      setIndustriesDropdownOpen(false);
-                                      setMobileMenuOpen(false);
-                                    }}
-                                    className={`p-3.5 rounded-2xl border-2 transition-all duration-200 group flex items-start gap-3 relative overflow-hidden ${
-                                      isUserSector 
-                                        ? 'bg-emerald-950/40 border-emerald-500/60 hover:bg-emerald-900/50 hover:border-emerald-400 shadow-md' 
-                                        : 'bg-navy-900/70 hover:bg-navy-850/90 border-navy-800/90 hover:border-brand-500/80 hover:shadow-lg hover:shadow-brand-500/15 hover:-translate-y-0.5'
-                                    }`}
-                                  >
-                                    {/* Top Mini Accent Stripe on Hover */}
-                                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-500 to-sky-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 text-xs font-bold border ${
-                                      isUserSector 
-                                        ? 'bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-600/30' 
-                                        : 'bg-navy-800/90 text-brand-400 border-navy-700/80 group-hover:bg-gradient-to-br group-hover:from-brand-500 group-hover:to-brand-700 group-hover:text-white group-hover:border-brand-400 group-hover:scale-105 shadow-xs'
-                                    }`}>
-                                      <DynamicIcon name={ind.icon} className="w-5 h-5 transition-transform group-hover:scale-110" />
-                                    </div>
-
-                                    <div className="min-w-0 flex-1">
-                                      <div className="flex items-center justify-between gap-1">
-                                        <p className="text-xs font-black text-slate-100 group-hover:text-brand-300 truncate">
-                                          {ind.name}
-                                        </p>
-                                        <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-brand-400 group-hover:translate-x-0.5 transition-all opacity-0 group-hover:opacity-100 shrink-0" />
-                                      </div>
-                                      <div className="flex items-center justify-between gap-1 mt-0.5">
-                                        <span className="text-[10px] font-semibold text-slate-400 group-hover:text-slate-300 truncate">
-                                          {ind.category}
-                                        </span>
-                                        {isUserSector ? (
-                                          <span className="text-[9px] font-black text-emerald-400 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-500/40">
-                                            Registered
-                                          </span>
-                                        ) : (
-                                          <span className="text-[9px] font-bold text-slate-500 group-hover:text-brand-400 transition-colors">
-                                            Dedicated ERP
-                                          </span>
-                                        )}
-                                      </div>
-                                    </div>
-                                  </Link>
-                                );
-                              })
-                            ) : (
-                              <div className="col-span-3 py-10 text-center text-slate-400 text-xs space-y-1">
-                                <p className="font-bold text-slate-300">No industries match "{searchMegaQuery}"</p>
-                                <button 
-                                  onClick={() => { setSearchMegaQuery(''); setActiveMegaCategory('All'); }}
-                                  className="text-brand-400 underline font-semibold"
-                                >
-                                  Clear search filters
-                                </button>
-                              </div>
-                            )}
-                          </div>
-
-                          {/* Dropdown Footer Strip */}
-                          <div className="mt-4 pt-3.5 border-t border-navy-800/90 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400">
-                            <div className="flex items-center gap-4">
-                              <span className="flex items-center gap-1.5 text-slate-300 font-semibold text-[11px]">
-                                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> 14-Day Free Dedicated Trial
-                              </span>
-                              <span className="hidden sm:inline text-slate-700">•</span>
-                              <span className="hidden sm:inline text-[11px] text-slate-300 font-semibold">
-                                Zero Credit Card Required
-                              </span>
-                            </div>
-                            <Link
-                              to="/contact"
-                              onClick={() => setIndustriesDropdownOpen(false)}
-                              className="text-[11px] font-bold text-brand-400 hover:text-brand-300 flex items-center gap-1 group self-start sm:self-auto"
-                            >
-                              <span>Need Custom Enterprise Setup? Talk to Architect</span>
-                              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                            </Link>
-                          </div>
-
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-
-              return (
-                <NavLink
-                  key={link.name}
-                  to={link.path}
-                  end={link.path === '/'}
-                  className={({ isActive }) => `px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
-                    isActive 
-                      ? 'text-brand-400 bg-navy-850/90 font-bold shadow-inner' 
-                      : 'text-slate-300 hover:text-white hover:bg-navy-850/60'
-                  }`}
-                >
-                  {link.name}
-                </NavLink>
-              );
-            })}
-          </nav>
-
-          {/* Desktop Right Actions (Auth / Dashboard) */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              to="/dashboard"
-              className="px-4 py-2 text-xs font-bold text-brand-300 hover:text-white bg-navy-850 hover:bg-navy-800 border border-navy-700/80 rounded-xl flex items-center gap-1.5 transition shadow-xs"
-            >
-              <LayoutDashboard className="w-3.5 h-3.5 text-brand-400" />
-              <span>Interactive Workspace</span>
+              <div className="flex flex-col">
+                <span className="text-2xl font-black tracking-tight text-slate-900 flex items-center">
+                  Nirghos<span className="text-[#f25c05] ml-0.5 text-xs font-black uppercase px-1.5 py-0.5 rounded bg-orange-100 border border-orange-200">ERP</span>
+                </span>
+              </div>
             </Link>
 
-            {isAuthenticated ? (
-              <div className="flex items-center gap-2">
-                <Link
-                  to="/dashboard"
-                  className="px-4 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-brand-600 to-sky-600 hover:brightness-110 rounded-xl shadow-lg shadow-brand-600/30 flex items-center gap-2 transition"
-                >
-                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span>{profile?.name?.split(' ')[0] || 'My ERP'}</span>
-                </Link>
-                <button
-                  onClick={logoutUser}
-                  className="px-3 py-2 text-xs font-semibold text-slate-400 hover:text-rose-400 transition"
-                >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <div className="flex items-center gap-2.5">
-                <Link
-                  to="/login"
-                  className="px-4 py-2.5 text-xs font-bold text-slate-200 hover:text-white hover:bg-navy-850 rounded-xl transition"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  to="/register"
-                  className="px-5 py-2.5 text-xs font-extrabold text-navy-950 bg-gradient-to-r from-brand-300 via-brand-400 to-sky-300 hover:brightness-110 rounded-xl shadow-lg shadow-brand-500/30 flex items-center gap-1.5 transition transform active:scale-95"
-                >
-                  <span>Get Started Free</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {/* Mobile Hamburger Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <Link
-              to="/dashboard"
-              className="p-2 rounded-xl bg-navy-850 text-brand-400 border border-navy-700 text-xs font-bold"
-            >
-              <LayoutDashboard className="w-4 h-4" />
-            </Link>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-navy-850 text-slate-300 hover:text-white hover:bg-navy-800 border border-navy-700 transition"
-              aria-label="Toggle Navigation Menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-navy-950/98 backdrop-blur-xl border-b border-navy-800 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-4 duration-200">
-          <div className="space-y-1">
-            {navLinks.map((link) => (
+            {/* Center Nav Links */}
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+              
+              {/* Home */}
               <NavLink
-                key={link.name}
-                to={link.path}
-                end={link.path === '/'}
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) => `block px-4 py-2.5 rounded-xl text-sm font-bold transition ${
-                  isActive ? 'bg-brand-600 text-white font-bold' : 'text-slate-300 hover:bg-navy-850 hover:text-white'
+                to="/"
+                end
+                className={({ isActive }) => `px-3.5 py-2 text-sm font-semibold transition-all relative ${
+                  isActive 
+                    ? 'text-[#f25c05] font-bold border-b-2 border-[#f25c05]' 
+                    : 'text-slate-700 hover:text-[#f25c05]'
                 }`}
               >
-                {link.name}
+                Home
               </NavLink>
-            ))}
-            <Link
-              to="/industries"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2 text-xs font-bold text-brand-400 uppercase tracking-wider"
-            >
-              Browse All 25 Industries Directory →
-            </Link>
-          </div>
 
-          <div className="pt-3 border-t border-navy-800 flex flex-col gap-2">
-            <Link
-              to="/dashboard"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 rounded-xl bg-brand-600 text-white font-bold text-sm text-center flex items-center justify-center gap-2 shadow-md shadow-brand-600/30"
-            >
-              <LayoutDashboard className="w-4 h-4" /> Open Live ERP Workspace
-            </Link>
-            {!isAuthenticated ? (
-              <div className="grid grid-cols-2 gap-2 pt-1">
+              {/* Products ▾ */}
+              <div 
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('products')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button
+                  type="button"
+                  onClick={(e) => handleToggle('products', e)}
+                  className={`px-3.5 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
+                    activeDropdown === 'products'
+                      ? 'text-[#f25c05] font-bold border-b-2 border-[#f25c05]' 
+                      : 'text-slate-700 hover:text-[#f25c05]'
+                  }`}
+                >
+                  <span>Products</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180 text-[#f25c05]' : 'text-slate-500'}`} />
+                </button>
+              </div>
+
+              {/* Services ▾ */}
+              <div 
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('services')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button
+                  type="button"
+                  onClick={(e) => handleToggle('services', e)}
+                  className={`px-3.5 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
+                    activeDropdown === 'services'
+                      ? 'text-[#f25c05] font-bold border-b-2 border-[#f25c05]' 
+                      : 'text-slate-700 hover:text-[#f25c05]'
+                  }`}
+                >
+                  <span>Services</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180 text-[#f25c05]' : 'text-slate-500'}`} />
+                </button>
+              </div>
+
+              {/* ✨ AI Tools */}
+              <div 
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('ai')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <NavLink
+                  to="/features"
+                  className={({ isActive }) => `px-3.5 py-2 text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer relative ${
+                    isActive || activeDropdown === 'ai'
+                      ? 'text-sky-600 font-bold border-b-2 border-sky-500' 
+                      : 'text-slate-700 hover:text-sky-600'
+                  }`}
+                >
+                  <Sparkles className="w-4 h-4 text-sky-500 animate-pulse" />
+                  <span>AI Tools</span>
+                </NavLink>
+              </div>
+
+              {/* Explore Nirghos ▾ (Contains About Us, Contact Us, Life, Team, Blogs, Events, Testimonials) */}
+              <div 
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('explore')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button
+                  type="button"
+                  onClick={(e) => handleToggle('explore', e)}
+                  className={`px-3.5 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
+                    activeDropdown === 'explore' || ['/about', '/contact', '/life', '/team', '/blogs', '/events', '/testimonials'].includes(location.pathname)
+                      ? 'text-[#f25c05] font-bold border-b-2 border-[#f25c05]' 
+                      : 'text-slate-700 hover:text-[#f25c05]'
+                  }`}
+                >
+                  <span>Explore Nirghos</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'explore' ? 'rotate-180 text-[#f25c05]' : 'text-slate-500'}`} />
+                </button>
+              </div>
+
+              {/* Join Our Team */}
+              <NavLink
+                to="/careers"
+                className={({ isActive }) => `px-3.5 py-2 text-sm font-semibold transition-all relative ${
+                  isActive 
+                    ? 'text-[#f25c05] font-bold border-b-2 border-[#f25c05]' 
+                    : 'text-slate-700 hover:text-[#f25c05]'
+                }`}
+              >
+                Join Our Team
+              </NavLink>
+
+            </nav>
+
+            {/* Right Action: Orange Pill "Get Demo" Button */}
+            <div className="hidden md:flex items-center gap-3.5">
+              
+              {isAuthenticated ? (
+                <div className="flex items-center gap-2">
+                  <Link
+                    to="/dashboard"
+                    className="px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center gap-1.5 transition"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>{profile?.name?.split(' ')[0] || 'My ERP'}</span>
+                  </Link>
+                  <button
+                    onClick={logoutUser}
+                    className="text-xs text-slate-500 hover:text-rose-600 transition"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
                 <Link
                   to="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-2.5 rounded-xl border border-navy-700 bg-navy-850 text-white font-bold text-center text-xs"
+                  className="px-3 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 transition"
                 >
                   Sign In
                 </Link>
-                <Link
-                  to="/register"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-2.5 rounded-xl bg-brand-400 text-navy-950 font-extrabold text-center text-xs shadow-md"
-                >
-                  Get Started
-                </Link>
-              </div>
-            ) : (
+              )}
+
+              {/* ORANGE PILL GET DEMO BUTTON (Exact match to screenshot) */}
               <button
-                onClick={() => { logoutUser(); setMobileMenuOpen(false); }}
-                className="w-full py-2 text-center text-xs text-slate-400 hover:text-white"
+                type="button"
+                onClick={() => setIsDemoModalOpen(true)}
+                className="px-6 py-2.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
               >
-                Sign Out
+                Get Demo
               </button>
-            )}
+
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="flex lg:hidden items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setIsDemoModalOpen(true)}
+                className="px-4 py-1.5 rounded-full bg-[#f25c05] text-white font-bold text-xs shadow-sm"
+              >
+                Get Demo
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
+                aria-label="Toggle Menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
+
           </div>
+
+          {/* ========================================================================= */}
+          {/* 3. MEGA DROPDOWN CONTAINERS (Horizontal 4-Column Card Grid)               */}
+          {/* ========================================================================= */}
+
+          {/* A. Explore Nirghos Dropdown (Exact 4-Column Card Grid from Screenshot) */}
+          {activeDropdown === 'explore' && (
+            <div 
+              className="absolute top-full left-0 right-0 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+              onMouseEnter={() => handleMouseEnter('explore')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-slate-200/90 p-5 mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                  {exploreCards.map((card) => {
+                    const CardIcon = card.icon;
+                    return (
+                      <Link
+                        key={card.title}
+                        to={card.path}
+                        onClick={() => setActiveDropdown(null)}
+                        className="p-4 rounded-xl bg-white hover:bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-all flex items-start gap-3.5 group shadow-2xs hover:shadow-sm"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 border border-sky-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <CardIcon className="w-5 h-5" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#f25c05] transition-colors leading-tight">
+                            {card.title}
+                          </h4>
+                          <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-snug">
+                            {card.desc}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* B. Products Dropdown (Horizontal 4-Column Card Grid) */}
+          {activeDropdown === 'products' && (
+            <div 
+              className="absolute top-full left-0 right-0 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+              onMouseEnter={() => handleMouseEnter('products')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-slate-200/90 p-5 mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                  {productsCards.map((card) => {
+                    const CardIcon = card.icon;
+                    return (
+                      <Link
+                        key={card.title}
+                        to={card.path}
+                        onClick={() => setActiveDropdown(null)}
+                        className="p-4 rounded-xl bg-white hover:bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-all flex items-start gap-3.5 group shadow-2xs hover:shadow-sm"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#f25c05] border border-orange-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <CardIcon className="w-5 h-5" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#f25c05] transition-colors leading-tight">
+                            {card.title}
+                          </h4>
+                          <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-snug">
+                            {card.desc}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* C. Services Dropdown (Horizontal Card Grid) */}
+          {activeDropdown === 'services' && (
+            <div 
+              className="absolute top-full left-0 right-0 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+              onMouseEnter={() => handleMouseEnter('services')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-slate-200/90 p-5 mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                  {servicesCards.map((card) => {
+                    const CardIcon = card.icon;
+                    return (
+                      <Link
+                        key={card.title}
+                        to={card.path}
+                        onClick={() => setActiveDropdown(null)}
+                        className="p-4 rounded-xl bg-white hover:bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-all flex items-start gap-3.5 group shadow-2xs hover:shadow-sm"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <CardIcon className="w-5 h-5" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#f25c05] transition-colors leading-tight">
+                            {card.title}
+                          </h4>
+                          <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-snug">
+                            {card.desc}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* D. AI Tools Dropdown (Horizontal Card Grid) */}
+          {activeDropdown === 'ai' && (
+            <div 
+              className="absolute top-full left-0 right-0 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+              onMouseEnter={() => handleMouseEnter('ai')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-slate-200/90 p-5 mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                  {aiToolsCards.map((card) => {
+                    const CardIcon = card.icon;
+                    return (
+                      <Link
+                        key={card.title}
+                        to={card.path}
+                        onClick={() => setActiveDropdown(null)}
+                        className="p-4 rounded-xl bg-white hover:bg-sky-50/60 border border-slate-200/80 hover:border-sky-300 transition-all flex items-start gap-3.5 group shadow-2xs hover:shadow-sm"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 border border-sky-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <CardIcon className="w-5 h-5" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-sky-600 transition-colors leading-tight">
+                            {card.title}
+                          </h4>
+                          <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-snug">
+                            {card.desc}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
-      )}
-    </header>
+
+        {/* ========================================================================= */}
+        {/* MOBILE DRAWER MENU                                                        */}
+        {/* ========================================================================= */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-4 duration-200 max-h-[85vh] overflow-y-auto">
+            <div className="space-y-1">
+              <NavLink
+                to="/"
+                end
+                onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) => `block px-4 py-2.5 rounded-xl text-sm font-bold transition ${
+                  isActive ? 'bg-orange-50 text-[#f25c05]' : 'text-slate-700 hover:bg-slate-100'
+                }`}
+              >
+                Home
+              </NavLink>
+
+              <NavLink
+                to="/features"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-2.5 rounded-xl text-sm font-bold text-sky-600 hover:bg-slate-100 flex items-center gap-2"
+              >
+                <Sparkles className="w-4 h-4 text-sky-500" />
+                <span>AI Tools (Vision & Analytics)</span>
+              </NavLink>
+
+              <div className="pt-2 pb-1 px-4 text-[11px] font-black uppercase tracking-wider text-slate-400">
+                Products & Suites
+              </div>
+              {productsCards.slice(0, 4).map((p) => (
+                <Link
+                  key={p.title}
+                  to={p.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >
+                  {p.title}
+                </Link>
+              ))}
+
+              <div className="pt-2 pb-1 px-4 text-[11px] font-black uppercase tracking-wider text-slate-400">
+                Explore Nirghos
+              </div>
+              {exploreCards.map((item) => (
+                <Link
+                  key={item.title}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100"
+                >
+                  {item.title}
+                </Link>
+              ))}
+              <Link
+                to="/careers"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100"
+              >
+                Join Our Team
+              </Link>
+            </div>
+
+            <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5">
+              <button
+                type="button"
+                onClick={() => { setIsDemoModalOpen(true); setMobileMenuOpen(false); }}
+                className="w-full py-3 rounded-full bg-[#f25c05] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2"
+              >
+                <span>Get Demo</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <Link
+                to="/dashboard"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-2.5 rounded-xl bg-slate-100 text-slate-800 font-bold text-xs text-center flex items-center justify-center gap-2"
+              >
+                <LayoutDashboard className="w-4 h-4 text-slate-700" /> Open Interactive Workspace
+              </Link>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* ========================================================================= */}
+      {/* INTEGRATED "BOOK YOUR FREE ERP DEMO" MODAL                                */}
+      {/* ========================================================================= */}
+      <DemoModal
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+        type="book-demo"
+      />
+    </>
   );
 };
 
