@@ -20,7 +20,8 @@ import {
   PhoneCall,
   Check,
   FileCheck,
-  Briefcase
+  Briefcase,
+  Play
 } from 'lucide-react';
 import AnimatedCounter from '../../components/common/AnimatedCounter';
 import DemoModal from '../../components/common/DemoModal';
@@ -129,55 +130,99 @@ export const About = () => {
   ];
 
   return (
-    <div className="space-y-20 pb-28">
+    <div className="space-y-16 pb-28">
       
       {/* ========================================================================= */}
-      {/* 1. HERO BANNER                                                            */}
+      {/* 1. HERO & ABOUT ALPHA SECTION (EXACT MATCH TO USER SCREENSHOT)            */}
       {/* ========================================================================= */}
-      <section className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white pt-14 pb-24 border-b border-navy-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#f25c05]/15 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+      <section className="pt-8 pb-8 bg-white border-b border-slate-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-slate-400 mb-5">
-            <Link to="/" className="hover:text-white transition">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-[#f25c05] font-semibold">About Us</span>
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-8 font-medium">
+            <Link to="/" className="hover:text-[#f25c05] transition">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-slate-800 font-bold">About Us</span>
           </div>
 
-          <div className="max-w-4xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f25c05]/15 border border-[#f25c05]/30 text-[#f25c05] text-xs font-black uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Pioneering Next-Gen Enterprise Software</span>
+          {/* Exact 2-Column Layout from Screenshot */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Column: Team Image with Floating 25+ Year Experience & Play Button */}
+            <div className="lg:col-span-6 relative pb-8 sm:pb-6">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl bg-slate-50 group">
+                <img 
+                  src="/about-team.jpg" 
+                  alt="Alpha ERP Solutions Leadership Team" 
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Floating 25+ Year Experience & Video Play Card */}
+              <div className="absolute -bottom-2 sm:-bottom-4 left-4 sm:left-6 right-4 sm:right-auto sm:w-80 bg-white rounded-2xl shadow-[0_15px_35px_-5px_rgba(0,0,0,0.12),0_0_1px_1px_rgba(0,0,0,0.05)] border border-slate-100 p-4 flex items-center justify-between z-10">
+                <div className="flex items-center gap-3">
+                  {/* Orange Award Ribbon Icon Badge */}
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 text-[#f25c05] flex items-center justify-center shrink-0">
+                    <Award className="w-7 h-7 stroke-[2.2]" />
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-2xl sm:text-3xl font-black text-slate-900 leading-none">
+                      25+
+                    </span>
+                    <span className="text-xs font-semibold text-slate-500 mt-1">
+                      Year Experience
+                    </span>
+                  </div>
+                </div>
+
+                {/* Sky Blue Circular Play Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="w-11 h-11 rounded-full bg-sky-100 hover:bg-sky-200 text-sky-600 flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-sm cursor-pointer ml-3 shrink-0"
+                  title="Watch Company Overview / Schedule Demo"
+                  aria-label="Play video"
+                >
+                  <Play className="w-5 h-5 fill-current ml-0.5" />
+                </button>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15]">
-              One Platform. <span className="text-[#f25c05]">Every Business.</span> Infinite Scale.
-            </h1>
+            {/* Right Column: About Alpha, Line, Text, Know More Button */}
+            <div className="lg:col-span-6 space-y-4 text-left">
+              
+              {/* Heading */}
+              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-tight">
+                About Alpha
+              </h1>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl">
-              Nirghos ERP Solutions was founded with a singular audacious purpose: to eradicate the chronic disconnect between generic, bloated ERPs and the specialized operational realities of 25 distinct global industries.
-            </p>
+              {/* Orange Horizontal Accent Line */}
+              <div className="w-16 h-1 bg-[#f25c05] rounded-full my-3"></div>
 
-            <div className="pt-3 flex flex-wrap items-center gap-4">
-              <button
-                type="button"
-                onClick={() => setIsDemoModalOpen(true)}
-                className="px-6 py-3.5 rounded-full bg-[#f25c05] text-white font-bold text-sm hover:bg-[#d94f00] shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 cursor-pointer"
-              >
-                <span>Book Free ERP Demo</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              {/* Exact Description Paragraph */}
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
+                Alpha ERP Solutions Pvt. Ltd. provides absolute ERP, Desktop, Mobile application and Cloud Based Solutions for the Retailers, Distributors, and Manufacturers to enhance them with advanced technology and contains expertise of 25 years. We are accomplished to deliver quality software products and solutions. We have successfully served 5,000+ clients across 400+ cities, including major cities and small towns in Gujarat, Rajasthan, Maharashtra, Madhya Pradesh, Delhi, Hyderabad, and Haryana, supported by a strong team of 250+ employees.
+              </p>
 
-              <Link
-                to="/industries"
-                className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2"
-              >
-                <span>Explore 25 Industry Blueprints</span>
-                <Building2 className="w-4 h-4 text-slate-300" />
-              </Link>
+              {/* Action Buttons */}
+              <div className="pt-4 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  Book Free Demo
+                </button>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50 font-bold text-sm transition-all"
+                >
+                  Contact Us
+                </Link>
+              </div>
+
             </div>
+
           </div>
         </div>
       </section>

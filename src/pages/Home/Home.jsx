@@ -31,7 +31,8 @@ import {
   MessageSquare,
   Store,
   UtensilsCrossed,
-  Truck
+  Truck,
+  Play
 } from 'lucide-react';
 import { industriesData, industryCategories } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
@@ -578,210 +579,81 @@ export const Home = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. ABOUT NIRGHOS ERP SECTION (EXACT FIT FOR USER REQUEST)                 */}
+      {/* 2. ABOUT ALPHA SECTION (EXACT MATCH TO USER SCREENSHOT)                   */}
       {/* ========================================================================= */}
-      <section id="about-section" className="relative py-12 lg:py-16 bg-gradient-to-b from-white via-slate-50/60 to-white border-y border-slate-200/80 overflow-hidden">
-        {/* Soft background ambient accents */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[350px] bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[350px] bg-sky-100/30 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Main Grid: 2 Columns */}
+      <section id="about-section" className="py-12 lg:py-20 bg-white relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Column: Who We Are & Story */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 text-[#f25c05] text-xs font-black uppercase tracking-wider border border-orange-200 shadow-2xs">
-                <Building2 className="w-4 h-4 text-[#f25c05]" />
-                <span>About Nirghos ERP Solutions</span>
+            {/* Left Column: Team Image with Floating 25+ Year Experience & Play Button */}
+            <div className="lg:col-span-6 relative pb-8 sm:pb-6">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl bg-slate-50 group">
+                <img 
+                  src="/about-team.jpg" 
+                  alt="Alpha ERP Solutions Leadership Team" 
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
 
-              {/* Main Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.2]">
-                Pioneering Next-Gen ERP for <br />
-                <span className="text-[#f25c05]">India's Fastest Growing</span> Enterprises
-              </h2>
-
-              {/* Description */}
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                For over <strong className="text-slate-900 font-bold">25+ years</strong>, Nirghos ERP Solutions (formerly Alpha E Barcode Solutions) has empowered businesses across India with exact, tailored enterprise automation. From Apparel-Lifestyle, Footwear, and High-Precision Jewellery to Discrete Manufacturing, Trading, and Healthcare, our platform eliminates bloated, generic workflows.
-              </p>
-
-              {/* 4 Feature Highlights Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-orange-300 transition-all flex items-start gap-3.5 group">
-                  <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#f25c05] border border-orange-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <Sparkles className="w-5 h-5" />
+              {/* Floating 25+ Year Experience & Video Play Card */}
+              <div className="absolute -bottom-2 sm:-bottom-4 left-4 sm:left-6 right-4 sm:right-auto sm:w-80 bg-white rounded-2xl shadow-[0_15px_35px_-5px_rgba(0,0,0,0.12),0_0_1px_1px_rgba(0,0,0,0.05)] border border-slate-100 p-4 flex items-center justify-between z-10">
+                <div className="flex items-center gap-3">
+                  {/* Orange Award Ribbon Icon Badge */}
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 text-[#f25c05] flex items-center justify-center shrink-0">
+                    <Award className="w-7 h-7 stroke-[2.2]" />
                   </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
-                      25 Industry Blueprints
-                    </h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-snug">
-                      Pre-packaged with custom BOMs, batch tracing, and sector regulations.
-                    </p>
+                  <div className="flex flex-col text-left">
+                    <span className="text-2xl sm:text-3xl font-black text-slate-900 leading-none">
+                      25+
+                    </span>
+                    <span className="text-xs font-semibold text-slate-500 mt-1">
+                      Year Experience
+                    </span>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-orange-300 transition-all flex items-start gap-3.5 group">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <Zap className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
-                      Fast 14-Day Go-Live
-                    </h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-snug">
-                      Automated data migration wizards from legacy ERPs with zero downtime.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-orange-300 transition-all flex items-start gap-3.5 group">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
-                      GST & E-Invoicing Ready
-                    </h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-snug">
-                      Direct GSTN portal handshake, instant e-way bill and 3-way reconciliation.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-orange-300 transition-all flex items-start gap-3.5 group">
-                  <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                    <Users className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
-                      5000+ Trust Across India
-                    </h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-snug">
-                      Active implementation across 400+ cities with 24/7 dedicated support desk.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-3.5">
-                <Link
-                  to="/about"
-                  className="px-6 py-3.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-sm shadow-md shadow-orange-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 cursor-pointer"
-                >
-                  <span>Learn More About Us</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
+                {/* Sky Blue Circular Play Button */}
                 <button
                   type="button"
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="px-6 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-all flex items-center gap-2 shadow-sm cursor-pointer"
+                  className="w-11 h-11 rounded-full bg-sky-100 hover:bg-sky-200 text-sky-600 flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-sm cursor-pointer ml-3 shrink-0"
+                  title="Watch Video / Book Demo"
+                  aria-label="Play video"
                 >
-                  <span>Book Free Live Demo</span>
-                  <Sparkles className="w-4 h-4 text-orange-400" />
+                  <Play className="w-5 h-5 fill-current ml-0.5" />
                 </button>
+              </div>
+            </div>
 
+            {/* Right Column: About Alpha, Line, Text, Know More Button */}
+            <div className="lg:col-span-6 space-y-4 text-left">
+              
+              {/* Heading */}
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-tight">
+                About Alpha
+              </h2>
+
+              {/* Orange Horizontal Accent Line */}
+              <div className="w-16 h-1 bg-[#f25c05] rounded-full my-3"></div>
+
+              {/* Exact Description Paragraph */}
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
+                Alpha ERP Solutions Pvt. Ltd. provides absolute ERP, Desktop, Mobile application and Cloud Based Solutions for the Retailers, Distributors, and Manufacturers to enhance them with advanced technology and contains expertise of 25 years. We are accomplished to deliver quality software products and solutions. We have successfully served 5,000+ clients across 400+ cities, including major cities and small towns in Gujarat, Rajasthan, Maharashtra, Madhya Pradesh, Delhi, Hyderabad, and Haryana, supported by a strong team of 250+ employees.
+              </p>
+
+              {/* Blue "Know More" Button */}
+              <div className="pt-4">
                 <Link
-                  to="/contact"
-                  className="px-5 py-3.5 rounded-full border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-100 font-bold text-sm transition-all flex items-center gap-1.5"
+                  to="/about"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
                 >
-                  <span>Contact Sales</span>
+                  Know More
                 </Link>
               </div>
 
             </div>
 
-            {/* Right Column: Visual Trust Card & Enterprise Metrics */}
-            <div className="lg:col-span-5">
-              <div className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white rounded-3xl p-7 sm:p-9 border border-navy-800 shadow-2xl space-y-6 relative overflow-hidden">
-                {/* Glow accent */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-[#f25c05]/15 rounded-full blur-2xl pointer-events-none"></div>
-
-                {/* Card Header */}
-                <div className="flex items-center justify-between border-b border-navy-800 pb-4 relative z-10">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-[#f25c05]/20 border border-[#f25c05]/40 flex items-center justify-center">
-                      <Award className="w-5 h-5 text-[#f25c05]" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-black text-white">Nirghos Enterprise Scale</h3>
-                      <p className="text-[11px] text-slate-400">Verified National Track Record</p>
-                    </div>
-                  </div>
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Verified
-                  </span>
-                </div>
-
-                {/* 4 Stats Grid */}
-                <div className="grid grid-cols-2 gap-3.5 relative z-10">
-                  <div className="p-4 rounded-2xl bg-[#050e1f]/80 border border-navy-800">
-                    <div className="text-2xl sm:text-3xl font-black text-[#f25c05] font-mono">
-                      <AnimatedCounter target={25} suffix="+" duration={1800} />
-                    </div>
-                    <div className="text-xs text-slate-300 mt-1 font-bold">Years of Trust</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">Since 1999 in India</div>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#050e1f]/80 border border-navy-800">
-                    <div className="text-2xl sm:text-3xl font-black text-sky-400 font-mono">
-                      <AnimatedCounter target={5000} suffix="+" duration={2000} />
-                    </div>
-                    <div className="text-xs text-slate-300 mt-1 font-bold">Active Clients</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">High-growth businesses</div>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#050e1f]/80 border border-navy-800">
-                    <div className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">
-                      <AnimatedCounter target={400} suffix="+" duration={1900} />
-                    </div>
-                    <div className="text-xs text-slate-300 mt-1 font-bold">Cities Across India</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">Pan-India footprint</div>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#050e1f]/80 border border-navy-800">
-                    <div className="text-2xl sm:text-3xl font-black text-amber-400 font-mono">
-                      <AnimatedCounter target={25} suffix=" Modules" duration={1700} />
-                    </div>
-                    <div className="text-xs text-slate-300 mt-1 font-bold">Industry Blueprints</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">Tailored architecture</div>
-                  </div>
-                </div>
-
-                {/* Compliance & Standards Footnote */}
-                <div className="pt-2 border-t border-navy-800/80 relative z-10">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
-                    Certified Enterprise Standards:
-                  </span>
-                  <div className="flex flex-wrap items-center gap-2 text-[11px]">
-                    <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> ISO 27001
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-blue-400" /> ISO 9001
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-purple-400" /> SOC 2 Type II
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-amber-400" /> GST / E-Way Ready
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
           </div>
-
         </div>
       </section>
 
