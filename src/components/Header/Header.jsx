@@ -278,7 +278,7 @@ export const Header = () => {
         {/* 1. TOP ORANGE ANNOUNCEMENT BANNER (Exact Style from Screenshot)           */}
         {/* ========================================================================= */}
         <div className="w-full bg-[#f25c05] text-white py-2 px-4 text-center select-none shadow-xs">
-          <div className="max-w-[1600px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
+          <div className="w-full max-w-[1750px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
             <span>&ldquo;Alpha E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Alpha ERP Solutions Pvt. Ltd.&rdquo;</span>
           </div>
         </div>
@@ -286,7 +286,7 @@ export const Header = () => {
         {/* ========================================================================= */}
         {/* 2. MAIN NAVIGATION BAR                                                    */}
         {/* ========================================================================= */}
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 relative" ref={headerNavRef}>
+        <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-8 relative" ref={headerNavRef}>
           <div className="flex items-center justify-between h-20">
             
             {/* Logo on Left */}

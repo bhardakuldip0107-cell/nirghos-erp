@@ -355,7 +355,8 @@ export const Home = () => {
         <div className="absolute bottom-6 right-8 w-36 h-28 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-75 pointer-events-none"></div>
         <div className="absolute bottom-6 left-8 w-36 h-28 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-40 pointer-events-none"></div>
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        {/* Hero Headline and Trust Bar Container (Expanded to eliminate excessive side margins) */}
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 space-y-4">
           
           {/* Line 1: Trusted ERP Software (Orange) */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#f25c05] tracking-tight leading-tight">
@@ -414,54 +415,51 @@ export const Home = () => {
               </svg>
             </div>
           </div>
+        </div>
 
-          {/* ========================================================================= */}
-          {/* CONTINUOUS RIGHT-TO-LEFT CLIENT BRAND LOGOS SLIDER (EXACT MATCH)           */}
-          {/* ========================================================================= */}
-          <div className="pt-6 pb-2 w-full relative">
-            {/* Overflow wrapper with gradient fade masks */}
-            <div className="overflow-hidden relative py-3">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10"></div>
+        {/* ========================================================================= */}
+        {/* FULL-WIDTH CONTINUOUS RIGHT-TO-LEFT CLIENT BRAND LOGOS SLIDER (EDGE-TO-EDGE)*/}
+        {/* ========================================================================= */}
+        <div className="pt-6 pb-2 w-full relative overflow-hidden my-3">
+          {/* Seamless gradient edge fade masks */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#fffcf8] via-[#fffcf8]/90 to-transparent z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#fffcf8] via-[#fffcf8]/90 to-transparent z-10"></div>
 
-              {/* Slider Track Moving Right-to-Left */}
-              <div className="animate-marquee-rtl flex items-center gap-3.5 sm:gap-4 hover:[animation-play-state:paused]">
-                {[...brandLogos, ...brandLogos].map((brand, idx) => (
-                  <div
-                    key={`${brand.id}-${idx}`}
-                    className="w-44 h-18 sm:w-52 sm:h-22 bg-white rounded-2xl border border-sky-100/90 hover:border-orange-300 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-md transition-all flex items-center justify-center px-4 py-2 shrink-0 select-none group cursor-pointer"
-                    onClick={() => setIsDemoModalOpen(true)}
-                  >
-                    {brand.render()}
-                  </div>
-                ))}
+          {/* Slider Track Moving Right-to-Left */}
+          <div className="animate-marquee-rtl flex items-center gap-4 hover:[animation-play-state:paused]">
+            {[...brandLogos, ...brandLogos, ...brandLogos].map((brand, idx) => (
+              <div
+                key={`${brand.id}-${idx}`}
+                className="w-44 h-18 sm:w-52 sm:h-22 bg-white rounded-2xl border border-sky-100/90 hover:border-orange-300 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-md transition-all flex items-center justify-center px-4 py-2 shrink-0 select-none group cursor-pointer"
+                onClick={() => setIsDemoModalOpen(true)}
+              >
+                {brand.render()}
               </div>
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Search bar & quick category exploration */}
-          <div className="max-w-2xl mx-auto pt-8">
-            <SearchBar 
-              onSearchChange={(q) => setSearchQuery(q)}
-              placeholder="Search specialized industry ERPs (e.g. Apparel, Jewellery, Footwear, Manufacturing, Healthcare)..."
-            />
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-3.5 text-xs text-slate-500">
-              <span className="font-bold text-slate-700">Quick Blueprints:</span>
-              {['textile', 'manufacturing', 'retail', 'hospital', 'trading', 'construction'].map(slug => {
-                const item = industriesData.find(i => i.slug === slug);
-                return (
-                  <Link 
-                    key={slug} 
-                    to={`/industries/${slug}`}
-                    className="px-2.5 py-1 rounded-lg border border-slate-200 bg-white hover:bg-orange-50 hover:border-orange-200 hover:text-[#f25c05] transition text-[11px] font-semibold text-slate-700 shadow-2xs"
-                  >
-                    {item?.name.split('&')[0]}
-                  </Link>
-                );
-              })}
-            </div>
+        {/* Search bar & quick category exploration */}
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-6">
+          <SearchBar 
+            onSearchChange={(q) => setSearchQuery(q)}
+            placeholder="Search specialized industry ERPs (e.g. Apparel, Jewellery, Footwear, Manufacturing, Healthcare)..."
+          />
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-3.5 text-xs text-slate-500">
+            <span className="font-bold text-slate-700">Quick Blueprints:</span>
+            {['textile', 'manufacturing', 'retail', 'hospital', 'trading', 'construction'].map(slug => {
+              const item = industriesData.find(i => i.slug === slug);
+              return (
+                <Link 
+                  key={slug} 
+                  to={`/industries/${slug}`}
+                  className="px-2.5 py-1 rounded-lg border border-slate-200 bg-white hover:bg-orange-50 hover:border-orange-200 hover:text-[#f25c05] transition text-[11px] font-semibold text-slate-700 shadow-2xs"
+                >
+                  {item?.name.split('&')[0]}
+                </Link>
+              );
+            })}
           </div>
-
         </div>
       </section>
 

@@ -122,7 +122,7 @@ export const Contact = () => {
       {/* ========================================================================= */}
       {/* 2. MAIN CENTERED CARD (EXACT MATCH TO USER SCREENSHOT)                   */}
       {/* ========================================================================= */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(0,0,0,0.05)] border border-slate-100 p-6 sm:p-10 md:p-12 transition-all">
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
