@@ -72,10 +72,15 @@ export const SearchBar = ({
 
   return (
     <div ref={containerRef} className={`relative w-full ${className}`}>
-      <div className="relative flex items-center">
-        <div className="absolute left-4 pointer-events-none text-slate-400">
-          <Search className="w-5 h-5 text-brand-500" />
+      {/* Modern Attractive Capsule Search Bar */}
+      <div className="relative flex items-center p-1.5 sm:p-2 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border-2 border-orange-200/90 hover:border-[#f25c05] focus-within:border-[#f25c05] focus-within:ring-4 focus-within:ring-orange-500/15 shadow-[0_12px_40px_-8px_rgba(242,92,5,0.18),0_2px_8px_rgba(0,0,0,0.04)] transition-all">
+        
+        {/* Left Gradient Icon Badge */}
+        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-full bg-gradient-to-tr from-[#f25c05] to-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-orange-500/30 ml-0.5">
+          <Search className="w-5 h-5 stroke-[2.5]" />
         </div>
+
+        {/* Input Field */}
         <input
           type="text"
           value={query}
@@ -83,41 +88,60 @@ export const SearchBar = ({
           onKeyDown={handleKeyDown}
           onFocus={() => query.trim() && setIsOpen(true)}
           placeholder={placeholder}
-          className="w-full pl-12 pr-12 py-3.5 bg-white text-slate-900 placeholder:text-slate-400 rounded-2xl border border-slate-200/90 shadow-lg shadow-slate-200/40 focus:outline-none focus:ring-4 focus:ring-brand-500/20 focus:border-brand-500 transition-all text-sm sm:text-base font-normal"
+          className="flex-1 px-3 sm:px-4 py-2 bg-transparent text-slate-800 placeholder:text-slate-400 focus:outline-none text-sm sm:text-base font-semibold min-w-0"
         />
+
+        {/* Clear Button */}
         {query && (
           <button
             onClick={handleClear}
-            className="absolute right-4 p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition"
+            className="p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition mr-1.5 cursor-pointer"
             aria-label="Clear search"
           >
             <X className="w-4 h-4" />
           </button>
         )}
+
+        {/* Right Explore Button */}
+        <button
+          type="button"
+          onClick={() => {
+            if (query.trim() && filtered.length > 0) {
+              handleSelectIndustry(filtered[0].slug);
+            } else {
+              navigate('/industries');
+            }
+          }}
+          className="px-4 sm:px-6 py-2.5 rounded-xl sm:rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white text-xs sm:text-sm font-bold shadow-md shadow-orange-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-1.5 shrink-0 cursor-pointer"
+        >
+          <span>Explore</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
+
       </div>
 
       {/* Autocomplete Dropdown */}
       {showDropdown && isOpen && filtered.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-          <div className="p-2 bg-slate-50 border-b border-slate-100 flex items-center justify-between px-4">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-brand-600" /> Matching ERP Solutions ({filtered.length})
+        <div className="absolute top-full left-0 right-0 mt-3 bg-white rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+          <div className="p-3 bg-slate-50 border-b border-slate-100 flex items-center justify-between px-4">
+            <span className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-[#f25c05]" /> Matching ERP Blueprints ({filtered.length})
             </span>
-            <span className="text-[11px] text-slate-400">Press Enter to select</span>
+            <span className="text-[11px] text-slate-400 font-medium">Press Enter to select</span>
           </div>
           <div className="divide-y divide-slate-100 max-h-72 overflow-y-auto">
             {filtered.map((ind) => (
               <button
                 key={ind.slug}
                 onClick={() => handleSelectIndustry(ind.slug)}
-                className="w-full p-3.5 text-left hover:bg-brand-50/60 transition flex items-center justify-between group"
+                className="w-full p-3.5 text-left hover:bg-orange-50/70 transition flex items-center justify-between group cursor-pointer"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-slate-100 group-hover:bg-brand-600 group-hover:text-white text-navy-800 flex items-center justify-center transition">
+                  <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 group-hover:bg-[#f25c05] group-hover:text-white text-[#f25c05] flex items-center justify-center transition shrink-0 shadow-2xs">
                     <DynamicIcon name={ind.icon} className="w-5 h-5" />
                   </div>
                   <div>
-                    <h5 className="text-sm font-semibold text-navy-900 group-hover:text-brand-600 transition">
+                    <h5 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
                       {ind.name}
                     </h5>
                     <p className="text-xs text-slate-500 line-clamp-1">
@@ -126,10 +150,10 @@ export const SearchBar = ({
                   </div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 group-hover:bg-brand-100 group-hover:text-brand-700 font-medium">
+                  <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 group-hover:bg-orange-100 group-hover:text-[#f25c05] font-semibold">
                     {ind.category}
                   </span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#f25c05] group-hover:translate-x-1 transition-transform" />
                 </div>
               </button>
             ))}

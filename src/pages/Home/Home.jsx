@@ -370,20 +370,20 @@ export const Home = () => {
   ];
 
   return (
-    <div className="space-y-28 pb-24 overflow-hidden">
+    <div className="space-y-12 lg:space-y-16 pb-20 overflow-hidden">
       
       {/* ========================================================================= */}
       {/* 1. HERO SECTION (EXACT MATCH TO USER'S SCREENSHOT)                        */}
       {/* ========================================================================= */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-28 bg-gradient-to-b from-[#fffcf8] via-white to-slate-50/60 border-b border-slate-200/80 overflow-hidden text-center">
+      <section className="relative pt-10 pb-8 lg:pt-14 lg:pb-10 bg-gradient-to-b from-[#fffcf8] via-white to-slate-50/60 border-b border-slate-200/80 overflow-hidden text-center">
         
         {/* Soft Warm Ambient Radial Glow Accents */}
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[550px] h-[380px] bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[550px] h-[380px] bg-orange-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
-        {/* Faint dot matrix patterns on corners (matching screenshot) */}
-        <div className="absolute bottom-6 right-8 w-36 h-28 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-75 pointer-events-none"></div>
-        <div className="absolute bottom-6 left-8 w-36 h-28 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-40 pointer-events-none"></div>
+        {/* Faint dot matrix patterns on corners */}
+        <div className="absolute bottom-3 right-6 w-32 h-20 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-75 pointer-events-none"></div>
+        <div className="absolute bottom-3 left-6 w-32 h-20 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-40 pointer-events-none"></div>
 
         {/* Hero Headline and Trust Bar Container (Expanded to eliminate excessive side margins) */}
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 space-y-4">
@@ -543,25 +543,36 @@ export const Home = () => {
         </div>
 
         {/* Search bar & quick category exploration */}
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-6">
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-1">
           <SearchBar 
             onSearchChange={(q) => setSearchQuery(q)}
-            placeholder="Search specialized industry ERPs (e.g. Apparel, Jewellery, Footwear, Manufacturing, Healthcare)..."
+            placeholder="Search specialized industry ERPs (e.g. Apparel, Jewellery, Footwear, Manufacturing)..."
           />
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-3.5 text-xs text-slate-500">
-            <span className="font-bold text-slate-700">Quick Blueprints:</span>
-            {['textile', 'manufacturing', 'retail', 'hospital', 'trading', 'construction'].map(slug => {
-              const item = industriesData.find(i => i.slug === slug);
-              return (
-                <Link 
-                  key={slug} 
-                  to={`/industries/${slug}`}
-                  className="px-2.5 py-1 rounded-lg border border-slate-200 bg-white hover:bg-orange-50 hover:border-orange-200 hover:text-[#f25c05] transition text-[11px] font-semibold text-slate-700 shadow-2xs"
-                >
-                  {item?.name.split('&')[0]}
-                </Link>
-              );
-            })}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-3 text-xs">
+            <span className="font-bold text-slate-600 flex items-center gap-1.5 mr-1">
+              <Sparkles className="w-3.5 h-3.5 text-[#f25c05]" />
+              <span>Popular ERP Blueprints:</span>
+            </span>
+            {[
+              { slug: 'textile', name: 'Textile & Garments', icon: 'Scissors' },
+              { slug: 'jewellery', name: 'Jewellery & Diamond', icon: 'Gem' },
+              { slug: 'manufacturing', name: 'Manufacturing', icon: 'Factory' },
+              { slug: 'retail', name: 'Retail Shops', icon: 'Store' },
+              { slug: 'pharma', name: 'Pharma & Healthcare', icon: 'Pill' },
+              { slug: 'hospital', name: 'Hospitals & Clinics', icon: 'Hospital' },
+              { slug: 'trading', name: 'Trading & Wholesale', icon: 'ArrowLeftRight' },
+              { slug: 'construction', name: 'Construction', icon: 'HardHat' }
+            ].map(item => (
+              <Link 
+                key={item.slug} 
+                to={`/industries/${item.slug}`}
+                className="px-3 py-1.5 rounded-full border border-slate-200/90 bg-white hover:border-[#f25c05] hover:bg-orange-50/60 hover:text-[#f25c05] transition-all text-xs font-bold text-slate-700 shadow-xs hover:shadow-sm hover:-translate-y-0.5 flex items-center gap-1.5 group cursor-pointer"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f25c05] group-hover:scale-125 transition-transform"></span>
+                <DynamicIcon name={item.icon} className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#f25c05] transition-colors" />
+                <span>{item.name}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
