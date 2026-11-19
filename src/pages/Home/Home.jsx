@@ -54,6 +54,7 @@ export const Home = () => {
   const [sliderMode, setSliderMode] = useState('categories'); // 'categories' | 'brands'
   const [activeErpProduct, setActiveErpProduct] = useState('gsoft');
   const [productSlideIndex, setProductSlideIndex] = useState(0);
+  const [showAllServices, setShowAllServices] = useState(false);
 
   // Hero interactive sector switcher preview (defaults to registered sector if authenticated)
   const [heroSector, setHeroSector] = useState(profile?.slug || 'manufacturing');
@@ -513,6 +514,60 @@ export const Home = () => {
   ];
 
   const currentProduct = erpProducts.find(p => p.id === activeErpProduct) || erpProducts[0];
+
+  // Comprehensive Services Tailored to Nirghos ERP Ecosystem (Exact match to screenshot)
+  const nirghosServices = [
+    {
+      id: 'ecommerce',
+      tag: 'B2B & B2C',
+      title: 'E-commerce Website',
+      desc: 'Our end-to-end B2B and B2C e-commerce platform eases your operations with live Nirghos ERP inventory sync, digital catalogs, customer pricing tiers, and secure online checkout.',
+      image: '/services/service-ecommerce-hd.jpg',
+      category: 'Web Solutions'
+    },
+    {
+      id: 'mobile-app',
+      tag: 'B2B & B2C',
+      title: 'Mobile Application',
+      desc: 'Stay connected and in control with our B2B mobile app for salesmen route planning, dealer order booking, live stock check, and instant customer ledger reports.',
+      image: '/services/service-mobile-hd.jpg',
+      category: 'Mobile Apps'
+    },
+    {
+      id: 'digital-marketing',
+      tag: 'Digital',
+      title: 'Marketing',
+      desc: 'Digital marketing services encompass a range of online lead generation, official WhatsApp business broadcast campaigns, targeted SEO, and high-ROI brand performance ads.',
+      image: '/services/service-marketing-hd.jpg',
+      category: 'Digital Growth'
+    },
+    {
+      id: 'cloud-implementation',
+      tag: 'Enterprise',
+      title: 'Cloud ERP Implementation',
+      desc: 'Seamless data migration from legacy accounting systems, customized workflow setup, high-availability cloud hosting, and dedicated SLA onboarding support.',
+      image: '/services/service-cloud-hd.jpg',
+      category: 'Enterprise Cloud'
+    },
+    {
+      id: 'hardware-rfid',
+      tag: 'Hardware',
+      title: 'Barcode & RFID Automation',
+      desc: 'Complete hardware automation pairing Nirghos ERP with high-speed barcode scanners, thermal POS receipt printers, RFID smart gates, and weighing scales.',
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+      category: 'Hardware Integration'
+    },
+    {
+      id: 'api-integration',
+      tag: 'Integration',
+      title: 'Custom API & Gateway Sync',
+      desc: 'Direct API connectors uniting Nirghos ERP with government GST portals, e-way bill generation, bank payment gateways, and third-party logistics couriers.',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
+      category: 'System Integration'
+    }
+  ];
+
+  const displayedServices = showAllServices ? nirghosServices : nirghosServices.slice(0, 3);
 
   // Real enterprise testimonials across diverse industries
   const testimonials = [
@@ -1031,6 +1086,100 @@ export const Home = () => {
 
             </div>
 
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 4. OUR SERVICES SECTION (EXACT MATCH TO USER SCREENSHOT)                  */}
+      {/* ========================================================================= */}
+      <section id="our-services-section" className="py-14 lg:py-20 bg-white relative overflow-hidden border-b border-slate-200/80">
+        
+        {/* Soft Background Accent Dots */}
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header Title & Orange Accent Underline (Exact Match to Screenshot) */}
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+              Our Services
+            </h2>
+            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+            <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
+              Comprehensive software development, digital commerce, and technical solutions engineered to extend and accelerate your Nirghos ERP ecosystem.
+            </p>
+          </div>
+
+          {/* Service Cards Grid (Matching User Screenshot Layout) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {displayedServices.map((service) => (
+              <div 
+                key={service.id}
+                onClick={() => setIsDemoModalOpen(true)}
+                className="bg-white rounded-3xl border border-slate-200/90 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.06)] hover:shadow-2xl hover:border-sky-300 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between group cursor-pointer hover:-translate-y-1.5"
+              >
+                {/* Card Top: Subtitle/Tag + Title on Left, Blue Circular Arrow on Right */}
+                <div>
+                  <div className="flex items-start justify-between gap-3 mb-2.5">
+                    <div className="text-left">
+                      <span className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider block">
+                        {service.tag}
+                      </span>
+                      <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug mt-0.5 group-hover:text-[#0060b9] transition-colors">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* Circular Blue Action Button with ArrowUpRight */}
+                    <div 
+                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0060b9] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-[#004f9e] group-hover:scale-110 group-hover:rotate-12 transition-all"
+                      aria-label={`Explore ${service.title}`}
+                    >
+                      <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
+                    </div>
+                  </div>
+
+                  {/* Description Paragraph */}
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-left line-clamp-3 mb-4">
+                    {service.desc}
+                  </p>
+                </div>
+
+                {/* Bottom Image Container (Rounded Corners with Zoom on Hover) */}
+                <div className="rounded-2xl overflow-hidden h-40 sm:h-44 w-full relative bg-slate-100 shadow-inner mt-2">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover select-none transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Action Controls: Toggle All Services & Consultation Button */}
+          <div className="mt-10 sm:mt-12 text-center flex flex-wrap items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => setShowAllServices(!showAllServices)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 hover:border-[#0060b9] hover:text-[#0060b9] bg-white text-slate-700 font-bold text-sm transition-all shadow-2xs hover:shadow-sm cursor-pointer"
+            >
+              <span>{showAllServices ? 'Show Less Services' : 'View All Services (6)'}</span>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showAllServices ? 'rotate-180' : ''}`} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setIsDemoModalOpen(true)}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <span>Schedule Free Service Consultation</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
 
         </div>
