@@ -578,176 +578,211 @@ export const Home = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. DYNAMIC HERO DASHBOARD SIMULATOR BOX                                  */}
+      {/* 2. ABOUT NIRGHOS ERP SECTION (EXACT FIT FOR USER REQUEST)                 */}
       {/* ========================================================================= */}
-      <section className="relative pt-6 pb-20 bg-navy-950 text-white border-b border-navy-800/80 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-20 bg-grid-pattern"></div>
-        <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+      <section id="about-section" className="relative py-12 lg:py-16 bg-gradient-to-b from-white via-slate-50/60 to-white border-y border-slate-200/80 overflow-hidden">
+        {/* Soft background ambient accents */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[350px] bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[350px] bg-sky-100/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="mt-8 relative max-w-[1440px] mx-auto">
+          {/* Main Grid: 2 Columns */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Interactive Sector Switcher Tabs on top of the preview */}
-            <div className="flex items-center justify-center gap-2 pb-3 overflow-x-auto scrollbar-none">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mr-1 hidden sm:inline">
-                Live Simulator:
-              </span>
-              {[
-                { id: 'manufacturing', label: 'Manufacturing', icon: 'Factory' },
-                { id: 'hospital', label: 'Hospital', icon: 'Hospital' },
-                { id: 'retail', label: 'Retail POS', icon: 'Store' },
-                { id: 'logistics', label: 'Logistics', icon: 'Truck' },
-                { id: 'it-software', label: 'IT Software', icon: 'Code2' }
-              ].map(sec => (
-                <button
-                  key={sec.id}
-                  onClick={() => setHeroSector(sec.id)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap ${
-                    heroSector === sec.id
-                      ? 'bg-brand-600 text-white shadow-lg shadow-brand-600/30'
-                      : 'bg-navy-900/90 text-slate-400 hover:text-white hover:bg-navy-850 border border-navy-800'
-                  }`}
-                >
-                  <DynamicIcon name={sec.icon} className="w-3.5 h-3.5" />
-                  <span>{sec.label}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Dashboard Mock Window Container */}
-            <div className="relative rounded-3xl p-2 bg-gradient-to-b from-navy-800 via-navy-900 to-navy-950 border border-navy-700/80 shadow-2xl backdrop-blur-xl">
+            {/* Left Column: Who We Are & Story */}
+            <div className="lg:col-span-7 space-y-6 text-left">
               
-              {/* Window controls bar */}
-              <div className="px-5 py-3.5 bg-navy-950/95 rounded-t-2xl border-b border-navy-800 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-                  <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-                  <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                  <span className="ml-3 text-xs font-mono text-slate-400">nirghos.enterprise.cloud/workspace/{heroSector}</span>
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 text-[#f25c05] text-xs font-black uppercase tracking-wider border border-orange-200 shadow-2xs">
+                <Building2 className="w-4 h-4 text-[#f25c05]" />
+                <span>About Nirghos ERP Solutions</span>
+              </div>
+
+              {/* Main Heading */}
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.2]">
+                Pioneering Next-Gen ERP for <br />
+                <span className="text-[#f25c05]">India's Fastest Growing</span> Enterprises
+              </h2>
+
+              {/* Description */}
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                For over <strong className="text-slate-900 font-bold">25+ years</strong>, Nirghos ERP Solutions (formerly Alpha E Barcode Solutions) has empowered businesses across India with exact, tailored enterprise automation. From Apparel-Lifestyle, Footwear, and High-Precision Jewellery to Discrete Manufacturing, Trading, and Healthcare, our platform eliminates bloated, generic workflows.
+              </p>
+
+              {/* 4 Feature Highlights Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-orange-300 transition-all flex items-start gap-3.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#f25c05] border border-orange-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
+                      25 Industry Blueprints
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+                      Pre-packaged with custom BOMs, batch tracing, and sector regulations.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-slate-400">
-                  <span className="flex items-center gap-1.5 text-emerald-400 font-semibold text-xs">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    {currentHeroPreview.title}
+
+                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-orange-300 transition-all flex items-start gap-3.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
+                      Fast 14-Day Go-Live
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+                      Automated data migration wizards from legacy ERPs with zero downtime.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-orange-300 transition-all flex items-start gap-3.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
+                      GST & E-Invoicing Ready
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+                      Direct GSTN portal handshake, instant e-way bill and 3-way reconciliation.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-orange-300 transition-all flex items-start gap-3.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 border border-purple-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#f25c05] transition-colors">
+                      5000+ Trust Across India
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+                      Active implementation across 400+ cities with 24/7 dedicated support desk.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                <Link
+                  to="/about"
+                  className="px-6 py-3.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-sm shadow-md shadow-orange-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Learn More About Us</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="px-6 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-all flex items-center gap-2 shadow-sm cursor-pointer"
+                >
+                  <span>Book Free Live Demo</span>
+                  <Sparkles className="w-4 h-4 text-orange-400" />
+                </button>
+
+                <Link
+                  to="/contact"
+                  className="px-5 py-3.5 rounded-full border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-100 font-bold text-sm transition-all flex items-center gap-1.5"
+                >
+                  <span>Contact Sales</span>
+                </Link>
+              </div>
+
+            </div>
+
+            {/* Right Column: Visual Trust Card & Enterprise Metrics */}
+            <div className="lg:col-span-5">
+              <div className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white rounded-3xl p-7 sm:p-9 border border-navy-800 shadow-2xl space-y-6 relative overflow-hidden">
+                {/* Glow accent */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-[#f25c05]/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                {/* Card Header */}
+                <div className="flex items-center justify-between border-b border-navy-800 pb-4 relative z-10">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-xl bg-[#f25c05]/20 border border-[#f25c05]/40 flex items-center justify-center">
+                      <Award className="w-5 h-5 text-[#f25c05]" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-black text-white">Nirghos Enterprise Scale</h3>
+                      <p className="text-[11px] text-slate-400">Verified National Track Record</p>
+                    </div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Verified
                   </span>
-                  <Link 
-                    to={`/dashboard?industry=${heroSector}`}
-                    className="px-3 py-1 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold flex items-center gap-1 transition shadow-xs"
-                  >
-                    Launch Full View <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Mock Dashboard Body */}
-              <div className="p-5 sm:p-6 bg-slate-900/95 rounded-b-2xl text-slate-200 space-y-5 animate-in fade-in duration-300">
-                
-                {/* 4 Metrics Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  <div className="p-4 rounded-2xl bg-navy-950 border border-navy-800/90 shadow-inner">
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">{currentHeroPreview.stat1.label}</span>
-                    <div className="text-xl sm:text-2xl font-black text-white mt-1">{currentHeroPreview.stat1.val}</div>
-                    <span className="text-xs text-emerald-400 font-semibold">{currentHeroPreview.stat1.sub}</span>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-navy-950 border border-navy-800/90 shadow-inner">
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">{currentHeroPreview.stat2.label}</span>
-                    <div className="text-xl sm:text-2xl font-black text-white mt-1">{currentHeroPreview.stat2.val}</div>
-                    <span className="text-xs text-brand-300 font-semibold">{currentHeroPreview.stat2.sub}</span>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-navy-950 border border-navy-800/90 shadow-inner">
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">{currentHeroPreview.stat3.label}</span>
-                    <div className="text-xl sm:text-2xl font-black text-white mt-1">{currentHeroPreview.stat3.val}</div>
-                    <span className="text-xs text-sky-400 font-semibold">{currentHeroPreview.stat3.sub}</span>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-navy-950 border border-navy-800/90 shadow-inner">
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">{currentHeroPreview.stat4.label}</span>
-                    <div className="text-xl sm:text-2xl font-black text-white mt-1">{currentHeroPreview.stat4.val}</div>
-                    <span className="text-xs text-emerald-400 font-semibold">{currentHeroPreview.stat4.sub}</span>
-                  </div>
                 </div>
 
-                {/* Split Graphic Visual: Bar simulation & Activity */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                  {/* Revenue Curve Simulation */}
-                  <div className="lg:col-span-2 p-5 rounded-2xl bg-navy-950 border border-navy-800">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                          Real-Time Operational Cash Flow & Billing Stream
-                        </span>
-                        <p className="text-[11px] text-slate-400">Synchronous double-entry accounting ledger</p>
-                      </div>
-                      <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        AUDITED OK
-                      </span>
+                {/* 4 Stats Grid */}
+                <div className="grid grid-cols-2 gap-3.5 relative z-10">
+                  <div className="p-4 rounded-2xl bg-[#050e1f]/80 border border-navy-800">
+                    <div className="text-2xl sm:text-3xl font-black text-[#f25c05] font-mono">
+                      <AnimatedCounter target={25} suffix="+" duration={1800} />
                     </div>
-
-                    {/* Chart Bars */}
-                    <div className="h-32 flex items-end justify-between gap-2 pt-2 px-1">
-                      {[38, 48, 62, 54, 72, 85, 78, 88, 95, 90, 96, 100].map((h, i) => (
-                        <div key={i} className="flex-1 flex flex-col items-center gap-1 group">
-                          <div 
-                            style={{ height: `${h}%` }} 
-                            className="w-full bg-gradient-to-t from-brand-700 via-brand-500 to-sky-400 rounded-t-sm group-hover:brightness-125 transition-all shadow-xs"
-                          ></div>
-                          <span className="text-[9px] text-slate-500 font-mono">
-                            {['J','F','M','A','M','J','J','A','S','O','N','D'][i]}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                    <div className="text-xs text-slate-300 mt-1 font-bold">Years of Trust</div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">Since 1999 in India</div>
                   </div>
 
-                  {/* Active Sector Modules List */}
-                  <div className="p-5 rounded-2xl bg-navy-950 border border-navy-800 space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                        Active Sector Modules
-                      </span>
-                      <span className="text-[10px] text-brand-400 font-mono">5 ONLINE</span>
+                  <div className="p-4 rounded-2xl bg-[#050e1f]/80 border border-navy-800">
+                    <div className="text-2xl sm:text-3xl font-black text-sky-400 font-mono">
+                      <AnimatedCounter target={5000} suffix="+" duration={2000} />
                     </div>
-                    <div className="space-y-1.5 text-xs">
-                      {currentHeroPreview.modules.map((m, idx) => (
-                        <div key={idx} className="flex items-center justify-between p-2 rounded-xl bg-navy-900/70 border border-navy-850 hover:border-brand-500/40 transition">
-                          <span className="flex items-center gap-2 text-slate-300 font-medium text-xs">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                            {m}
-                          </span>
-                          <span className="text-[10px] text-emerald-400 font-mono">Active</span>
-                        </div>
-                      ))}
+                    <div className="text-xs text-slate-300 mt-1 font-bold">Active Clients</div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">High-growth businesses</div>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-[#050e1f]/80 border border-navy-800">
+                    <div className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">
+                      <AnimatedCounter target={400} suffix="+" duration={1900} />
                     </div>
+                    <div className="text-xs text-slate-300 mt-1 font-bold">Cities Across India</div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">Pan-India footprint</div>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-[#050e1f]/80 border border-navy-800">
+                    <div className="text-2xl sm:text-3xl font-black text-amber-400 font-mono">
+                      <AnimatedCounter target={25} suffix=" Modules" duration={1700} />
+                    </div>
+                    <div className="text-xs text-slate-300 mt-1 font-bold">Industry Blueprints</div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">Tailored architecture</div>
+                  </div>
+                </div>
+
+                {/* Compliance & Standards Footnote */}
+                <div className="pt-2 border-t border-navy-800/80 relative z-10">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
+                    Certified Enterprise Standards:
+                  </span>
+                  <div className="flex flex-wrap items-center gap-2 text-[11px]">
+                    <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> ISO 27001
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-blue-400" /> ISO 9001
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-purple-400" /> SOC 2 Type II
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-amber-400" /> GST / E-Way Ready
+                    </span>
                   </div>
                 </div>
 
               </div>
-
             </div>
-          </div>
 
-          {/* Enterprise Compliance Marquee Strip */}
-          <div className="mt-14 pt-8 border-t border-navy-800/80 flex flex-wrap items-center justify-between gap-6 text-xs text-slate-400 max-w-[1440px] mx-auto">
-            <span className="font-semibold text-slate-400">Enterprise Standards Certified:</span>
-            <div className="flex flex-wrap items-center gap-6">
-              <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-                <ShieldCheck className="w-4 h-4 text-brand-400" /> ISO/IEC 27001
-              </span>
-              <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-                <ShieldCheck className="w-4 h-4 text-brand-400" /> SOC 2 Type II
-              </span>
-              <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-                <ShieldCheck className="w-4 h-4 text-brand-400" /> FDA 21 CFR Part 11
-              </span>
-              <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-                <ShieldCheck className="w-4 h-4 text-brand-400" /> HIPAA / EMR Compliant
-              </span>
-              <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-                <ShieldCheck className="w-4 h-4 text-brand-400" /> GST / VAT Ready
-              </span>
-            </div>
           </div>
 
         </div>
-
       </section>
 
       {/* 2. INDUSTRIES SECTION (ALL 25 CATEGORIES WITH LIVE SEARCH & FILTERS) */}
