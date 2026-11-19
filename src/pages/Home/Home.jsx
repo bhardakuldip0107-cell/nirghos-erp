@@ -1379,11 +1379,11 @@ export const Home = () => {
 
             {/* Middle Column: India Map with Client Density Points & State Capitals */}
             <div className="w-full lg:col-span-6 flex items-center justify-center relative py-2 order-2">
-              <div className="relative group max-w-[360px] sm:max-w-[420px] lg:max-w-[460px] w-full">
+              <div className="relative group max-w-[380px] sm:max-w-[460px] lg:max-w-[500px] w-full flex items-center justify-center">
                 <img 
                   src="/stats/india-stats-map-hd.png" 
                   alt="Nirghos ERP Pan-India Client Statistics Map" 
-                  className="w-full h-auto object-contain select-none transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="w-full h-auto object-contain select-none transition-transform duration-500 group-hover:scale-[1.03] drop-shadow-md"
                 />
               </div>
             </div>
