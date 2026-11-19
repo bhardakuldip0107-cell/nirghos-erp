@@ -33,7 +33,8 @@ import {
   UtensilsCrossed,
   Truck,
   Play,
-  ShoppingBag
+  ShoppingBag,
+  Lightbulb
 } from 'lucide-react';
 import { industriesData, industryCategories } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
@@ -1180,6 +1181,130 @@ export const Home = () => {
               <span>Schedule Free Service Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 5. WHY NIRGHOS SECTION (EXACT MATCH TO USER SCREENSHOT)                   */}
+      {/* ========================================================================= */}
+      <section id="why-nirghos-section" className="py-14 lg:py-20 bg-gradient-to-b from-white via-[#f8fbff] to-white relative overflow-hidden border-b border-slate-200/80">
+        
+        {/* Soft Background Grid Accent */}
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header: Why Nirghos? & Orange Accent Underline (Exact Match to Screenshot) */}
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+              Why Nirghos?
+            </h2>
+            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+          </div>
+
+          {/* 2-Column Showcase: 4-Quadrant Blue Card on Left + Success Team Culture on Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+            
+            {/* Left Column: 4-Quadrant Royal Blue Card with Center Lightbulb Badge */}
+            <div className="lg:col-span-7 relative bg-gradient-to-br from-[#0066c0] via-[#0060b9] to-[#00509e] rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_-15px_rgba(0,96,185,0.25)] overflow-hidden flex flex-col justify-center min-h-[380px] sm:min-h-[440px]">
+              
+              {/* Subtle Ambient Radial Highlight */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-400/10 rounded-full blur-2xl pointer-events-none"></div>
+
+              {/* White Cross Dividers Dividing 4 Quadrants */}
+              <div className="absolute inset-y-8 left-1/2 -translate-x-1/2 w-px bg-white/20 pointer-events-none"></div>
+              <div className="absolute inset-x-8 top-1/2 -translate-y-1/2 h-px bg-white/20 pointer-events-none"></div>
+
+              {/* Center Lightbulb Badge */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white shadow-2xl flex items-center justify-center border-4 border-[#0060b9] z-20 transition-transform duration-300 hover:scale-110">
+                <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7 text-[#0060b9] stroke-[2.4]" />
+              </div>
+
+              {/* 4 Quadrants Content Grid */}
+              <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 relative z-10 text-center">
+                
+                {/* Quadrant 1: Top-Left (360 Degree Solution) */}
+                <div className="flex flex-col items-center justify-center p-2 sm:p-3">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-white/30 flex items-center justify-center mb-3 shadow-inner">
+                    <span className="text-white text-xs sm:text-sm font-black tracking-tight">360°</span>
+                  </div>
+                  <p className="text-white text-xs sm:text-[13px] font-medium leading-relaxed max-w-[210px]">
+                    Having 360 Degree Solution for any of your Business Needs
+                  </p>
+                </div>
+
+                {/* Quadrant 2: Top-Right (Customer Collaboration) */}
+                <div className="flex flex-col items-center justify-center p-2 sm:p-3">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-white/30 flex items-center justify-center mb-3 shadow-inner">
+                    <Users className="w-5 h-5 text-white stroke-[2.2]" />
+                  </div>
+                  <p className="text-white text-xs sm:text-[13px] font-medium leading-relaxed max-w-[210px]">
+                    Engage Customer for Long-Term Connection and Collaboration
+                  </p>
+                </div>
+
+                {/* Quadrant 3: Bottom-Left (Employee Proficiency) */}
+                <div className="flex flex-col items-center justify-center p-2 sm:p-3">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-white/30 flex items-center justify-center mb-3 shadow-inner">
+                    <Award className="w-5 h-5 text-white stroke-[2.2]" />
+                  </div>
+                  <p className="text-white text-xs sm:text-[13px] font-medium leading-relaxed max-w-[210px]">
+                    Ensuring Proficiency of Employees helps Serve our Clients more Efficiently
+                  </p>
+                </div>
+
+                {/* Quadrant 4: Bottom-Right (Latest Technology) */}
+                <div className="flex flex-col items-center justify-center p-2 sm:p-3">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-white/30 flex items-center justify-center mb-3 shadow-inner">
+                    <Cpu className="w-5 h-5 text-white stroke-[2.2]" />
+                  </div>
+                  <p className="text-white text-xs sm:text-[13px] font-medium leading-relaxed max-w-[210px]">
+                    We serve Latest Technology to have Best Features and a User Friendly System
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Right Column: Office Success Culture & Team Photo Card */}
+            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl bg-slate-50 group min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
+              <img 
+                src="/why-nirghos-team.jpg" 
+                alt="Why Nirghos Team Culture and Success" 
+                className="w-full h-full object-cover select-none transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
+
+              {/* Floating Success Pill Badge at Bottom */}
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl shadow-lg p-3 sm:p-3.5 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200 text-[#f25c05] flex items-center justify-center shrink-0">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs sm:text-sm font-black text-slate-900 leading-tight">
+                      Driven by Innovation
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500">
+                      25+ Years of Industry Trust
+                    </span>
+                  </div>
+                </div>
+
+                <button 
+                  type="button" 
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="px-4 py-2 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white text-xs font-bold transition-all shadow-xs cursor-pointer shrink-0"
+                >
+                  Join Us
+                </button>
+              </div>
+            </div>
+
           </div>
 
         </div>
