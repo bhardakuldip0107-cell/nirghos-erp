@@ -32,7 +32,8 @@ import {
   Store,
   UtensilsCrossed,
   Truck,
-  Play
+  Play,
+  ShoppingBag
 } from 'lucide-react';
 import { industriesData, industryCategories } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
@@ -296,13 +297,22 @@ export const Home = () => {
     'professional-services': { bg: 'bg-teal-50', text: 'text-teal-800', border: 'border-teal-200', badge: 'Audit & Consulting' }
   };
 
-  // 7 Core Flagship ERP Products (Matching User Screenshot)
+  // 7 Core Flagship ERP Products (Matching User Screenshot with Sharp Name & Icon)
   const erpProducts = [
     {
       id: 'gsoft',
       name: 'Gsoft ERP',
-      tabImg: '/products/tab-gsoft.png',
+      icon: Shirt,
+      iconBg: '#fee2e2',
+      iconColor: '#dc2626',
       badge: 'Apparel & Footwear',
+      renderLogo: () => (
+        <div className="flex items-center gap-1 font-sans">
+          <span className="text-base sm:text-lg font-black text-[#dc2626] leading-none">G</span>
+          <span className="text-sm sm:text-base font-bold text-[#0060b9] leading-none">soft</span>
+          <span className="text-[9px] font-black uppercase px-1 py-0.2 rounded bg-red-100 text-red-600 border border-red-200 ml-0.5">ERP</span>
+        </div>
+      ),
       heading: 'Apparel-Lifestyle and Footwear Industry',
       desc: 'G-Soft ERP delivers a complete, user-friendly ERP Software for the Apparel-Lifestyle and Footwear Industry with POS, Inventory, Accounting, CRM, BI Reports, Web Reports and Mobile Apps.',
       monitorCaption: 'Gsoft Desktop ERP Dashboard',
@@ -323,8 +333,17 @@ export const Home = () => {
     {
       id: 'jsoft',
       name: 'Jsoft ERP',
-      tabImg: '/products/tab-jsoft.png',
+      icon: Gem,
+      iconBg: '#fef3c7',
+      iconColor: '#d97706',
       badge: 'Jewellery & Diamond',
+      renderLogo: () => (
+        <div className="flex items-center gap-1 font-sans">
+          <span className="text-base sm:text-lg font-black text-[#ea580c] leading-none">J</span>
+          <span className="text-sm sm:text-base font-bold text-[#0060b9] leading-none">soft</span>
+          <span className="text-[9px] font-black uppercase px-1 py-0.2 rounded bg-orange-100 text-orange-600 border border-orange-200 ml-0.5">ERP</span>
+        </div>
+      ),
       heading: 'Jewellery and Diamond Industry',
       desc: 'J-Soft ERP is a comprehensive, specialized Jewellery ERP Software covering Retail, Wholesale, Karigar/Goldsmith Job Work, Gold Scheme, Barcode/RFID, and Real-Time Bullion Rate Accounting.',
       monitorCaption: 'Jsoft Jewellery ERP & POS Console',
@@ -345,8 +364,16 @@ export const Home = () => {
     {
       id: 'bizpro',
       name: 'Alpha BIZPRO',
-      tabImg: '/products/tab-alpha-bizpro.png',
+      icon: Cpu,
+      iconBg: '#dbeafe',
+      iconColor: '#2563eb',
       badge: 'Trading & Distribution',
+      renderLogo: () => (
+        <div className="flex flex-col text-left font-sans">
+          <span className="text-xs sm:text-sm font-black text-[#0060b9] leading-none">Alpha</span>
+          <span className="text-[9px] font-black uppercase tracking-wider text-slate-800 leading-none mt-0.5">BIZPRO</span>
+        </div>
+      ),
       heading: 'Trading, Distribution & Wholesale ERP',
       desc: 'Alpha BIZPRO provides end-to-end supply chain distribution, multi-warehouse stock management, automated credit limits, e-way bill generation, and GST compliance for high-volume traders.',
       monitorCaption: 'Alpha BIZPRO Supply Chain & Distribution Suite',
@@ -367,8 +394,16 @@ export const Home = () => {
     {
       id: 'omni',
       name: 'Alpha Omni',
-      tabImg: '/products/tab-alpha-omni.png',
+      icon: Globe,
+      iconBg: '#ccfbf1',
+      iconColor: '#0d9488',
       badge: 'Omnichannel & Sync',
+      renderLogo: () => (
+        <div className="flex items-center gap-1 font-sans">
+          <span className="text-xs sm:text-sm font-bold text-slate-500 leading-none">Alpha</span>
+          <span className="text-xs sm:text-sm font-black text-[#0d9488] leading-none">omni</span>
+        </div>
+      ),
       heading: 'Omnichannel Retail & E-Commerce Sync',
       desc: 'Unify your offline retail POS counters with online marketplaces (Amazon, Flipkart, Shopify, WooCommerce) in real time with central inventory sync, barcode dispatch, and returns management.',
       monitorCaption: 'Alpha Omni E-Commerce Sync Control Center',
@@ -389,8 +424,16 @@ export const Home = () => {
     {
       id: 'gorder',
       name: 'G ORDER',
-      tabImg: '/products/tab-g-order.png',
+      icon: ShoppingBag,
+      iconBg: '#ffe4e6',
+      iconColor: '#e11d48',
       badge: 'B2B Mobile Ordering',
+      renderLogo: () => (
+        <div className="flex items-center gap-1 font-sans">
+          <span className="text-sm sm:text-base font-black text-[#dc2626] leading-none">G</span>
+          <span className="text-xs sm:text-sm font-black text-slate-900 tracking-tight leading-none">ORDER</span>
+        </div>
+      ),
       heading: 'B2B Mobile Ordering & Sales Force App',
       desc: 'Enable your retail dealers and traveling sales representatives to browse live digital catalogs, book orders instantly on mobile, check outstanding ledgers, and track delivery status.',
       monitorCaption: 'G ORDER Digital Catalog & Order Booking App',
@@ -411,8 +454,15 @@ export const Home = () => {
     {
       id: 'jeweldeal',
       name: 'JewelDeal',
-      tabImg: '/products/tab-jeweldeal.png',
+      icon: Sparkles,
+      iconBg: '#fef9c3',
+      iconColor: '#ca8a04',
       badge: 'Jewellery B2B Portal',
+      renderLogo: () => (
+        <div className="bg-[#1c1917] px-2.5 py-1 rounded-sm text-center">
+          <span className="text-[10px] sm:text-xs font-black text-[#eab308] tracking-wider font-sans leading-none block">JewelDeal</span>
+        </div>
+      ),
       heading: 'Digital Jewellery B2B Marketplace & Virtual Showroom',
       desc: 'An exclusive virtual B2B jewellery showroom and digital catalog platform connecting jewellery manufacturers, wholesalers, and retail buyers with real-time rate calculators and secure booking.',
       monitorCaption: 'JewelDeal Virtual Showroom & Booking Platform',
@@ -433,8 +483,16 @@ export const Home = () => {
     {
       id: 'chatbox',
       name: 'Alpha CHATBOX',
-      tabImg: '/products/tab-chatbox.png',
+      icon: MessageSquare,
+      iconBg: '#d1fae5',
+      iconColor: '#059669',
       badge: 'WhatsApp Automation',
+      renderLogo: () => (
+        <div className="flex flex-col text-left font-sans">
+          <span className="text-[8px] font-bold text-slate-500 leading-none">Alpha</span>
+          <span className="text-xs sm:text-sm font-black text-[#059669] leading-none">CHATBOX</span>
+        </div>
+      ),
       heading: 'WhatsApp Automated Customer Engagement Hub',
       desc: 'Automate payment reminders, GST invoice PDFs, order dispatches, OTP confirmations, and promotional broadcast campaigns directly via official Meta WhatsApp Business API.',
       monitorCaption: 'Alpha CHATBOX Smart WhatsApp Dispatch Engine',
@@ -837,10 +895,11 @@ export const Home = () => {
             <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
           </div>
 
-          {/* 7 Horizontal Product Card Tabs (Exact Match to Screenshot) */}
-          <div className="flex items-center justify-start lg:justify-center gap-2.5 sm:gap-3.5 overflow-x-auto pb-4 scrollbar-none select-none">
+          {/* 7 Horizontal Product Card Tabs (High-Res Vector Icons & Brand Logos) */}
+          <div className="flex items-center justify-start lg:justify-center gap-2.5 sm:gap-3.5 overflow-x-auto pb-4 pt-1 px-1 scrollbar-none select-none">
             {erpProducts.map((prod) => {
               const isActive = activeErpProduct === prod.id;
+              const IconComp = prod.icon;
               return (
                 <button
                   key={prod.id}
@@ -849,18 +908,38 @@ export const Home = () => {
                     setActiveErpProduct(prod.id);
                     setProductSlideIndex(0);
                   }}
-                  className={`w-28 sm:w-32 h-14 sm:h-16 rounded-2xl bg-white flex items-center justify-center p-2.5 transition-all transform shrink-0 cursor-pointer shadow-xs ${
+                  className={`h-14 sm:h-16 px-3.5 sm:px-4.5 rounded-2xl bg-white flex items-center gap-2.5 sm:gap-3 transition-all duration-200 transform shrink-0 cursor-pointer shadow-xs ${
                     isActive
-                      ? 'border-2 border-[#0060b9] shadow-md shadow-blue-500/15 -translate-y-1'
-                      : 'border border-slate-200/90 hover:border-slate-300 hover:shadow-xs'
+                      ? 'border-2 border-[#0060b9] shadow-md shadow-blue-500/15 -translate-y-1 ring-2 ring-blue-500/10'
+                      : 'border border-slate-200/90 hover:border-slate-300 hover:shadow-xs hover:bg-slate-50/50 hover:-translate-y-0.5'
                   }`}
                   aria-label={prod.name}
                 >
-                  <img 
-                    src={prod.tabImg} 
-                    alt={prod.name} 
-                    className="max-h-9 w-auto object-contain select-none pointer-events-none" 
-                  />
+                  {/* Clean Vector Icon Badge */}
+                  <div 
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 shadow-2xs transition-transform"
+                    style={{ backgroundColor: prod.iconBg, color: prod.iconColor }}
+                  >
+                    <IconComp className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
+                  </div>
+
+                  {/* Stylized Logo Name & Category Tag */}
+                  <div className="flex flex-col text-left">
+                    {prod.renderLogo ? (
+                      <div className="scale-95 origin-left">
+                        {prod.renderLogo()}
+                      </div>
+                    ) : (
+                      <span className={`text-xs sm:text-sm font-black whitespace-nowrap leading-tight ${
+                        isActive ? 'text-[#0060b9]' : 'text-slate-800'
+                      }`}>
+                        {prod.name}
+                      </span>
+                    )}
+                    <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5 whitespace-nowrap">
+                      {prod.badge}
+                    </span>
+                  </div>
                 </button>
               );
             })}
