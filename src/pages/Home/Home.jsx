@@ -1337,14 +1337,19 @@ export const Home = () => {
               
               {/* Stat 1: 5,000+ Happy Clients */}
               <div className="relative group">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
-                  {/* Outer Orbit Satellite Dot */}
-                  <div className="absolute -top-1 left-7 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
                   
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                  {/* Continuously Orbiting Satellite Blue Dot */}
+                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-1">
+                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                    </div>
+                  </div>
+                  
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
                     <AnimatedCounter target={5000} suffix="+" duration={2200} />
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
                     Happy Clients
                   </span>
                 </div>
@@ -1352,14 +1357,19 @@ export const Home = () => {
 
               {/* Stat 2: 4.8+ Google Rating (Desktop Only on Left) */}
               <div className="relative group hidden lg:block">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
-                  {/* Outer Orbit Satellite Dot */}
-                  <div className="absolute -bottom-1 left-9 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  
+                  {/* Continuously Orbiting Satellite Blue Dot */}
+                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-2">
+                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                    </div>
+                  </div>
 
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
                     <AnimatedCounter target={4.8} decimals={1} suffix="+" duration={2000} />
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
                     Google Rating
                   </span>
                 </div>
@@ -1383,14 +1393,19 @@ export const Home = () => {
               
               {/* Stat 3: 250+ Employees */}
               <div className="relative group">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
-                  {/* Outer Orbit Satellite Dot */}
-                  <div className="absolute -top-1 right-7 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  
+                  {/* Continuously Orbiting Satellite Blue Dot */}
+                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-3">
+                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                    </div>
+                  </div>
 
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
                     <AnimatedCounter target={250} suffix="+" duration={2000} />
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
                     Employees
                   </span>
                 </div>
@@ -1398,14 +1413,19 @@ export const Home = () => {
 
               {/* Stat 4: 400+ Cities */}
               <div className="relative group hidden lg:block">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
-                  {/* Outer Orbit Satellite Dot */}
-                  <div className="absolute -bottom-1 right-9 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  
+                  {/* Continuously Orbiting Satellite Blue Dot */}
+                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-4">
+                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                    </div>
+                  </div>
 
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
                     <AnimatedCounter target={400} suffix="+" duration={2200} />
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
                     Cities
                   </span>
                 </div>
@@ -1418,12 +1438,19 @@ export const Home = () => {
               
               {/* Stat 2: 4.8+ Google Rating (Mobile) */}
               <div className="relative group">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
-                  <div className="absolute -bottom-1 left-9 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  
+                  {/* Continuously Orbiting Satellite Blue Dot */}
+                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-2">
+                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                    </div>
+                  </div>
+
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
                     <AnimatedCounter target={4.8} decimals={1} suffix="+" duration={2000} />
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
                     Google Rating
                   </span>
                 </div>
@@ -1431,12 +1458,19 @@ export const Home = () => {
 
               {/* Stat 4: 400+ Cities (Mobile) */}
               <div className="relative group">
-                <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
-                  <div className="absolute -bottom-1 right-9 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-xs"></div>
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                  
+                  {/* Continuously Orbiting Satellite Blue Dot */}
+                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-4">
+                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                    </div>
+                  </div>
+
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
                     <AnimatedCounter target={400} suffix="+" duration={2200} />
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap">
+                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
                     Cities
                   </span>
                 </div>

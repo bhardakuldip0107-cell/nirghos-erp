@@ -105,3 +105,46 @@
 .animate-marquee-rtl:hover {
   animation-play-state: paused;
 }
+
+/* Continuous 360-degree circular orbit animations for statistics dots */
+@keyframes orbit-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-ccw {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-orbit-1 {
+  animation: orbit-cw 9s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.animate-orbit-2 {
+  animation: orbit-ccw 11s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.animate-orbit-3 {
+  animation: orbit-cw 10s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.animate-orbit-4 {
+  animation: orbit-ccw 12s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
