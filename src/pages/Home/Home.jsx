@@ -40,7 +40,8 @@ import {
   Rocket,
   FileText,
   Calendar,
-  User
+  User,
+  MapPin
 } from 'lucide-react';
 import { industriesData } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
@@ -70,6 +71,7 @@ export const Home = () => {
   const [selectedPressModal, setSelectedPressModal] = useState(null);
   const [pressSlideIndex, setPressSlideIndex] = useState(0);
   const [selectedBlogModal, setSelectedBlogModal] = useState(null);
+  const [selectedEventModal, setSelectedEventModal] = useState(null);
 
   // Measure card width + gap dynamically
   useEffect(() => {
@@ -796,6 +798,55 @@ export const Home = () => {
         'Automated PF, ESIC, PT, and TDS calculation with 1-click payslips',
         'Omni-channel CRM with WhatsApp notifications and lead tracking',
         'Employee self-service mobile portal for leaves and reimbursement'
+      ]
+    }
+  ];
+
+  // Corporate Events Data for Home Page (Matching User Screenshot with 100% Nirghos Branding)
+  const homeCorporateEvents = [
+    {
+      id: 1,
+      date: '20/05/2024',
+      location: 'Ahmedabad, Gujarat',
+      venue: 'Ahmedabad Management Association (AMA) – JB Auditorium',
+      title: 'Nirghos Evolve : A New Identity . A New Era',
+      fullTitle: 'Nirghos Evolve: Unveiling A New Identity, Next-Gen Cloud Platform & 25 Years of Innovation',
+      image: '/events/event-card-1.png',
+      desc: 'Nirghos E Barcode Solutions celebrated 25 successful years and unveiled its new identity: Nirghos ERP Solutions Pvt. Ltd., showcasing cutting-edge cloud ERP advancements with founders Narendra Lunagaria and Nitesh Lunagaria.',
+      highlights: [
+        'Launch of Cloud ERP for Jewellers (JSoft ERP)',
+        'AI, RFID Batch Automation & CCTV Analytics',
+        'Web Reports for Apparel, Lifestyle & Footwear (GSoft ERP)'
+      ]
+    },
+    {
+      id: 2,
+      date: '16/02/2026',
+      location: 'Raipur, Chhattisgarh',
+      venue: 'Hotel Sayaji Convention Center, Raipur',
+      title: 'Business Solution Summit 2026',
+      fullTitle: 'Business Solution Summit 2026: Modern Retail, Wholesale & Manufacturing Transformation',
+      image: '/events/event-card-2.png',
+      desc: 'Industry leaders and trade heads joined the traditional lamp-lighting inaugural ceremony to explore cloud synchronization, GST e-invoicing compliance, and multi-branch retail POS architectures.',
+      highlights: [
+        'Inaugural lamp lighting by distinguished industry delegates',
+        'Offline-first POS with sub-second thermal billing demos',
+        'Live warehouse godown multi-location stock routing'
+      ]
+    },
+    {
+      id: 3,
+      date: '15/07/2024',
+      location: 'Surat, Gujarat',
+      venue: 'Surat International Exhibition & Convention Centre (SIECC)',
+      title: 'ERP Summit 2024',
+      fullTitle: 'ERP Summit 2024: Shaping Gujarat’s Enterprise Digital Highway',
+      image: '/events/event-card-3.png',
+      desc: 'A packed auditorium of 400+ diamond, textile, and manufacturing business owners gathered to discuss rapid digital transformation, custom barcodes, and zero-defect ERP implementations.',
+      highlights: [
+        'Specialized keynote for diamond and jewellery manufacturers',
+        'Textile style-color-size matrix demo with dynamic karigar rates',
+        'Panel discussion with Gujarat leading business pioneers'
       ]
     }
   ];
@@ -2037,6 +2088,85 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* ========================================================================= */}
+      {/* 10. OUR CORPORATE EVENTS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
+      {/* ========================================================================= */}
+      <section id="corporate-events-section" className="py-16 sm:py-20 lg:py-24 bg-[#1c75bc] text-white relative overflow-hidden">
+        {/* Subtle radial ambient glows */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-sky-400/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Section Heading & Subheading */}
+          <div className="space-y-3 mb-10 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+              Our Corporate Events
+            </h2>
+            <div className="w-14 h-1 bg-white rounded-full mx-auto"></div>
+            <p className="text-white/90 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed pt-1">
+              Bringing Innovation, Ideas &amp; Industry Leaders Together. We craft corporate experiences where innovation meets collaboration, bringing leaders together to shape the future of business technology.
+            </p>
+          </div>
+
+          {/* 3 Event Cards Grid (Exact Match to User Screenshot) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 text-left">
+            {homeCorporateEvents.map((event) => (
+              <div
+                key={event.id}
+                onClick={() => setSelectedEventModal(event)}
+                className="bg-white text-slate-800 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden flex flex-col justify-between group p-3.5 sm:p-4 hover:-translate-y-1.5 transition-all duration-300 border border-white/20 cursor-pointer"
+              >
+                <div>
+                  {/* Top Image with Rounded Corners */}
+                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 mb-3.5">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Meta Row: Date & Location */}
+                  <div className="flex items-center justify-between gap-2 text-[11px] font-medium text-slate-500 mb-2">
+                    <span className="inline-flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                      <span>{event.date}</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-slate-500 truncate">
+                      <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <span className="truncate">{event.location}</span>
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0060b9] transition-colors leading-snug line-clamp-2 my-2">
+                    {event.title}
+                  </h3>
+                </div>
+
+                {/* Footer Action: View Details */}
+                <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs mt-3">
+                  <span className="font-bold text-slate-800 group-hover:text-[#0060b9] flex items-center gap-1 transition-colors text-[11px] sm:text-xs">
+                    <span>View Details</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Centered Orange "View All" Button */}
+          <div className="mt-10 sm:mt-12 flex justify-center">
+            <Link
+              to="/events"
+              className="px-8 py-2.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer inline-flex items-center gap-2"
+            >
+              <span>View All</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
 
       {/* 3. CORE ERP FEATURES SECTION */}
       <section id="features-section" className="bg-navy-950 text-white py-24 border-y border-navy-800 relative">
@@ -2622,6 +2752,95 @@ export const Home = () => {
               <button
                 type="button"
                 onClick={() => setSelectedBlogModal(null)}
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Corporate Event Detail Modal */}
+      {selectedEventModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-fadeIn"
+          onClick={() => setSelectedEventModal(null)}
+        >
+          <div
+            className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-5 shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedEventModal(null)}
+              aria-label="Close modal"
+              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-xs font-semibold text-slate-600 flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full">
+                <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                {selectedEventModal.date}
+              </span>
+              <span className="text-xs font-semibold text-slate-600 flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full">
+                <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                {selectedEventModal.location}
+              </span>
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+              {selectedEventModal.fullTitle}
+            </h3>
+
+            <p className="text-xs font-semibold text-slate-500 flex items-center gap-1.5 bg-sky-50 px-3.5 py-2 rounded-xl border border-sky-100">
+              <span className="text-sky-900 font-bold">Venue:</span>
+              <span className="text-sky-700">{selectedEventModal.venue}</span>
+            </p>
+
+            <div className="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-900">
+              <img 
+                src={selectedEventModal.image} 
+                alt={selectedEventModal.fullTitle} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="space-y-3 text-slate-700 text-sm leading-relaxed">
+              <p>{selectedEventModal.desc}</p>
+
+              {selectedEventModal.highlights && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-2 mt-3">
+                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    Key Highlights &amp; Inclusions
+                  </h4>
+                  <ul className="space-y-1.5">
+                    {selectedEventModal.highlights.map((h, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-xs font-medium text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <Link
+                to="/events"
+                onClick={() => setSelectedEventModal(null)}
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+              >
+                Explore All Corporate Events →
+              </Link>
+              <button
+                type="button"
+                onClick={() => setSelectedEventModal(null)}
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition"
               >
                 Close

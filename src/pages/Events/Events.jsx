@@ -27,6 +27,51 @@ export const Events = () => {
 
   const eventsList = [
     {
+      id: 101,
+      title: 'Nirghos Evolve : A New Identity . A New Era',
+      category: 'Conferences & Summits',
+      date: 'May 20, 2024',
+      time: '04:00 PM - 09:30 PM IST',
+      location: 'Ahmedabad Management Association (AMA) – JB Auditorium, Ahmedabad, Gujarat',
+      mode: 'In-Person Grand Unveiling',
+      type: 'Brand Evolution Event',
+      desc: 'Nirghos E Barcode Solutions Private Limited completed 25 successful years and officially unveiled its new identity: Nirghos ERP Solutions Pvt. Ltd., marking a full transition to cloud-driven enterprise solutions with founders Narendra Lunagaria and Nitesh Lunagaria.',
+      speakers: ['Narendra Lunagaria (Founder)', 'Nitesh Lunagaria (Founder)', 'Leading Industry Guests'],
+      seatsLeft: 'Completed • 400+ Attended',
+      featured: true,
+      image: '/events/event-card-1.png'
+    },
+    {
+      id: 102,
+      title: 'Business Solution Summit 2026',
+      category: 'Conferences & Summits',
+      date: 'February 16, 2026',
+      time: '10:00 AM - 05:00 PM IST',
+      location: 'Hotel Sayaji Convention Center, Raipur, Chhattisgarh',
+      mode: 'In-Person Summit',
+      type: 'Regional Enterprise Summit',
+      desc: 'Industry leaders and trade heads joined the traditional lamp-lighting inaugural ceremony to explore cloud synchronization, GST e-invoicing compliance, and multi-branch retail POS architectures.',
+      speakers: ['Leadership Team', 'Regional Trade Delegates'],
+      seatsLeft: 'Completed • 250+ Attended',
+      featured: false,
+      image: '/events/event-card-2.png'
+    },
+    {
+      id: 103,
+      title: 'ERP Summit 2024',
+      category: 'Conferences & Summits',
+      date: 'July 15, 2024',
+      time: '02:00 PM - 07:30 PM IST',
+      location: 'Surat International Exhibition & Convention Centre (SIECC), Surat, Gujarat',
+      mode: 'In-Person Industrial Summit',
+      type: 'Industrial Transformation',
+      desc: 'A packed auditorium of 400+ diamond, textile, and manufacturing business owners gathered to discuss rapid digital transformation, custom barcodes, and zero-defect ERP implementations.',
+      speakers: ['Industry Experts', 'Keynote Speakers'],
+      seatsLeft: 'Completed • 400+ Attended',
+      featured: false,
+      image: '/events/event-card-3.png'
+    },
+    {
       id: 1,
       title: 'Nirghos Enterprise Summit 2026: The Autonomous Cloud ERP Era',
       category: 'Conferences & Summits',
