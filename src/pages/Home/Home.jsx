@@ -38,7 +38,9 @@ import {
   ShoppingBag,
   Lightbulb,
   Rocket,
-  FileText
+  FileText,
+  Calendar,
+  User
 } from 'lucide-react';
 import { industriesData, industryCategories } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
@@ -70,6 +72,7 @@ export const Home = () => {
   const [cardStep, setCardStep] = useState(400);
   const [selectedPressModal, setSelectedPressModal] = useState(null);
   const [pressSlideIndex, setPressSlideIndex] = useState(0);
+  const [selectedBlogModal, setSelectedBlogModal] = useState(null);
 
   // Measure card width + gap dynamically
   useEffect(() => {
@@ -756,6 +759,58 @@ export const Home = () => {
         'AI CCTV Video Analytics (AI Cam 360)',
         'Zero-Latency WhatsApp Cloud Invoicing',
         'Automated GST E-Invoicing & E-Way Bills'
+      ]
+    }
+  ];
+
+  // 3 Featured Blog Articles for Home Page (Exact Match to User Screenshot)
+  const homeBlogPosts = [
+    {
+      id: 1,
+      tag: 'AI in ERP',
+      date: '16/11/2026',
+      title: 'Business In 2027: Why AI, Automation and...',
+      fullTitle: 'Business In 2027: Why AI, Automation and Smart ERP Are Non-Negotiable',
+      author: 'Himanshi M Kumawat',
+      image: '/blogs/blog-card-1.png',
+      readTime: '5 min read',
+      summary: 'Explore how generative ERP interfaces, autonomous reconciliation bots, and predictive demand analytics give forward-thinking enterprises an unbeatable edge heading into 2027.',
+      keyTakeaways: [
+        'Autonomous vendor invoice matching and zero-touch ledger entry',
+        'Real-time cash flow predictions using multi-variate ML models',
+        'Edge AI synchronization across multi-warehouse supply chains'
+      ]
+    },
+    {
+      id: 2,
+      tag: 'AI in ERP, AI Video Analytics',
+      date: '03/11/2026',
+      title: 'AI Video Analytics for Retail: What Your...',
+      fullTitle: 'AI Video Analytics for Retail: What Your CCTV Cameras Can Tell You',
+      author: 'Himanshi M Kumawat',
+      image: '/blogs/blog-card-2.png',
+      readTime: '6 min read',
+      summary: 'Turn existing security cameras into high-precision business intelligence tools. Measure store footfalls, customer dwell time heatmaps, and checkout queue delays in real time.',
+      keyTakeaways: [
+        'AI Cam 360: In-store customer journey & shelf engagement tracking',
+        'Automatic queue threshold alerts to speed up counter billing',
+        'Zero-hardware replacement: Seamless IP camera integration'
+      ]
+    },
+    {
+      id: 3,
+      tag: 'HRMS & CRM',
+      date: '29/10/2026',
+      title: 'An Integrated Payroll, HRMS, CRM, and...',
+      fullTitle: 'An Integrated Payroll, HRMS, CRM, and Enterprise Automation Solution',
+      author: 'Himanshi M Kumawat',
+      image: '/blogs/blog-card-3.png',
+      readTime: '4 min read',
+      summary: 'Why fragmented HR and sales spreadsheets hold companies back, and how Nirghos Unified Workspace synchronizes biometric attendance, payroll taxes, and sales pipelines seamlessly.',
+      keyTakeaways: [
+        'Automated PF, ESIC, PT, and TDS calculation with 1-click payslips',
+        'Omni-channel CRM with WhatsApp notifications and lead tracking',
+        'Employee self-service mobile portal for leaves and reimbursement'
       ]
     }
   ];
@@ -1993,6 +2048,85 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* ========================================================================= */}
+      {/* 9. OUR BLOG - ERP INSIGHTS SECTION (EXACT MATCH TO USER SCREENSHOT)       */}
+      {/* ========================================================================= */}
+      <section id="home-blog-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#f8fbff] via-white to-slate-50 relative overflow-hidden border-b border-slate-100">
+        {/* Soft background ambient light */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header with Title and View All Button */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+                Our Blog - ERP Insights
+              </h2>
+              <div className="w-14 h-1 bg-[#f25c05] rounded-full mt-2"></div>
+            </div>
+            
+            <Link
+              to="/blogs"
+              className="self-start sm:self-auto inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs shadow-xs hover:shadow transition-all duration-200 cursor-pointer"
+            >
+              <span>View All</span>
+            </Link>
+          </div>
+
+          {/* 3 Blog Cards Grid (Matching User Screenshot Layout) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {homeBlogPosts.map((post) => (
+              <article
+                key={post.id}
+                onClick={() => setSelectedBlogModal(post)}
+                className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group p-3.5 sm:p-4 hover:-translate-y-1 cursor-pointer"
+              >
+                <div>
+                  {/* Image Container with Rounded Corners Inside */}
+                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-100 mb-3.5">
+                    <img
+                      src={post.image}
+                      alt={post.fullTitle}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Meta Row: Tag and Date */}
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-orange-50 text-[#f25c05] font-semibold text-[11px] border border-orange-100/80">
+                      {post.tag}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 font-medium">
+                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                      <span>{post.date}</span>
+                    </span>
+                  </div>
+
+                  {/* Card Title */}
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0060b9] transition-colors leading-snug line-clamp-2 mb-3">
+                    {post.fullTitle}
+                  </h3>
+                </div>
+
+                {/* Card Footer: Author and Read Post */}
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-1.5 text-slate-600 font-medium text-[11px] sm:text-xs">
+                    <User className="w-3.5 h-3.5 text-slate-400" />
+                    <span className="truncate">{post.author}</span>
+                  </div>
+
+                  <span className="font-bold text-slate-800 group-hover:text-[#0060b9] flex items-center gap-1 transition-colors text-[11px] sm:text-xs shrink-0">
+                    <span>Read Post</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 2. INDUSTRIES SECTION (ALL 25 CATEGORIES WITH LIVE SEARCH & FILTERS) */}
       <section id="industries-section" className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 relative">
         
@@ -2704,6 +2838,100 @@ export const Home = () => {
               <button
                 type="button"
                 onClick={() => setSelectedPressModal(null)}
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Blog Article Quick Preview Modal */}
+      {selectedBlogModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-fadeIn"
+          onClick={() => setSelectedBlogModal(null)}
+        >
+          <div
+            className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-5 shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedBlogModal(null)}
+              aria-label="Close modal"
+              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-orange-50 text-[#f25c05] border border-orange-200">
+                {selectedBlogModal.tag}
+              </span>
+              <span className="text-xs font-medium text-slate-500 flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                {selectedBlogModal.date}
+              </span>
+              <span className="text-xs font-medium text-slate-500 flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-slate-400" />
+                {selectedBlogModal.readTime}
+              </span>
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+              {selectedBlogModal.fullTitle}
+            </h3>
+
+            <div className="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
+              <div className="w-7 h-7 rounded-full bg-sky-100 text-[#0060b9] font-bold flex items-center justify-center text-xs">
+                {selectedBlogModal.author.slice(0, 2).toUpperCase()}
+              </div>
+              <span>By {selectedBlogModal.author}</span>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100">
+              <img 
+                src={selectedBlogModal.image} 
+                alt={selectedBlogModal.fullTitle} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="space-y-3 text-slate-700 text-sm leading-relaxed">
+              <p>{selectedBlogModal.summary}</p>
+
+              {selectedBlogModal.keyTakeaways && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-2 mt-3">
+                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    Key Article Takeaways
+                  </h4>
+                  <ul className="space-y-1.5">
+                    {selectedBlogModal.keyTakeaways.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-xs font-medium text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <Link
+                to="/blogs"
+                onClick={() => setSelectedBlogModal(null)}
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+              >
+                Read More on Nirghos Blogs →
+              </Link>
+              <button
+                type="button"
+                onClick={() => setSelectedBlogModal(null)}
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition"
               >
                 Close

@@ -38,6 +38,48 @@ export const Blogs = () => {
 
   const blogPosts = [
     {
+      id: 101,
+      title: 'Business In 2027: Why AI, Automation and Smart ERP Are Non-Negotiable',
+      slug: 'business-2027-ai-automation-smart-erp',
+      category: 'AI & Automation',
+      author: 'Himanshi M Kumawat',
+      role: 'Enterprise AI & Automation Lead',
+      date: 'November 16, 2026',
+      readTime: '5 min read',
+      summary: 'Explore how generative ERP interfaces, autonomous reconciliation bots, and predictive demand analytics give forward-thinking enterprises an unbeatable edge heading into 2027.',
+      featured: true,
+      tag: 'AI in ERP',
+      image: '/blogs/blog-card-1.png'
+    },
+    {
+      id: 102,
+      title: 'AI Video Analytics for Retail: What Your CCTV Cameras Can Tell You',
+      slug: 'ai-video-analytics-retail-cctv-cameras',
+      category: 'AI & Automation',
+      author: 'Himanshi M Kumawat',
+      role: 'Retail Intelligence Specialist',
+      date: 'November 03, 2026',
+      readTime: '6 min read',
+      summary: 'Turn existing security cameras into high-precision business intelligence tools. Measure store footfalls, customer dwell time heatmaps, and checkout queue delays in real time.',
+      featured: false,
+      tag: 'AI Video Analytics',
+      image: '/blogs/blog-card-2.png'
+    },
+    {
+      id: 103,
+      title: 'An Integrated Payroll, HRMS, CRM, and Enterprise Automation Solution',
+      slug: 'integrated-payroll-hrms-crm-automation',
+      category: 'ERP Architecture',
+      author: 'Himanshi M Kumawat',
+      role: 'HRMS Solutions Consultant',
+      date: 'October 29, 2026',
+      readTime: '4 min read',
+      summary: 'Why fragmented HR and sales spreadsheets hold companies back, and how Nirghos Unified Workspace synchronizes biometric attendance, payroll taxes, and sales pipelines seamlessly.',
+      featured: false,
+      tag: 'HRMS & CRM',
+      image: '/blogs/blog-card-3.png'
+    },
+    {
       id: 1,
       title: 'How Autonomous AI Document Parsing Cuts Vendor Invoice Processing by 85%',
       slug: 'ai-document-parsing-invoice-processing',
