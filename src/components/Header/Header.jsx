@@ -161,7 +161,7 @@ export const Header = () => {
       path: '/industries/gems-jewelry'
     },
     {
-      title: 'Alpha Chatbox (WhatsApp ERP)',
+      title: 'Nirghos Chatbox (WhatsApp ERP)',
       desc: 'Automated GST invoice dispatch, payment reminder bots & customer WhatsApp catalog.',
       icon: MessageSquare,
       path: '/features'
@@ -241,7 +241,7 @@ export const Header = () => {
   // 4. AI Tools Dropdown Items
   const aiToolsCards = [
     {
-      title: 'Nirghos Vision (AlphaCam 360)',
+      title: 'Nirghos Vision (AI Cam 360)',
       desc: 'AI CCTV video analytics: Footfall counting, dwell time, peak hours & store heatmaps.',
       icon: Eye,
       path: '/features'
@@ -279,7 +279,7 @@ export const Header = () => {
         {/* ========================================================================= */}
         <div className="w-full bg-[#f25c05] text-white py-2 px-4 text-center select-none shadow-xs">
           <div className="w-full max-w-[1750px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
-            <span>&ldquo;Alpha E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Alpha ERP Solutions Pvt. Ltd.&rdquo;</span>
+            <span>&ldquo;Alpha E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Nirghos ERP Solutions Pvt. Ltd.&rdquo;</span>
           </div>
         </div>
 
