@@ -2132,7 +2132,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 10. OUR CORPORATE EVENTS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
       {/* ========================================================================= */}
-      <section id="corporate-events-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#040810] text-white relative overflow-hidden">
+      <section id="corporate-events-section" className="pt-14 sm:pt-16 lg:pt-20 pb-10 sm:pb-12 lg:pb-14 bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#040810] text-white relative overflow-hidden">
         {/* Subtle radial ambient glows */}
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-sky-400/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -2197,7 +2197,7 @@ export const Home = () => {
           </div>
 
           {/* Centered Orange "View All" Button */}
-          <div className="mt-10 sm:mt-12 flex justify-center">
+          <div className="mt-8 sm:mt-10 flex justify-center">
             <Link
               to="/events"
               className="px-8 py-2.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer inline-flex items-center gap-2"
@@ -2211,7 +2211,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* HAVE ANY QUESTIONS? (FAQ ACCORDION SECTION - 100% NIRGHOS DETAILS)       */}
       {/* ========================================================================= */}
-      <section id="faq-section" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-100 relative overflow-hidden">
+      <section id="faq-section" className="!mt-0 py-8 sm:py-10 lg:py-12 bg-white border-b border-slate-100 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
@@ -2236,7 +2236,7 @@ export const Home = () => {
                       <button
                         type="button"
                         onClick={() => toggleFaq(idx)}
-                        className="w-full py-5 flex items-center justify-between text-left group transition-colors focus:outline-none"
+                        className="w-full py-3.5 sm:py-4 flex items-center justify-between text-left group transition-colors focus:outline-none"
                       >
                         <span className={`text-base sm:text-lg font-bold pr-4 flex items-baseline gap-2 transition-colors ${
                           isOpen ? 'text-[#0284c7]' : 'text-slate-900 group-hover:text-[#0284c7]'
@@ -2260,7 +2260,7 @@ export const Home = () => {
                       {/* Accordion Answer Content */}
                       <div
                         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                          isOpen ? 'max-h-96 pb-5 opacity-100' : 'max-h-0 pb-0 opacity-0'
+                          isOpen ? 'max-h-96 pb-3.5 opacity-100' : 'max-h-0 pb-0 opacity-0'
                         }`}
                       >
                         <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed pl-6 sm:pl-7 pr-2">
@@ -2279,7 +2279,7 @@ export const Home = () => {
 
 
       {/* 3. CORE ERP FEATURES SECTION */}
-      <section id="features-section" className="bg-navy-950 text-white py-24 border-y border-navy-800 relative">
+      <section id="features-section" className="!mt-0 bg-navy-950 text-white py-16 sm:py-20 lg:py-20 border-y border-navy-800 relative">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
