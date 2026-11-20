@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -61,22 +61,64 @@ export const Home = () => {
   const [testimonialSlideIndex, setTestimonialSlideIndex] = useState(0);
   const [activeStoryVideo, setActiveStoryVideo] = useState(null);
   const [isTestimonialHovered, setIsTestimonialHovered] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const sliderTrackRef = useRef(null);
+  const [cardStep, setCardStep] = useState(400);
 
-  React.useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+  // Measure card width + gap dynamically
+  useEffect(() => {
+    const updateCardStep = () => {
+      if (sliderTrackRef.current) {
+        const firstCard = sliderTrackRef.current.querySelector('.testimonial-card');
+        if (firstCard) {
+          const cardWidth = firstCard.getBoundingClientRect().width;
+          const gap = window.innerWidth >= 640 ? 24 : 20;
+          setCardStep(cardWidth + gap);
+        }
+      }
+    };
+    updateCardStep();
+    window.addEventListener('resize', updateCardStep);
+    return () => window.removeEventListener('resize', updateCardStep);
   }, []);
 
-  // Auto-scroll testimonials slider every 4.5s (pauses on hover)
-  React.useEffect(() => {
-    if (isTestimonialHovered) return;
+  // Auto-scroll testimonials slider every 4.5s (pauses on hover or drag)
+  useEffect(() => {
+    if (isTestimonialHovered || isDragging) return;
     const interval = setInterval(() => {
       setTestimonialSlideIndex((prev) => (prev + 1) % 6);
     }, 4500);
     return () => clearInterval(interval);
-  }, [isTestimonialHovered]);
+  }, [isTestimonialHovered, isDragging]);
+
+  // Mouse / Touch Drag handlers for cursor sliding right-to-left and left-to-right
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+    setDragStartX(clientX);
+    setDragOffset(0);
+  };
+
+  const handleDragMove = (e) => {
+    if (!isDragging) return;
+    const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+    setDragOffset(clientX - dragStartX);
+  };
+
+  const handleDragEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    if (dragOffset < -50) {
+      // Swiped Left -> Next Slide
+      setTestimonialSlideIndex((prev) => (prev + 1) % 6);
+    } else if (dragOffset > 50) {
+      // Swiped Right -> Previous Slide
+      setTestimonialSlideIndex((prev) => (prev === 0 ? 5 : prev - 1));
+    }
+    setDragOffset(0);
+  };
 
   // Hero interactive sector switcher preview (defaults to registered sector if authenticated)
   const [heroSector, setHeroSector] = useState(profile?.slug || 'manufacturing');
@@ -1612,138 +1654,134 @@ export const Home = () => {
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Trusted By 5,000+ Happy Customers & View All Button (Exact Match to Screenshot) */}
-          <div className="mt-16 sm:mt-20">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-              <div className="text-left">
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                  Trusted By <span className="text-[#0060b9]">5,000+</span> Happy <br className="hidden sm:inline" /> Customers
-                </h3>
-                <div className="w-16 h-1 bg-[#f25c05] rounded-full mt-2.5"></div>
-              </div>
-
-              {/* Orange "View All" Button */}
-              <div>
-                <Link
-                  to="/testimonials"
-                  className="inline-flex items-center justify-center px-7 py-2 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
-                >
-                  View All
-                </Link>
-              </div>
+        {/* Trusted By 5,000+ Happy Customers & Full-Screen Drag/Swipe Testimonials Carousel */}
+        <div className="mt-16 sm:mt-24 w-full">
+          
+          {/* Header Row: Title on Left, View All on Right */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <div className="text-left">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                Trusted By <span className="text-[#0060b9]">5,000+</span> Happy <br className="hidden sm:inline" /> Customers
+              </h3>
+              <div className="w-16 h-1 bg-[#f25c05] rounded-full mt-2.5"></div>
             </div>
 
-            {/* Testimonials Carousel Slider (Exact Match to User Screenshot) */}
+            {/* Orange "View All" Button */}
+            <div>
+              <Link
+                to="/testimonials"
+                className="inline-flex items-center justify-center px-7 py-2.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+              >
+                View All
+              </Link>
+            </div>
+          </div>
+
+          {/* Full Screen Cursor-Draggable Testimonials Track (Right-to-Left / Left-to-Right by cursor swipe) */}
+          <div 
+            className="w-full relative overflow-hidden py-3 cursor-grab active:cursor-grabbing select-none"
+            onMouseDown={handleDragStart}
+            onMouseMove={handleDragMove}
+            onMouseUp={handleDragEnd}
+            onMouseLeave={() => {
+              if (isDragging) handleDragEnd();
+              setIsTestimonialHovered(false);
+            }}
+            onMouseEnter={() => setIsTestimonialHovered(true)}
+            onTouchStart={handleDragStart}
+            onTouchMove={handleDragMove}
+            onTouchEnd={handleDragEnd}
+          >
             <div 
-              className="relative mt-8 group/slider"
-              onMouseEnter={() => setIsTestimonialHovered(true)}
-              onMouseLeave={() => setIsTestimonialHovered(false)}
+              ref={sliderTrackRef}
+              className="flex pl-4 sm:pl-8 lg:pl-16 pr-4 sm:pr-8 gap-5 sm:gap-6"
+              style={{
+                transform: `translateX(calc(-${testimonialSlideIndex * cardStep}px + ${dragOffset}px))`,
+                transition: isDragging ? 'none' : 'transform 500ms cubic-bezier(0.25, 1, 0.5, 1)',
+                willChange: 'transform'
+              }}
             >
-              {/* Prev / Next Navigation Arrows */}
-              <button
-                type="button"
-                onClick={() => setTestimonialSlideIndex((prev) => (prev === 0 ? 5 : prev - 1))}
-                aria-label="Previous Testimonial"
-                className="absolute -left-3 sm:-left-5 top-[45%] -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 border border-slate-200/90 shadow-md text-slate-700 hover:text-[#0060b9] hover:border-[#0060b9] flex items-center justify-center transition-all opacity-0 group-hover/slider:opacity-100 cursor-pointer focus:opacity-100"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setTestimonialSlideIndex((prev) => (prev + 1) % 6)}
-                aria-label="Next Testimonial"
-                className="absolute -right-3 sm:-right-5 top-[45%] -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 border border-slate-200/90 shadow-md text-slate-700 hover:text-[#0060b9] hover:border-[#0060b9] flex items-center justify-center transition-all opacity-0 group-hover/slider:opacity-100 cursor-pointer focus:opacity-100"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-
-              {/* Slider Track Wrapper */}
-              <div className="overflow-hidden py-3 px-1 -mx-1">
-                <div 
-                  className="flex transition-transform duration-500 ease-out gap-5 sm:gap-6"
-                  style={{
-                    transform: `translateX(calc(-${testimonialSlideIndex} * ((100% + ${windowWidth >= 1024 ? 24 : 20}px) / ${windowWidth >= 1024 ? 3 : windowWidth >= 640 ? 2 : 1})))`
-                  }}
+              {[...homeTestimonials, ...homeTestimonials].map((t, idx) => (
+                <div
+                  key={`${t.id}-${idx}`}
+                  className="testimonial-card w-[290px] sm:w-[340px] lg:w-[380px] xl:w-[410px] shrink-0 bg-white rounded-2xl border border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-sky-300 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group pointer-events-auto"
                 >
-                  {[...homeTestimonials, ...homeTestimonials.slice(0, 3)].map((t, idx) => (
-                    <div
-                      key={`${t.id}-${idx}`}
-                      style={{
-                        width: `calc((100% - ${(windowWidth >= 1024 ? 2 : windowWidth >= 640 ? 1 : 0) * (windowWidth >= 1024 ? 24 : 20)}px) / ${windowWidth >= 1024 ? 3 : windowWidth >= 640 ? 2 : 1})`
-                      }}
-                      className="shrink-0 bg-white rounded-2xl border border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-sky-300 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group"
-                    >
-                      <div>
-                        {/* Quotation Mark Icon in Soft Sky Blue */}
-                        <div className="text-sky-300/80 group-hover:text-sky-400 transition-colors mb-3">
-                          <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                          </svg>
-                        </div>
-
-                        {/* Quote Text Excerpt */}
-                        <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                          {t.quote}
-                        </p>
-
-                        {/* Orange Read More Link */}
-                        <Link
-                          to="/testimonials"
-                          className="text-xs font-bold text-[#f25c05] hover:text-[#d94f00] mt-2.5 inline-block cursor-pointer transition-colors"
-                        >
-                          Read More
-                        </Link>
-                      </div>
-
-                      {/* Bottom Row: Author Name, Org and Video Play Button */}
-                      <div className="mt-5 pt-3.5 flex items-end justify-between border-t border-slate-50">
-                        <div className="min-w-0 pr-2">
-                          <h4 className="text-sm sm:text-base font-black text-slate-900 tracking-tight truncate">
-                            {t.name}
-                          </h4>
-                          <p className="text-xs font-medium text-slate-500 mt-0.5 truncate">
-                            {t.org}
-                          </p>
-                        </div>
-
-                        {/* Video Play Button (Only for Cards with Video: Mr. Sunil Mosun & Mr. Sagar) */}
-                        {t.hasVideo && (
-                          <button
-                            type="button"
-                            onClick={() => setActiveStoryVideo(t)}
-                            title={`Watch ${t.name}'s Video Story`}
-                            className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0060b9] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer shrink-0 ml-2"
-                          >
-                            <Play className="w-4 h-4 fill-current ml-0.5" />
-                          </button>
-                        )}
-                      </div>
+                  <div>
+                    {/* Quotation Mark Icon in Soft Sky Blue */}
+                    <div className="text-sky-300/80 group-hover:text-sky-400 transition-colors mb-3">
+                      <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                      </svg>
                     </div>
-                  ))}
+
+                    {/* Quote Text Excerpt */}
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                      {t.quote}
+                    </p>
+
+                    {/* Orange Read More Link */}
+                    <Link
+                      to="/testimonials"
+                      onClick={(e) => {
+                        if (Math.abs(dragOffset) > 8) e.preventDefault();
+                      }}
+                      className="text-xs font-bold text-[#f25c05] hover:text-[#d94f00] mt-2.5 inline-block cursor-pointer transition-colors"
+                    >
+                      Read More
+                    </Link>
+                  </div>
+
+                  {/* Bottom Row: Author Name, Org and Video Play Button */}
+                  <div className="mt-5 pt-3.5 flex items-end justify-between border-t border-slate-50">
+                    <div className="min-w-0 pr-2">
+                      <h4 className="text-sm sm:text-base font-black text-slate-900 tracking-tight truncate">
+                        {t.name}
+                      </h4>
+                      <p className="text-xs font-medium text-slate-500 mt-0.5 truncate">
+                        {t.org}
+                      </p>
+                    </div>
+
+                    {/* Video Play Button (Only for Cards with Video: Mr. Sunil Mosun & Mr. Sagar) */}
+                    {t.hasVideo && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          if (Math.abs(dragOffset) > 8) {
+                            e.preventDefault();
+                            return;
+                          }
+                          setActiveStoryVideo(t);
+                        }}
+                        title={`Watch ${t.name}'s Video Story`}
+                        className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0060b9] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer shrink-0 ml-2"
+                      >
+                        <Play className="w-4 h-4 fill-current ml-0.5" />
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-
-              {/* Slider Pagination Dots (Exact Match to Screenshot: Active Blue Pill + Inactive Gray Circles) */}
-              <div className="flex items-center justify-center gap-2 mt-7">
-                {[0, 1, 2, 3, 4, 5].map((idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => setTestimonialSlideIndex(idx)}
-                    aria-label={`Go to slide ${idx + 1}`}
-                    className={`transition-all duration-300 cursor-pointer ${
-                      testimonialSlideIndex === idx
-                        ? 'w-6 h-2 rounded-full bg-[#0060b9]'
-                        : 'w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400'
-                    }`}
-                  />
-                ))}
-              </div>
-
+              ))}
             </div>
+          </div>
 
+          {/* Slider Pagination Dots (Exact Match to Screenshot: Active Blue Pill + Inactive Gray Circles) */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {[0, 1, 2, 3, 4, 5].map((idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setTestimonialSlideIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`transition-all duration-300 cursor-pointer ${
+                  testimonialSlideIndex === idx
+                    ? 'w-6 h-2 rounded-full bg-[#0060b9]'
+                    : 'w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400'
+                }`}
+              />
+            ))}
           </div>
 
         </div>
