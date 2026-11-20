@@ -13,8 +13,10 @@ import {
   Cpu, 
   Building2, 
   ChevronRight,
+  ChevronLeft,
   ChevronDown,
   ChevronUp,
+  X,
   TrendingUp,
   LayoutDashboard,
   Search,
@@ -56,6 +58,25 @@ export const Home = () => {
   const [activeErpProduct, setActiveErpProduct] = useState('gsoft');
   const [productSlideIndex, setProductSlideIndex] = useState(0);
   const [showAllServices, setShowAllServices] = useState(false);
+  const [testimonialSlideIndex, setTestimonialSlideIndex] = useState(0);
+  const [activeStoryVideo, setActiveStoryVideo] = useState(null);
+  const [isTestimonialHovered, setIsTestimonialHovered] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Auto-scroll testimonials slider every 4.5s (pauses on hover)
+  React.useEffect(() => {
+    if (isTestimonialHovered) return;
+    const interval = setInterval(() => {
+      setTestimonialSlideIndex((prev) => (prev + 1) % 6);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isTestimonialHovered]);
 
   // Hero interactive sector switcher preview (defaults to registered sector if authenticated)
   const [heroSector, setHeroSector] = useState(profile?.slug || 'manufacturing');
@@ -569,6 +590,60 @@ export const Home = () => {
   ];
 
   const displayedServices = showAllServices ? nirghosServices : nirghosServices.slice(0, 3);
+
+  // 6 Verified Client Testimonials for Home Page Slider (Exact Match to User Screenshot)
+  const homeTestimonials = [
+    {
+      id: 1,
+      quote: "I have been connected with Nirghos since 2001, my experience tells Nirghos provides simple, easy & accurate software including features like inventory management, financial accounting management and...",
+      fullQuote: "I have been connected with Nirghos since 2001, my experience tells Nirghos provides simple, easy & accurate software including features like inventory management, financial accounting management, GST compliance, and real-time ledger accounting. It has completely streamlined our textile wholesale operations.",
+      name: "Mr. Dhaval Patel",
+      org: "Cotton House, Ahmedabad",
+      hasVideo: false
+    },
+    {
+      id: 2,
+      quote: "First of all, I would like to Thank Nirghos ERP Solutions Pvt. Ltd. for their wonderful software and Impactful Service , their service is very good and We actually very happy. Actually I have taken Demo...",
+      fullQuote: "First of all, I would like to Thank Nirghos ERP Solutions Pvt. Ltd. for their wonderful software and Impactful Service , their service is very good and We actually very happy. Actually I have taken Demo, and the team's immediate response to support tickets and bespoke inventory customizations has given us unmatched peace of mind.",
+      name: "Mr. Noel Liby",
+      org: "Moodhayil Gold and Diamonds , Kerala",
+      hasVideo: false
+    },
+    {
+      id: 3,
+      quote: "Before expanding My Business, I was concerned about managing branches . After Reviewing several Jewellery ERP Systems, J-Soft stood out of all by its advanced features & extreme support. Our...",
+      fullQuote: "Before expanding My Business, I was concerned about managing branches . After Reviewing several Jewellery ERP Systems, J-Soft stood out of all by its advanced features & extreme support. Our multi-branch synchronization, karigar stock auditing, and centralized reporting made our interstate expansion completely effortless.",
+      name: "Mr. Sunil Mosun",
+      org: "JKJ and Sons Jewellers, Jaipur",
+      hasVideo: true,
+      videoTitle: "Multi-Branch Jewellery Synchronisation & Karigar Auditing"
+    },
+    {
+      id: 4,
+      quote: "I have been using Nirghos's JSoft ERP Software for almost four years. It is specially designed for the jewellery industry according to their requirements. If you are thinking of getting software, then JSoft ER...",
+      fullQuote: "I have been using Nirghos's JSoft ERP Software for almost four years. It is specially designed for the jewellery industry according to their requirements. If you are thinking of getting software, then JSoft ERP is the top choice for hallmarking, bullion fluctuation and worker loss tracking.",
+      name: "Mr. Sagar",
+      org: "Sagar Gold , Surat",
+      hasVideo: true,
+      videoTitle: "Manufacturing Output & Daily Bullion Rate Dynamic Sync"
+    },
+    {
+      id: 5,
+      quote: "We are connected with Nirghos since 2003. They provide complete solutions for Retail & Wholesale software. Customer support is prompt, dependable, and always ready to tailor reports...",
+      fullQuote: "We are connected with Nirghos since 2003. They provide complete solutions for Retail & Wholesale software. Customer support is prompt, dependable, and always ready to tailor reports according to our expanding multi-store requirements.",
+      name: "Mr. Anil Dua",
+      org: "Basic Casual Clothing, Ahmedabad",
+      hasVideo: false
+    },
+    {
+      id: 6,
+      quote: "Thank you for Supporting our Business with Gsoft Extreme ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team...",
+      fullQuote: "Thank you for Supporting our Business with Gsoft Extreme ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team. The bi-directional sync between POS and online store is lightning fast.",
+      name: "Mr. Narendra Mehta",
+      org: "In Vogue, Ahmedabad",
+      hasVideo: false
+    }
+  ];
 
   // 10 Official Nirghos ERP API Integrations (Exact Match to User Screenshot)
   const apiIntegrations = [
@@ -1559,6 +1634,116 @@ export const Home = () => {
               </div>
             </div>
 
+            {/* Testimonials Carousel Slider (Exact Match to User Screenshot) */}
+            <div 
+              className="relative mt-8 group/slider"
+              onMouseEnter={() => setIsTestimonialHovered(true)}
+              onMouseLeave={() => setIsTestimonialHovered(false)}
+            >
+              {/* Prev / Next Navigation Arrows */}
+              <button
+                type="button"
+                onClick={() => setTestimonialSlideIndex((prev) => (prev === 0 ? 5 : prev - 1))}
+                aria-label="Previous Testimonial"
+                className="absolute -left-3 sm:-left-5 top-[45%] -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 border border-slate-200/90 shadow-md text-slate-700 hover:text-[#0060b9] hover:border-[#0060b9] flex items-center justify-center transition-all opacity-0 group-hover/slider:opacity-100 cursor-pointer focus:opacity-100"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setTestimonialSlideIndex((prev) => (prev + 1) % 6)}
+                aria-label="Next Testimonial"
+                className="absolute -right-3 sm:-right-5 top-[45%] -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 border border-slate-200/90 shadow-md text-slate-700 hover:text-[#0060b9] hover:border-[#0060b9] flex items-center justify-center transition-all opacity-0 group-hover/slider:opacity-100 cursor-pointer focus:opacity-100"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+
+              {/* Slider Track Wrapper */}
+              <div className="overflow-hidden py-3 px-1 -mx-1">
+                <div 
+                  className="flex transition-transform duration-500 ease-out gap-5 sm:gap-6"
+                  style={{
+                    transform: `translateX(calc(-${testimonialSlideIndex} * ((100% + ${windowWidth >= 1024 ? 24 : 20}px) / ${windowWidth >= 1024 ? 3 : windowWidth >= 640 ? 2 : 1})))`
+                  }}
+                >
+                  {[...homeTestimonials, ...homeTestimonials.slice(0, 3)].map((t, idx) => (
+                    <div
+                      key={`${t.id}-${idx}`}
+                      style={{
+                        width: `calc((100% - ${(windowWidth >= 1024 ? 2 : windowWidth >= 640 ? 1 : 0) * (windowWidth >= 1024 ? 24 : 20)}px) / ${windowWidth >= 1024 ? 3 : windowWidth >= 640 ? 2 : 1})`
+                      }}
+                      className="shrink-0 bg-white rounded-2xl border border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-sky-300 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group"
+                    >
+                      <div>
+                        {/* Quotation Mark Icon in Soft Sky Blue */}
+                        <div className="text-sky-300/80 group-hover:text-sky-400 transition-colors mb-3">
+                          <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                          </svg>
+                        </div>
+
+                        {/* Quote Text Excerpt */}
+                        <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                          {t.quote}
+                        </p>
+
+                        {/* Orange Read More Link */}
+                        <Link
+                          to="/testimonials"
+                          className="text-xs font-bold text-[#f25c05] hover:text-[#d94f00] mt-2.5 inline-block cursor-pointer transition-colors"
+                        >
+                          Read More
+                        </Link>
+                      </div>
+
+                      {/* Bottom Row: Author Name, Org and Video Play Button */}
+                      <div className="mt-5 pt-3.5 flex items-end justify-between border-t border-slate-50">
+                        <div className="min-w-0 pr-2">
+                          <h4 className="text-sm sm:text-base font-black text-slate-900 tracking-tight truncate">
+                            {t.name}
+                          </h4>
+                          <p className="text-xs font-medium text-slate-500 mt-0.5 truncate">
+                            {t.org}
+                          </p>
+                        </div>
+
+                        {/* Video Play Button (Only for Cards with Video: Mr. Sunil Mosun & Mr. Sagar) */}
+                        {t.hasVideo && (
+                          <button
+                            type="button"
+                            onClick={() => setActiveStoryVideo(t)}
+                            title={`Watch ${t.name}'s Video Story`}
+                            className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0060b9] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer shrink-0 ml-2"
+                          >
+                            <Play className="w-4 h-4 fill-current ml-0.5" />
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Slider Pagination Dots (Exact Match to Screenshot: Active Blue Pill + Inactive Gray Circles) */}
+              <div className="flex items-center justify-center gap-2 mt-7">
+                {[0, 1, 2, 3, 4, 5].map((idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setTestimonialSlideIndex(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`transition-all duration-300 cursor-pointer ${
+                      testimonialSlideIndex === idx
+                        ? 'w-6 h-2 rounded-full bg-[#0060b9]'
+                        : 'w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400'
+                    }`}
+                  />
+                ))}
+              </div>
+
+            </div>
+
           </div>
 
         </div>
@@ -2124,6 +2309,67 @@ export const Home = () => {
 
         </div>
       </section>
+
+      {/* Video Modal Popup for Client Story */}
+      {activeStoryVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-fadeIn">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-slate-100 relative space-y-5 animate-scaleUp">
+            <button
+              type="button"
+              onClick={() => setActiveStoryVideo(null)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-sky-100 text-[#0060b9] flex items-center justify-center shrink-0">
+                <Play className="w-6 h-6 fill-current ml-0.5" />
+              </div>
+              <div>
+                <h3 className="text-base font-black text-slate-900">
+                  {activeStoryVideo.name}
+                </h3>
+                <p className="text-xs text-slate-500 font-medium">
+                  {activeStoryVideo.org}
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-slate-900 aspect-video flex flex-col items-center justify-center text-white p-6 text-center relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+              <div className="relative z-10 space-y-2">
+                <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-xs border border-white/40 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6 fill-white text-white ml-1" />
+                </div>
+                <div className="text-xs font-semibold text-sky-200 uppercase tracking-wider">
+                  Client Success Video Story
+                </div>
+                <div className="text-sm font-bold text-white max-w-xs">
+                  {activeStoryVideo.videoTitle || activeStoryVideo.name}
+                </div>
+              </div>
+            </div>
+
+            <p className="text-xs text-slate-600 leading-relaxed italic bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+              "{activeStoryVideo.fullQuote}"
+            </p>
+
+            <div className="flex items-center justify-between gap-3 pt-1">
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveStoryVideo(null);
+                  setIsDemoModalOpen(true);
+                }}
+                className="w-full py-2.5 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs transition"
+              >
+                Experience This in Nirghos Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Booking Demo Modal */}
       <DemoModal
