@@ -42,9 +42,8 @@ import {
   Calendar,
   User
 } from 'lucide-react';
-import { industriesData, industryCategories } from '../../data/industries';
+import { industriesData } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
-import IndustryCard from '../../components/IndustryCard/IndustryCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import DemoModal from '../../components/common/DemoModal';
 import DynamicIcon from '../../components/common/DynamicIcon';
@@ -53,11 +52,9 @@ import { useDemo } from '../../context/DemoContext';
 
 export const Home = () => {
   const { isAuthenticated, profile } = useDemo();
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [activeTabFeature, setActiveTabFeature] = useState(coreFeatures[0].id);
-  const [showAllIndustries, setShowAllIndustries] = useState(false);
   const [sliderMode, setSliderMode] = useState('categories'); // 'categories' | 'brands'
   const [activeErpProduct, setActiveErpProduct] = useState('gsoft');
   const [productSlideIndex, setProductSlideIndex] = useState(0);
@@ -137,18 +134,6 @@ export const Home = () => {
   }, [isAuthenticated, profile?.slug]);
 
   const navigate = useNavigate();
-
-  // Filter industries based on category and search query
-  const filteredIndustries = industriesData.filter((ind) => {
-    const matchesCategory = selectedCategory === 'All' || ind.category === selectedCategory;
-    const matchesSearch = searchQuery.trim() === '' || 
-      ind.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      ind.shortDesc.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
-
-  // Display only 8 cards (2 lines of 4 on lg+) by default unless user clicks "View All"
-  const displayedIndustries = showAllIndustries ? filteredIndustries : filteredIndustries.slice(0, 8);
 
   const activeFeatureObj = coreFeatures.find(f => f.id === activeTabFeature) || coreFeatures[0];
 
@@ -2052,137 +2037,6 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 2. INDUSTRIES SECTION (ALL 25 CATEGORIES WITH LIVE SEARCH & FILTERS) */}
-      <section id="industries-section" className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 relative">
-        
-        {/* Ambient background glow behind cards */}
-        <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-brand-500/5 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-1/3 right-10 w-[450px] h-[450px] bg-sky-500/5 rounded-full blur-3xl pointer-events-none"></div>
-
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-black tracking-wide uppercase border border-brand-200/80 shadow-xs">
-            <Boxes className="w-3.5 h-3.5 text-brand-600" /> 25 Business Categories
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy-950 tracking-tight">
-            Explore ERP Solutions by Industry
-          </h2>
-          <p className="text-base text-slate-600 leading-relaxed font-normal">
-            Find the perfect ERP solution for your business. Every single industry comes equipped with its own purpose-built workflows, modules, and regulatory compliance standards.
-          </p>
-        </div>
-
-        {/* Category Filter Pills */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none relative z-10">
-          {industryCategories.map((category) => (
-            <button
-              key={category}
-              onClick={() => {
-                setSelectedCategory(category);
-                setShowAllIndustries(false);
-              }}
-              className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold whitespace-nowrap transition-all duration-200 ${
-                selectedCategory === category
-                  ? 'bg-navy-950 text-white shadow-xl shadow-navy-950/25 ring-2 ring-brand-500/40'
-                  : 'bg-white text-slate-700 hover:text-navy-950 hover:bg-slate-50 border-2 border-slate-200/80 shadow-xs'
-              }`}
-            >
-              {category}
-              {category === 'All' ? ` (25)` : ''}
-            </button>
-          ))}
-        </div>
-
-        {/* Search Results Summary */}
-        <div className="flex items-center justify-between text-xs text-slate-500 mb-6 px-1 font-medium">
-          <span>
-            Displaying <strong>{displayedIndustries.length}</strong> of <strong>{filteredIndustries.length}</strong> industry blueprints
-          </span>
-          {selectedCategory !== 'All' && (
-            <button 
-              onClick={() => {
-                setSelectedCategory('All');
-                setShowAllIndustries(false);
-              }} 
-              className="text-brand-600 font-bold hover:underline"
-            >
-              Reset Filter
-            </button>
-          )}
-        </div>
-
-        {/* Responsive Grid of 8 Cards (or All Cards when expanded) in 2 Lines (4 per row on lg+) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {displayedIndustries.map((industry) => (
-            <IndustryCard key={industry.slug} industry={industry} />
-          ))}
-        </div>
-
-        {/* View All / Show Less Action Button Container */}
-        {filteredIndustries.length > 8 && (
-          <div className="text-center pt-10 relative z-10 flex flex-col items-center justify-center">
-            <button
-              onClick={() => {
-                if (showAllIndustries) {
-                  setShowAllIndustries(false);
-                  document.getElementById('industries-section')?.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  setShowAllIndustries(true);
-                }
-              }}
-              className={`group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-extrabold text-sm sm:text-base transition-all duration-300 shadow-xl cursor-pointer ${
-                showAllIndustries
-                  ? 'bg-white text-navy-950 border-2 border-slate-300 hover:border-brand-500 hover:shadow-2xl hover:-translate-y-0.5'
-                  : 'bg-gradient-to-r from-navy-950 via-slate-900 to-navy-950 text-white border-2 border-brand-500/60 hover:border-brand-400 hover:shadow-brand-500/25 hover:-translate-y-1'
-              }`}
-            >
-              <span>
-                {showAllIndustries 
-                  ? 'Show Fewer Industries (Show 8)' 
-                  : `View All ${filteredIndustries.length} Industries`}
-              </span>
-              <div className={`w-7 h-7 rounded-xl flex items-center justify-center transition-all ${
-                showAllIndustries
-                  ? 'bg-slate-100 text-slate-700 group-hover:bg-brand-500 group-hover:text-white'
-                  : 'bg-brand-500/20 text-brand-300 border border-brand-400/40 group-hover:bg-brand-500 group-hover:text-white'
-              }`}>
-                {showAllIndustries ? (
-                  <ChevronUp className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
-                )}
-              </div>
-            </button>
-            
-            <p className="text-xs text-slate-500 font-medium mt-3">
-              {showAllIndustries
-                ? `Showing all ${filteredIndustries.length} specialized industry blueprints`
-                : `Showing 8 of ${filteredIndustries.length} industry blueprints · Click to expand full catalog`}
-            </p>
-          </div>
-        )}
-
-        {filteredIndustries.length === 0 && (
-          <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 space-y-4">
-            <Search className="w-12 h-12 text-slate-300 mx-auto" />
-            <h4 className="text-lg font-bold text-navy-900">No industry matching "{searchQuery}"</h4>
-            <p className="text-sm text-slate-500 max-w-md mx-auto">
-              Try searching for "Manufacturing", "Hospital", "Retail", "Pharma", "Textile" or reset your search query.
-            </p>
-            <button
-              onClick={() => { 
-                setSearchQuery(''); 
-                setSelectedCategory('All'); 
-                setShowAllIndustries(false);
-              }}
-              className="px-5 py-2.5 text-xs font-bold text-white bg-navy-900 rounded-xl"
-            >
-              Clear Filters
-            </button>
-          </div>
-        )}
-
-      </section>
 
       {/* 3. CORE ERP FEATURES SECTION */}
       <section id="features-section" className="bg-navy-950 text-white py-24 border-y border-navy-800 relative">
