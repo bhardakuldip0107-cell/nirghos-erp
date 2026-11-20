@@ -28,7 +28,7 @@ export const Events = () => {
   const eventsList = [
     {
       id: 101,
-      title: 'Nirghos Evolve : A New Identity . A New Era',
+      title: 'Nirghos Event : A New Identity . A New Era',
       category: 'Conferences & Summits',
       date: 'May 20, 2024',
       time: '04:00 PM - 09:30 PM IST',

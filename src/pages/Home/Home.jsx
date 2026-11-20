@@ -809,8 +809,8 @@ export const Home = () => {
       date: '20/05/2024',
       location: 'Ahmedabad, Gujarat',
       venue: 'Ahmedabad Management Association (AMA) – JB Auditorium',
-      title: 'Nirghos Evolve : A New Identity . A New Era',
-      fullTitle: 'Nirghos Evolve: Unveiling A New Identity, Next-Gen Cloud Platform & 25 Years of Innovation',
+      title: 'Nirghos Event : A New Identity . A New Era',
+      fullTitle: 'Nirghos Corporate Event: Nirghos Evolve – A New Identity, A New Era (25 Years Milestone)',
       image: '/events/event-card-1.png',
       desc: 'Nirghos E Barcode Solutions celebrated 25 successful years and unveiled its new identity: Nirghos ERP Solutions Pvt. Ltd., showcasing cutting-edge cloud ERP advancements with founders Narendra Lunagaria and Nitesh Lunagaria.',
       highlights: [
