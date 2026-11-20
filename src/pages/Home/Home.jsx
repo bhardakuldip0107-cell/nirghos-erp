@@ -570,6 +570,20 @@ export const Home = () => {
 
   const displayedServices = showAllServices ? nirghosServices : nirghosServices.slice(0, 3);
 
+  // 10 Official Nirghos ERP API Integrations (Exact Match to User Screenshot)
+  const apiIntegrations = [
+    { id: 'woocommerce', name: 'WooCommerce', logo: '/integrations/woocommerce-clean.png' },
+    { id: 'paytm', name: 'Paytm', logo: '/integrations/paytm-clean.png' },
+    { id: 'fynd', name: 'Fynd', logo: '/integrations/fynd-clean.png' },
+    { id: 'quicksell', name: 'QuickSell', logo: '/integrations/quicksell-clean.png' },
+    { id: 'razorpay', name: 'Razorpay', logo: '/integrations/razorpay-clean.png' },
+    { id: 'tally', name: 'Tally Prime', logo: '/integrations/tally-clean.png' },
+    { id: 'sequel', name: 'Sequel 247', logo: '/integrations/sequel-clean.png' },
+    { id: 'shopify', name: 'Shopify', logo: '/integrations/shopify-clean.png' },
+    { id: 'pinelabs', name: 'Pine Labs', logo: '/integrations/pinelabs-clean.png' },
+    { id: 'hdfc', name: 'HDFC Bank', logo: '/integrations/hdfc-clean.png' }
+  ];
+
   // Real enterprise testimonials across diverse industries
   const testimonials = [
     {
@@ -1476,6 +1490,88 @@ export const Home = () => {
                 </div>
               </div>
 
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 7. API INTEGRATION & TRUSTED CUSTOMERS (EXACT MATCH TO USER SCREENSHOT)   */}
+      {/* ========================================================================= */}
+      <section id="api-integration-section" className="py-14 lg:py-20 bg-gradient-to-b from-white via-[#f9fbfe] to-white relative overflow-hidden border-b border-slate-200/80">
+        
+        {/* Soft Background Grid Tiles */}
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header: API Integration & Orange Accent Line */}
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+              API Integration
+            </h2>
+            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+            <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
+              Connect Nirghos ERP natively with your essential e-commerce storefronts, payment gateways, accounting software, and banking APIs in real time.
+            </p>
+          </div>
+
+          {/* 10 Partner Logos Box Container (5x2 Grid - Exact Match to Screenshot) */}
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-sky-100/90 shadow-[0_15px_40px_-15px_rgba(0,96,185,0.08),0_0_1px_1px_rgba(0,0,0,0.03)] p-5 sm:p-7">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+              {apiIntegrations.map((item) => (
+                <div 
+                  key={item.id}
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="h-16 sm:h-20 bg-white rounded-2xl border border-slate-200/90 hover:border-[#0060b9] shadow-2xs hover:shadow-md transition-all flex items-center justify-center p-3 group cursor-pointer transform hover:-translate-y-1"
+                  title={`${item.name} API Integration for Nirghos ERP`}
+                >
+                  <img 
+                    src={item.logo} 
+                    alt={`${item.name} Integration`} 
+                    className="max-h-8 sm:max-h-10 w-auto object-contain select-none transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Trusted By 5,000+ Happy Customers & View All Button (Exact Match to Screenshot) */}
+          <div className="mt-16 sm:mt-20">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+              <div className="text-left">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                  Trusted By <span className="text-[#0060b9]">5,000+</span> Happy <br className="hidden sm:inline" /> Customers
+                </h3>
+                <div className="w-16 h-1 bg-[#f25c05] rounded-full mt-2.5"></div>
+              </div>
+
+              {/* Orange "View All" Button */}
+              <div>
+                <Link
+                  to="/testimonials"
+                  className="inline-flex items-center justify-center px-7 py-2 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+                >
+                  View All
+                </Link>
+              </div>
+            </div>
+
+            {/* Continuous Brand Logo Marquee Slider */}
+            <div className="relative overflow-hidden w-full py-2 select-none">
+              <div className="flex items-center gap-4 animate-marquee-rtl">
+                {[...brandLogos, ...brandLogos, ...brandLogos].map((brand, idx) => (
+                  <div
+                    key={`${brand.id}-${idx}`}
+                    className="w-44 h-18 sm:w-52 sm:h-22 bg-white rounded-2xl border border-slate-200/90 hover:border-orange-300 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-md transition-all flex items-center justify-center px-4 py-2 shrink-0 select-none group cursor-pointer"
+                    onClick={() => setIsDemoModalOpen(true)}
+                  >
+                    {brand.render()}
+                  </div>
+                ))}
+              </div>
             </div>
 
           </div>
