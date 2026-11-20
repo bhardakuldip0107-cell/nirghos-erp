@@ -107,7 +107,7 @@ export const Contact = () => {
           
           {/* Breadcrumb */}
           <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 mb-2 font-medium">
-            <Link to="/" className="hover:text-[#f25c05] transition">Home</Link>
+            <Link to="/" className="hover:text-[#FF5A1F] transition">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-800 font-bold">Contact Us</span>
           </div>
@@ -408,7 +408,7 @@ export const Contact = () => {
       <section className="max-w-4xl mx-auto px-4 sm:px-6 mt-16 space-y-10">
         
         <div className="text-center space-y-2">
-          <span className="text-xs font-black uppercase tracking-wider text-[#f25c05] px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200">
+          <span className="text-xs font-black uppercase tracking-wider text-[#FF5A1F] px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200">
             Enterprise Reach
           </span>
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -423,7 +423,7 @@ export const Contact = () => {
           
           {/* Card 1: Address */}
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all space-y-2.5">
-            <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#f25c05] flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#FF5A1F] flex items-center justify-center font-bold">
               <MapPin className="w-5 h-5" />
             </div>
             <h4 className="font-bold text-sm text-slate-900">Head Office</h4>
@@ -476,7 +476,7 @@ export const Contact = () => {
         {/* ------------------------------------------------------------------ */}
         <div className="bg-white rounded-3xl border border-slate-200 shadow-xs p-6 sm:p-8 space-y-6">
           <div className="flex items-center gap-2">
-            <HelpCircle className="w-5 h-5 text-[#f25c05]" />
+            <HelpCircle className="w-5 h-5 text-[#FF5A1F]" />
             <h4 className="font-black text-lg text-slate-900">Frequently Asked Questions</h4>
           </div>
 
@@ -496,7 +496,7 @@ export const Contact = () => {
                     className="w-full p-4 flex items-center justify-between text-left font-bold text-xs sm:text-sm text-slate-900 cursor-pointer"
                   >
                     <span>{faq.q}</span>
-                    <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${isOpen ? 'rotate-180 text-[#f25c05]' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${isOpen ? 'rotate-180 text-[#FF5A1F]' : ''}`} />
                   </button>
                   {isOpen && (
                     <div className="px-4 pb-4 pt-1 text-xs text-slate-600 leading-relaxed border-t border-slate-100">

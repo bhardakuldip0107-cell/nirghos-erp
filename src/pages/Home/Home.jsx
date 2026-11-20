@@ -331,7 +331,7 @@ export const Home = () => {
   const categoryThemeMap = {
     manufacturing: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200', badge: 'Discrete & Process' },
     trading: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', badge: 'B2B Wholesale' },
-    retail: { bg: 'bg-orange-50', text: 'text-[#f25c05]', border: 'border-orange-200', badge: 'POS & Billing' },
+    retail: { bg: 'bg-orange-50', text: 'text-[#FF5A1F]', border: 'border-orange-200', badge: 'POS & Billing' },
     construction: { bg: 'bg-yellow-50', text: 'text-yellow-800', border: 'border-yellow-200', badge: 'Real Estate & EPC' },
     automobile: { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200', badge: 'Auto & Spare Parts' },
     textile: { bg: 'bg-pink-50', text: 'text-pink-700', border: 'border-pink-200', badge: 'Apparel & Fabric' },
@@ -349,7 +349,7 @@ export const Home = () => {
     electronics: { bg: 'bg-blue-50', text: 'text-blue-800', border: 'border-blue-200', badge: 'PCB & Hardware' },
     printing: { bg: 'bg-fuchsia-50', text: 'text-fuchsia-700', border: 'border-fuchsia-200', badge: 'Packaging & Offset' },
     furniture: { bg: 'bg-stone-100', text: 'text-stone-800', border: 'border-stone-300', badge: 'Woodwork & Modular' },
-    ecommerce: { bg: 'bg-orange-50', text: 'text-[#f25c05]', border: 'border-orange-200', badge: 'Omnichannel D2C' },
+    ecommerce: { bg: 'bg-orange-50', text: 'text-[#FF5A1F]', border: 'border-orange-200', badge: 'Omnichannel D2C' },
     'export-import': { bg: 'bg-sky-50', text: 'text-sky-800', border: 'border-sky-200', badge: 'Customs & Port EDI' },
     'oil-gas': { bg: 'bg-amber-50', text: 'text-amber-900', border: 'border-amber-300', badge: 'Fuel & Pipeline' },
     'security-facility': { bg: 'bg-slate-100', text: 'text-slate-800', border: 'border-slate-300', badge: 'Facility & Guards' },
@@ -368,7 +368,7 @@ export const Home = () => {
       renderLogo: () => (
         <div className="flex items-center gap-1 font-sans">
           <span className="text-base sm:text-lg font-black text-[#dc2626] leading-none">G</span>
-          <span className="text-sm sm:text-base font-bold text-[#0060b9] leading-none">soft</span>
+          <span className="text-sm sm:text-base font-bold text-[#0D5FD9] leading-none">soft</span>
           <span className="text-[9px] font-black uppercase px-1 py-0.2 rounded bg-red-100 text-red-600 border border-red-200 ml-0.5">ERP</span>
         </div>
       ),
@@ -399,7 +399,7 @@ export const Home = () => {
       renderLogo: () => (
         <div className="flex items-center gap-1 font-sans">
           <span className="text-base sm:text-lg font-black text-[#ea580c] leading-none">J</span>
-          <span className="text-sm sm:text-base font-bold text-[#0060b9] leading-none">soft</span>
+          <span className="text-sm sm:text-base font-bold text-[#0D5FD9] leading-none">soft</span>
           <span className="text-[9px] font-black uppercase px-1 py-0.2 rounded bg-orange-100 text-orange-600 border border-orange-200 ml-0.5">ERP</span>
         </div>
       ),
@@ -429,7 +429,7 @@ export const Home = () => {
       badge: 'Trading & Distribution',
       renderLogo: () => (
         <div className="flex flex-col text-left font-sans">
-          <span className="text-xs sm:text-sm font-black text-[#0060b9] leading-none">Nirghos</span>
+          <span className="text-xs sm:text-sm font-black text-[#0D5FD9] leading-none">Nirghos</span>
           <span className="text-[9px] font-black uppercase tracking-wider text-slate-800 leading-none mt-0.5">BIZPRO</span>
         </div>
       ),
@@ -872,12 +872,12 @@ export const Home = () => {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 space-y-4">
           
           {/* Line 1: Trusted ERP Software (Orange) */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#f25c05] tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#FF5A1F] tracking-tight leading-tight">
             Trusted ERP Software
           </h2>
 
           {/* Line 2 & 3: For Apparel-Lifestyle, Footwear & Jewellery Businesses in India (Blue) */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#0060b9] tracking-tight leading-[1.18]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#0D5FD9] tracking-tight leading-[1.18]">
             For Apparel-Lifestyle, Footwear & <br className="hidden sm:inline" />
             Jewellery Businesses in India
           </h1>
@@ -896,7 +896,7 @@ export const Home = () => {
             <button
               type="button"
               onClick={() => setIsDemoModalOpen(true)}
-              className="px-8 py-3.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="px-8 py-3.5 rounded-full bg-[#FF5A1F] hover:bg-[#E0480C] text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               Get Demo
             </button>
@@ -942,7 +942,7 @@ export const Home = () => {
               onClick={() => setSliderMode('categories')}
               className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 sliderMode === 'categories'
-                  ? 'bg-[#f25c05] text-white shadow-md shadow-orange-500/20 scale-105'
+                  ? 'bg-[#FF5A1F] text-white shadow-md shadow-orange-500/20 scale-105'
                   : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 hover:bg-slate-50'
               }`}
             >
@@ -954,7 +954,7 @@ export const Home = () => {
               onClick={() => setSliderMode('brands')}
               className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 sliderMode === 'brands'
-                  ? 'bg-[#f25c05] text-white shadow-md shadow-orange-500/20 scale-105'
+                  ? 'bg-[#FF5A1F] text-white shadow-md shadow-orange-500/20 scale-105'
                   : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 hover:bg-slate-50'
               }`}
             >
@@ -976,7 +976,7 @@ export const Home = () => {
               {[...industriesData, ...industriesData].map((ind, idx) => {
                 const theme = categoryThemeMap[ind.slug] || {
                   bg: 'bg-orange-50',
-                  text: 'text-[#f25c05]',
+                  text: 'text-[#FF5A1F]',
                   border: 'border-orange-200',
                   badge: 'Specialized ERP'
                 };
@@ -985,16 +985,16 @@ export const Home = () => {
                   <Link
                     key={`${ind.slug}-${idx}`}
                     to={`/industries/${ind.slug}`}
-                    className="w-60 sm:w-72 h-20 sm:h-22 bg-white rounded-2xl border border-slate-200/90 hover:border-[#f25c05] shadow-[0_2px_12px_-3px_rgba(0,0,0,0.06)] hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-3.5 px-4 py-3 shrink-0 select-none group cursor-pointer"
+                    className="w-60 sm:w-72 h-20 sm:h-22 bg-white rounded-2xl border border-slate-200/90 hover:border-[#FF5A1F] shadow-[0_2px_12px_-3px_rgba(0,0,0,0.06)] hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-3.5 px-4 py-3 shrink-0 select-none group cursor-pointer"
                   >
                     {/* Category Logo Badge */}
-                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${theme.bg} ${theme.text} ${theme.border} border flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 group-hover:bg-[#f25c05] group-hover:text-white group-hover:border-[#f25c05] transition-all duration-200`}>
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${theme.bg} ${theme.text} ${theme.border} border flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 group-hover:bg-[#FF5A1F] group-hover:text-white group-hover:border-[#FF5A1F] transition-all duration-200`}>
                       <DynamicIcon name={ind.icon} className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
 
                     {/* Category Name & Tag */}
                     <div className="flex flex-col min-w-0 text-left">
-                      <span className="text-xs sm:text-sm font-black text-slate-800 group-hover:text-[#f25c05] transition-colors leading-tight truncate">
+                      <span className="text-xs sm:text-sm font-black text-slate-800 group-hover:text-[#FF5A1F] transition-colors leading-tight truncate">
                         {ind.name}
                       </span>
                       <span className="text-[10px] font-bold text-slate-400 group-hover:text-slate-600 mt-1 flex items-center gap-1 uppercase tracking-wider">
@@ -1033,7 +1033,7 @@ export const Home = () => {
           />
           <div className="flex flex-wrap items-center justify-center gap-2 pt-3 text-xs">
             <span className="font-bold text-slate-600 flex items-center gap-1.5 mr-1">
-              <Sparkles className="w-3.5 h-3.5 text-[#f25c05]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#FF5A1F]" />
               <span>Popular ERP Blueprints:</span>
             </span>
             {[
@@ -1049,10 +1049,10 @@ export const Home = () => {
               <Link 
                 key={item.slug} 
                 to={`/industries/${item.slug}`}
-                className="px-3 py-1.5 rounded-full border border-slate-200/90 bg-white hover:border-[#f25c05] hover:bg-orange-50/60 hover:text-[#f25c05] transition-all text-xs font-bold text-slate-700 shadow-xs hover:shadow-sm hover:-translate-y-0.5 flex items-center gap-1.5 group cursor-pointer"
+                className="px-3 py-1.5 rounded-full border border-slate-200/90 bg-white hover:border-[#FF5A1F] hover:bg-orange-50/60 hover:text-[#FF5A1F] transition-all text-xs font-bold text-slate-700 shadow-xs hover:shadow-sm hover:-translate-y-0.5 flex items-center gap-1.5 group cursor-pointer"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#f25c05] group-hover:scale-125 transition-transform"></span>
-                <DynamicIcon name={item.icon} className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#f25c05] transition-colors" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF5A1F] group-hover:scale-125 transition-transform"></span>
+                <DynamicIcon name={item.icon} className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#FF5A1F] transition-colors" />
                 <span>{item.name}</span>
               </Link>
             ))}
@@ -1081,7 +1081,7 @@ export const Home = () => {
               <div className="absolute -bottom-2 sm:-bottom-4 left-4 sm:left-6 right-4 sm:right-auto sm:w-80 bg-white rounded-2xl shadow-[0_15px_35px_-5px_rgba(0,0,0,0.12),0_0_1px_1px_rgba(0,0,0,0.05)] border border-slate-100 p-4 flex items-center justify-between z-10">
                 <div className="flex items-center gap-3">
                   {/* Orange Award Ribbon Icon Badge */}
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 text-[#f25c05] flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 text-[#FF5A1F] flex items-center justify-center shrink-0">
                     <Award className="w-7 h-7 stroke-[2.2]" />
                   </div>
                   <div className="flex flex-col text-left">
@@ -1116,7 +1116,7 @@ export const Home = () => {
               </h2>
 
               {/* Orange Horizontal Accent Line */}
-              <div className="w-16 h-1 bg-[#f25c05] rounded-full my-3"></div>
+              <div className="w-16 h-1 bg-[#FF5A1F] rounded-full my-3"></div>
 
               {/* Exact Description Paragraph */}
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
@@ -1127,7 +1127,7 @@ export const Home = () => {
               <div className="pt-4">
                 <Link
                   to="/about"
-                  className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
                 >
                   Know More
                 </Link>
@@ -1154,7 +1154,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
               Our Products
             </h2>
-            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+            <div className="w-16 h-1 bg-[#FF5A1F] rounded-full mx-auto mt-2.5"></div>
           </div>
 
           {/* 7 Horizontal Product Card Tabs (High-Res Vector Icons & Brand Logos) */}
@@ -1172,7 +1172,7 @@ export const Home = () => {
                   }}
                   className={`h-14 sm:h-16 px-3.5 sm:px-4.5 rounded-2xl bg-white flex items-center gap-2.5 sm:gap-3 transition-all duration-200 transform shrink-0 cursor-pointer shadow-xs ${
                     isActive
-                      ? 'border-2 border-[#0060b9] shadow-md shadow-blue-500/15 -translate-y-1 ring-2 ring-blue-500/10'
+                      ? 'border-2 border-[#0D5FD9] shadow-md shadow-blue-500/15 -translate-y-1 ring-2 ring-blue-500/10'
                       : 'border border-slate-200/90 hover:border-slate-300 hover:shadow-xs hover:bg-slate-50/50 hover:-translate-y-0.5'
                   }`}
                   aria-label={prod.name}
@@ -1193,7 +1193,7 @@ export const Home = () => {
                       </div>
                     ) : (
                       <span className={`text-xs sm:text-sm font-black whitespace-nowrap leading-tight ${
-                        isActive ? 'text-[#0060b9]' : 'text-slate-800'
+                        isActive ? 'text-[#0D5FD9]' : 'text-slate-800'
                       }`}>
                         {prod.name}
                       </span>
@@ -1237,7 +1237,7 @@ export const Home = () => {
                 <div className="pt-3 flex flex-wrap items-center gap-3.5">
                   <Link
                     to={currentProduct.link}
-                    className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+                    className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
                   >
                     Explore More
                   </Link>
@@ -1245,7 +1245,7 @@ export const Home = () => {
                   <button
                     type="button"
                     onClick={() => setIsDemoModalOpen(true)}
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-slate-300 hover:border-orange-300 hover:text-[#f25c05] bg-white text-slate-700 font-bold text-sm transition-all shadow-2xs cursor-pointer"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-slate-300 hover:border-orange-300 hover:text-[#FF5A1F] bg-white text-slate-700 font-bold text-sm transition-all shadow-2xs cursor-pointer"
                   >
                     Request Live Demo
                   </button>
@@ -1281,7 +1281,7 @@ export const Home = () => {
                       onClick={() => setProductSlideIndex(dotIdx)}
                       className={`transition-all rounded-full cursor-pointer ${
                         productSlideIndex === dotIdx
-                          ? 'w-6 h-2 bg-[#0060b9]'
+                          ? 'w-6 h-2 bg-[#0D5FD9]'
                           : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
                       }`}
                       aria-label={`Slide ${dotIdx + 1}`}
@@ -1313,7 +1313,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
               Our Services
             </h2>
-            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+            <div className="w-16 h-1 bg-[#FF5A1F] rounded-full mx-auto mt-2.5"></div>
             <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
               Comprehensive software development, digital commerce, and technical solutions engineered to extend and accelerate your Nirghos ERP ecosystem.
             </p>
@@ -1334,14 +1334,14 @@ export const Home = () => {
                       <span className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider block">
                         {service.tag}
                       </span>
-                      <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug mt-0.5 group-hover:text-[#0060b9] transition-colors">
+                      <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug mt-0.5 group-hover:text-[#0D5FD9] transition-colors">
                         {service.title}
                       </h3>
                     </div>
 
                     {/* Circular Blue Action Button with ArrowUpRight */}
                     <div 
-                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0060b9] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-[#004f9e] group-hover:scale-110 group-hover:rotate-12 transition-all"
+                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0D5FD9] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-[#094CB3] group-hover:scale-110 group-hover:rotate-12 transition-all"
                       aria-label={`Explore ${service.title}`}
                     >
                       <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
@@ -1373,7 +1373,7 @@ export const Home = () => {
             <button
               type="button"
               onClick={() => setShowAllServices(!showAllServices)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 hover:border-[#0060b9] hover:text-[#0060b9] bg-white text-slate-700 font-bold text-sm transition-all shadow-2xs hover:shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 hover:border-[#0D5FD9] hover:text-[#0D5FD9] bg-white text-slate-700 font-bold text-sm transition-all shadow-2xs hover:shadow-sm cursor-pointer"
             >
               <span>{showAllServices ? 'Show Less Services' : 'View All Services (6)'}</span>
               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showAllServices ? 'rotate-180' : ''}`} />
@@ -1382,7 +1382,7 @@ export const Home = () => {
             <button
               type="button"
               onClick={() => setIsDemoModalOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>Schedule Free Service Consultation</span>
               <ArrowRight className="w-4 h-4" />
@@ -1407,14 +1407,14 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
               Why Nirghos?
             </h2>
-            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+            <div className="w-16 h-1 bg-[#FF5A1F] rounded-full mx-auto mt-2.5"></div>
           </div>
 
           {/* 2-Column Showcase: 4-Quadrant Blue Card on Left + Success Team Culture on Right */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             
             {/* Left Column: 4-Quadrant Royal Blue Card with Center Lightbulb Badge */}
-            <div className="lg:col-span-7 relative bg-gradient-to-br from-[#0066c0] via-[#0060b9] to-[#00509e] rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_-15px_rgba(0,96,185,0.25)] overflow-hidden flex flex-col justify-center min-h-[380px] sm:min-h-[440px]">
+            <div className="lg:col-span-7 relative bg-gradient-to-br from-[#0066c0] via-[#0D5FD9] to-[#00509e] rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_-15px_rgba(0,96,185,0.25)] overflow-hidden flex flex-col justify-center min-h-[380px] sm:min-h-[440px]">
               
               {/* Subtle Ambient Radial Highlight */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
@@ -1425,8 +1425,8 @@ export const Home = () => {
               <div className="absolute inset-x-8 top-1/2 -translate-y-1/2 h-px bg-white/20 pointer-events-none"></div>
 
               {/* Center Lightbulb Badge */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white shadow-2xl flex items-center justify-center border-4 border-[#0060b9] z-20 transition-transform duration-300 hover:scale-110">
-                <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7 text-[#0060b9] stroke-[2.4]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white shadow-2xl flex items-center justify-center border-4 border-[#0D5FD9] z-20 transition-transform duration-300 hover:scale-110">
+                <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7 text-[#0D5FD9] stroke-[2.4]" />
               </div>
 
               {/* 4 Quadrants Content Grid */}
@@ -1488,7 +1488,7 @@ export const Home = () => {
               {/* Floating Success Pill Badge at Bottom */}
               <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl shadow-lg p-3 sm:p-3.5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200 text-[#f25c05] flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200 text-[#FF5A1F] flex items-center justify-center shrink-0">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div className="flex flex-col text-left">
@@ -1504,7 +1504,7 @@ export const Home = () => {
                 <button 
                   type="button" 
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="px-4 py-2 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white text-xs font-bold transition-all shadow-xs cursor-pointer shrink-0"
+                  className="px-4 py-2 rounded-full bg-[#0D5FD9] hover:bg-[#094CB3] text-white text-xs font-bold transition-all shadow-xs cursor-pointer shrink-0"
                 >
                   Join Us
                 </button>
@@ -1522,8 +1522,8 @@ export const Home = () => {
       <section id="our-stats-section" className="py-14 lg:py-20 bg-white relative overflow-hidden border-b border-slate-200/80">
         
         {/* Subtle Decorative Dot Matrix in Corners (Exact Match to Screenshot) */}
-        <div className="absolute top-6 left-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0060b9_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
-        <div className="absolute bottom-6 right-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0060b9_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
+        <div className="absolute top-6 left-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0D5FD9_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
+        <div className="absolute bottom-6 right-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0D5FD9_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -1532,7 +1532,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
               Our Proud Statistics
             </h2>
-            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+            <div className="w-16 h-1 bg-[#FF5A1F] rounded-full mx-auto mt-2.5"></div>
           </div>
 
           {/* Statistics Showcase: 4 Circular Badges Flanking Center India Map */}
@@ -1543,16 +1543,16 @@ export const Home = () => {
               
               {/* Stat 1: 5,000+ Happy Clients */}
               <div className="relative group">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0D5FD9] group-hover:shadow-xl">
                   
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-1">
-                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0D5FD9] ring-4 ring-white shadow-md">
                       <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
                     </div>
                   </div>
                   
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0D5FD9] tracking-tight relative z-10">
                     <AnimatedCounter target={5000} suffix="+" duration={2200} />
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
@@ -1563,16 +1563,16 @@ export const Home = () => {
 
               {/* Stat 2: 4.8+ Google Rating (Desktop Only on Left) */}
               <div className="relative group hidden lg:block">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0D5FD9] group-hover:shadow-xl">
                   
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-2">
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0D5FD9] ring-4 ring-white shadow-md">
                       <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
                     </div>
                   </div>
 
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0D5FD9] tracking-tight relative z-10">
                     <AnimatedCounter target={4.8} decimals={1} suffix="+" duration={2000} />
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
@@ -1599,16 +1599,16 @@ export const Home = () => {
               
               {/* Stat 3: 250+ Employees */}
               <div className="relative group">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0D5FD9] group-hover:shadow-xl">
                   
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-3">
-                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0D5FD9] ring-4 ring-white shadow-md">
                       <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
                     </div>
                   </div>
 
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0D5FD9] tracking-tight relative z-10">
                     <AnimatedCounter target={250} suffix="+" duration={2000} />
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
@@ -1619,16 +1619,16 @@ export const Home = () => {
 
               {/* Stat 4: 400+ Cities */}
               <div className="relative group hidden lg:block">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0D5FD9] group-hover:shadow-xl">
                   
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-4">
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0D5FD9] ring-4 ring-white shadow-md">
                       <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
                     </div>
                   </div>
 
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0D5FD9] tracking-tight relative z-10">
                     <AnimatedCounter target={400} suffix="+" duration={2200} />
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
@@ -1644,16 +1644,16 @@ export const Home = () => {
               
               {/* Stat 2: 4.8+ Google Rating (Mobile) */}
               <div className="relative group">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0D5FD9] group-hover:shadow-xl">
                   
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-2">
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0D5FD9] ring-4 ring-white shadow-md">
                       <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
                     </div>
                   </div>
 
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0D5FD9] tracking-tight relative z-10">
                     <AnimatedCounter target={4.8} decimals={1} suffix="+" duration={2000} />
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
@@ -1664,16 +1664,16 @@ export const Home = () => {
 
               {/* Stat 4: 400+ Cities (Mobile) */}
               <div className="relative group">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0060b9] group-hover:shadow-xl">
+                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0D5FD9] group-hover:shadow-xl">
                   
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-4">
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0060b9] ring-4 ring-white shadow-md">
+                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0D5FD9] ring-4 ring-white shadow-md">
                       <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
                     </div>
                   </div>
 
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0060b9] tracking-tight relative z-10">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0D5FD9] tracking-tight relative z-10">
                     <AnimatedCounter target={400} suffix="+" duration={2200} />
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
@@ -1704,7 +1704,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
               API Integration
             </h2>
-            <div className="w-16 h-1 bg-[#f25c05] rounded-full mx-auto mt-2.5"></div>
+            <div className="w-16 h-1 bg-[#FF5A1F] rounded-full mx-auto mt-2.5"></div>
             <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
               Connect Nirghos ERP natively with your essential e-commerce storefronts, payment gateways, accounting software, and banking APIs in real time.
             </p>
@@ -1717,7 +1717,7 @@ export const Home = () => {
                 <div 
                   key={item.id}
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="h-16 sm:h-20 rounded-2xl bg-white border border-slate-200/90 hover:border-[#0060b9] shadow-2xs hover:shadow-md transition-all flex items-center justify-center p-3 sm:p-4 group cursor-pointer hover:-translate-y-0.5"
+                  className="h-16 sm:h-20 rounded-2xl bg-white border border-slate-200/90 hover:border-[#0D5FD9] shadow-2xs hover:shadow-md transition-all flex items-center justify-center p-3 sm:p-4 group cursor-pointer hover:-translate-y-0.5"
                   title={`${item.name} Integration for Nirghos ERP`}
                 >
                   <img 
@@ -1738,16 +1738,16 @@ export const Home = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
             <div className="text-left">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                Trusted By <span className="text-[#0060b9]">5,000+</span> Happy <br className="hidden sm:inline" /> Customers
+                Trusted By <span className="text-[#0D5FD9]">5,000+</span> Happy <br className="hidden sm:inline" /> Customers
               </h3>
-              <div className="w-16 h-1 bg-[#f25c05] rounded-full mt-2.5"></div>
+              <div className="w-16 h-1 bg-[#FF5A1F] rounded-full mt-2.5"></div>
             </div>
 
             {/* Orange "View All" Button */}
             <div>
               <Link
                 to="/testimonials"
-                className="inline-flex items-center justify-center px-7 py-2.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+                className="inline-flex items-center justify-center px-7 py-2.5 rounded-full bg-[#FF5A1F] hover:bg-[#E0480C] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
               >
                 View All
               </Link>
@@ -1802,7 +1802,7 @@ export const Home = () => {
                       onClick={(e) => {
                         if (Math.abs(dragOffset) > 8) e.preventDefault();
                       }}
-                      className="text-xs font-bold text-[#f25c05] hover:text-[#d94f00] mt-2.5 inline-block cursor-pointer transition-colors"
+                      className="text-xs font-bold text-[#FF5A1F] hover:text-[#E0480C] mt-2.5 inline-block cursor-pointer transition-colors"
                     >
                       Read More
                     </Link>
@@ -1831,7 +1831,7 @@ export const Home = () => {
                           setActiveStoryVideo(t);
                         }}
                         title={`Watch ${t.name}'s Video Story`}
-                        className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0060b9] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer shrink-0 ml-2"
+                        className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0D5FD9] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer shrink-0 ml-2"
                       >
                         <Play className="w-4 h-4 fill-current ml-0.5" />
                       </button>
@@ -1852,7 +1852,7 @@ export const Home = () => {
                 aria-label={`Go to slide ${idx + 1}`}
                 className={`transition-all duration-300 cursor-pointer ${
                   testimonialSlideIndex === idx
-                    ? 'w-6 h-2 rounded-full bg-[#0060b9]'
+                    ? 'w-6 h-2 rounded-full bg-[#0D5FD9]'
                     : 'w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400'
                 }`}
               />
@@ -1865,7 +1865,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* PRESS RELEASE SECTION (EXACT MATCH TO DESIGN - 100% NIRGHOS BRANDED)      */}
       {/* ========================================================================= */}
-      <section id="press-release-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#063970] via-[#08428c] to-[#042454] text-white relative overflow-hidden">
+      <section id="press-release-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#0A2540] via-[#0D3866] to-[#06182B] text-white relative overflow-hidden">
         {/* Subtle white dot-grid overlay matching the screenshot */}
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none"></div>
         {/* Soft background light glows */}
@@ -1878,7 +1878,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
               Press release
             </h2>
-            <div className="w-16 h-1 bg-[#f25c05] rounded-full"></div>
+            <div className="w-16 h-1 bg-[#FF5A1F] rounded-full"></div>
           </div>
 
           {/* Ahmedabad, India & Paragraphs */}
@@ -1887,7 +1887,7 @@ export const Home = () => {
               Ahmedabad, India
             </h3>
             <p>
-              <strong className="text-white">Nirghos E Barcode Solutions Private Limited</strong> celebrated a major milestone as it completed <strong className="text-white">25 successful years</strong> and stepped into a bold new chapter with the official unveiling of its new identity: <strong className="text-white">Nirghos ERP Solutions Pvt. Ltd.</strong> The announcement was made during <strong className="text-[#f25c05]">&ldquo;Nirghos Evolve &ndash; A New Identity, A New Era&rdquo;</strong> event held on May 20 at the Ahmedabad Management Association (AMA) &ndash; JB Auditorium, in the presence of industry guests, valued clients, partners, and company founders Narendra Lunagaria and Nitesh Lunagaria.
+              <strong className="text-white">Nirghos E Barcode Solutions Private Limited</strong> celebrated a major milestone as it completed <strong className="text-white">25 successful years</strong> and stepped into a bold new chapter with the official unveiling of its new identity: <strong className="text-white">Nirghos ERP Solutions Pvt. Ltd.</strong> The announcement was made during <strong className="text-[#FF5A1F]">&ldquo;Nirghos Evolve &ndash; A New Identity, A New Era&rdquo;</strong> event held on May 20 at the Ahmedabad Management Association (AMA) &ndash; JB Auditorium, in the presence of industry guests, valued clients, partners, and company founders Narendra Lunagaria and Nitesh Lunagaria.
             </p>
             <p>
               As part of its evolution, the company showcased significant advancements in digital technology, marking a full transition from traditional desktop-based systems to modern, cloud-driven solutions. Nirghos ERP&apos;s product suite includes <strong className="text-white">JSoft ERP</strong> for jewellery businesses and <strong className="text-white">GSoft ERP</strong> for apparel, lifestyle &amp; footwear.
@@ -1922,7 +1922,7 @@ export const Home = () => {
           </div>
 
           {/* Orange Highlight Quote Banner */}
-          <div className="my-8 p-4 sm:p-5 rounded-2xl bg-[#f25c05] text-white flex items-center gap-3.5 sm:gap-4 shadow-xl">
+          <div className="my-8 p-4 sm:p-5 rounded-2xl bg-[#FF5A1F] text-white flex items-center gap-3.5 sm:gap-4 shadow-xl">
             <div className="text-white/80 shrink-0">
               <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -1971,7 +1971,7 @@ export const Home = () => {
                     </div>
                   </div>
                   <div className="p-4 sm:p-5 space-y-2 text-left">
-                    <h5 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-[#0060b9] transition-colors line-clamp-2">
+                    <h5 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-[#0D5FD9] transition-colors line-clamp-2">
                       {article.headline}
                     </h5>
                     {article.subtitle && (
@@ -1984,7 +1984,7 @@ export const Home = () => {
                     </p>
                   </div>
                 </div>
-                <div className="px-4 py-3 bg-slate-50/80 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0060b9] group-hover:text-[#004f9e]">
+                <div className="px-4 py-3 bg-slate-50/80 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0D5FD9] group-hover:text-[#094CB3]">
                   <span>Read Full Article</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
@@ -2024,12 +2024,12 @@ export const Home = () => {
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
                 Our Blog - ERP Insights
               </h2>
-              <div className="w-14 h-1 bg-[#f25c05] rounded-full mt-2"></div>
+              <div className="w-14 h-1 bg-[#FF5A1F] rounded-full mt-2"></div>
             </div>
             
             <Link
               to="/blogs"
-              className="self-start sm:self-auto inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs shadow-xs hover:shadow transition-all duration-200 cursor-pointer"
+              className="self-start sm:self-auto inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-xs shadow-xs hover:shadow transition-all duration-200 cursor-pointer"
             >
               <span>View All</span>
             </Link>
@@ -2055,7 +2055,7 @@ export const Home = () => {
 
                   {/* Meta Row: Tag and Date */}
                   <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-orange-50 text-[#f25c05] font-semibold text-[11px] border border-orange-100/80">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-orange-50 text-[#FF5A1F] font-semibold text-[11px] border border-orange-100/80">
                       {post.tag}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 font-medium">
@@ -2065,7 +2065,7 @@ export const Home = () => {
                   </div>
 
                   {/* Card Title */}
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0060b9] transition-colors leading-snug line-clamp-2 mb-3">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0D5FD9] transition-colors leading-snug line-clamp-2 mb-3">
                     {post.fullTitle}
                   </h3>
                 </div>
@@ -2077,7 +2077,7 @@ export const Home = () => {
                     <span className="truncate">{post.author}</span>
                   </div>
 
-                  <span className="font-bold text-slate-800 group-hover:text-[#0060b9] flex items-center gap-1 transition-colors text-[11px] sm:text-xs shrink-0">
+                  <span className="font-bold text-slate-800 group-hover:text-[#0D5FD9] flex items-center gap-1 transition-colors text-[11px] sm:text-xs shrink-0">
                     <span>Read Post</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </span>
@@ -2091,7 +2091,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 10. OUR CORPORATE EVENTS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
       {/* ========================================================================= */}
-      <section id="corporate-events-section" className="py-16 sm:py-20 lg:py-24 bg-[#1c75bc] text-white relative overflow-hidden">
+      <section id="corporate-events-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#0c4e8a] via-[#1062a8] to-[#083966] text-white relative overflow-hidden">
         {/* Subtle radial ambient glows */}
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-sky-400/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -2139,14 +2139,14 @@ export const Home = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0060b9] transition-colors leading-snug line-clamp-2 my-2">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0D5FD9] transition-colors leading-snug line-clamp-2 my-2">
                     {event.title}
                   </h3>
                 </div>
 
                 {/* Footer Action: View Details */}
                 <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs mt-3">
-                  <span className="font-bold text-slate-800 group-hover:text-[#0060b9] flex items-center gap-1 transition-colors text-[11px] sm:text-xs">
+                  <span className="font-bold text-slate-800 group-hover:text-[#0D5FD9] flex items-center gap-1 transition-colors text-[11px] sm:text-xs">
                     <span>View Details</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </span>
@@ -2159,7 +2159,7 @@ export const Home = () => {
           <div className="mt-10 sm:mt-12 flex justify-center">
             <Link
               to="/events"
-              className="px-8 py-2.5 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer inline-flex items-center gap-2"
+              className="px-8 py-2.5 rounded-full bg-[#FF5A1F] hover:bg-[#E0480C] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer inline-flex items-center gap-2"
             >
               <span>View All</span>
             </Link>
@@ -2521,7 +2521,7 @@ export const Home = () => {
             </button>
 
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-sky-100 text-[#0060b9] flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-sky-100 text-[#0D5FD9] flex items-center justify-center shrink-0">
                 <Play className="w-6 h-6 fill-current ml-0.5" />
               </div>
               <div>
@@ -2560,7 +2560,7 @@ export const Home = () => {
                   setActiveStoryVideo(null);
                   setIsDemoModalOpen(true);
                 }}
-                className="w-full py-2.5 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs transition"
+                className="w-full py-2.5 rounded-xl bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-xs transition"
               >
                 Experience This in Nirghos Live Demo
               </button>
@@ -2651,7 +2651,7 @@ export const Home = () => {
                   setSelectedPressModal(null);
                   setIsDemoModalOpen(true);
                 }}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Schedule A Product Demo
               </button>
@@ -2689,7 +2689,7 @@ export const Home = () => {
             </button>
 
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-xs font-bold px-3 py-1 rounded-full bg-orange-50 text-[#f25c05] border border-orange-200">
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-orange-50 text-[#FF5A1F] border border-orange-200">
                 {selectedBlogModal.tag}
               </span>
               <span className="text-xs font-medium text-slate-500 flex items-center gap-1">
@@ -2707,7 +2707,7 @@ export const Home = () => {
             </h3>
 
             <div className="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
-              <div className="w-7 h-7 rounded-full bg-sky-100 text-[#0060b9] font-bold flex items-center justify-center text-xs">
+              <div className="w-7 h-7 rounded-full bg-sky-100 text-[#0D5FD9] font-bold flex items-center justify-center text-xs">
                 {selectedBlogModal.author.slice(0, 2).toUpperCase()}
               </div>
               <span>By {selectedBlogModal.author}</span>
@@ -2745,7 +2745,7 @@ export const Home = () => {
               <Link
                 to="/blogs"
                 onClick={() => setSelectedBlogModal(null)}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Read More on Nirghos Blogs →
               </Link>
@@ -2834,7 +2834,7 @@ export const Home = () => {
               <Link
                 to="/events"
                 onClick={() => setSelectedEventModal(null)}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Explore All Corporate Events →
               </Link>

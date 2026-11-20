@@ -34,6 +34,14 @@ export default {
           900: '#0c4a6e',
           950: '#082f49',
         },
+        nirghos: {
+          blue: '#0D5FD9',
+          'blue-hover': '#094CB3',
+          'blue-dark': '#0A2540',
+          'blue-ocean': '#0E5E9E',
+          coral: '#FF5A1F',
+          'coral-hover': '#E0480C',
+        },
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],

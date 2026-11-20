@@ -202,24 +202,24 @@ export const Blogs = () => {
       {/* ========================================================================= */}
       <section className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white pt-14 pb-24 border-b border-navy-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-15 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-[#f25c05]/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-[#FF5A1F]/15 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs text-slate-400 mb-5">
             <Link to="/" className="hover:text-white transition">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-[#f25c05] font-semibold">Blogs & Articles</span>
+            <span className="text-[#FF5A1F] font-semibold">Blogs & Articles</span>
           </div>
 
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f25c05]/15 border border-[#f25c05]/30 text-[#f25c05] text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5A1F]/15 border border-[#FF5A1F]/30 text-[#FF5A1F] text-xs font-black uppercase tracking-wider">
               <FileText className="w-3.5 h-3.5" />
               <span>Nirghos ERP Insights</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              Engineering, ERP Innovation & <span className="text-[#f25c05]">Business Trends.</span>
+              Engineering, ERP Innovation & <span className="text-[#FF5A1F]">Business Trends.</span>
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
@@ -235,7 +235,7 @@ export const Blogs = () => {
                   placeholder="Search articles on AI, GST, supply chain, architecture..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#f25c05] focus:bg-white/15 transition-all"
+                  className="w-full pl-12 pr-4 py-3.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF5A1F] focus:bg-white/15 transition-all"
                 />
               </div>
             </div>
@@ -252,7 +252,7 @@ export const Blogs = () => {
             
             <div className="lg:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3.5 py-1 rounded-full bg-orange-50 text-[#f25c05] border border-orange-200 font-mono font-bold text-xs uppercase tracking-wider">
+                <span className="px-3.5 py-1 rounded-full bg-orange-50 text-[#FF5A1F] border border-orange-200 font-mono font-bold text-xs uppercase tracking-wider">
                   Featured Article
                 </span>
                 <span className="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
@@ -265,7 +265,7 @@ export const Blogs = () => {
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 hover:text-[#f25c05] transition-colors leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 hover:text-[#FF5A1F] transition-colors leading-tight">
                 {featuredPost.title}
               </h2>
 
@@ -287,7 +287,7 @@ export const Blogs = () => {
                 <button
                   type="button"
                   onClick={() => showToast(`Opening article: ${featuredPost.title}`, 'info')}
-                  className="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-[#f25c05] text-white font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+                  className="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-[#FF5A1F] text-white font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm"
                 >
                   <span>Read Article</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -336,7 +336,7 @@ export const Blogs = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-[#f25c05] text-white shadow-xs'
+                    ? 'bg-[#FF5A1F] text-white shadow-xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >
@@ -364,7 +364,7 @@ export const Blogs = () => {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#f25c05] transition-colors leading-snug">
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#FF5A1F] transition-colors leading-snug">
                   {post.title}
                 </h3>
 
@@ -382,7 +382,7 @@ export const Blogs = () => {
                 <button
                   type="button"
                   onClick={() => showToast(`Opening article: ${post.title}`, 'info')}
-                  className="w-full py-2.5 rounded-xl bg-slate-50 hover:bg-orange-50 text-slate-700 hover:text-[#f25c05] font-bold text-xs transition border border-slate-200 hover:border-orange-200 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2.5 rounded-xl bg-slate-50 hover:bg-orange-50 text-slate-700 hover:text-[#FF5A1F] font-bold text-xs transition border border-slate-200 hover:border-orange-200 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Read Full Article</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -400,7 +400,7 @@ export const Blogs = () => {
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-navy-950 to-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-800 shadow-xl">
           <div className="space-y-3 max-w-xl text-center md:text-left">
-            <span className="text-xs font-black uppercase tracking-wider text-[#f25c05] px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
+            <span className="text-xs font-black uppercase tracking-wider text-[#FF5A1F] px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
               Stay Informed
             </span>
             <h3 className="text-2xl sm:text-3xl font-black">
@@ -424,11 +424,11 @@ export const Blogs = () => {
                   placeholder="Enter your corporate email..."
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-[#f25c05] w-full"
+                  className="px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-[#FF5A1F] w-full"
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-xs shadow-md transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
+                  className="px-6 py-3 rounded-full bg-[#FF5A1F] hover:bg-[#E0480C] text-white font-bold text-xs shadow-md transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   <span>Subscribe</span>
                   <Send className="w-3.5 h-3.5" />
