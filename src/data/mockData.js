@@ -328,7 +328,7 @@ export const industryStaffSamples = {
     { id: 'HSP-EMP-05', name: 'Girish Joshi', dept: 'TPA Insurance Desk', role: 'Cashless Billing Executive', status: 'On Leave', checkIn: '-', salary: 5800 }
   ],
   construction: [
-    { id: 'CON-EMP-01', name: 'Rohan Deshmukh', dept: 'Project Site Alpha', role: 'Chief Project Engineer', status: 'Present', checkIn: '08:30 AM', salary: 11500 },
+    { id: 'CON-EMP-01', name: 'Rohan Deshmukh', dept: 'Project Site Nirghos', role: 'Chief Project Engineer', status: 'Present', checkIn: '08:30 AM', salary: 11500 },
     { id: 'CON-EMP-02', name: 'Anil Chauhan', dept: 'Quantity Surveying', role: 'Measurement Book (MB) Auditor', status: 'Present', checkIn: '08:45 AM', salary: 8400 },
     { id: 'CON-EMP-03', name: 'Sameer Sheikh', dept: 'Heavy Equipment', role: 'Tower Crane Operations Lead', status: 'Present', checkIn: '08:15 AM', salary: 7200 },
     { id: 'CON-EMP-04', name: 'Megha Trivedi', dept: 'RERA Client CRM', role: 'Property Allotment Manager', status: 'Late', checkIn: '09:40 AM', salary: 7900 },

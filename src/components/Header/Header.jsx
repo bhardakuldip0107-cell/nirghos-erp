@@ -279,7 +279,7 @@ export const Header = () => {
         {/* ========================================================================= */}
         <div className="w-full bg-[#f25c05] text-white py-2 px-4 text-center select-none shadow-xs">
           <div className="w-full max-w-[1750px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
-            <span>&ldquo;Alpha E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Nirghos ERP Solutions Pvt. Ltd.&rdquo;</span>
+            <span>&ldquo;Nirghos E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Nirghos ERP Solutions Pvt. Ltd.&rdquo;</span>
           </div>
         </div>
 

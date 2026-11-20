@@ -133,7 +133,7 @@ export const About = () => {
     <div className="space-y-16 pb-28">
       
       {/* ========================================================================= */}
-      {/* 1. HERO & ABOUT ALPHA SECTION (EXACT MATCH TO USER SCREENSHOT)            */}
+      {/* 1. HERO & ABOUT NIRGHOS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
       {/* ========================================================================= */}
       <section className="pt-8 pb-8 bg-white border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -365,24 +365,24 @@ export const Home = () => {
     },
     {
       id: 'bizpro',
-      name: 'Alpha BIZPRO',
+      name: 'Nirghos BIZPRO',
       icon: Cpu,
       iconBg: '#dbeafe',
       iconColor: '#2563eb',
       badge: 'Trading & Distribution',
       renderLogo: () => (
         <div className="flex flex-col text-left font-sans">
-          <span className="text-xs sm:text-sm font-black text-[#0060b9] leading-none">Alpha</span>
+          <span className="text-xs sm:text-sm font-black text-[#0060b9] leading-none">Nirghos</span>
           <span className="text-[9px] font-black uppercase tracking-wider text-slate-800 leading-none mt-0.5">BIZPRO</span>
         </div>
       ),
       heading: 'Trading, Distribution & Wholesale ERP',
-      desc: 'Alpha BIZPRO provides end-to-end supply chain distribution, multi-warehouse stock management, automated credit limits, e-way bill generation, and GST compliance for high-volume traders.',
-      monitorCaption: 'Alpha BIZPRO Supply Chain & Distribution Suite',
+      desc: 'Nirghos BIZPRO provides end-to-end supply chain distribution, multi-warehouse stock management, automated credit limits, e-way bill generation, and GST compliance for high-volume traders.',
+      monitorCaption: 'Nirghos BIZPRO Supply Chain & Distribution Suite',
       slides: [
-        'Alpha BIZPRO Supply Chain & Distribution Suite',
-        'Alpha BIZPRO Multi-Warehouse Bin Control',
-        'Alpha BIZPRO Automated E-Way Bill & GST'
+        'Nirghos BIZPRO Supply Chain & Distribution Suite',
+        'Nirghos BIZPRO Multi-Warehouse Bin Control',
+        'Nirghos BIZPRO Automated E-Way Bill & GST'
       ],
       link: '/industries/trading',
       categorySlug: 'trading',
@@ -395,24 +395,24 @@ export const Home = () => {
     },
     {
       id: 'omni',
-      name: 'Alpha Omni',
+      name: 'Nirghos Omni',
       icon: Globe,
       iconBg: '#ccfbf1',
       iconColor: '#0d9488',
       badge: 'Omnichannel & Sync',
       renderLogo: () => (
         <div className="flex items-center gap-1 font-sans">
-          <span className="text-xs sm:text-sm font-bold text-slate-500 leading-none">Alpha</span>
+          <span className="text-xs sm:text-sm font-bold text-slate-500 leading-none">Nirghos</span>
           <span className="text-xs sm:text-sm font-black text-[#0d9488] leading-none">omni</span>
         </div>
       ),
       heading: 'Omnichannel Retail & E-Commerce Sync',
       desc: 'Unify your offline retail POS counters with online marketplaces (Amazon, Flipkart, Shopify, WooCommerce) in real time with central inventory sync, barcode dispatch, and returns management.',
-      monitorCaption: 'Alpha Omni E-Commerce Sync Control Center',
+      monitorCaption: 'Nirghos Omni E-Commerce Sync Control Center',
       slides: [
-        'Alpha Omni E-Commerce Sync Control Center',
-        'Alpha Omni Central Marketplace Inventory',
-        'Alpha Omni Automated Order Dispatch Hub'
+        'Nirghos Omni E-Commerce Sync Control Center',
+        'Nirghos Omni Central Marketplace Inventory',
+        'Nirghos Omni Automated Order Dispatch Hub'
       ],
       link: '/industries/ecommerce',
       categorySlug: 'ecommerce',
@@ -484,24 +484,24 @@ export const Home = () => {
     },
     {
       id: 'chatbox',
-      name: 'Alpha CHATBOX',
+      name: 'Nirghos CHATBOX',
       icon: MessageSquare,
       iconBg: '#d1fae5',
       iconColor: '#059669',
       badge: 'WhatsApp Automation',
       renderLogo: () => (
         <div className="flex flex-col text-left font-sans">
-          <span className="text-[8px] font-bold text-slate-500 leading-none">Alpha</span>
+          <span className="text-[8px] font-bold text-slate-500 leading-none">Nirghos</span>
           <span className="text-xs sm:text-sm font-black text-[#059669] leading-none">CHATBOX</span>
         </div>
       ),
       heading: 'WhatsApp Automated Customer Engagement Hub',
       desc: 'Automate payment reminders, GST invoice PDFs, order dispatches, OTP confirmations, and promotional broadcast campaigns directly via official Meta WhatsApp Business API.',
-      monitorCaption: 'Alpha CHATBOX Smart WhatsApp Dispatch Engine',
+      monitorCaption: 'Nirghos CHATBOX Smart WhatsApp Dispatch Engine',
       slides: [
-        'Alpha CHATBOX Smart WhatsApp Dispatch Engine',
-        'Alpha CHATBOX Automated Invoice Dispatcher',
-        'Alpha CHATBOX Customer Broadcast Campaigns'
+        'Nirghos CHATBOX Smart WhatsApp Dispatch Engine',
+        'Nirghos CHATBOX Automated Invoice Dispatcher',
+        'Nirghos CHATBOX Customer Broadcast Campaigns'
       ],
       link: '/contact',
       categorySlug: 'service-maintenance',

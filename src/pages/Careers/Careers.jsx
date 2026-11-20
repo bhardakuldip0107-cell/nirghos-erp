@@ -76,7 +76,7 @@ export const Careers = () => {
       type: 'Full-Time',
       experience: '2 - 5 Years',
       salary: '₹12 - 20 LPA',
-      desc: 'Lead the Nirghos Vision (AlphaCam 360) CCTV video intelligence pipeline: real-time footfall counting, customer dwell time heatmaps, and edge AI video inference for retail showrooms.',
+      desc: 'Lead the Nirghos Vision (AI Cam 360) CCTV video intelligence pipeline: real-time footfall counting, customer dwell time heatmaps, and edge AI video inference for retail showrooms.',
       skills: ['Python', 'OpenCV', 'PyTorch / TensorFlow', 'YOLO / DeepSort', 'Docker'],
       urgency: 'New'
     },
