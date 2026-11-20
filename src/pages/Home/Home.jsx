@@ -41,7 +41,9 @@ import {
   FileText,
   Calendar,
   User,
-  MapPin
+  MapPin,
+  Plus,
+  Minus
 } from 'lucide-react';
 import { industriesData } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
@@ -72,6 +74,11 @@ export const Home = () => {
   const [pressSlideIndex, setPressSlideIndex] = useState(0);
   const [selectedBlogModal, setSelectedBlogModal] = useState(null);
   const [selectedEventModal, setSelectedEventModal] = useState(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
+
+  const toggleFaq = (idx) => {
+    setOpenFaqIndex((prev) => (prev === idx ? null : idx));
+  };
 
   // Measure card width + gap dynamically
   useEffect(() => {
@@ -848,6 +855,40 @@ export const Home = () => {
         'Textile style-color-size matrix demo with dynamic karigar rates',
         'Panel discussion with Gujarat leading business pioneers'
       ]
+    }
+  ];
+
+  // Frequently Asked Questions (FAQ) Data for Home Page (Matching User Screenshot with 100% Nirghos Details)
+  const homeFaqs = [
+    {
+      id: 1,
+      num: '1.',
+      question: 'What is ERP, and how can it help my business?',
+      answer: 'ERP (Enterprise Resource Planning) is an all-in-one software platform that unifies all your core departments—including inventory management, accounting & GST, sales billing, procurement, manufacturing, and customer relations—into a single synchronized real-time dashboard. Nirghos ERP eliminates manual paperwork, prevents stock discrepancies across multiple branches and godowns, and delivers live profit-and-loss insights so you can make confident, data-driven business decisions.'
+    },
+    {
+      id: 2,
+      num: '2.',
+      question: 'How quickly can I implement your ERP system?',
+      answer: 'Thanks to Nirghos ERP’s pre-configured industry blueprints and automated Excel import utilities, standard implementations typically go live in as little as 7 to 14 days. For large enterprise deployments with multi-branch synchronization and hardware integrations (RFID batch tags, barcode scanners, and biometric devices), our dedicated deployment engineers ensure complete opening balance migration, testing, and staff training within 2 to 3 weeks with zero business disruption.'
+    },
+    {
+      id: 3,
+      num: '3.',
+      question: 'Can your ERP system be customized for my industry?',
+      answer: 'Yes, 100%! Nirghos ERP provides dedicated, purpose-built editions out of the box: JSoft ERP tailored specifically for Jewellery retailers and manufacturers (with purity recalculation, karigar metal loss tracking, and hallmarking), GSoft ERP for Apparel, Footwear & Lifestyle (with style-color-size matrix billing and automated e-way bills), alongside customized suites for Discrete & Process Manufacturing, Supermarkets, and Wholesale Distribution.'
+    },
+    {
+      id: 4,
+      num: '4.',
+      question: 'Will my existing data be safe during migration?',
+      answer: 'Your data security and confidentiality are our highest priority. Nirghos ERP utilizes military-grade 256-bit AES encryption, automated daily off-site cloud backups, and ISO-27001 certified high-availability servers. Our technical team conducts thorough dry-run reconciliation checks, verifying every customer ledger, outstanding payment, and inventory SKU before the final switchover, ensuring 100% data integrity with zero data loss.'
+    },
+    {
+      id: 5,
+      num: '5.',
+      question: 'Does your ERP system support mobile access?',
+      answer: 'Yes! Nirghos ERP includes native, intuitive mobile apps for Android and iOS as well as cloud-based web portals. Business owners and field teams can track live sales counters, approve purchase orders, generate GST invoice PDFs, and monitor multi-branch stock levels in real time from any smartphone or tablet anywhere in the world.'
     }
   ];
 
@@ -2163,6 +2204,75 @@ export const Home = () => {
             >
               <span>View All</span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* HAVE ANY QUESTIONS? (FAQ ACCORDION SECTION - 100% NIRGHOS DETAILS)       */}
+      {/* ========================================================================= */}
+      <section id="faq-section" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-100 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            
+            {/* Left Column: Heading, Bar, Description */}
+            <div className="lg:col-span-5 space-y-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-black text-slate-900 tracking-tight leading-tight">
+                Have Any Questions?
+              </h2>
+              <div className="w-14 h-1 bg-[#0284c7] rounded-full"></div>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1 max-w-md">
+                Got ERP questions? Explore our FAQs to see how our solutions can support your business growth and daily operations.
+              </p>
+            </div>
+
+            {/* Right Column: 5 Accordion Questions */}
+            <div className="lg:col-span-7">
+              <div className="divide-y divide-slate-200 border-t border-b border-slate-200">
+                {homeFaqs.map((faq, idx) => {
+                  const isOpen = openFaqIndex === idx;
+                  return (
+                    <div key={faq.id} className="transition-colors">
+                      <button
+                        type="button"
+                        onClick={() => toggleFaq(idx)}
+                        className="w-full py-5 flex items-center justify-between text-left group transition-colors focus:outline-none"
+                      >
+                        <span className={`text-base sm:text-lg font-bold pr-4 flex items-baseline gap-2 transition-colors ${
+                          isOpen ? 'text-[#0284c7]' : 'text-slate-900 group-hover:text-[#0284c7]'
+                        }`}>
+                          <span className="shrink-0">{faq.num}</span>
+                          <span>{faq.question}</span>
+                        </span>
+                        <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
+                          isOpen 
+                            ? 'text-[#0284c7] bg-sky-50' 
+                            : 'text-slate-600 group-hover:text-[#0284c7] group-hover:bg-slate-100'
+                        }`}>
+                          {isOpen ? (
+                            <Minus className="w-4 h-4 stroke-[2.5]" />
+                          ) : (
+                            <Plus className="w-4 h-4 stroke-[2.5]" />
+                          )}
+                        </span>
+                      </button>
+
+                      {/* Accordion Answer Content */}
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                          isOpen ? 'max-h-96 pb-5 opacity-100' : 'max-h-0 pb-0 opacity-0'
+                        }`}
+                      >
+                        <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed pl-6 sm:pl-7 pr-2">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
