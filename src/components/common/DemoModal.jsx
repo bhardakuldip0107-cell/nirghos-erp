@@ -157,7 +157,7 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
               Let&apos;s Collaborate and{' '}
               <span className="relative inline-block font-semibold text-slate-800">
                 help you automate
-                <span className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-orange-500 rounded-full"></span>
+                <span className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-sky-500 rounded-full"></span>
               </span>{' '}
               your business.
             </p>

@@ -35,12 +35,12 @@ export default {
           950: '#082f49',
         },
         nirghos: {
-          blue: '#0D5FD9',
-          'blue-hover': '#094CB3',
-          'blue-dark': '#0A2540',
-          'blue-ocean': '#0E5E9E',
-          coral: '#FF5A1F',
-          'coral-hover': '#E0480C',
+          primary: '#0284c7',
+          'primary-hover': '#0369a1',
+          cyan: '#38bdf8',
+          electric: '#0ea5e9',
+          navy: '#0B192C',
+          dark: '#060e19',
         },
       },
       fontFamily: {

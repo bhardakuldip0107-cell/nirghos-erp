@@ -119,7 +119,7 @@ export const Testimonials = () => {
   const displayedList = testimonials.slice(0, visibleCount);
 
   return (
-    <div className="min-h-screen bg-[#f8faff] text-slate-800 pb-24 selection:bg-[#0D5FD9] selection:text-white relative overflow-hidden">
+    <div className="min-h-screen bg-[#f8faff] text-slate-800 pb-24 selection:bg-[#0284c7] selection:text-white relative overflow-hidden">
       
       {/* Blueprint Grid Pattern with Soft Accent Pixel Tiles */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.45]">
@@ -152,19 +152,19 @@ export const Testimonials = () => {
           <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-sky-50/90 border border-sky-100/90 shadow-2xs">
             <Link 
               to="/" 
-              className="text-xs sm:text-sm font-bold text-slate-800 hover:text-[#0D5FD9] transition-colors"
+              className="text-xs sm:text-sm font-bold text-slate-800 hover:text-[#0284c7] transition-colors"
             >
               Home
             </Link>
             <span className="text-slate-300 font-light">|</span>
-            <span className="text-xs sm:text-sm font-bold text-[#FF5A1F]">
+            <span className="text-xs sm:text-sm font-bold text-[#0284c7]">
               Testimonial
             </span>
           </div>
 
           {/* Main Title: Driven By Client Trust And Experience */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 mt-4">
-            <span className="text-[#0D5FD9]">Driven By Client</span> Trust And Experience
+            <span className="text-[#0284c7]">Driven By Client</span> Trust And Experience
           </h1>
 
           {/* Subtitle */}
@@ -199,7 +199,7 @@ export const Testimonials = () => {
                 <button
                   type="button"
                   onClick={() => toggleReadMore(t.id)}
-                  className="text-xs font-bold text-[#FF5A1F] hover:text-[#E0480C] mt-2.5 inline-block cursor-pointer self-start transition-colors"
+                  className="text-xs font-bold text-[#0284c7] hover:text-[#0369a1] mt-2.5 inline-block cursor-pointer self-start transition-colors"
                 >
                   {expandedCards[t.id] ? 'Show Less' : 'Read More'}
                 </button>
@@ -222,7 +222,7 @@ export const Testimonials = () => {
                     type="button"
                     onClick={() => setActiveVideoModal(t)}
                     title={`Watch ${t.name}'s Video Story`}
-                    className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0D5FD9] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer ml-3 shrink-0"
+                    className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0284c7] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer ml-3 shrink-0"
                   >
                     <Play className="w-4 h-4 fill-current ml-0.5" />
                   </button>
@@ -238,7 +238,7 @@ export const Testimonials = () => {
             <button
               type="button"
               onClick={() => setVisibleCount(testimonials.length)}
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white hover:bg-slate-50 text-[#0D5FD9] font-bold text-xs sm:text-sm border-2 border-sky-200 hover:border-[#0D5FD9] shadow-sm transition-all transform hover:scale-105 cursor-pointer"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white hover:bg-slate-50 text-[#0284c7] font-bold text-xs sm:text-sm border-2 border-sky-200 hover:border-[#0284c7] shadow-sm transition-all transform hover:scale-105 cursor-pointer"
             >
               <span>View More Client Stories ({testimonials.length - visibleCount} more)</span>
               <ArrowRight className="w-4 h-4" />
@@ -251,10 +251,10 @@ export const Testimonials = () => {
         {/* ========================================================================= */}
         <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-lg text-center space-y-5 relative overflow-hidden">
           <div className="absolute -top-16 -right-16 w-48 h-48 bg-sky-100 rounded-full blur-2xl pointer-events-none"></div>
-          <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-orange-100/60 rounded-full blur-2xl pointer-events-none"></div>
+          <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-sky-100/60 rounded-full blur-2xl pointer-events-none"></div>
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#FF5A1F] text-xs font-bold uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-[#0284c7] text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>5,000+ Happy Customers</span>
             </span>
@@ -271,7 +271,7 @@ export const Testimonials = () => {
               <button
                 type="button"
                 onClick={() => setIsDemoModalOpen(true)}
-                className="px-7 py-3 rounded-full bg-[#FF5A1F] hover:bg-[#E0480C] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+                className="px-7 py-3 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
               >
                 Schedule Free Live Demo
               </button>
@@ -302,7 +302,7 @@ export const Testimonials = () => {
             </button>
 
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-sky-100 text-[#0D5FD9] flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-sky-100 text-[#0284c7] flex items-center justify-center shrink-0">
                 <Play className="w-6 h-6 fill-current ml-0.5" />
               </div>
               <div>
@@ -342,7 +342,7 @@ export const Testimonials = () => {
                   setActiveVideoModal(null);
                   setIsDemoModalOpen(true);
                 }}
-                className="w-full py-2.5 rounded-xl bg-[#0D5FD9] hover:bg-[#094CB3] text-white font-bold text-xs transition"
+                className="w-full py-2.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs transition"
               >
                 Experience This in Nirghos Live Demo
               </button>

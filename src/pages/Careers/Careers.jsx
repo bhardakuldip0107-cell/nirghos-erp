@@ -198,7 +198,7 @@ export const Careers = () => {
       <section className="bg-gradient-to-b from-navy-950 via-slate-950 to-navy-950 text-white pt-14 pb-20 border-b border-navy-800 relative overflow-hidden">
         {/* Glow Effects */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-10">
           
@@ -206,17 +206,17 @@ export const Careers = () => {
           <div className="flex items-center gap-2 text-xs text-slate-400 mb-6">
             <Link to="/" className="hover:text-white transition">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-            <span className="text-[#FF5A1F] font-semibold">Join Our Team</span>
+            <span className="text-[#0284c7] font-semibold">Join Our Team</span>
           </div>
 
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 text-[#FF5A1F] border border-orange-500/30 text-xs font-black uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#FF5A1F]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/15 text-[#0284c7] border border-orange-500/30 text-xs font-black uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-[#0284c7]" />
               <span>We&apos;re Hiring • 7 Open Roles</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-              Build the Future of <span className="bg-gradient-to-r from-brand-400 via-sky-300 to-[#FF5A1F] bg-clip-text text-transparent">Enterprise AI & ERP</span>
+              Build the Future of <span className="bg-gradient-to-r from-brand-400 via-sky-300 to-[#0284c7] bg-clip-text text-transparent">Enterprise AI & ERP</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
@@ -226,7 +226,7 @@ export const Careers = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a 
                 href="#open-roles" 
-                className="px-6 py-3 rounded-full bg-[#FF5A1F] hover:bg-[#E0480C] text-white font-extrabold text-sm shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
+                className="px-6 py-3 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-extrabold text-sm shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 hover:scale-105 active:scale-95"
               >
                 <span>View Open Positions</span>
                 <ArrowRight className="w-4 h-4" />
@@ -247,7 +247,7 @@ export const Careers = () => {
               <p className="text-xs text-slate-400 font-semibold mt-0.5">Minds Building Nirghos</p>
             </div>
             <div className="p-4 rounded-2xl bg-navy-900/60 border border-navy-800/80">
-              <p className="text-2xl sm:text-3xl font-black text-[#FF5A1F]">₹1,000Cr+</p>
+              <p className="text-2xl sm:text-3xl font-black text-[#0284c7]">₹1,000Cr+</p>
               <p className="text-xs text-slate-400 font-semibold mt-0.5">Client GMV Handled</p>
             </div>
             <div className="p-4 rounded-2xl bg-navy-900/60 border border-navy-800/80">
@@ -268,7 +268,7 @@ export const Careers = () => {
       {/* ========================================================================= */}
       <section id="culture" className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-          <span className="text-xs font-black uppercase tracking-wider text-[#FF5A1F]">Culture & Benefits</span>
+          <span className="text-xs font-black uppercase tracking-wider text-[#0284c7]">Culture & Benefits</span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Why You&apos;ll Love Working at Team Nirghos
           </h2>
@@ -292,10 +292,10 @@ export const Careers = () => {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-brand-500/40 transition-all group">
-            <div className="w-12 h-12 rounded-xl bg-orange-50 text-[#FF5A1F] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <Zap className="w-6 h-6" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 group-hover:text-[#FF5A1F] transition-colors">
+            <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors">
               Massive Real-World Impact
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
@@ -361,7 +361,7 @@ export const Careers = () => {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-xs font-black uppercase tracking-wider text-[#FF5A1F]">Explore Opportunities</span>
+            <span className="text-xs font-black uppercase tracking-wider text-[#0284c7]">Explore Opportunities</span>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-1">
               Current Open Positions ({filteredJobs.length})
             </h2>
@@ -406,7 +406,7 @@ export const Careers = () => {
             filteredJobs.map((job) => (
               <div
                 key={job.id}
-                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#FF5A1F]/60 transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6 group"
+                className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#0284c7]/60 transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6 group"
               >
                 <div className="space-y-3 flex-1">
                   <div className="flex flex-wrap items-center gap-2.5">
@@ -414,14 +414,14 @@ export const Careers = () => {
                       {job.dept}
                     </span>
                     {job.urgency && (
-                      <span className="px-2 py-0.5 rounded-md bg-orange-50 text-[#FF5A1F] font-black text-[10px] uppercase border border-orange-200">
+                      <span className="px-2 py-0.5 rounded-md bg-sky-50 text-[#0284c7] font-black text-[10px] uppercase border border-sky-200">
                         {job.urgency}
                       </span>
                     )}
                   </div>
 
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#FF5A1F] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors">
                       {job.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed max-w-4xl">
@@ -461,7 +461,7 @@ export const Careers = () => {
                 <div className="shrink-0 flex items-center">
                   <button
                     onClick={() => handleOpenApplyModal(job)}
-                    className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-slate-900 hover:bg-[#FF5A1F] text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer group-hover:shadow-md"
+                    className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-slate-900 hover:bg-[#0284c7] text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer group-hover:shadow-md"
                   >
                     <span>Apply for Role</span>
                     <ArrowRight className="w-4 h-4" />
@@ -475,7 +475,7 @@ export const Careers = () => {
               <p className="text-xs text-slate-500 mt-1">Try resetting the department filter or search query.</p>
               <button
                 onClick={() => { setSelectedDepartment('All'); setSearchQuery(''); }}
-                className="mt-3 text-xs font-bold text-[#FF5A1F] underline"
+                className="mt-3 text-xs font-bold text-[#0284c7] underline"
               >
                 Clear all filters
               </button>
@@ -491,7 +491,7 @@ export const Careers = () => {
       <section className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-10 pt-8">
         <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
           <div className="text-center max-w-2xl mx-auto space-y-2 mb-10">
-            <span className="text-xs font-black uppercase tracking-wider text-[#FF5A1F]">Zero Guesswork</span>
+            <span className="text-xs font-black uppercase tracking-wider text-[#0284c7]">Zero Guesswork</span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Our 4-Step Transparent Hiring Process
             </h2>
@@ -502,7 +502,7 @@ export const Careers = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 relative space-y-2">
-              <span className="text-3xl font-black text-[#FF5A1F]">01</span>
+              <span className="text-3xl font-black text-[#0284c7]">01</span>
               <h4 className="text-base font-bold text-slate-900">Application Review</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Our talent team reviews your GitHub, LinkedIn, or portfolio within 24-48 business hours.
@@ -581,7 +581,7 @@ export const Careers = () => {
 
             {/* Header */}
             <div className="mb-6 pt-1">
-              <span className="text-[11px] font-black uppercase tracking-wider text-[#FF5A1F] px-2 py-0.5 rounded bg-orange-50 border border-orange-200">
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#0284c7] px-2 py-0.5 rounded bg-sky-50 border border-sky-200">
                 {selectedJob.dept}
               </span>
               <h3 className="text-xl font-bold text-slate-900 tracking-tight mt-2">
@@ -732,7 +732,7 @@ export const Careers = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-full bg-[#FF5A1F] hover:bg-[#E0480C] text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all active:scale-[0.99] cursor-pointer"
+                    className="w-full py-3 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all active:scale-[0.99] cursor-pointer"
                   >
                     Submit Application
                   </button>

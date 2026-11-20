@@ -73,10 +73,10 @@ export const SearchBar = ({
   return (
     <div ref={containerRef} className={`relative w-full ${className}`}>
       {/* Modern Attractive Capsule Search Bar */}
-      <div className="relative flex items-center p-1.5 sm:p-2 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border-2 border-orange-200/90 hover:border-[#FF5A1F] focus-within:border-[#FF5A1F] focus-within:ring-4 focus-within:ring-orange-500/15 shadow-[0_12px_40px_-8px_rgba(242,92,5,0.18),0_2px_8px_rgba(0,0,0,0.04)] transition-all">
+      <div className="relative flex items-center p-1.5 sm:p-2 bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border-2 border-sky-200/90 hover:border-[#0284c7] focus-within:border-[#0284c7] focus-within:ring-4 focus-within:ring-orange-500/15 shadow-[0_12px_40px_-8px_rgba(242,92,5,0.18),0_2px_8px_rgba(0,0,0,0.04)] transition-all">
         
         {/* Left Gradient Icon Badge */}
-        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-full bg-gradient-to-tr from-[#FF5A1F] to-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-orange-500/30 ml-0.5">
+        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-full bg-gradient-to-tr from-[#0284c7] to-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-orange-500/30 ml-0.5">
           <Search className="w-5 h-5 stroke-[2.5]" />
         </div>
 
@@ -112,7 +112,7 @@ export const SearchBar = ({
               navigate('/industries');
             }
           }}
-          className="px-4 sm:px-6 py-2.5 rounded-xl sm:rounded-full bg-[#FF5A1F] hover:bg-[#E0480C] text-white text-xs sm:text-sm font-bold shadow-md shadow-orange-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-1.5 shrink-0 cursor-pointer"
+          className="px-4 sm:px-6 py-2.5 rounded-xl sm:rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white text-xs sm:text-sm font-bold shadow-md shadow-orange-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-1.5 shrink-0 cursor-pointer"
         >
           <span>Explore</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -125,7 +125,7 @@ export const SearchBar = ({
         <div className="absolute top-full left-0 right-0 mt-3 bg-white rounded-2xl shadow-2xl border border-slate-200/90 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="p-3 bg-slate-50 border-b border-slate-100 flex items-center justify-between px-4">
             <span className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#FF5A1F]" /> Matching ERP Blueprints ({filtered.length})
+              <Sparkles className="w-3.5 h-3.5 text-[#0284c7]" /> Matching ERP Blueprints ({filtered.length})
             </span>
             <span className="text-[11px] text-slate-400 font-medium">Press Enter to select</span>
           </div>
@@ -134,14 +134,14 @@ export const SearchBar = ({
               <button
                 key={ind.slug}
                 onClick={() => handleSelectIndustry(ind.slug)}
-                className="w-full p-3.5 text-left hover:bg-orange-50/70 transition flex items-center justify-between group cursor-pointer"
+                className="w-full p-3.5 text-left hover:bg-sky-50/70 transition flex items-center justify-between group cursor-pointer"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 group-hover:bg-[#FF5A1F] group-hover:text-white text-[#FF5A1F] flex items-center justify-center transition shrink-0 shadow-2xs">
+                  <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-100 group-hover:bg-[#0284c7] group-hover:text-white text-[#0284c7] flex items-center justify-center transition shrink-0 shadow-2xs">
                     <DynamicIcon name={ind.icon} className="w-5 h-5" />
                   </div>
                   <div>
-                    <h5 className="text-sm font-bold text-slate-900 group-hover:text-[#FF5A1F] transition-colors">
+                    <h5 className="text-sm font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors">
                       {ind.name}
                     </h5>
                     <p className="text-xs text-slate-500 line-clamp-1">
@@ -150,10 +150,10 @@ export const SearchBar = ({
                   </div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 group-hover:bg-orange-100 group-hover:text-[#FF5A1F] font-semibold">
+                  <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 group-hover:bg-sky-100 group-hover:text-[#0284c7] font-semibold">
                     {ind.category}
                   </span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#FF5A1F] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#0284c7] group-hover:translate-x-1 transition-transform" />
                 </div>
               </button>
             ))}
