@@ -36,7 +36,9 @@ import {
   Truck,
   Play,
   ShoppingBag,
-  Lightbulb
+  Lightbulb,
+  Rocket,
+  FileText
 } from 'lucide-react';
 import { industriesData, industryCategories } from '../../data/industries';
 import { coreFeatures } from '../../data/modules';
@@ -66,6 +68,8 @@ export const Home = () => {
   const [dragOffset, setDragOffset] = useState(0);
   const sliderTrackRef = useRef(null);
   const [cardStep, setCardStep] = useState(400);
+  const [selectedPressModal, setSelectedPressModal] = useState(null);
+  const [pressSlideIndex, setPressSlideIndex] = useState(0);
 
   // Measure card width + gap dynamically
   useEffect(() => {
@@ -699,6 +703,61 @@ export const Home = () => {
     { id: 'shopify', name: 'Shopify', logo: '/integrations/shopify-logo.png' },
     { id: 'pinelabs', name: 'Pine Labs', logo: '/integrations/pinelabs-logo.png' },
     { id: 'hdfc', name: 'HDFC Bank', logo: '/integrations/hdfc-logo.png' }
+  ];
+
+  // Press Release Media Coverage Articles (Exact Match to User Screenshot)
+  const pressArticles = [
+    {
+      id: 1,
+      type: 'video',
+      source: 'Special Video Broadcast',
+      sourceColor: 'text-rose-600',
+      badge: 'Launch Ceremony',
+      headline: 'New Identity, New Technology: Nirghos Evolve Held at AMA Ahmedabad',
+      subtitle: 'નિર્ઘોસ ERP નો નવી ક્લાઉડ ટેકનોલોજી સાથે ભવ્ય શુભારંભ',
+      image: '/press/nirghos-press-1.png',
+      date: 'May 20, 2024',
+      summary: 'Grand unveiling of Nirghos ERP Solutions Pvt. Ltd. at JB Auditorium, AMA. Industry leaders and partners joined founders Narendra Lunagaria and Nitesh Lunagaria to celebrate 25 years of technology innovation.',
+      highlights: [
+        'Unveiling of Next-Gen Cloud Architecture',
+        '250+ Enterprise Clients Attended',
+        'Live Demonstration of JSoft & GSoft ERP'
+      ]
+    },
+    {
+      id: 2,
+      type: 'news',
+      source: 'Times of Gujarat',
+      sourceColor: 'text-sky-600',
+      badge: 'Leading Daily',
+      headline: "New Identity, New Technology, and a New Vision: 'Nirghos Evolve – A New Identity, A New Era' Held on May 20",
+      subtitle: 'Nirghos ERP Transitions from Desktop to Next-Gen Cloud Platform',
+      image: '/press/nirghos-press-2.png',
+      date: 'May 21, 2024',
+      summary: 'Times of Gujarat reports on Nirghos ERP completing 25 successful years in enterprise automation, rolling out AI-driven retail POS, multi-branch synchronization, and dedicated jewellery manufacturing suites.',
+      highlights: [
+        'Dedicated JSoft Jewellery Cloud Suite',
+        'RFID Batch & Hallmark Precision Tracking',
+        'Fast Pan-India Expansion to 400+ Cities'
+      ]
+    },
+    {
+      id: 3,
+      type: 'portal',
+      source: 'Gujarat Headline',
+      sourceColor: 'text-blue-700',
+      badge: "Gujarat's Leading News Channel",
+      headline: 'Nirghos ERP Celebrates 25 Years of Enterprise Innovation & Unveils Brand Evolution',
+      subtitle: 'Commitment to Shaping India’s Digital Economy through Intelligent ERP',
+      image: '/press/nirghos-press-3.png',
+      date: 'May 21, 2024',
+      summary: 'In a grand event at Ahmedabad Management Association, Nirghos ERP Solutions Pvt. Ltd. announced its transition into cloud-driven enterprise systems with web reporting for Apparel, Lifestyle, and Footwear industries.',
+      highlights: [
+        'AI CCTV Video Analytics (AI Cam 360)',
+        'Zero-Latency WhatsApp Cloud Invoicing',
+        'Automated GST E-Invoicing & E-Way Bills'
+      ]
+    }
   ];
 
   // Real enterprise testimonials across diverse industries
@@ -1787,6 +1846,153 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* ========================================================================= */}
+      {/* PRESS RELEASE SECTION (EXACT MATCH TO DESIGN - 100% NIRGHOS BRANDED)      */}
+      {/* ========================================================================= */}
+      <section id="press-release-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#063970] via-[#08428c] to-[#042454] text-white relative overflow-hidden">
+        {/* Subtle white dot-grid overlay matching the screenshot */}
+        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none"></div>
+        {/* Soft background light glows */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Heading */}
+          <div className="space-y-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+              Press release
+            </h2>
+            <div className="w-16 h-1 bg-[#f25c05] rounded-full"></div>
+          </div>
+
+          {/* Ahmedabad, India & Paragraphs */}
+          <div className="mt-8 space-y-4 text-slate-200 text-xs sm:text-sm lg:text-[15px] leading-relaxed">
+            <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+              Ahmedabad, India
+            </h3>
+            <p>
+              <strong className="text-white">Nirghos E Barcode Solutions Private Limited</strong> celebrated a major milestone as it completed <strong className="text-white">25 successful years</strong> and stepped into a bold new chapter with the official unveiling of its new identity: <strong className="text-white">Nirghos ERP Solutions Pvt. Ltd.</strong> The announcement was made during <strong className="text-[#f25c05]">&ldquo;Nirghos Evolve &ndash; A New Identity, A New Era&rdquo;</strong> event held on May 20 at the Ahmedabad Management Association (AMA) &ndash; JB Auditorium, in the presence of industry guests, valued clients, partners, and company founders Narendra Lunagaria and Nitesh Lunagaria.
+            </p>
+            <p>
+              As part of its evolution, the company showcased significant advancements in digital technology, marking a full transition from traditional desktop-based systems to modern, cloud-driven solutions. Nirghos ERP&apos;s product suite includes <strong className="text-white">JSoft ERP</strong> for jewellery businesses and <strong className="text-white">GSoft ERP</strong> for apparel, lifestyle &amp; footwear.
+            </p>
+          </div>
+
+          {/* Key Highlights from Event */}
+          <div className="mt-6 space-y-3">
+            <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
+              Key Highlights from the Event
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-200">
+              <li className="flex items-center gap-3">
+                <span className="w-7 h-7 rounded-lg bg-white/10 text-sky-300 flex items-center justify-center shrink-0">
+                  <Rocket className="w-4 h-4" />
+                </span>
+                <span>Launch of Cloud ERP for Jewellers (Jsoft ERP)</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-7 h-7 rounded-lg bg-white/10 text-amber-300 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4" />
+                </span>
+                <span>AI, Automation &amp; RFID Innovations</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="w-7 h-7 rounded-lg bg-white/10 text-emerald-300 flex items-center justify-center shrink-0">
+                  <FileText className="w-4 h-4" />
+                </span>
+                <span>Web Reports for Apparel, Lifestyle &amp; Footwear Industry: A Vision for a Smarter Digital Future (Gsoft ERP)</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Orange Highlight Quote Banner */}
+          <div className="my-8 p-4 sm:p-5 rounded-2xl bg-[#f25c05] text-white flex items-center gap-3.5 sm:gap-4 shadow-xl">
+            <div className="text-white/80 shrink-0">
+              <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+            </div>
+            <p className="text-xs sm:text-sm font-bold leading-relaxed">
+              The Nirghos Evolve event reinforced the Company&apos;s Commitment to Shaping India&apos;s Digital Economy by Delivering Intelligent, Cutting-Edge ERP and Business Technology Solutions.
+            </p>
+          </div>
+
+          {/* 3 Media Coverage Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mt-8">
+            {pressArticles.map((article) => (
+              <div
+                key={article.id}
+                onClick={() => setSelectedPressModal(article)}
+                className="bg-white text-slate-800 rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 hover:shadow-2xl hover:border-sky-300 transition-all duration-300 flex flex-col justify-between group cursor-pointer transform hover:-translate-y-1.5"
+              >
+                <div>
+                  <div className="px-4 py-3 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+                    <span className={`text-xs font-black tracking-tight ${article.sourceColor}`}>
+                      {article.source}
+                    </span>
+                    <span className="text-[10px] font-bold text-slate-400 bg-white px-2 py-0.5 rounded-full border border-slate-200">
+                      {article.badge}
+                    </span>
+                  </div>
+                  <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden flex items-center justify-center">
+                    <img 
+                      src={article.image} 
+                      alt={article.headline} 
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    {article.type === 'video' && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
+                          <Play className="w-5 h-5 fill-white ml-0.5" />
+                        </div>
+                      </div>
+                    )}
+                    <div className="absolute bottom-2.5 left-3 right-3 text-left">
+                      <span className="text-[10px] font-bold text-sky-200 bg-sky-950/70 px-2 py-0.5 rounded backdrop-blur-xs">
+                        {article.date}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4 sm:p-5 space-y-2 text-left">
+                    <h5 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-[#0060b9] transition-colors line-clamp-2">
+                      {article.headline}
+                    </h5>
+                    {article.subtitle && (
+                      <p className="text-xs font-semibold text-slate-500 line-clamp-1">
+                        {article.subtitle}
+                      </p>
+                    )}
+                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed pt-1">
+                      {article.summary}
+                    </p>
+                  </div>
+                </div>
+                <div className="px-4 py-3 bg-slate-50/80 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0060b9] group-hover:text-[#004f9e]">
+                  <span>Read Full Article</span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 10 Pagination Dots (Exact Match to Screenshot) */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((dot) => (
+              <span
+                key={dot}
+                onClick={() => setPressSlideIndex(dot)}
+                className={`transition-all duration-300 cursor-pointer ${
+                  pressSlideIndex === dot
+                    ? 'w-6 h-2 rounded-full bg-white shadow-xs'
+                    : 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/70'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 2. INDUSTRIES SECTION (ALL 25 CATEGORIES WITH LIVE SEARCH & FILTERS) */}
       <section id="industries-section" className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 relative">
         
@@ -2403,6 +2609,104 @@ export const Home = () => {
                 className="w-full py-2.5 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs transition"
               >
                 Experience This in Nirghos Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Press Article Modal */}
+      {selectedPressModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-fadeIn"
+          onClick={() => setSelectedPressModal(null)}
+        >
+          <div
+            className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-5 shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedPressModal(null)}
+              aria-label="Close modal"
+              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-3">
+              <span className={`text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-slate-100 ${selectedPressModal.sourceColor}`}>
+                {selectedPressModal.source}
+              </span>
+              <span className="text-xs font-semibold text-slate-400">
+                {selectedPressModal.date}
+              </span>
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+              {selectedPressModal.headline}
+            </h3>
+
+            {selectedPressModal.subtitle && (
+              <p className="text-sm font-semibold text-sky-700 bg-sky-50 px-3.5 py-2 rounded-xl border border-sky-100">
+                {selectedPressModal.subtitle}
+              </p>
+            )}
+
+            <div className="rounded-2xl overflow-hidden aspect-video bg-slate-900 relative">
+              <img 
+                src={selectedPressModal.image} 
+                alt={selectedPressModal.headline} 
+                className="w-full h-full object-cover"
+              />
+              {selectedPressModal.type === 'video' && (
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-red-600 text-white flex items-center justify-center shadow-2xl">
+                    <Play className="w-7 h-7 fill-white ml-1" />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="space-y-3 text-slate-700 text-sm leading-relaxed">
+              <p>{selectedPressModal.summary}</p>
+              
+              {selectedPressModal.highlights && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-2 mt-4">
+                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    Key Highlights &amp; Insights
+                  </h4>
+                  <ul className="space-y-1.5">
+                    {selectedPressModal.highlights.map((h, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs font-medium text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedPressModal(null);
+                  setIsDemoModalOpen(true);
+                }}
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+              >
+                Schedule A Product Demo
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedPressModal(null)}
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition"
+              >
+                Close
               </button>
             </div>
           </div>
