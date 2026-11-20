@@ -56,7 +56,6 @@ export const Home = () => {
   const [activeErpProduct, setActiveErpProduct] = useState('gsoft');
   const [productSlideIndex, setProductSlideIndex] = useState(0);
   const [showAllServices, setShowAllServices] = useState(false);
-  const [selectedApiCategory, setSelectedApiCategory] = useState('All');
 
   // Hero interactive sector switcher preview (defaults to registered sector if authenticated)
   const [heroSector, setHeroSector] = useState(profile?.slug || 'manufacturing');
@@ -571,122 +570,19 @@ export const Home = () => {
 
   const displayedServices = showAllServices ? nirghosServices : nirghosServices.slice(0, 3);
 
-  // 10 Official Nirghos ERP API Integrations (High-Tech Enterprise Metadata)
+  // 10 Official Nirghos ERP API Integrations (Exact Match to User Screenshot)
   const apiIntegrations = [
-    {
-      id: 'woocommerce',
-      name: 'WooCommerce',
-      group: 'ecommerce',
-      sub: 'WordPress Commerce',
-      badge: 'Auto Webhooks',
-      badgeStyle: 'text-purple-700 bg-purple-50 border-purple-200',
-      glow: 'hover:border-purple-300 hover:shadow-purple-500/10 hover:bg-purple-50/20',
-      logo: '/integrations/woocommerce-clean.png'
-    },
-    {
-      id: 'paytm',
-      name: 'Paytm',
-      group: 'payments',
-      sub: 'UPI & Soundbox POS',
-      badge: 'Dynamic QR',
-      badgeStyle: 'text-sky-700 bg-sky-50 border-sky-200',
-      glow: 'hover:border-sky-300 hover:shadow-sky-500/10 hover:bg-sky-50/20',
-      logo: '/integrations/paytm-clean.png'
-    },
-    {
-      id: 'fynd',
-      name: 'Fynd',
-      group: 'ecommerce',
-      sub: 'Omnichannel Store Hub',
-      badge: 'Stock Sync',
-      badgeStyle: 'text-rose-700 bg-rose-50 border-rose-200',
-      glow: 'hover:border-rose-300 hover:shadow-rose-500/10 hover:bg-rose-50/20',
-      logo: '/integrations/fynd-clean.png'
-    },
-    {
-      id: 'quicksell',
-      name: 'QuickSell',
-      group: 'ecommerce',
-      sub: 'Digital Catalog Orders',
-      badge: 'Catalog Sync',
-      badgeStyle: 'text-teal-700 bg-teal-50 border-teal-200',
-      glow: 'hover:border-teal-300 hover:shadow-teal-500/10 hover:bg-teal-50/20',
-      logo: '/integrations/quicksell-clean.png'
-    },
-    {
-      id: 'razorpay',
-      name: 'Razorpay',
-      group: 'payments',
-      sub: 'Payment Gateway',
-      badge: 'Auto Recon',
-      badgeStyle: 'text-blue-700 bg-blue-50 border-blue-200',
-      glow: 'hover:border-blue-300 hover:shadow-blue-500/10 hover:bg-blue-50/20',
-      logo: '/integrations/razorpay-clean.png'
-    },
-    {
-      id: 'tally',
-      name: 'Tally Prime',
-      group: 'accounting',
-      sub: 'Statutory Ledger Sync',
-      badge: '2-Way XML',
-      badgeStyle: 'text-red-700 bg-red-50 border-red-200',
-      glow: 'hover:border-red-300 hover:shadow-red-500/10 hover:bg-red-50/20',
-      logo: '/integrations/tally-clean.png'
-    },
-    {
-      id: 'sequel',
-      name: 'Sequel 247',
-      group: 'pos',
-      sub: 'Secured Logistics',
-      badge: 'Live Manifest',
-      badgeStyle: 'text-amber-700 bg-amber-50 border-amber-200',
-      glow: 'hover:border-amber-300 hover:shadow-amber-500/10 hover:bg-amber-50/20',
-      logo: '/integrations/sequel-clean.png'
-    },
-    {
-      id: 'shopify',
-      name: 'Shopify',
-      group: 'ecommerce',
-      sub: 'Global Storefront',
-      badge: 'Live Inventory',
-      badgeStyle: 'text-emerald-700 bg-emerald-50 border-emerald-200',
-      glow: 'hover:border-emerald-300 hover:shadow-emerald-500/10 hover:bg-emerald-50/20',
-      logo: '/integrations/shopify-clean.png'
-    },
-    {
-      id: 'pinelabs',
-      name: 'Pine Labs',
-      group: 'pos',
-      sub: 'Smart Card EDC Swiper',
-      badge: 'POS Terminal',
-      badgeStyle: 'text-emerald-700 bg-emerald-50 border-emerald-200',
-      glow: 'hover:border-emerald-300 hover:shadow-emerald-500/10 hover:bg-emerald-50/20',
-      logo: '/integrations/pinelabs-clean.png'
-    },
-    {
-      id: 'hdfc',
-      name: 'HDFC Bank',
-      group: 'payments',
-      sub: 'Corporate Banking API',
-      badge: 'Direct Recon',
-      badgeStyle: 'text-indigo-700 bg-indigo-50 border-indigo-200',
-      glow: 'hover:border-indigo-300 hover:shadow-indigo-500/10 hover:bg-indigo-50/20',
-      logo: '/integrations/hdfc-clean.png'
-    }
+    { id: 'woocommerce', name: 'WooCommerce', logo: '/integrations/woocommerce-logo.png' },
+    { id: 'paytm', name: 'Paytm', logo: '/integrations/paytm-logo.png' },
+    { id: 'fynd', name: 'Fynd', logo: '/integrations/fynd-logo.png' },
+    { id: 'quicksell', name: 'QuickSell', logo: '/integrations/quicksell-logo.png' },
+    { id: 'razorpay', name: 'Razorpay', logo: '/integrations/razorpay-logo.png' },
+    { id: 'tally', name: 'Tally Prime', logo: '/integrations/tally-logo.png' },
+    { id: 'sequel', name: 'Sequel 247', logo: '/integrations/sequel-logo.png' },
+    { id: 'shopify', name: 'Shopify', logo: '/integrations/shopify-logo.png' },
+    { id: 'pinelabs', name: 'Pine Labs', logo: '/integrations/pinelabs-logo.png' },
+    { id: 'hdfc', name: 'HDFC Bank', logo: '/integrations/hdfc-logo.png' }
   ];
-
-  const apiCategories = [
-    { id: 'All', label: 'All Integrations (10)' },
-    { id: 'ecommerce', label: 'E-Commerce & Store' },
-    { id: 'payments', label: 'Payments & Banking' },
-    { id: 'pos', label: 'Logistics & POS' },
-    { id: 'accounting', label: 'Accounting Sync' }
-  ];
-
-  const filteredApiIntegrations = apiIntegrations.filter(item => {
-    if (selectedApiCategory === 'All') return true;
-    return item.group === selectedApiCategory;
-  });
 
   // Real enterprise testimonials across diverse industries
   const testimonials = [
@@ -1622,89 +1518,24 @@ export const Home = () => {
             </p>
           </div>
 
-          {/* Enhanced 10 Partner Logos Box Container with High-Tech Styling */}
-          <div className="max-w-5xl mx-auto bg-white rounded-3xl border border-sky-100/90 shadow-[0_20px_50px_-15px_rgba(0,96,185,0.12),0_0_1px_1px_rgba(0,0,0,0.03)] p-6 sm:p-8 relative">
-            
-            {/* Top Interactive Filter Pills & Live Status Badge */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 pb-5 border-b border-slate-100">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-xs font-bold shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Nirghos Universal API Bridge • Active 24/7</span>
-              </div>
-
-              {/* Category Filter Pills */}
-              <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-1 sm:pb-0 scrollbar-none">
-                {apiCategories.map((cat) => (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    onClick={() => setSelectedApiCategory(cat.id)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                      selectedApiCategory === cat.id
-                        ? 'bg-[#0060b9] text-white shadow-xs'
-                        : 'bg-slate-100/80 text-slate-600 hover:bg-slate-200/70 hover:text-slate-900'
-                    }`}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* 10 Partner Logo Cards (5x2 Grid with Rich Badges and Glow) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 sm:gap-4">
-              {filteredApiIntegrations.map((item) => (
+          {/* 10 Partner Logos Box Container (5x2 Grid - Exact Match to User Screenshot) */}
+          <div className="max-w-5xl mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-[0_15px_40px_-15px_rgba(0,96,185,0.08),0_0_1px_1px_rgba(0,0,0,0.03)] p-5 sm:p-7">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 sm:gap-4.5">
+              {apiIntegrations.map((item) => (
                 <div 
                   key={item.id}
                   onClick={() => setIsDemoModalOpen(true)}
-                  className={`min-h-[105px] sm:min-h-[115px] bg-white rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-lg transition-all duration-300 p-3.5 flex flex-col justify-between group cursor-pointer transform hover:-translate-y-1.5 ${item.glow}`}
-                  title={`${item.name} API Integration for Nirghos ERP`}
+                  className="h-16 sm:h-20 rounded-2xl bg-white border border-slate-200/90 hover:border-[#0060b9] shadow-2xs hover:shadow-md transition-all flex items-center justify-center p-3 sm:p-4 group cursor-pointer hover:-translate-y-0.5"
+                  title={`${item.name} Integration for Nirghos ERP`}
                 >
-                  {/* Top: Logo on Left, Micro-Badge on Right */}
-                  <div className="flex items-start justify-between gap-1.5">
-                    <div className="h-8 flex items-center">
-                      <img 
-                        src={item.logo} 
-                        alt={`${item.name} Integration`} 
-                        className="max-h-7 sm:max-h-8 max-w-[95px] w-auto object-contain select-none transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <span className={`text-[8.5px] font-black uppercase px-2 py-0.5 rounded-full border tracking-wide whitespace-nowrap shrink-0 ${item.badgeStyle}`}>
-                      {item.badge}
-                    </span>
-                  </div>
-
-                  {/* Bottom: Subtitle & ArrowUpRight */}
-                  <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] font-bold text-slate-500 group-hover:text-slate-800 transition-colors truncate">
-                      {item.sub}
-                    </span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0060b9] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-1" />
-                  </div>
+                  <img 
+                    src={item.logo} 
+                    alt={`${item.name} Integration`} 
+                    className="max-h-9 sm:max-h-11 w-auto object-contain select-none transition-transform duration-200 group-hover:scale-105"
+                  />
                 </div>
               ))}
             </div>
-
-            {/* Bottom Enterprise Webhook Banner inside Box */}
-            <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-sky-50 border border-sky-200 text-[#0060b9] flex items-center justify-center shrink-0">
-                  <Zap className="w-4 h-4 fill-current" />
-                </div>
-                <span className="text-xs font-semibold text-slate-600">
-                  Bi-Directional REST Webhooks • 256-Bit Bank Grade Encryption • Zero Latency Data Sync
-                </span>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setIsDemoModalOpen(true)}
-                className="text-xs font-bold text-[#0060b9] hover:text-[#004f9e] hover:underline whitespace-nowrap cursor-pointer"
-              >
-                Request Custom API Connector →
-              </button>
-            </div>
-
           </div>
 
           {/* Trusted By 5,000+ Happy Customers & View All Button (Exact Match to Screenshot) */}
