@@ -1559,21 +1559,6 @@ export const Home = () => {
               </div>
             </div>
 
-            {/* Continuous Brand Logo Marquee Slider */}
-            <div className="relative overflow-hidden w-full py-2 select-none">
-              <div className="flex items-center gap-4 animate-marquee-rtl">
-                {[...brandLogos, ...brandLogos, ...brandLogos].map((brand, idx) => (
-                  <div
-                    key={`${brand.id}-${idx}`}
-                    className="w-44 h-18 sm:w-52 sm:h-22 bg-white rounded-2xl border border-slate-200/90 hover:border-orange-300 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-md transition-all flex items-center justify-center px-4 py-2 shrink-0 select-none group cursor-pointer"
-                    onClick={() => setIsDemoModalOpen(true)}
-                  >
-                    {brand.render()}
-                  </div>
-                ))}
-              </div>
-            </div>
-
           </div>
 
         </div>
