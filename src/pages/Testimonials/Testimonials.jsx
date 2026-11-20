@@ -1,354 +1,355 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  MessageSquareQuote, 
+  Play, 
+  X, 
   Sparkles, 
-  ChevronRight, 
   ArrowRight, 
-  Star, 
   Building2, 
-  CheckCircle2, 
-  TrendingUp, 
-  Clock, 
-  ShieldCheck, 
-  Users,
-  Quote,
-  PhoneCall
+  PhoneCall, 
+  CheckCircle2,
+  TrendingUp,
+  Clock,
+  ShieldCheck
 } from 'lucide-react';
-import { useDemo } from '../../context/DemoContext';
 import DemoModal from '../../components/common/DemoModal';
-import AnimatedCounter from '../../components/common/AnimatedCounter';
 
 export const Testimonials = () => {
-  const [selectedIndustry, setSelectedIndustry] = useState('All');
+  const [expandedCards, setExpandedCards] = useState({});
+  const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(6);
 
-  const testimonialsList = [
+  // Toggle Read More / Read Less for each card
+  const toggleReadMore = (id) => {
+    setExpandedCards((prev) => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  // 12 Verified Nirghos ERP Client Testimonials (Cards 1-6 Exact Match to User Screenshot)
+  const testimonials = [
     {
       id: 1,
-      quote: 'Before Nirghos ERP, our manufacturing plant was losing roughly 7% of raw steel to untracked scrap. Their polymorphic BOM calculation gave us batch-level precision in less than two weeks.',
-      author: 'Harsh Vardhan Singhania',
-      designation: 'Managing Director',
-      company: 'Apex Precision Forgings Ltd.',
-      industry: 'Manufacturing',
-      location: 'Pune, Maharashtra',
-      roiMetric: '7% Scrap Reduction',
-      rating: 5,
-      avatarBg: 'from-orange-500 to-amber-600',
-      initials: 'HS'
+      quote: 'I have been connected with Nirghos since 2001, my experience tells Nirghos provides simple, easy & accurate software including features...',
+      fullQuote: 'I have been connected with Nirghos since 2001, my experience tells Nirghos provides simple, easy & accurate software including features like barcode scanning, inventory tracking, GST invoicing, and real-time ledger accounting. It has completely streamlined our textile wholesale operations.',
+      name: 'Mr. Dhaval Patel',
+      org: 'Cotton House, Ahmedabad',
+      hasVideo: false,
+      industry: 'Textiles & Wholesale'
     },
     {
       id: 2,
-      quote: 'Managing style-color-size matrix for 15,000 SKUs used to be a nightmare with our previous legacy ERP. Nirghos automated our job cards, barcodes, and dealer dispatch slips effortlessly.',
-      author: 'Anjali Somani',
-      designation: 'Chief Operating Officer',
-      company: 'Vogue Craft Apparel Exports',
-      industry: 'Textiles & Apparel',
-      location: 'Tirupur, Tamil Nadu',
-      roiMetric: '4x Faster Order Dispatch',
-      rating: 5,
-      avatarBg: 'from-blue-600 to-indigo-700',
-      initials: 'AS'
+      quote: 'First of all, I would like to Thank Nirghos ERP Solutions Pvt. Ltd. for their wonderful software and Impactful Service, ...',
+      fullQuote: 'First of all, I would like to Thank Nirghos ERP Solutions Pvt. Ltd. for their wonderful software and Impactful Service. The team\'s immediate response to support tickets and bespoke diamond & jewellery inventory customizations has given us unmatched peace of mind.',
+      name: 'Mr. Noel Liby',
+      org: 'Moodhayil Gold and Diamonds , Kerala',
+      hasVideo: false,
+      industry: 'Gems & Jewellery'
     },
     {
       id: 3,
-      quote: 'In diamond manufacturing, even 0.01 cent of untracked weight loss is unacceptable. Nirghos provided karigar-wise issue, return, loss tracking, and daily metal rate auto-updating seamlessly.',
-      author: 'Bhavik Zaveri',
-      designation: 'Partner & Head of Production',
-      company: 'Zaveri & Sons Diamond Corp.',
-      industry: 'Gems & Jewellery',
-      location: 'Surat, Gujarat',
-      roiMetric: '99.98% Precious Metal Audit Precision',
-      rating: 5,
-      avatarBg: 'from-emerald-600 to-teal-700',
-      initials: 'BZ'
+      quote: 'Before expanding My Business, I was concerned about managing branches . After Reviewing several Jewellery ERP Systems, ...',
+      fullQuote: 'Before expanding My Business, I was concerned about managing branches. After Reviewing several Jewellery ERP Systems, we chose Nirghos. The multi-branch synchronization, karigar stock auditing, and centralized reporting made our interstate expansion completely effortless.',
+      name: 'Mr. Sunil Mosun',
+      org: 'JKJ and Sons Jewellers, Jaipur',
+      hasVideo: true,
+      videoTitle: 'Multi-Branch Jewellery Synchronisation & Karigar Auditing',
+      industry: 'Luxury Retail & Jewellery'
     },
     {
       id: 4,
-      quote: 'Passing our US-FDA and 21 CFR Part 11 audit was seamless thanks to the immutable cryptographic audit trails in Nirghos ERP. Zero paper slips, 100% digital batch records.',
-      author: 'Dr. Suresh Ranganathan',
-      designation: 'VP of Quality & Regulatory Affairs',
-      company: 'Aura Life Sciences & Formulations',
-      industry: 'Healthcare & Pharma',
-      location: 'Hyderabad, Telangana',
-      roiMetric: '100% Audit Compliance',
-      rating: 5,
-      avatarBg: 'from-purple-600 to-violet-800',
-      initials: 'SR'
+      quote: 'I have been using Nirghos\'s JSoft ERP Software for almost four years. It is specially designed for the jewellery industry according to their...',
+      fullQuote: 'I have been using Nirghos\'s JSoft ERP Software for almost four years. It is specially designed for the jewellery industry according to their karigar, bullion rate fluctuation, and hallmark tracking needs. It has boosted our team\'s operational output by 40%.',
+      name: 'Mr. Sagar',
+      org: 'Sagar Gold , Surat',
+      hasVideo: true,
+      videoTitle: 'Manufacturing Output & Daily Bullion Rate Dynamic Sync',
+      industry: 'Jewellery Manufacturing'
     },
     {
       id: 5,
-      quote: 'We migrated 80,000 distributor SKUs and past customer balances in just 10 days. The automated GSTR-2B matching alone saves our accounting team 40 hours every single month.',
-      author: 'Mehul Chokshi',
-      designation: 'Chief Financial Officer',
-      company: 'National Trade & Logistics Hub',
-      industry: 'Distribution & Retail',
-      location: 'Ahmedabad, Gujarat',
-      roiMetric: '40 Hours Saved Every Month',
-      rating: 5,
-      avatarBg: 'from-rose-500 to-pink-600',
-      initials: 'MC'
+      quote: 'We are connected with Nirghos since 2003. They provide complete solutions for Retail & Wholesale software. Custome support...',
+      fullQuote: 'We are connected with Nirghos since 2003. They provide complete solutions for Retail & Wholesale software. Customer support is prompt, dependable, and always ready to tailor reports according to our expanding multi-store requirements.',
+      name: 'Mr. Anil Dua',
+      org: 'Basic Casual Clothing, Ahmedabad',
+      hasVideo: false,
+      industry: 'Retail & Garments'
     },
     {
       id: 6,
-      quote: 'Having real-time mobile visibility into plant maintenance, boiler pressure telemetry, and chemical raw material silos has cut unexpected machine downtime to near zero.',
-      author: 'Kavita Menon',
-      designation: 'Plant Operations Head',
-      company: 'SynthoChem Polymers Ltd.',
-      industry: 'Manufacturing',
-      location: 'Vadodara, Gujarat',
-      roiMetric: 'Zero Unplanned Downtime',
-      rating: 5,
-      avatarBg: 'from-sky-600 to-cyan-700',
-      initials: 'KM'
+      quote: 'Thank you for Supporting our Business with Gsoft Extreme ERP and E-commerce website. All the small issues which we faced have...',
+      fullQuote: 'Thank you for Supporting our Business with Gsoft Extreme ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team. The bi-directional sync between POS and online store is lightning fast.',
+      name: 'Mr. Narendra Mehta',
+      org: 'In Vogue, Ahmedabad',
+      hasVideo: false,
+      industry: 'E-commerce & Retail'
     },
     {
       id: 7,
-      quote: 'We run 28 retail retail outlets and an online store. Nirghos keeps our inventory in sync within 500 milliseconds. Customer checkout is 3x faster with integrated UPI & POS.',
-      author: 'Rohit Bansal',
-      designation: 'Founder & Retail Director',
-      company: 'Urban Threads Department Stores',
-      industry: 'Distribution & Retail',
-      location: 'Bengaluru, Karnataka',
-      roiMetric: '500ms Multi-Store Sync',
-      rating: 5,
-      avatarBg: 'from-amber-500 to-orange-600',
-      initials: 'RB'
+      quote: 'Managing style-color-size matrix for 15,000 SKUs used to be a nightmare with our previous legacy ERP. Nirghos automated our job cards...',
+      fullQuote: 'Managing style-color-size matrix for 15,000 SKUs used to be a nightmare with our previous legacy ERP. Nirghos automated our job cards, barcodes, and dealer dispatch slips effortlessly with 4x faster order fulfillment.',
+      name: 'Ms. Anjali Somani',
+      org: 'Vogue Craft Apparel Exports, Tirupur',
+      hasVideo: false,
+      industry: 'Textiles & Apparel'
     },
     {
       id: 8,
-      quote: 'What impressed me most was the speed of implementation. Other ERP vendors quoted us 12 to 18 months. Nirghos had our three EPC project sites completely live in 12 days.',
-      author: 'Alok Mukherjee',
-      designation: 'Director of Infrastructure Projects',
-      company: 'Apex Infrastructure & EPC Projects',
-      industry: 'Manufacturing',
-      location: 'Kolkata, West Bengal',
-      roiMetric: 'Go-Live in 12 Days',
-      rating: 5,
-      avatarBg: 'from-indigo-600 to-blue-700',
-      initials: 'AM'
+      quote: 'Passing our FDA and 21 CFR Part 11 audit was seamless thanks to the immutable cryptographic audit trails in Nirghos ERP...',
+      fullQuote: 'Passing our FDA and 21 CFR Part 11 audit was seamless thanks to the immutable cryptographic audit trails in Nirghos ERP. Zero paper slips, 100% digital batch records and automated expiry quarantine.',
+      name: 'Dr. Suresh Ranganathan',
+      org: 'Aura Life Sciences & Formulations, Hyderabad',
+      hasVideo: true,
+      videoTitle: 'Pharma Batch Serialization & FDA Compliance Story',
+      industry: 'Healthcare & Pharma'
+    },
+    {
+      id: 9,
+      quote: 'The automated GSTR-2B reconciliation and bank API integration saved our finance team over 40 hours each month without any manual invoice matching...',
+      fullQuote: 'The automated GSTR-2B reconciliation and bank API integration saved our finance team over 40 hours each month without any manual invoice matching. Real-time reconciliation has eliminated accounting discrepancies completely.',
+      name: 'Mr. Mehul Chokshi',
+      org: 'National Trade & Logistics Hub, Ahmedabad',
+      hasVideo: false,
+      industry: 'Distribution & Logistics'
     }
   ];
 
-  const industries = ['All', 'Manufacturing', 'Textiles & Apparel', 'Gems & Jewellery', 'Healthcare & Pharma', 'Distribution & Retail'];
-
-  const filteredTestimonials = selectedIndustry === 'All'
-    ? testimonialsList
-    : testimonialsList.filter(t => t.industry === selectedIndustry);
+  const displayedList = testimonials.slice(0, visibleCount);
 
   return (
-    <div className="space-y-20 pb-28">
+    <div className="min-h-screen bg-[#f8faff] text-slate-800 pb-24 selection:bg-[#0060b9] selection:text-white relative overflow-hidden">
       
-      {/* ========================================================================= */}
-      {/* 1. HERO BANNER                                                            */}
-      {/* ========================================================================= */}
-      <section className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white pt-14 pb-24 border-b border-navy-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-[#f25c05]/15 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Blueprint Grid Pattern with Soft Accent Pixel Tiles */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.45]">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(0, 96, 185, 0.08) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(0, 96, 185, 0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: '36px 36px'
+          }}
+        />
+        {/* Decorative soft blue square tiles mimicking screenshot */}
+        <div className="absolute top-12 left-16 w-9 h-9 bg-sky-200/40 rounded-xs pointer-events-none"></div>
+        <div className="absolute top-28 left-44 w-9 h-9 bg-sky-100/60 rounded-xs pointer-events-none"></div>
+        <div className="absolute top-10 right-28 w-9 h-9 bg-sky-200/35 rounded-xs pointer-events-none"></div>
+        <div className="absolute top-36 right-56 w-9 h-9 bg-sky-100/50 rounded-xs pointer-events-none"></div>
+        <div className="absolute top-64 left-1/4 w-9 h-9 bg-sky-200/25 rounded-xs pointer-events-none"></div>
+      </div>
 
-        <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-slate-400 mb-5">
-            <Link to="/" className="hover:text-white transition">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-[#f25c05] font-semibold">Testimonials</span>
-          </div>
-
-          <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f25c05]/15 border border-[#f25c05]/30 text-[#f25c05] text-xs font-black uppercase tracking-wider">
-              <MessageSquareQuote className="w-3.5 h-3.5" />
-              <span>Customer Stories & Trust</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              Relationships Built on <span className="text-[#f25c05]">Trust, Scale & ROI.</span>
-            </h1>
-
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Every testimonial represents a relationship built on trust, scale, and high ROI. Discover how 500+ enterprises across 25 industries modernised operations and eliminated reconciliation bottlenecks.
-            </p>
-
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <button
-                type="button"
-                onClick={() => setIsDemoModalOpen(true)}
-                className="px-6 py-3.5 rounded-full bg-[#f25c05] text-white font-bold text-sm hover:bg-[#d94f00] shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 cursor-pointer"
-              >
-                <span>Book a Free ERP Demo</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <Link
-                to="/industries"
-                className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2"
-              >
-                <span>Browse 25 Industry Blueprints</span>
-                <Building2 className="w-4 h-4 text-slate-300" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 2. SCALE & VERIFIED ROI STATS                                             */}
-      {/* ========================================================================= */}
-      <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 -mt-10 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl">
-          <div className="text-center p-4 border-r last:border-none border-slate-100">
-            <div className="text-3xl sm:text-4xl font-black text-[#f25c05] font-mono">
-              <AnimatedCounter target={40} suffix="%" duration={1600} />
-            </div>
-            <div className="text-xs text-slate-500 font-semibold mt-1">Average OpEx Reduction</div>
-          </div>
-          <div className="text-center p-4 border-r last:border-none border-slate-100">
-            <div className="text-3xl sm:text-4xl font-black text-sky-600 font-mono">
-              &lt; <AnimatedCounter target={14} suffix=" Days" duration={1800} />
-            </div>
-            <div className="text-xs text-slate-500 font-semibold mt-1">Average Go-Live Time</div>
-          </div>
-          <div className="text-center p-4 border-r last:border-none border-slate-100">
-            <div className="text-3xl sm:text-4xl font-black text-emerald-600 font-mono">
-              <AnimatedCounter target={99.99} decimals={2} suffix="%" duration={2000} />
-            </div>
-            <div className="text-xs text-slate-500 font-semibold mt-1">Cloud SLA Uptime</div>
-          </div>
-          <div className="text-center p-4">
-            <div className="text-3xl sm:text-4xl font-black text-amber-500 font-mono">
-              4.9 / 5.0
-            </div>
-            <div className="text-xs text-slate-500 font-semibold mt-1">Average Enterprise CSAT</div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 3. TESTIMONIALS DIRECTORY WITH INDUSTRY FILTERS                           */}
-      {/* ========================================================================= */}
-      <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 space-y-10">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14">
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-slate-200 pb-6">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
-              Verified Enterprise Experiences
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Read how business leaders transformed their daily manufacturing, sales, and accounting operations
-            </p>
+        {/* ========================================================================= */}
+        {/* 1. TOP HEADER & BREADCRUMB (EXACT MATCH TO SCREENSHOT)                    */}
+        {/* ========================================================================= */}
+        <div className="text-center space-y-3.5">
+          
+          {/* Breadcrumb Pill */}
+          <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-sky-50/90 border border-sky-100/90 shadow-2xs">
+            <Link 
+              to="/" 
+              className="text-xs sm:text-sm font-bold text-slate-800 hover:text-[#0060b9] transition-colors"
+            >
+              Home
+            </Link>
+            <span className="text-slate-300 font-light">|</span>
+            <span className="text-xs sm:text-sm font-bold text-[#f25c05]">
+              Testimonial
+            </span>
           </div>
 
-          {/* Industry Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-100 border border-slate-200">
-            {industries.map((ind) => (
-              <button
-                key={ind}
-                type="button"
-                onClick={() => setSelectedIndustry(ind)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  selectedIndustry === ind
-                    ? 'bg-[#f25c05] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-white'
-                }`}
-              >
-                {ind}
-              </button>
-            ))}
-          </div>
+          {/* Main Title: Driven By Client Trust And Experience */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 mt-4">
+            <span className="text-[#0060b9]">Driven By Client</span> Trust And Experience
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
+            We are a team of believers, thinkers and creators. We are customer-centric and passionate enough to innovate and create new opportunities. We love challenges and believe in Team Work.
+          </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredTestimonials.map((t) => (
+        {/* ========================================================================= */}
+        {/* 2. TESTIMONIALS 3-COLUMN CARDS GRID (EXACT MATCH TO SCREENSHOT)           */}
+        {/* ========================================================================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mt-12 sm:mt-16">
+          {displayedList.map((t) => (
             <div
               key={t.id}
-              className="bg-white rounded-3xl p-7 border border-slate-200 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group space-y-5"
+              className="bg-white rounded-2xl border border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-sky-300 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group"
             >
-              <div className="space-y-4">
-                {/* Top Meta: Stars & Industry */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-amber-400">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
-                    ))}
-                  </div>
-                  <span className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-200">
-                    {t.industry}
-                  </span>
-                </div>
-
-                {/* Tangible ROI Highlight Badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-orange-50 text-[#f25c05] border border-orange-200 text-xs font-bold">
-                  <TrendingUp className="w-3.5 h-3.5" />
-                  <span>{t.roiMetric}</span>
+              <div>
+                {/* Quotation Mark Icon in Soft Sky Blue */}
+                <div className="text-sky-300/80 group-hover:text-sky-400 transition-colors mb-3.5">
+                  <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
-                  "{t.quote}"
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                  {expandedCards[t.id] ? t.fullQuote : t.quote}
                 </p>
+
+                {/* Orange Read More / Show Less Link */}
+                <button
+                  type="button"
+                  onClick={() => toggleReadMore(t.id)}
+                  className="text-xs font-bold text-[#f25c05] hover:text-[#d94f00] mt-2.5 inline-block cursor-pointer self-start transition-colors"
+                >
+                  {expandedCards[t.id] ? 'Show Less' : 'Read More'}
+                </button>
               </div>
 
-              {/* Author & Company Details */}
-              <div className="pt-4 border-t border-slate-100 flex items-center gap-3.5">
-                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${t.avatarBg} text-white font-black text-sm flex items-center justify-center shrink-0 shadow-sm`}>
-                  {t.initials}
+              {/* Bottom Row: Author Name, Org and Video Play Button */}
+              <div className="mt-5 pt-3.5 flex items-end justify-between border-t border-slate-50">
+                <div>
+                  <h4 className="text-sm sm:text-base font-black text-slate-900 tracking-tight">
+                    {t.name}
+                  </h4>
+                  <p className="text-xs font-medium text-slate-500 mt-0.5">
+                    {t.org}
+                  </p>
                 </div>
 
-                <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-slate-900">
-                    {t.author}
-                  </h4>
-                  <div className="text-[11px] font-medium text-[#f25c05]">
-                    {t.designation}
-                  </div>
-                  <div className="text-[11px] text-slate-500 font-medium">
-                    {t.company} • <span className="text-slate-400">{t.location}</span>
-                  </div>
-                </div>
+                {/* Video Play Button (Only on Cards with Video, e.g. Card 3 & 4) */}
+                {t.hasVideo && (
+                  <button
+                    type="button"
+                    onClick={() => setActiveVideoModal(t)}
+                    title={`Watch ${t.name}'s Video Story`}
+                    className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0060b9] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer ml-3 shrink-0"
+                  >
+                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                  </button>
+                )}
               </div>
             </div>
           ))}
         </div>
 
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 4. CALL TO ACTION (CTA)                                                   */}
-      {/* ========================================================================= */}
-      <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="text-center p-10 sm:p-14 rounded-3xl bg-gradient-to-b from-orange-50 to-white border-2 border-orange-200 space-y-6 shadow-sm">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-[#f25c05] font-extrabold text-xs uppercase tracking-wider border border-orange-200 shadow-xs">
-            <Sparkles className="w-4 h-4" />
-            <span>Ready to Scale Your Enterprise?</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight max-w-3xl mx-auto">
-            Become Our Next Enterprise Success Story
-          </h2>
-
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Experience how our pre-configured 25 industry blueprints can replace your fragmented software and accelerate your business in less than 14 days.
-          </p>
-
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+        {/* Load More Button if more stories are available */}
+        {visibleCount < testimonials.length && (
+          <div className="mt-12 text-center">
             <button
               type="button"
-              onClick={() => setIsDemoModalOpen(true)}
-              className="px-8 py-4 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-black text-sm shadow-xl shadow-orange-500/25 transition-all flex items-center gap-2.5 cursor-pointer"
+              onClick={() => setVisibleCount(testimonials.length)}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white hover:bg-slate-50 text-[#0060b9] font-bold text-xs sm:text-sm border-2 border-sky-200 hover:border-[#0060b9] shadow-sm transition-all transform hover:scale-105 cursor-pointer"
             >
-              <span>Schedule Free ERP Demo</span>
+              <span>View More Client Stories ({testimonials.length - visibleCount} more)</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+          </div>
+        )}
 
-            <Link
-              to="/contact"
-              className="px-8 py-4 rounded-full bg-white text-slate-800 font-bold text-sm border-2 border-slate-300 hover:border-slate-400 hover:bg-slate-50 transition-all flex items-center gap-2"
-            >
-              <PhoneCall className="w-4 h-4 text-slate-600" />
-              <span>Contact Solutions Experts</span>
-            </Link>
+        {/* ========================================================================= */}
+        {/* 3. ENTERPRISE CTA BANNER                                                  */}
+        {/* ========================================================================= */}
+        <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-lg text-center space-y-5 relative overflow-hidden">
+          <div className="absolute -top-16 -right-16 w-48 h-48 bg-sky-100 rounded-full blur-2xl pointer-events-none"></div>
+          <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-orange-100/60 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div className="relative z-10 max-w-2xl mx-auto space-y-4">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#f25c05] text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>5,000+ Happy Customers</span>
+            </span>
+
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Ready to Transform Your Business with Nirghos ERP?
+            </h3>
+
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Experience seamless multi-branch inventory, rapid GST invoicing, karigar auditing, and high-performance financial reporting.
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+              <button
+                type="button"
+                onClick={() => setIsDemoModalOpen(true)}
+                className="px-7 py-3 rounded-full bg-[#f25c05] hover:bg-[#d94f00] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                Schedule Free Live Demo
+              </button>
+
+              <Link
+                to="/contact"
+                className="px-7 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition-all"
+              >
+                Contact Sales Team
+              </Link>
+            </div>
           </div>
         </div>
-      </section>
+
+      </div>
+
+      {/* Video Modal Popup */}
+      {activeVideoModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-fadeIn">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-slate-100 relative space-y-5 animate-scaleUp">
+            
+            <button
+              type="button"
+              onClick={() => setActiveVideoModal(null)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-sky-100 text-[#0060b9] flex items-center justify-center shrink-0">
+                <Play className="w-6 h-6 fill-current ml-0.5" />
+              </div>
+              <div>
+                <h3 className="text-base font-black text-slate-900">
+                  {activeVideoModal.name}
+                </h3>
+                <p className="text-xs text-slate-500 font-medium">
+                  {activeVideoModal.org}
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-slate-900 aspect-video flex flex-col items-center justify-center text-white p-6 text-center relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+              
+              <div className="relative z-10 space-y-2">
+                <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-xs border border-white/40 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6 fill-white text-white ml-1" />
+                </div>
+                <div className="text-xs font-semibold text-sky-200 uppercase tracking-wider">
+                  Client Case Study Video
+                </div>
+                <div className="text-sm font-bold text-white max-w-xs">
+                  {activeVideoModal.videoTitle || activeVideoModal.name}
+                </div>
+              </div>
+            </div>
+
+            <p className="text-xs text-slate-600 leading-relaxed italic bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+              "{activeVideoModal.fullQuote}"
+            </p>
+
+            <div className="flex items-center justify-between gap-3 pt-1">
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveVideoModal(null);
+                  setIsDemoModalOpen(true);
+                }}
+                className="w-full py-2.5 rounded-xl bg-[#0060b9] hover:bg-[#004f9e] text-white font-bold text-xs transition"
+              >
+                Experience This in Nirghos Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Demo Modal */}
       <DemoModal
