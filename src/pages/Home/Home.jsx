@@ -37,8 +37,6 @@ import {
   Play,
   ShoppingBag,
   Lightbulb,
-  Rocket,
-  FileText,
   Calendar,
   User,
   MapPin,
@@ -69,7 +67,6 @@ export const Home = () => {
   const sliderTrackRef = useRef(null);
   const [cardStep, setCardStep] = useState(400);
   const [selectedPressModal, setSelectedPressModal] = useState(null);
-  const [pressSlideIndex, setPressSlideIndex] = useState(0);
   const [selectedBlogModal, setSelectedBlogModal] = useState(null);
   const [selectedEventModal, setSelectedEventModal] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
@@ -698,57 +695,57 @@ export const Home = () => {
     { id: 'hdfc', name: 'HDFC Bank', logo: '/integrations/hdfc-logo.png' }
   ];
 
-  // Press Release Media Coverage Articles (Exact Match to User Screenshot)
+  // Press Release Media Coverage Articles (Official Nirghos ERP Events)
   const pressArticles = [
     {
       id: 1,
-      type: 'video',
-      source: 'Special Video Broadcast',
+      type: 'press',
+      source: 'National Media Briefing',
       sourceColor: 'text-rose-600',
-      badge: 'Launch Ceremony',
-      headline: 'New Identity, New Technology: Nirghos Evolve Held at AMA Ahmedabad',
-      subtitle: 'નિર્ઘોસ ERP નો નવી ક્લાઉડ ટેકનોલોજી સાથે ભવ્ય શુભારંભ',
-      image: '/press/nirghos-press-1.png',
+      badge: 'Platform Launch',
+      headline: 'Next-Gen Nirghos ERP Platform Launch: Official Press Conference',
+      subtitle: 'Unveiling Cloud Architecture for High-Growth Enterprise Sectors',
+      image: '/press/nirghos-press-1.jpg',
       date: 'May 20, 2024',
-      summary: 'Grand unveiling of Nirghos ERP Solutions Pvt. Ltd. at JB Auditorium, AMA. Industry leaders and partners joined founders Narendra Lunagaria and Nitesh Lunagaria to celebrate 25 years of technology innovation.',
+      summary: 'Nirghos ERP hosted an official press conference to announce the nationwide launch of its Next-Gen Cloud Platform, bringing AI-driven workflows and real-time enterprise management to multi-location businesses.',
       highlights: [
-        'Unveiling of Next-Gen Cloud Architecture',
-        '250+ Enterprise Clients Attended',
-        'Live Demonstration of JSoft & GSoft ERP'
+        'Unveiling of Next-Gen Enterprise Cloud Architecture',
+        'National Press & Media Coverage at Official Briefing',
+        'Live Demonstration of Cloud-Native Industry Workflows'
       ]
     },
     {
       id: 2,
-      type: 'news',
-      source: 'Times of Gujarat',
+      type: 'partnership',
+      source: 'Corporate Announcement',
       sourceColor: 'text-sky-600',
-      badge: 'Leading Daily',
-      headline: "New Identity, New Technology, and a New Vision: 'Nirghos Evolve – A New Identity, A New Era' Held on May 20",
-      subtitle: 'Nirghos ERP Transitions from Desktop to Next-Gen Cloud Platform',
-      image: '/press/nirghos-press-2.png',
+      badge: 'Strategic Alliance',
+      headline: 'Strategic Partnership & Enterprise Expansion: Nirghos ERP Accelerates Growth',
+      subtitle: 'Signing Landmark Industry Alliances for High-Growth Scaling',
+      image: '/press/nirghos-press-2.jpg',
       date: 'May 21, 2024',
-      summary: 'Times of Gujarat reports on Nirghos ERP completing 25 successful years in enterprise automation, rolling out AI-driven retail POS, multi-branch synchronization, and dedicated jewellery manufacturing suites.',
+      summary: 'Executive leadership formalized major strategic alliances to accelerate enterprise expansion across India, enabling seamless supply chain coordination, retail POS integration, and unified financial automation.',
       highlights: [
-        'Dedicated JSoft Jewellery Cloud Suite',
-        'RFID Batch & Hallmark Precision Tracking',
-        'Fast Pan-India Expansion to 400+ Cities'
+        'Strategic Alliances for Multi-Branch Digitization',
+        'High-Speed Enterprise Data Synchronization',
+        'Accelerating Pan-India Expansion Across 400+ Cities'
       ]
     },
     {
       id: 3,
-      type: 'portal',
-      source: 'Gujarat Headline',
-      sourceColor: 'text-blue-700',
-      badge: "Gujarat's Leading News Channel",
-      headline: 'Nirghos ERP Celebrates 25 Years of Enterprise Innovation & Unveils Brand Evolution',
-      subtitle: 'Commitment to Shaping India’s Digital Economy through Intelligent ERP',
-      image: '/press/nirghos-press-3.png',
-      date: 'May 21, 2024',
-      summary: 'In a grand event at Ahmedabad Management Association, Nirghos ERP Solutions Pvt. Ltd. announced its transition into cloud-driven enterprise systems with web reporting for Apparel, Lifestyle, and Footwear industries.',
+      type: 'award',
+      source: 'Industry Recognition',
+      sourceColor: 'text-amber-500',
+      badge: 'Excellence Award',
+      headline: 'Nirghos ERP Conferred Enterprise Innovation Award for ERP Excellence',
+      subtitle: 'Honoring 25+ Years of Industry Leadership & Software Engineering',
+      image: '/press/nirghos-press-3.jpg',
+      date: 'May 22, 2024',
+      summary: 'In recognition of outstanding contributions to business automation and digital transformation, Nirghos ERP was presented with the prestigious Enterprise Innovation Award for ERP Solutions on stage before industry leaders.',
       highlights: [
-        'AI CCTV Video Analytics (AI Cam 360)',
-        'Zero-Latency WhatsApp Cloud Invoicing',
-        'Automated GST E-Invoicing & E-Way Bills'
+        'Enterprise Innovation Award for ERP Excellence',
+        '25+ Years of Proven Business Automation Trust',
+        'Honored on Gala Stage by Industry Leaders'
       ]
     }
   ];
@@ -1874,7 +1871,7 @@ export const Home = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* PRESS RELEASE SECTION (EXACT MATCH TO DESIGN - 100% NIRGHOS BRANDED)      */}
+      {/* PRESS RELEASE SECTION - 100% NIRGHOS BRANDED                              */}
       {/* ========================================================================= */}
       <section id="press-release-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#040810] text-white relative overflow-hidden">
         {/* Subtle white dot-grid overlay matching the screenshot */}
@@ -1890,62 +1887,13 @@ export const Home = () => {
               Press release
             </h2>
             <div className="w-16 h-1 bg-[#0284c7] rounded-full"></div>
-          </div>
-
-          {/* Ahmedabad, India & Paragraphs */}
-          <div className="mt-8 space-y-4 text-slate-200 text-xs sm:text-sm lg:text-[15px] leading-relaxed">
-            <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
-              Ahmedabad, India
-            </h3>
-            <p>
-              <strong className="text-white">Nirghos E Barcode Solutions Private Limited</strong> celebrated a major milestone as it completed <strong className="text-white">25 successful years</strong> and stepped into a bold new chapter with the official unveiling of its new identity: <strong className="text-white">Nirghos ERP Solutions Pvt. Ltd.</strong> The announcement was made during <strong className="text-[#0284c7]">&ldquo;Nirghos Evolve &ndash; A New Identity, A New Era&rdquo;</strong> event held on May 20 at the Ahmedabad Management Association (AMA) &ndash; JB Auditorium, in the presence of industry guests, valued clients, partners, and company founders Narendra Lunagaria and Nitesh Lunagaria.
-            </p>
-            <p>
-              As part of its evolution, the company showcased significant advancements in digital technology, marking a full transition from traditional desktop-based systems to modern, cloud-driven solutions. Nirghos ERP&apos;s product suite includes <strong className="text-white">JSoft ERP</strong> for jewellery businesses and <strong className="text-white">GSoft ERP</strong> for apparel, lifestyle &amp; footwear.
-            </p>
-          </div>
-
-          {/* Key Highlights from Event */}
-          <div className="mt-6 space-y-3">
-            <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
-              Key Highlights from the Event
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-200">
-              <li className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-white/10 text-sky-300 flex items-center justify-center shrink-0">
-                  <Rocket className="w-4 h-4" />
-                </span>
-                <span>Launch of Cloud ERP for Jewellers (Jsoft ERP)</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-white/10 text-amber-300 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4" />
-                </span>
-                <span>AI, Automation &amp; RFID Innovations</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-white/10 text-emerald-300 flex items-center justify-center shrink-0">
-                  <FileText className="w-4 h-4" />
-                </span>
-                <span>Web Reports for Apparel, Lifestyle &amp; Footwear Industry: A Vision for a Smarter Digital Future (Gsoft ERP)</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Orange Highlight Quote Banner */}
-          <div className="my-8 p-4 sm:p-5 rounded-2xl bg-[#0284c7] text-white flex items-center gap-3.5 sm:gap-4 shadow-xl">
-            <div className="text-white/80 shrink-0">
-              <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-            </div>
-            <p className="text-xs sm:text-sm font-bold leading-relaxed">
-              The Nirghos Evolve event reinforced the Company&apos;s Commitment to Shaping India&apos;s Digital Economy by Delivering Intelligent, Cutting-Edge ERP and Business Technology Solutions.
+            <p className="text-slate-300 text-sm sm:text-base pt-1 max-w-2xl">
+              Official press announcements, nationwide platform launches, strategic alliances, and excellence recognitions.
             </p>
           </div>
 
           {/* 3 Media Coverage Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mt-10">
             {pressArticles.map((article) => (
               <div
                 key={article.id}
@@ -1957,7 +1905,7 @@ export const Home = () => {
                     <span className={`text-xs font-black tracking-tight ${article.sourceColor}`}>
                       {article.source}
                     </span>
-                    <span className="text-[10px] font-bold text-slate-400 bg-white px-2 py-0.5 rounded-full border border-slate-200">
+                    <span className="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200">
                       {article.badge}
                     </span>
                   </div>
@@ -1967,14 +1915,7 @@ export const Home = () => {
                       alt={article.headline} 
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    {article.type === 'video' && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
-                          <Play className="w-5 h-5 fill-white ml-0.5" />
-                        </div>
-                      </div>
-                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="absolute bottom-2.5 left-3 right-3 text-left">
                       <span className="text-[10px] font-bold text-sky-200 bg-sky-950/70 px-2 py-0.5 rounded backdrop-blur-xs">
                         {article.date}
@@ -2000,21 +1941,6 @@ export const Home = () => {
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* 10 Pagination Dots (Exact Match to Screenshot) */}
-          <div className="flex items-center justify-center gap-2 mt-8">
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((dot) => (
-              <span
-                key={dot}
-                onClick={() => setPressSlideIndex(dot)}
-                className={`transition-all duration-300 cursor-pointer ${
-                  pressSlideIndex === dot
-                    ? 'w-6 h-2 rounded-full bg-white shadow-xs'
-                    : 'w-2 h-2 rounded-full bg-white/40 hover:bg-white/70'
-                }`}
-              />
             ))}
           </div>
         </div>
