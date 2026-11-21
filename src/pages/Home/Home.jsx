@@ -2273,6 +2273,43 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* CALL TO ACTION STRIP */}
+      <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-4 sm:pt-6">
+        <div className="rounded-3xl bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950 text-white p-8 sm:p-14 text-center border border-navy-800 shadow-2xl relative overflow-hidden">
+          
+          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="max-w-2xl mx-auto space-y-6 relative z-10">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-brand-400">
+              Transform Your Organization Today
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              Ready to See Nirghos ERP in Action?
+            </h2>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Launch our interactive demo workspace pre-configured with realistic data for your industry, or talk with an enterprise solution architect.
+            </p>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                to="/dashboard"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-black text-navy-950 bg-gradient-to-r from-brand-300 via-brand-400 to-sky-300 hover:brightness-110 shadow-lg shadow-brand-400/25 flex items-center justify-center gap-2 transition text-sm"
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                <span>Launch Interactive Demo</span>
+              </Link>
+              <button
+                onClick={() => setIsDemoModalOpen(true)}
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-white bg-navy-850 hover:bg-navy-800 border border-navy-700 transition text-sm"
+              >
+                Schedule Architecture Call
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* Video Modal Popup for Client Story */}
       {activeStoryVideo && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-fadeIn">
