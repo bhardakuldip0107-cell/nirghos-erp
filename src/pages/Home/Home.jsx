@@ -824,14 +824,14 @@ export const Home = () => {
       date: '16/02/2026',
       location: 'Raipur, Chhattisgarh',
       venue: 'Hotel Sayaji Convention Center, Raipur',
-      title: 'Business Solution Summit 2026',
-      fullTitle: 'Business Solution Summit 2026: Modern Retail, Wholesale & Manufacturing Transformation',
+      title: 'Nirghos Business Solutions: Inaugural Ceremony',
+      fullTitle: 'Nirghos Business Solutions Inaugural Ceremony: A New Era of Enterprise Growth',
       image: '/events/event-card-2.png',
-      desc: 'Industry leaders and trade heads joined the traditional lamp-lighting inaugural ceremony to explore cloud synchronization, GST e-invoicing compliance, and multi-branch retail POS architectures.',
+      desc: 'Distinguished industry delegates and leadership team joined the traditional lamp lighting ceremony to inaugurate Nirghos Business Solutions and celebrate enterprisewide cloud technology advancements.',
       highlights: [
         'Inaugural lamp lighting by distinguished industry delegates',
-        'Offline-first POS with sub-second thermal billing demos',
-        'Live warehouse godown multi-location stock routing'
+        'Unveiling of next-gen retail, wholesale & manufacturing suites',
+        'Multi-location synchronization & GST compliance architecture'
       ]
     },
     {
@@ -839,14 +839,14 @@ export const Home = () => {
       date: '15/07/2024',
       location: 'Surat, Gujarat',
       venue: 'Surat International Exhibition & Convention Centre (SIECC)',
-      title: 'ERP Summit 2024',
-      fullTitle: 'ERP Summit 2024: Shaping Gujarat’s Enterprise Digital Highway',
+      title: 'Nirghos ERP Submitted & Launched',
+      fullTitle: 'Nirghos ERP Submitted & Launched: Transforming Enterprise Operations with All-in-One Business Solutions',
       image: '/events/event-card-3.png',
-      desc: 'A packed auditorium of 400+ diamond, textile, and manufacturing business owners gathered to discuss rapid digital transformation, custom barcodes, and zero-defect ERP implementations.',
+      desc: 'Keynote presentation demonstrating Nirghos ERP cloud platform capabilities, real-time analytics dashboards, and end-to-end automation to a packed auditorium of enterprise leaders.',
       highlights: [
-        'Specialized keynote for diamond and jewellery manufacturers',
-        'Textile style-color-size matrix demo with dynamic karigar rates',
-        'Panel discussion with Gujarat leading business pioneers'
+        'Keynote live demo of unified cloud ERP platform',
+        'All-in-one business solution for multi-branch operations',
+        'Audience Q&A with enterprise software architects'
       ]
     }
   ];
