@@ -1,251 +1,409 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ShieldCheck, 
   Mail, 
   Phone, 
-  MapPin, 
-  Globe, 
-  ArrowUpRight, 
+  FileText,
+  X,
+  ShieldCheck,
   CheckCircle,
-  FileText
+  Building,
+  Heart
 } from 'lucide-react';
-import { useDemo } from '../../context/DemoContext';
 
 export const Footer = () => {
-  const [legalModal, setLegalModal] = useState(null); // 'privacy' | 'terms' | null
-  const { isAuthenticated, profile } = useDemo();
+  const [legalModal, setLegalModal] = useState(null); // 'privacy' | 'terms' | 'investor' | null
 
   return (
-    <footer className="bg-navy-950 text-slate-400 border-t border-navy-800/80 pt-16 pb-12">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+    <footer className="bg-[#f8fafc] text-slate-600 border-t border-slate-200/80 pt-14 pb-8 overflow-hidden font-sans">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Company & Value Proposition Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 pb-12 border-b border-navy-800">
+        {/* ========================================================================= */}
+        {/* TOP SECTION: 4 COLUMNS (LOGO, SOLUTION, COMPANY, MOBILE APP)              */}
+        {/* ========================================================================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10">
           
-          {/* 1. Brand Info */}
-          <div className="space-y-4">
-            <Link to="/" className="inline-flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg">
-                <div className="grid grid-cols-2 gap-1 p-2">
-                  <div className="w-2 h-2 rounded-sm bg-white"></div>
-                  <div className="w-2 h-2 rounded-sm bg-brand-200"></div>
-                  <div className="w-2 h-2 rounded-sm bg-brand-200"></div>
-                  <div className="w-2 h-2 rounded-sm bg-white"></div>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-extrabold tracking-tight text-white">
-                  Nirghos<span className="text-brand-400">ERP</span>
-                </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 -mt-1">
-                  One Platform. Every Business.
-                </span>
-              </div>
+          {/* Column 1: Brand Logo, Tagline, Socials (Span 4) */}
+          <div className="lg:col-span-4 space-y-4">
+            <Link to="/" className="inline-flex items-center gap-2 group focus:outline-none">
+              <span className="text-3xl sm:text-[34px] font-black tracking-tight text-slate-900 font-sans">
+                nirghos<span className="text-[#0284c7]">.</span>
+              </span>
             </Link>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pr-2">
-              Nirghos ERP is the modern multi-industry enterprise platform with specialized pre-configured workflows for 25 sectors.
+            <p className="text-xs sm:text-[13px] text-slate-500 leading-relaxed max-w-sm">
+              Intelligent software for retailers, MSMEs &amp; enterprises to simplify operations, automate workflows and grow with confidence.
             </p>
 
-            <div className="pt-2 flex flex-col gap-2 text-xs text-slate-300">
-              <span className="inline-flex items-center gap-1.5 bg-navy-900 px-3 py-1.5 rounded-lg border border-navy-800 self-start">
-                <ShieldCheck className="w-4 h-4 text-brand-400" /> ISO 27001 Certified
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-navy-900 px-3 py-1.5 rounded-lg border border-navy-800 self-start">
-                <CheckCircle className="w-4 h-4 text-emerald-400" /> 99.99% Cloud SLA
-              </span>
+            {/* Social Media Circular Buttons */}
+            <div className="flex items-center gap-2.5 pt-2">
+              {/* Facebook */}
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center text-slate-700 hover:text-[#0284c7] hover:border-[#0284c7] hover:shadow-xs transition-all duration-200"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+                </svg>
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center text-slate-700 hover:text-[#0284c7] hover:border-[#0284c7] hover:shadow-xs transition-all duration-200"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+
+              {/* X / Twitter */}
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="X (formerly Twitter)"
+                className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center text-slate-700 hover:text-[#0284c7] hover:border-[#0284c7] hover:shadow-xs transition-all duration-200"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+
+              {/* YouTube */}
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube"
+                className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center text-slate-700 hover:text-[#0284c7] hover:border-[#0284c7] hover:shadow-xs transition-all duration-200"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center text-slate-700 hover:text-[#0284c7] hover:border-[#0284c7] hover:shadow-xs transition-all duration-200"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
             </div>
           </div>
 
-          {/* 2. Platform & Solutions */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
-              Platform & Solution
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
+          {/* Column 2: Solution (Span 2) */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="text-sm font-bold text-slate-900 tracking-tight">Solution</h4>
+            <ul className="space-y-2.5 text-xs sm:text-[13px] text-slate-600">
               <li>
-                <Link to="/" className="hover:text-brand-400 transition">Homepage</Link>
+                <Link to="/features" className="hover:text-[#0284c7] transition-colors">POS</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-brand-400 transition">About Nirghos</Link>
+                <Link to="/features" className="hover:text-[#0284c7] transition-colors">Accounting</Link>
               </li>
               <li>
-                <Link to="/team" className="hover:text-brand-400 transition">Team Nirghos</Link>
+                <Link to="/features" className="hover:text-[#0284c7] transition-colors">ERP</Link>
               </li>
               <li>
-                <Link to="/life" className="hover:text-brand-400 transition">Life @ Nirghos ERP</Link>
+                <Link to="/features" className="hover:text-[#0284c7] transition-colors">CRM</Link>
               </li>
               <li>
-                <Link to="/blogs" className="hover:text-brand-400 transition">Blogs &amp; Insights</Link>
+                <Link to="/features" className="hover:text-[#0284c7] transition-colors">Inventory Management</Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-brand-400 transition">Nirghos's Events</Link>
-              </li>
-              <li>
-                <Link to="/testimonials" className="hover:text-brand-400 transition">Client Testimonials</Link>
-              </li>
-              <li>
-                <Link to="/careers" className="hover:text-brand-400 transition">Careers &amp; Join Us</Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-brand-400 transition">Contact &amp; Support</Link>
-              </li>
-              <li>
-                <Link to="/dashboard" className="text-brand-400 font-semibold hover:text-brand-300 transition flex items-center gap-1">
-                  Demo Dashboard <ArrowUpRight className="w-3.5 h-3.5" />
-                </Link>
+                <Link to="/features" className="hover:text-[#0284c7] transition-colors">Omnichannel E-Commerce</Link>
               </li>
             </ul>
           </div>
 
-          {/* 3. Main Services (Key Industries) */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-brand-400"></span>
-              <span>Services</span>
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
+          {/* Column 3: Company (Span 3) */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="text-sm font-bold text-slate-900 tracking-tight">Company</h4>
+            <ul className="space-y-2.5 text-xs sm:text-[13px] text-slate-600">
               <li>
-                <Link to="/industries/manufacturing" className="hover:text-brand-400 transition">Manufacturing & Fabrication</Link>
+                <Link to="/industries/retail" className="hover:text-[#0284c7] transition-colors">Supermarket</Link>
               </li>
               <li>
-                <Link to="/industries/trading" className="hover:text-brand-400 transition">Trading & Wholesale</Link>
+                <Link to="/industries/textile" className="hover:text-[#0284c7] transition-colors">Readymade Garment</Link>
               </li>
               <li>
-                <Link to="/industries/retail" className="hover:text-brand-400 transition">Retail Shops & POS</Link>
+                <Link to="/industries/jewellery" className="hover:text-[#0284c7] transition-colors">The Retail Guru</Link>
               </li>
               <li>
-                <Link to="/industries/hospital" className="hover:text-brand-400 transition">Hospitals & Clinics</Link>
+                <Link to="/about" className="hover:text-[#0284c7] transition-colors">About Us</Link>
               </li>
               <li>
-                <Link to="/industries/construction" className="hover:text-brand-400 transition">Construction & Real Estate</Link>
+                <Link to="/careers" className="hover:text-[#0284c7] transition-colors">Career</Link>
               </li>
               <li>
-                <Link to="/industries/it-software" className="hover:text-brand-400 transition">IT & Software Companies</Link>
-              </li>
-              <li>
-                <Link to="/industries/logistics" className="hover:text-brand-400 transition">Logistics & Transport</Link>
-              </li>
-              <li className="pt-1.5">
-                <Link to="/industries" className="text-xs font-bold text-brand-400 hover:text-brand-300 flex items-center gap-1">
-                  View All 25 Services <ArrowUpRight className="w-3 h-3" />
-                </Link>
+                <Link to="/contact" className="hover:text-[#0284c7] transition-colors">Contact Us</Link>
               </li>
             </ul>
           </div>
 
-          {/* 4. Core Modules */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
-              Core Modules
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
-              <li><Link to="/features" className="hover:text-brand-400 transition">HRMS & Global Payroll</Link></li>
-              <li><Link to="/features" className="hover:text-brand-400 transition">CRM & Sales Pipeline</Link></li>
-              <li><Link to="/features" className="hover:text-brand-400 transition">Inventory & Warehouse</Link></li>
-              <li><Link to="/features" className="hover:text-brand-400 transition">Finance & Ledger</Link></li>
-              <li><Link to="/features" className="hover:text-brand-400 transition">Procurement & 3-Way Match</Link></li>
-              <li><Link to="/features" className="hover:text-brand-400 transition">Business Intelligence BI</Link></li>
-              <li><Link to="/features" className="hover:text-brand-400 transition">Granular RBAC Security</Link></li>
-            </ul>
-          </div>
+          {/* Column 4: Get Nirghos Mobile App (Span 4, with Left Divider) */}
+          <div className="lg:col-span-4 lg:border-l lg:border-slate-200/80 lg:pl-8 xl:pl-10 space-y-3.5">
+            <h4 className="text-sm font-bold text-slate-900 tracking-tight">Get Nirghos Mobile App</h4>
+            <p className="text-xs text-slate-500 leading-relaxed max-w-xs">
+              Manage your business on the go with Nirghos mobile app.
+            </p>
 
-          {/* 5. Contact Information Placeholders */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
-              Global Support
-            </h4>
-            <ul className="space-y-3 text-xs sm:text-sm">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-brand-400 shrink-0 mt-0.5" />
-                <span>Enterprise Tech Blvd, Silicon District</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-brand-400 shrink-0" />
-                <span>+1 (800) 647-4467</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-brand-400 shrink-0" />
-                <span>enterprise@nirghoserp.com</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Globe className="w-4 h-4 text-brand-400 shrink-0" />
-                <span>www.nirghoserp.com</span>
-              </li>
-            </ul>
+            {/* Store Badges (Exact styling from screenshot) */}
+            <div className="flex flex-col gap-2.5 pt-1">
+              {/* Google Play Store Badge */}
+              <a
+                href="#google-play"
+                onClick={(e) => { e.preventDefault(); alert("Nirghos ERP Mobile App is available on Google Play Store."); }}
+                className="w-48 bg-slate-900 hover:bg-slate-800 text-white rounded-lg px-3 py-2 flex items-center gap-2.5 transition border border-slate-800 shadow-2xs group cursor-pointer"
+              >
+                <svg className="w-5 h-5 shrink-0" viewBox="0 0 512 512">
+                  <path fill="#4285F4" d="M32.5 16.5C30.6 18.5 29.5 21.6 29.5 25.8V486.2c0 4.2 1.1 7.3 3 9.3l237.3-247.9L32.5 16.5z"/>
+                  <path fill="#FBBC04" d="M375.4 349.3L269.8 247.6 32.5 495.5c3.3 1.8 7.3 2 11.2-.2l331.7-146z"/>
+                  <path fill="#EA4335" d="M375.4 162.7L43.7 16.7C39.8 14.5 35.8 14.7 32.5 16.5l237.3 231.1 105.6-84.9z"/>
+                  <path fill="#34A853" d="M482.5 237.9c12.7 7.2 12.7 19 0 26.2l-107.1 59.4-105.6-75.9 105.6-75.9 107.1 66.2z"/>
+                </svg>
+                <div className="flex flex-col text-left">
+                  <span className="text-[9px] uppercase tracking-wider text-slate-300 font-medium leading-none">GET IT ON</span>
+                  <span className="text-sm font-bold leading-tight font-sans text-white">Google Play</span>
+                </div>
+              </a>
+
+              {/* Apple App Store Badge */}
+              <a
+                href="#app-store"
+                onClick={(e) => { e.preventDefault(); alert("Nirghos ERP Mobile App is available on Apple App Store."); }}
+                className="w-48 bg-slate-900 hover:bg-slate-800 text-white rounded-lg px-3 py-2 flex items-center gap-2.5 transition border border-slate-800 shadow-2xs group cursor-pointer"
+              >
+                <svg className="w-5 h-5 shrink-0 fill-white" viewBox="0 0 170 170">
+                  <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.58-7.77-11.64-14.19-5.99-9.46-10.77-20.15-14.34-32.08-3.57-11.93-5.35-23.3-5.35-34.12 0-14.79 3.59-27.18 10.77-37.16 7.18-9.98 16.27-15.06 27.27-15.24 4.8 0 10.15 1.25 16.04 3.76 5.89 2.51 9.8 3.86 11.73 4.07 2.14-.34 6.27-1.74 12.39-4.21 6.12-2.47 11.37-3.59 15.75-3.35 15.22 1.01 26.68 6.64 34.39 16.89-13.38 8.16-19.92 19.38-19.61 33.67.31 11.39 4.67 20.89 13.08 28.5 3.86 3.56 8.35 6.21 13.48 7.96-2.93 8.76-6.66 17.58-11.19 26.47zM119.22 33.51c0-7.85 2.82-15.25 8.46-22.18 5.64-6.93 12.65-11.02 21.03-12.27.15 1.08.23 2.17.23 3.26 0 7.85-2.99 15.48-8.97 22.88-5.98 7.4-13.08 11.62-21.3 12.66-.45-1.44-.67-2.88-.67-4.35z"/>
+                </svg>
+                <div className="flex flex-col text-left">
+                  <span className="text-[9px] text-slate-300 font-medium leading-none">Available on the</span>
+                  <span className="text-sm font-bold leading-tight font-sans text-white">App Store</span>
+                </div>
+              </a>
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Copyright & Legal Links */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>
-            © {new Date().getFullYear()} Nirghos ERP Platforms, Inc. All rights reserved. "One Platform. Every Business." is a registered trademark.
-          </p>
-          <div className="flex items-center gap-6">
+        {/* ========================================================================= */}
+        {/* MIDDLE FLOATING WHITE BAR: CONTACT PILLS + TRUST BADGES (SCREENSHOT MATCH)*/}
+        {/* ========================================================================= */}
+        <div className="bg-white rounded-2xl sm:rounded-full border border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.04)] px-5 sm:px-8 py-3.5 sm:py-4 my-6 flex flex-col lg:flex-row items-center justify-between gap-5">
+          
+          {/* Left: Email & Phone Action Badges */}
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6 text-xs sm:text-[13px] font-semibold text-slate-700">
+            <a 
+              href="mailto:business@nirghos.ai" 
+              className="flex items-center gap-2.5 hover:text-[#0284c7] transition group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-[#0284c7] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+                <Mail className="w-4 h-4" />
+              </div>
+              <span className="font-medium text-slate-800 group-hover:text-[#0284c7] transition">business@nirghos.ai</span>
+            </a>
+
+            <a 
+              href="tel:+918140364036" 
+              className="flex items-center gap-2.5 hover:text-[#0284c7] transition group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-[#0284c7] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+                <Phone className="w-4 h-4" />
+              </div>
+              <span className="font-medium text-slate-800 group-hover:text-[#0284c7] transition">+91 81403 64036</span>
+            </a>
+          </div>
+
+          {/* Divider on Desktop */}
+          <div className="hidden lg:block w-px h-8 bg-slate-200"></div>
+
+          {/* Right: Security & Certification Badges (Exact match to screenshot icons) */}
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100">
+            
+            {/* 1. ISO 9001:2015 Seal */}
+            <div className="flex flex-col items-center justify-center text-center cursor-default group" title="ISO 9001:2015 Certified">
+              <div className="w-8 h-8 rounded-full border-2 border-slate-400 group-hover:border-[#0284c7] flex flex-col items-center justify-center leading-none text-slate-600 group-hover:text-[#0284c7] transition">
+                <span className="text-[8px] font-black">ISO</span>
+              </div>
+              <span className="text-[7px] font-bold text-slate-500 mt-0.5 uppercase tracking-tighter">9001:2015</span>
+            </div>
+
+            {/* 2. DMCA PROTECTED Badge */}
+            <div className="flex items-center border border-slate-300 rounded overflow-hidden text-[9px] font-bold shadow-2xs cursor-default">
+              <span className="bg-slate-700 text-white px-2 py-0.5 tracking-wider">DMCA</span>
+              <span className="bg-slate-100 text-slate-700 px-2 py-0.5 tracking-wider border-l border-slate-300">PROTECTED</span>
+            </div>
+
+            {/* 3. GDPR Compliance Seal */}
+            <div className="w-8 h-8 rounded-full border border-dashed border-slate-400 flex items-center justify-center p-0.5 text-slate-600 hover:text-[#0284c7] transition cursor-default" title="GDPR Ready & Verified">
+              <div className="w-full h-full rounded-full border border-slate-300 flex items-center justify-center">
+                <span className="text-[7px] font-black uppercase">GDPR</span>
+              </div>
+            </div>
+
+            {/* 4. 256-bit SSL Certified Shield */}
+            <div className="w-8 h-8 flex items-center justify-center text-slate-500 hover:text-[#0284c7] transition cursor-default" title="256-Bit SSL Military Grade Security">
+              <ShieldCheck className="w-6 h-6 stroke-[1.75]" />
+            </div>
+
+            {/* 5. SOC 2 Type II Emblem */}
+            <div className="w-7 h-8 border border-slate-400 rounded-sm flex flex-col items-center justify-center text-slate-600 hover:text-[#0284c7] transition cursor-default" title="SOC 2 Type II Certified">
+              <span className="text-[7px] font-black uppercase leading-none">SOC 2</span>
+              <span className="text-[6px] font-bold text-slate-400 uppercase leading-none mt-0.5">TYPE II</span>
+            </div>
+
+            {/* 6. Medical & Quality Certified Caduceus Seal */}
+            <div className="w-8 h-8 rounded-full border-2 border-slate-400 flex items-center justify-center text-slate-600 hover:text-[#0284c7] transition cursor-default" title="ISO 27001 Information Security">
+              <CheckCircle className="w-5 h-5 stroke-[2]" />
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* ========================================================================= */}
+        {/* BOTTOM SECTION: LEGAL LINKS, MADE WITH HEART, COPYRIGHT                   */}
+        {/* ========================================================================= */}
+        <div className="pt-4 border-t border-slate-200/80 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+          
+          {/* Left: Legal Links */}
+          <div className="flex items-center gap-3 sm:gap-4">
             <button
+              type="button"
+              onClick={() => setLegalModal('investor')}
+              className="hover:text-slate-800 transition underline-offset-4 hover:underline cursor-pointer"
+            >
+              Investor Relations
+            </button>
+            <span className="text-slate-300">|</span>
+            <button
+              type="button"
+              onClick={() => setLegalModal('terms')}
+              className="hover:text-slate-800 transition underline-offset-4 hover:underline cursor-pointer"
+            >
+              Terms &amp; Conditions
+            </button>
+            <span className="text-slate-300">|</span>
+            <button
+              type="button"
               onClick={() => setLegalModal('privacy')}
-              className="hover:text-white transition underline-offset-4 hover:underline"
+              className="hover:text-slate-800 transition underline-offset-4 hover:underline cursor-pointer"
             >
               Privacy Policy
             </button>
-            <span>•</span>
-            <button
-              onClick={() => setLegalModal('terms')}
-              className="hover:text-white transition underline-offset-4 hover:underline"
-            >
-              Terms & Conditions
-            </button>
-            <span>•</span>
-            <Link to="/login" className="hover:text-white transition">
-              Customer Portal
-            </Link>
-            <span>•</span>
-            <Link to="/register" className="hover:text-white transition">
-              Free Trial
-            </Link>
           </div>
+
+          {/* Center: Made with Heart */}
+          <div className="flex items-center gap-1.5 text-slate-500 font-medium">
+            <span>Made with</span>
+            <span className="text-red-500">❤️</span>
+            <span>from India</span>
+          </div>
+
+          {/* Right: Copyright */}
+          <div className="text-slate-500">
+            © {new Date().getFullYear()} Nirghos ERP Solutions Pvt. Ltd.
+          </div>
+
         </div>
 
       </div>
 
-      {/* Legal Dialog Modal */}
+      {/* ========================================================================= */}
+      {/* INTERACTIVE LEGAL MODAL                                                   */}
+      {/* ========================================================================= */}
       {legalModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/70 backdrop-blur-sm animate-in fade-in">
-          <div className="bg-white text-slate-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 space-y-4">
-            <div className="flex items-center justify-between border-b pb-3">
-              <h3 className="text-lg font-bold text-navy-900 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-brand-600" />
-                {legalModal === 'privacy' ? 'Privacy Policy' : 'Terms & Conditions of Service'}
+        <div 
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-fadeIn"
+          onClick={() => setLegalModal(null)}
+        >
+          <div 
+            className="bg-white text-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                <FileText className="w-5 h-5 text-[#0284c7]" />
+                {legalModal === 'privacy' && 'Privacy Policy'}
+                {legalModal === 'terms' && 'Terms & Conditions of Service'}
+                {legalModal === 'investor' && 'Investor Relations & Governance'}
               </h3>
               <button 
+                type="button"
                 onClick={() => setLegalModal(null)}
-                className="text-slate-400 hover:text-slate-700 text-sm font-semibold"
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition cursor-pointer"
               >
-                Close
+                <X className="w-4 h-4" />
               </button>
             </div>
-            <div className="max-h-80 overflow-y-auto text-xs text-slate-600 space-y-3 pr-2">
-              <p>
-                <strong>1. Overview:</strong> Nirghos ERP provides multi-industry enterprise management software designed to safeguard enterprise data with end-to-end encryption, strict confidentiality, and tenant isolation.
-              </p>
-              <p>
-                <strong>2. Data Protection & Sovereignty:</strong> Customer financial records, employee biometric logs, patient medical charts, and trade secrets remain solely owned by the client organization. Nirghos ERP never sells, monetizes, or shares organizational data with third parties.
-              </p>
-              <p>
-                <strong>3. Service Availability SLA:</strong> Enterprise subscriptions include 99.99% uptime assurance with automated geo-redundant backups, real-time failover, and dedicated SLA response windows.
-              </p>
-              <p>
-                <strong>4. Compliance Standards:</strong> Built to meet ISO/IEC 27001, SOC 2 Type II, GDPR, HIPAA, and regional GST/VAT statutory invoicing specifications.
-              </p>
+
+            <div className="max-h-80 overflow-y-auto text-xs text-slate-600 space-y-3 pr-2 leading-relaxed">
+              {legalModal === 'privacy' && (
+                <>
+                  <p>
+                    <strong>1. Overview:</strong> Nirghos ERP Solutions Pvt. Ltd. is committed to protecting the privacy, confidentiality, and integrity of organizational and customer records.
+                  </p>
+                  <p>
+                    <strong>2. Data Protection & Sovereignty:</strong> Customer financial records, employee biometric logs, inventory counts, and trade data remain solely owned by the client organization. Nirghos ERP utilizes military-grade 256-bit AES encryption and never monetizes or shares organizational data with third parties.
+                  </p>
+                  <p>
+                    <strong>3. Compliance Standards:</strong> Built to adhere to ISO/IEC 27001, SOC 2 Type II, GDPR, and Indian statutory tax filing standards.
+                  </p>
+                </>
+              )}
+
+              {legalModal === 'terms' && (
+                <>
+                  <p>
+                    <strong>1. Service Level Agreement (SLA):</strong> Nirghos ERP provides 99.99% high-availability uptime assurance with automated geo-redundant backups, real-time failover, and continuous monitoring.
+                  </p>
+                  <p>
+                    <strong>2. Licensing & Multi-Branch Access:</strong> Licenses are issued per enterprise tenant with role-based access control (RBAC), multi-location synchronization, and automated updates.
+                  </p>
+                  <p>
+                    <strong>3. Support & Updates:</strong> Active subscribers receive 24/7 technical support, automated statutory GST updates, and regular feature enhancements.
+                  </p>
+                </>
+              )}
+
+              {legalModal === 'investor' && (
+                <>
+                  <p>
+                    <strong>1. Corporate Governance:</strong> Nirghos ERP Solutions Pvt. Ltd. maintains rigorous corporate standards with audited financial reporting, robust cyber-defense frameworks, and board-level risk management.
+                  </p>
+                  <p>
+                    <strong>2. Growth & Ecosystem:</strong> Powering thousands of retail counters, manufacturing plants, and supply-chain logistics hubs across India with expanding enterprise cloud market share.
+                  </p>
+                  <p>
+                    <strong>3. Investor Inquiries:</strong> Qualified institutional investors and enterprise partners may reach our finance desk at <strong>investors@nirghoserp.com</strong>.
+                  </p>
+                </>
+              )}
             </div>
-            <div className="pt-2 text-right">
+
+            <div className="pt-2 text-right border-t border-slate-100">
               <button
+                type="button"
                 onClick={() => setLegalModal(null)}
-                className="px-4 py-2 bg-navy-900 text-white rounded-lg text-xs font-semibold hover:bg-navy-800 transition"
+                className="px-5 py-2 bg-[#0284c7] hover:bg-[#0369a1] text-white rounded-xl text-xs font-bold transition cursor-pointer"
               >
-                I Understand & Accept
+                Close
               </button>
             </div>
           </div>
@@ -256,4 +414,3 @@ export const Footer = () => {
 };
 
 export default Footer;
-
