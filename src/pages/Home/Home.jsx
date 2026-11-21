@@ -41,7 +41,10 @@ import {
   User,
   MapPin,
   Plus,
-  Minus
+  Minus,
+  Factory,
+  Pill,
+  Hotel
 } from 'lucide-react';
 import { industriesData } from '../../data/industries';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -55,7 +58,7 @@ export const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [sliderMode, setSliderMode] = useState('categories'); // 'categories' | 'brands'
-  const [activeErpProduct, setActiveErpProduct] = useState('gsoft');
+  const [activeErpProduct, setActiveErpProduct] = useState('trading');
   const [productSlideIndex, setProductSlideIndex] = useState(0);
   const [showAllServices, setShowAllServices] = useState(false);
   const [testimonialSlideIndex, setTestimonialSlideIndex] = useState(0);
@@ -356,218 +359,193 @@ export const Home = () => {
     'professional-services': { bg: 'bg-teal-50', text: 'text-teal-800', border: 'border-teal-200', badge: 'Audit & Consulting' }
   };
 
-  // 7 Core Flagship ERP Products (Matching User Screenshot with Sharp Name & Icon)
+  // 6 Flagship Enterprise Solutions (Trading, Manufacturing, Pharma, Food, Hospitals, Hotels)
   const erpProducts = [
     {
-      id: 'gsoft',
-      name: 'Gsoft ERP',
-      icon: Shirt,
-      iconBg: '#fee2e2',
-      iconColor: '#dc2626',
-      badge: 'Apparel & Footwear',
-      renderLogo: () => (
-        <div className="flex items-center gap-1 font-sans">
-          <span className="text-base sm:text-lg font-black text-[#dc2626] leading-none">G</span>
-          <span className="text-sm sm:text-base font-bold text-[#0284c7] leading-none">soft</span>
-          <span className="text-[9px] font-black uppercase px-1 py-0.2 rounded bg-red-100 text-red-600 border border-red-200 ml-0.5">ERP</span>
-        </div>
-      ),
-      heading: 'Apparel-Lifestyle and Footwear Industry',
-      desc: 'G-Soft ERP delivers a complete, user-friendly ERP Software for the Apparel-Lifestyle and Footwear Industry with POS, Inventory, Accounting, CRM, BI Reports, Web Reports and Mobile Apps.',
-      monitorCaption: 'Gsoft Desktop ERP Dashboard',
-      slides: [
-        'Gsoft Desktop ERP Dashboard',
-        'Gsoft Multi-Size & Matrix POS Billing',
-        'Gsoft Real-time Warehouse Inventory'
-      ],
-      link: '/industries/textile',
-      categorySlug: 'textile',
+      id: 'trading',
+      name: 'Trading & Wholesale',
+      categorySlug: 'trading',
+      icon: Boxes,
+      iconBg: '#e0f2fe',
+      iconColor: '#0284c7',
+      badge: 'Wholesale & B2B',
+      heading: 'High-Velocity Trading, Wholesale & Multi-Warehouse ERP',
+      desc: 'Engineered for bulk traders, indenting agents, and wholesale distributors. Nirghos ERP unifies multi-godown inventory, automated customer credit limits, dynamic tier pricing, and instant GST e-invoicing.',
+      link: '/industries/trading',
       bulletPoints: [
-        'Multi-Size & Color Matrix Management',
-        'Barcode & RFID Tag Generation',
-        'Fast POS Billing with Loyalty Points',
-        'Central Head-Office & Multi-Store Sync'
-      ]
+        'Dynamic Multi-Tier Price Lists & Customer Rate Contracts',
+        'Multi-Godown Real-Time Stock Reconciliation',
+        'Customer Ageing Ledger & Automatic Credit Lock',
+        'High-Speed Bulk Invoicing & Automated E-Way Bills'
+      ],
+      monitorCaption: 'Nirghos Trading & Multi-Warehouse Inventory Dashboard',
+      slides: [
+        'Live Multi-Godown Stock & Inventory Dashboard',
+        'Automated Credit Limit & Ageing Ledger Control',
+        'High-Speed Bulk Invoicing & Automated E-Way Bills'
+      ],
+      mockData: {
+        tag: 'DISTRIBUTION TELEMETRY',
+        stat1: { label: 'Active Godowns', value: '18 Hubs' },
+        stat2: { label: 'Fulfillment Rate', value: '99.6%' },
+        stat3: { label: 'E-Way Bills Synced', value: 'Real-Time' },
+        activity: '1,280 Orders Dispatched Today • ₹42.8L Invoiced'
+      }
     },
     {
-      id: 'jsoft',
-      name: 'Jsoft ERP',
-      icon: Gem,
+      id: 'manufacturing',
+      name: 'Manufacturing & Fabrication',
+      categorySlug: 'manufacturing',
+      icon: Factory,
       iconBg: '#fef3c7',
       iconColor: '#d97706',
-      badge: 'Jewellery & Diamond',
-      renderLogo: () => (
-        <div className="flex items-center gap-1 font-sans">
-          <span className="text-base sm:text-lg font-black text-[#ea580c] leading-none">J</span>
-          <span className="text-sm sm:text-base font-bold text-[#0284c7] leading-none">soft</span>
-          <span className="text-[9px] font-black uppercase px-1 py-0.2 rounded bg-sky-100 text-[#0284c7] border border-sky-200 ml-0.5">ERP</span>
-        </div>
-      ),
-      heading: 'Jewellery and Diamond Industry',
-      desc: 'J-Soft ERP is a comprehensive, specialized Jewellery ERP Software covering Retail, Wholesale, Karigar/Goldsmith Job Work, Gold Scheme, Barcode/RFID, and Real-Time Bullion Rate Accounting.',
-      monitorCaption: 'Jsoft Jewellery ERP & POS Console',
-      slides: [
-        'Jsoft Jewellery ERP & POS Console',
-        'Jsoft Karigar & Job Work Tracking',
-        'Jsoft Live Gold & Bullion Rate Ledger'
-      ],
-      link: '/industries/jewellery',
-      categorySlug: 'jewellery',
+      badge: 'Plant & Production',
+      heading: 'Precision Manufacturing, Fabrication & Shop-Floor ERP',
+      desc: 'Built for discrete production units, job-work fabricators, and assembly plants. Automate multi-level BOMs, machine capacity planning, shop-floor worker tracking, and real-time scrap reduction.',
+      link: '/industries/manufacturing',
       bulletPoints: [
-        'Live Bullion & Daily Gold/Silver Rate Fixation',
-        'Melting, Wastage & Purity Touch Loss Calculations',
-        'High-Speed RFID Tray Scanning for Stock Audits',
-        'Government Hallmark & HUID Statutory Compliance'
-      ]
+        'Multi-Level Engineering Bill of Materials (BOM)',
+        'Shop Floor Routing & Worker Job Card Tracking',
+        'Machine Maintenance, Preventive Alerts & OEE',
+        'Stage-wise Quality Inspection & Scrap Reduction'
+      ],
+      monitorCaption: 'Nirghos Shop Floor & Production Order Terminal',
+      slides: [
+        'Real-Time Shop Floor & Production Order Terminal',
+        'Multi-Level BOM & Material Allocation Matrix',
+        'Predictive Machine Maintenance & Uptime Analytics'
+      ],
+      mockData: {
+        tag: 'SHOP-FLOOR TELEMETRY',
+        stat1: { label: 'Machine OEE', value: '88.4%' },
+        stat2: { label: 'Scrap Reduction', value: '-14.2%' },
+        stat3: { label: 'WIP Tracking', value: 'Active' },
+        activity: 'Batch #MFG-849: Stamping & CNC Assembly In Progress'
+      }
     },
     {
-      id: 'bizpro',
-      name: 'Nirghos BIZPRO',
-      icon: Cpu,
-      iconBg: '#dbeafe',
-      iconColor: '#2563eb',
-      badge: 'Trading & Distribution',
-      renderLogo: () => (
-        <div className="flex flex-col text-left font-sans">
-          <span className="text-xs sm:text-sm font-black text-[#0284c7] leading-none">Nirghos</span>
-          <span className="text-[9px] font-black uppercase tracking-wider text-slate-800 leading-none mt-0.5">BIZPRO</span>
-        </div>
-      ),
-      heading: 'Trading, Distribution & Wholesale ERP',
-      desc: 'Nirghos BIZPRO provides end-to-end supply chain distribution, multi-warehouse stock management, automated credit limits, e-way bill generation, and GST compliance for high-volume traders.',
-      monitorCaption: 'Nirghos BIZPRO Supply Chain & Distribution Suite',
-      slides: [
-        'Nirghos BIZPRO Supply Chain & Distribution Suite',
-        'Nirghos BIZPRO Multi-Warehouse Bin Control',
-        'Nirghos BIZPRO Automated E-Way Bill & GST'
-      ],
-      link: '/industries/trading',
-      categorySlug: 'trading',
+      id: 'pharma',
+      name: 'Pharma & Healthcare',
+      categorySlug: 'pharma',
+      icon: Pill,
+      iconBg: '#dcfce7',
+      iconColor: '#16a34a',
+      badge: 'GMP & Regulatory',
+      heading: 'Compliant Pharmaceutical Formulation & Healthcare Supply ERP',
+      desc: 'Uncompromising adherence to WHO-GMP, FDA 21 CFR Part 11, and CDSCO standards. Electronic Batch Records (eBR), backward-forward recall, FEFO allocation, and cold chain temperature logging.',
+      link: '/industries/pharma',
       bulletPoints: [
-        'Tier-wise Customer Rate Contracts & Schemes',
-        'Automated Receivables & Ageing Credit Lock',
-        'Batch-wise FIFO Inventory & Expiry Alerts',
-        'Direct GST E-Invoicing & Automated E-Way Bills'
-      ]
+        'Electronic Batch Manufacturing Records (eBMR)',
+        'Tamper-Proof 21 CFR Part 11 Audit Trail & e-Signatures',
+        'Expiry Alert & First-Expiry-First-Out (FEFO) Allocation',
+        'Instant 2-Click Backward & Forward Product Recall'
+      ],
+      monitorCaption: 'Nirghos Digital Batch Formulation & eBR Console',
+      slides: [
+        'Digital Batch Formulation & eBR Verification Console',
+        'FEFO Expiry Management & Cold-Chain Telemetry',
+        'Automated Regulatory Audit Trail & Compliance Hub'
+      ],
+      mockData: {
+        tag: 'GMP COMPLIANCE LOG',
+        stat1: { label: 'Batch Integrity', value: '100% Audit' },
+        stat2: { label: 'Expiry Safeguard', value: 'FEFO Strict' },
+        stat3: { label: 'Recall Speed', value: '< 2 Mins' },
+        activity: 'Batch #PH-492: Quality Control Passed & e-Signed'
+      }
     },
     {
-      id: 'omni',
-      name: 'Nirghos Omni',
-      icon: Globe,
-      iconBg: '#ccfbf1',
-      iconColor: '#0d9488',
-      badge: 'Omnichannel & Sync',
-      renderLogo: () => (
-        <div className="flex items-center gap-1 font-sans">
-          <span className="text-xs sm:text-sm font-bold text-slate-500 leading-none">Nirghos</span>
-          <span className="text-xs sm:text-sm font-black text-[#0d9488] leading-none">omni</span>
-        </div>
-      ),
-      heading: 'Omnichannel Retail & E-Commerce Sync',
-      desc: 'Unify your offline retail POS counters with online marketplaces (Amazon, Flipkart, Shopify, WooCommerce) in real time with central inventory sync, barcode dispatch, and returns management.',
-      monitorCaption: 'Nirghos Omni E-Commerce Sync Control Center',
-      slides: [
-        'Nirghos Omni E-Commerce Sync Control Center',
-        'Nirghos Omni Central Marketplace Inventory',
-        'Nirghos Omni Automated Order Dispatch Hub'
-      ],
-      link: '/industries/ecommerce',
-      categorySlug: 'ecommerce',
+      id: 'food-beverage',
+      name: 'Food & Beverage',
+      categorySlug: 'food-beverage',
+      icon: UtensilsCrossed,
+      iconBg: '#ffedd5',
+      iconColor: '#ea580c',
+      badge: 'HACCP & Cold Chain',
+      heading: 'Farm-to-Fork Batch Traceability & Food Production ERP',
+      desc: 'Engineered for packaged food manufacturers, beverage bottlers, bakeries, and cloud kitchens. Enforce exact recipe formulations, ingredient shrinkage tracking, allergen warnings, and FSSAI safety checklists.',
+      link: '/industries/food-beverage',
       bulletPoints: [
-        'Real-time Multi-Channel Inventory Reconciliation',
-        'Instant Auto-Sync with Amazon, Flipkart & Shopify',
-        'Central Barcode Verification & Fast Courier Manifest',
-        'Automated Return to Origin (RTO) Tracking'
-      ]
+        'Precision Recipe Formulation & Flavor Scalability',
+        'Ingredient Shrinkage & Yield Wastage Tracking',
+        'HACCP, FSSAI & Cold-Storage Temperature Logs',
+        'Dynamic Nutritional Fact & Barcode Label Printing'
+      ],
+      monitorCaption: 'Nirghos Recipe Formulation & HACCP Dashboard',
+      slides: [
+        'Batch Formulation & Ingredient Yield Console',
+        'Cold-Chain Temperature & Critical Quality Checkpoints',
+        'Automated FSSAI Traceability & Expiry Dashboard'
+      ],
+      mockData: {
+        tag: 'COLD-CHAIN & HACCP',
+        stat1: { label: 'Recipe Variance', value: '< 0.1%' },
+        stat2: { label: 'Cold Storage', value: '-18°C Stable' },
+        stat3: { label: 'FSSAI Logs', value: 'Automated' },
+        activity: 'Line 2: 4,500 Units Packaged with Thermal Expiry Stamp'
+      }
     },
     {
-      id: 'gorder',
-      name: 'G ORDER',
-      icon: ShoppingBag,
-      iconBg: '#ffe4e6',
-      iconColor: '#e11d48',
-      badge: 'B2B Mobile Ordering',
-      renderLogo: () => (
-        <div className="flex items-center gap-1 font-sans">
-          <span className="text-sm sm:text-base font-black text-[#dc2626] leading-none">G</span>
-          <span className="text-xs sm:text-sm font-black text-slate-900 tracking-tight leading-none">ORDER</span>
-        </div>
-      ),
-      heading: 'B2B Mobile Ordering & Sales Force App',
-      desc: 'Enable your retail dealers and traveling sales representatives to browse live digital catalogs, book orders instantly on mobile, check outstanding ledgers, and track delivery status.',
-      monitorCaption: 'G ORDER Digital Catalog & Order Booking App',
-      slides: [
-        'G ORDER Digital Catalog & Order Booking App',
-        'G ORDER Dealer Order Processing Screen',
-        'G ORDER Sales Representative Route Planner'
-      ],
-      link: '/industries/retail',
-      categorySlug: 'retail',
+      id: 'hospital',
+      name: 'Hospitals & Clinics',
+      categorySlug: 'hospital',
+      icon: Building2,
+      iconBg: '#ede9fe',
+      iconColor: '#7c3aed',
+      badge: 'Clinical & EMR',
+      heading: 'Unified Hospital Information & Clinical Workflow ERP',
+      desc: 'Connecting OPD/IPD queues, doctor consultation scheduling, electronic medical records (EMR), bed allocation, in-house pharmacy dispensing, and cashless TPA insurance claims in real time.',
+      link: '/industries/hospital',
       bulletPoints: [
-        'High-Resolution Visual B2B Mobile Catalog',
-        '24/7 Self-Service Dealer Order Booking',
-        'Instant Customer Outstanding Ledger Check',
-        'GPS-Enabled Sales Representative Field Routing'
-      ]
+        'OPD Queue Management & Doctor Roster Scheduling',
+        'Central Electronic Medical & Health Records (EMR/EHR)',
+        'In-House Pharmacy Dispensing & Bed Allocation',
+        'Pathology Diagnostic LIMS & Cashless TPA Claims'
+      ],
+      monitorCaption: 'Nirghos Hospital Telemetry & Bed Occupancy Grid',
+      slides: [
+        'Central Hospital Telemetry & Bed Occupancy Grid',
+        'Doctor Consultation & Digital Patient EMR Flow',
+        'Integrated IPD Billing & Cashless TPA Claims Console'
+      ],
+      mockData: {
+        tag: 'HOSPITAL TELEMETRY',
+        stat1: { label: 'Bed Occupancy', value: '92% Active' },
+        stat2: { label: 'TPA Discharge', value: '45 Mins' },
+        stat3: { label: 'Pharmacy Sync', value: '100% Live' },
+        activity: 'OPD Ward: 142 Consultations • 24 IPD Admissions Active'
+      }
     },
     {
-      id: 'jeweldeal',
-      name: 'JewelDeal',
-      icon: Sparkles,
-      iconBg: '#fef9c3',
-      iconColor: '#ca8a04',
-      badge: 'Jewellery B2B Portal',
-      renderLogo: () => (
-        <div className="bg-[#1c1917] px-2.5 py-1 rounded-sm text-center">
-          <span className="text-[10px] sm:text-xs font-black text-[#eab308] tracking-wider font-sans leading-none block">JewelDeal</span>
-        </div>
-      ),
-      heading: 'Digital Jewellery B2B Marketplace & Virtual Showroom',
-      desc: 'An exclusive virtual B2B jewellery showroom and digital catalog platform connecting jewellery manufacturers, wholesalers, and retail buyers with real-time rate calculators and secure booking.',
-      monitorCaption: 'JewelDeal Virtual Showroom & Booking Platform',
-      slides: [
-        'JewelDeal Virtual Showroom & Booking Platform',
-        'JewelDeal Manufacturer Catalog Showcase',
-        'JewelDeal Secure Wholesale Quotation Engine'
-      ],
-      link: '/industries/jewellery',
-      categorySlug: 'jewellery',
+      id: 'hotel-restaurant',
+      name: 'Hotels & Restaurants',
+      categorySlug: 'hotel-restaurant',
+      icon: Hotel,
+      iconBg: '#fee2e2',
+      iconColor: '#dc2626',
+      badge: 'Hospitality & POS',
+      heading: 'Hospitality Management, Room Booking & Restaurant POS ERP',
+      desc: 'Crafted for boutique hotels, multi-outlet restaurants, cafes, and banquet venues. Seamless touch-screen table billing, wireless Kitchen Order Tickets (KOT), room channel reservations, and raw material depletion.',
+      link: '/industries/hotel-restaurant',
       bulletPoints: [
-        'Virtual HD 360° Jewellery Exhibition Showcase',
-        'Restricted Verified Buyer Access Controls',
-        'Instant Live Metal & Diamond Weight Pricing Calculator',
-        'Confidential Quotations & Custom Design Inquiries'
-      ]
-    },
-    {
-      id: 'chatbox',
-      name: 'Nirghos CHATBOX',
-      icon: MessageSquare,
-      iconBg: '#d1fae5',
-      iconColor: '#059669',
-      badge: 'WhatsApp Automation',
-      renderLogo: () => (
-        <div className="flex flex-col text-left font-sans">
-          <span className="text-[8px] font-bold text-slate-500 leading-none">Nirghos</span>
-          <span className="text-xs sm:text-sm font-black text-[#059669] leading-none">CHATBOX</span>
-        </div>
-      ),
-      heading: 'WhatsApp Automated Customer Engagement Hub',
-      desc: 'Automate payment reminders, GST invoice PDFs, order dispatches, OTP confirmations, and promotional broadcast campaigns directly via official Meta WhatsApp Business API.',
-      monitorCaption: 'Nirghos CHATBOX Smart WhatsApp Dispatch Engine',
-      slides: [
-        'Nirghos CHATBOX Smart WhatsApp Dispatch Engine',
-        'Nirghos CHATBOX Automated Invoice Dispatcher',
-        'Nirghos CHATBOX Customer Broadcast Campaigns'
+        'Interactive Table Layout & Wireless KOT to Kitchen (KDS)',
+        'Cloud Room Reservation & OTA Channel Synchronization',
+        'Automatic Recipe-Based Raw Material & Liquor Depletion',
+        'Fast Split Billing, Guest Loyalty & Banquet Costing'
       ],
-      link: '/contact',
-      categorySlug: 'service-maintenance',
-      bulletPoints: [
-        'Official Meta WhatsApp Cloud API Verified Integration',
-        'Automated PDF Invoice & Payment Receipt Delivery',
-        'Scheduled Outstanding Ledger Payment Reminders',
-        'Bulk Promotional Campaigns with Rich Media & Buttons'
-      ]
+      monitorCaption: 'Nirghos Hospitality Floor & Kitchen Order Dispatch',
+      slides: [
+        'Interactive Dine-In Table Layout & KDS Dispatch Screen',
+        'Hotel Room Channel Manager & Occupancy Dashboard',
+        'Live Food Cost, Inventory Depletion & Recipe Analytics'
+      ],
+      mockData: {
+        tag: 'HOSPITALITY POS',
+        stat1: { label: 'Table Turnover', value: '+35% Speed' },
+        stat2: { label: 'Food Cost Shrinkage', value: '-8.5%' },
+        stat3: { label: 'OTA Channel Sync', value: 'Zero Delay' },
+        activity: 'Floor 1: 34 Tables Active • 12 KOTs Sent to Kitchen'
+      }
     }
   ];
 
@@ -1191,7 +1169,7 @@ export const Home = () => {
             <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2.5"></div>
           </div>
 
-          {/* 7 Horizontal Product Card Tabs (High-Res Vector Icons & Brand Logos) */}
+          {/* 6 Horizontal Product Card Tabs (Trading, Manufacturing, Pharma, Food, Hospitals, Hotels) */}
           <div className="flex items-center justify-start lg:justify-center gap-2.5 sm:gap-3.5 overflow-x-auto pb-4 pt-1 px-1 scrollbar-none select-none">
             {erpProducts.map((prod) => {
               const isActive = activeErpProduct === prod.id;
@@ -1219,19 +1197,13 @@ export const Home = () => {
                     <IconComp className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
                   </div>
 
-                  {/* Stylized Logo Name & Category Tag */}
+                  {/* Name & Category Tag */}
                   <div className="flex flex-col text-left">
-                    {prod.renderLogo ? (
-                      <div className="scale-95 origin-left">
-                        {prod.renderLogo()}
-                      </div>
-                    ) : (
-                      <span className={`text-xs sm:text-sm font-black whitespace-nowrap leading-tight ${
-                        isActive ? 'text-[#0284c7]' : 'text-slate-800'
-                      }`}>
-                        {prod.name}
-                      </span>
-                    )}
+                    <span className={`text-xs sm:text-sm font-black whitespace-nowrap leading-tight ${
+                      isActive ? 'text-[#0284c7]' : 'text-slate-800'
+                    }`}>
+                      {prod.name}
+                    </span>
                     <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5 whitespace-nowrap">
                       {prod.badge}
                     </span>
@@ -1249,6 +1221,11 @@ export const Home = () => {
               {/* Left Column: Heading, Description, Bullet Points & Explore More Button */}
               <div className="lg:col-span-6 space-y-5 text-left">
                 
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-xs font-bold tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-[#0284c7] animate-pulse"></span>
+                  <span>{currentProduct.badge}</span>
+                </div>
+
                 <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-slate-900 tracking-tight leading-tight">
                   {currentProduct.heading}
                 </h3>
@@ -1287,26 +1264,97 @@ export const Home = () => {
 
               </div>
 
-              {/* Right Column: Desktop iMac / Monitor Display & Pagination Dots */}
+              {/* Right Column: High-Tech Nirghos ERP Console Mockup & Navigation */}
               <div className="lg:col-span-6 flex flex-col items-center justify-center">
                 
-                {/* Desktop Monitor Graphics */}
-                <div className="relative w-full max-w-[480px] group">
-                  <div className="relative rounded-2xl overflow-hidden drop-shadow-2xl transition-transform duration-300 group-hover:scale-[1.02]">
-                    <img 
-                      src="/products/monitor-gsoft.png" 
-                      alt={currentProduct.monitorCaption} 
-                      className="w-full h-auto object-contain select-none"
-                    />
+                {/* Simulated Desktop Monitor / Terminal Frame */}
+                <div className="relative w-full max-w-[500px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
+                  {/* Console Header Bar */}
+                  <div className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                      <span className="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                      <span className="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                      <span className="text-[11px] font-mono text-slate-400 pl-2 font-semibold">
+                        nirghos-erp // {currentProduct.id}.telemetry
+                      </span>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/50">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      LIVE SYNC
+                    </span>
+                  </div>
+
+                  {/* Console Body */}
+                  <div className="p-5 space-y-4 text-left">
+                    {/* Top Stat Cards */}
+                    <div className="grid grid-cols-3 gap-2.5">
+                      <div className="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800/80">
+                        <span className="text-[10px] text-slate-400 font-medium block">
+                          {currentProduct.mockData.stat1.label}
+                        </span>
+                        <span className="text-sm sm:text-base font-black text-white mt-0.5 block">
+                          {currentProduct.mockData.stat1.value}
+                        </span>
+                      </div>
+                      <div className="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800/80">
+                        <span className="text-[10px] text-slate-400 font-medium block">
+                          {currentProduct.mockData.stat2.label}
+                        </span>
+                        <span className="text-sm sm:text-base font-black text-sky-400 mt-0.5 block">
+                          {currentProduct.mockData.stat2.value}
+                        </span>
+                      </div>
+                      <div className="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800/80">
+                        <span className="text-[10px] text-slate-400 font-medium block">
+                          {currentProduct.mockData.stat3.label}
+                        </span>
+                        <span className="text-sm sm:text-base font-black text-emerald-400 mt-0.5 block">
+                          {currentProduct.mockData.stat3.value}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Active Telemetry Box */}
+                    <div className="bg-slate-900/70 rounded-xl p-3.5 border border-slate-800/60 space-y-2.5">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">
+                          {currentProduct.mockData.tag}
+                        </span>
+                        <span className="text-[11px] font-semibold text-sky-300">
+                          {currentProduct.slides[productSlideIndex]}
+                        </span>
+                      </div>
+                      
+                      {/* Dynamic Progress / Capacity Bar */}
+                      <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden flex">
+                        <div 
+                          className="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full transition-all duration-500" 
+                          style={{ width: productSlideIndex === 0 ? '88%' : productSlideIndex === 1 ? '96%' : '82%' }}
+                        ></div>
+                      </div>
+
+                      {/* Live Activity Row */}
+                      <div className="flex items-center justify-between text-[11px] text-slate-300 pt-1">
+                        <span className="truncate">{currentProduct.mockData.activity}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 ml-2" />
+                      </div>
+                    </div>
+
+                    {/* Bottom Status Ribbon */}
+                    <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-slate-800/60">
+                      <span>Nirghos Core Engine v4.2</span>
+                      <span className="text-sky-400 font-semibold">256-bit SSL • 99.9% Uptime</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* Monitor Caption */}
+                {/* Caption */}
                 <span className="text-xs sm:text-sm font-bold text-slate-700 mt-4 text-center">
                   {currentProduct.slides[productSlideIndex] || currentProduct.monitorCaption}
                 </span>
 
-                {/* 3 Pagination Carousel Dots (Exact Match) */}
+                {/* 3 Pagination Carousel Dots */}
                 <div className="flex items-center justify-center gap-2 mt-2.5">
                   {[0, 1, 2].map((dotIdx) => (
                     <button
