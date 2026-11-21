@@ -1514,38 +1514,12 @@ export const Home = () => {
             </div>
 
             {/* Right Column: Office Success Culture & Team Photo Card */}
-            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl bg-slate-50 group min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
+            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl bg-white group min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
               <img 
                 src="/why-nirghos-team.jpg" 
                 alt="Why Nirghos Team Culture and Success" 
                 className="w-full h-full object-cover select-none transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
-
-              {/* Floating Success Pill Badge at Bottom */}
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl shadow-lg p-3 sm:p-3.5 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-sky-50 border border-sky-200 text-[#0284c7] flex items-center justify-center shrink-0">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <span className="text-xs sm:text-sm font-black text-slate-900 leading-tight">
-                      Driven by Innovation
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500">
-                      25+ Years of Industry Trust
-                    </span>
-                  </div>
-                </div>
-
-                <button 
-                  type="button" 
-                  onClick={() => setIsDemoModalOpen(true)}
-                  className="px-4 py-2 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white text-xs font-bold transition-all shadow-xs cursor-pointer shrink-0"
-                >
-                  Join Us
-                </button>
-              </div>
             </div>
 
           </div>
