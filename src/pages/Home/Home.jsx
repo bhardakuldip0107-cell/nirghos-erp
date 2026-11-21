@@ -1161,12 +1161,22 @@ export const Home = () => {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Header Title & Orange Accent Underline */}
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-              Our Products
-            </h2>
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2.5"></div>
+          {/* Header Title on Left, View All Button on Right */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
+            <div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+                Our Products
+              </h2>
+              <div className="w-16 h-1 bg-[#0284c7] rounded-full mt-2.5"></div>
+            </div>
+
+            <Link
+              to="/industries"
+              className="self-start sm:self-auto inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider shadow-xs hover:shadow transition-all duration-200 cursor-pointer"
+            >
+              <span>View All</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
           </div>
 
           {/* 6 Product Selection Cards Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile - No Cutoff, No Scrollbar) */}
