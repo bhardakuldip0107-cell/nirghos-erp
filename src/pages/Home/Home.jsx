@@ -1169,8 +1169,8 @@ export const Home = () => {
             <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2.5"></div>
           </div>
 
-          {/* 6 Horizontal Product Card Tabs (Trading, Manufacturing, Pharma, Food, Hospitals, Hotels) */}
-          <div className="flex items-center justify-start lg:justify-center gap-2.5 sm:gap-3.5 overflow-x-auto pb-4 pt-1 px-1 scrollbar-none select-none">
+          {/* 6 Product Selection Cards Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile - No Cutoff, No Scrollbar) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 mb-6">
             {erpProducts.map((prod) => {
               const isActive = activeErpProduct === prod.id;
               const IconComp = prod.icon;
@@ -1182,31 +1182,42 @@ export const Home = () => {
                     setActiveErpProduct(prod.id);
                     setProductSlideIndex(0);
                   }}
-                  className={`h-14 sm:h-16 px-3.5 sm:px-4.5 rounded-2xl bg-white flex items-center gap-2.5 sm:gap-3 transition-all duration-200 transform shrink-0 cursor-pointer shadow-xs ${
+                  className={`p-3.5 sm:p-4 rounded-2xl text-left flex items-center justify-between transition-all duration-200 cursor-pointer ${
                     isActive
-                      ? 'border-2 border-[#0284c7] shadow-md shadow-blue-500/15 -translate-y-1 ring-2 ring-blue-500/10'
-                      : 'border border-slate-200/90 hover:border-slate-300 hover:shadow-xs hover:bg-slate-50/50 hover:-translate-y-0.5'
+                      ? 'bg-gradient-to-r from-sky-50 to-blue-50/60 border-2 border-[#0284c7] shadow-md shadow-blue-500/10 ring-2 ring-[#0284c7]/15 -translate-y-0.5'
+                      : 'bg-white border border-slate-200/90 hover:border-sky-300 hover:shadow-xs hover:bg-slate-50/70 hover:-translate-y-0.5'
                   }`}
                   aria-label={prod.name}
                 >
-                  {/* Clean Vector Icon Badge */}
-                  <div 
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 shadow-2xs transition-transform"
-                    style={{ backgroundColor: prod.iconBg, color: prod.iconColor }}
-                  >
-                    <IconComp className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
+                  <div className="flex items-center gap-3 min-w-0">
+                    {/* Clean Vector Icon Badge */}
+                    <div 
+                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 shadow-2xs transition-transform"
+                      style={{ backgroundColor: prod.iconBg, color: prod.iconColor }}
+                    >
+                      <IconComp className="w-5 h-5 stroke-[2.2]" />
+                    </div>
+
+                    {/* Name & Category Tag */}
+                    <div className="flex flex-col text-left min-w-0">
+                      <span className={`text-sm sm:text-[15px] font-black truncate leading-tight ${
+                        isActive ? 'text-[#0284c7]' : 'text-slate-900'
+                      }`}>
+                        {prod.name}
+                      </span>
+                      <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider mt-0.5 truncate">
+                        {prod.badge}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Name & Category Tag */}
-                  <div className="flex flex-col text-left">
-                    <span className={`text-xs sm:text-sm font-black whitespace-nowrap leading-tight ${
-                      isActive ? 'text-[#0284c7]' : 'text-slate-800'
-                    }`}>
-                      {prod.name}
-                    </span>
-                    <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5 whitespace-nowrap">
-                      {prod.badge}
-                    </span>
+                  {/* Active Selection Check Indicator */}
+                  <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all ml-2 ${
+                    isActive 
+                      ? 'bg-[#0284c7] text-white' 
+                      : 'border border-slate-300 bg-slate-50 text-transparent'
+                  }`}>
+                    <Check className="w-3 h-3 stroke-[3]" />
                   </div>
                 </button>
               );
