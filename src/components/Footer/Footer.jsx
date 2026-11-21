@@ -208,13 +208,13 @@ export const Footer = () => {
           {/* Left: Email & Phone Action Badges */}
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6 text-xs sm:text-[13px] font-semibold text-slate-700">
             <a 
-              href="mailto:business@nirghos.ai" 
+              href="mailto:infinitysofttech@gmail.com" 
               className="flex items-center gap-2.5 hover:text-[#0284c7] transition group"
             >
               <div className="w-8 h-8 rounded-lg bg-[#0284c7] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <Mail className="w-4 h-4" />
               </div>
-              <span className="font-medium text-slate-800 group-hover:text-[#0284c7] transition">business@nirghos.ai</span>
+              <span className="font-medium text-slate-800 group-hover:text-[#0284c7] transition">infinitysofttech@gmail.com</span>
             </a>
 
             <a 
@@ -224,7 +224,7 @@ export const Footer = () => {
               <div className="w-8 h-8 rounded-lg bg-[#0284c7] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <Phone className="w-4 h-4" />
               </div>
-              <span className="font-medium text-slate-800 group-hover:text-[#0284c7] transition">+91 81403 64036</span>
+              <span className="font-medium text-slate-800 group-hover:text-[#0284c7] transition">+91 94092 59294</span>
             </a>
           </div>
 
