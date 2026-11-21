@@ -5,8 +5,6 @@ import {
   Phone, 
   FileText,
   X,
-  ShieldCheck,
-  CheckCircle,
   Building,
   Heart
 } from 'lucide-react';
@@ -201,12 +199,12 @@ export const Footer = () => {
         </div>
 
         {/* ========================================================================= */}
-        {/* MIDDLE FLOATING WHITE BAR: CONTACT PILLS + TRUST BADGES (SCREENSHOT MATCH)*/}
+        {/* MIDDLE FLOATING WHITE BAR: CONTACT PILLS (EMAIL & PHONE)                 */}
         {/* ========================================================================= */}
-        <div className="bg-white rounded-2xl sm:rounded-full border border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.04)] px-5 sm:px-8 py-3.5 sm:py-4 my-6 flex flex-col lg:flex-row items-center justify-between gap-5">
+        <div className="bg-white rounded-2xl sm:rounded-full border border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.04)] px-6 sm:px-8 py-3.5 sm:py-4 my-6 flex items-center justify-center">
           
-          {/* Left: Email & Phone Action Badges */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6 text-xs sm:text-[13px] font-semibold text-slate-700">
+          {/* Email & Phone Action Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-[13px] font-semibold text-slate-700">
             <a 
               href="mailto:infinitysofttech@gmail.com" 
               className="flex items-center gap-2.5 hover:text-[#0284c7] transition group"
@@ -217,8 +215,10 @@ export const Footer = () => {
               <span className="font-medium text-slate-800 group-hover:text-[#0284c7] transition">infinitysofttech@gmail.com</span>
             </a>
 
+            <div className="hidden sm:block w-px h-5 bg-slate-200"></div>
+
             <a 
-              href="tel:+918140364036" 
+              href="tel:+919409259294" 
               className="flex items-center gap-2.5 hover:text-[#0284c7] transition group"
             >
               <div className="w-8 h-8 rounded-lg bg-[#0284c7] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
@@ -226,51 +226,6 @@ export const Footer = () => {
               </div>
               <span className="font-medium text-slate-800 group-hover:text-[#0284c7] transition">+91 94092 59294</span>
             </a>
-          </div>
-
-          {/* Divider on Desktop */}
-          <div className="hidden lg:block w-px h-8 bg-slate-200"></div>
-
-          {/* Right: Security & Certification Badges (Exact match to screenshot icons) */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 grayscale hover:grayscale-0 transition-all opacity-85 hover:opacity-100">
-            
-            {/* 1. ISO 9001:2015 Seal */}
-            <div className="flex flex-col items-center justify-center text-center cursor-default group" title="ISO 9001:2015 Certified">
-              <div className="w-8 h-8 rounded-full border-2 border-slate-400 group-hover:border-[#0284c7] flex flex-col items-center justify-center leading-none text-slate-600 group-hover:text-[#0284c7] transition">
-                <span className="text-[8px] font-black">ISO</span>
-              </div>
-              <span className="text-[7px] font-bold text-slate-500 mt-0.5 uppercase tracking-tighter">9001:2015</span>
-            </div>
-
-            {/* 2. DMCA PROTECTED Badge */}
-            <div className="flex items-center border border-slate-300 rounded overflow-hidden text-[9px] font-bold shadow-2xs cursor-default">
-              <span className="bg-slate-700 text-white px-2 py-0.5 tracking-wider">DMCA</span>
-              <span className="bg-slate-100 text-slate-700 px-2 py-0.5 tracking-wider border-l border-slate-300">PROTECTED</span>
-            </div>
-
-            {/* 3. GDPR Compliance Seal */}
-            <div className="w-8 h-8 rounded-full border border-dashed border-slate-400 flex items-center justify-center p-0.5 text-slate-600 hover:text-[#0284c7] transition cursor-default" title="GDPR Ready & Verified">
-              <div className="w-full h-full rounded-full border border-slate-300 flex items-center justify-center">
-                <span className="text-[7px] font-black uppercase">GDPR</span>
-              </div>
-            </div>
-
-            {/* 4. 256-bit SSL Certified Shield */}
-            <div className="w-8 h-8 flex items-center justify-center text-slate-500 hover:text-[#0284c7] transition cursor-default" title="256-Bit SSL Military Grade Security">
-              <ShieldCheck className="w-6 h-6 stroke-[1.75]" />
-            </div>
-
-            {/* 5. SOC 2 Type II Emblem */}
-            <div className="w-7 h-8 border border-slate-400 rounded-sm flex flex-col items-center justify-center text-slate-600 hover:text-[#0284c7] transition cursor-default" title="SOC 2 Type II Certified">
-              <span className="text-[7px] font-black uppercase leading-none">SOC 2</span>
-              <span className="text-[6px] font-bold text-slate-400 uppercase leading-none mt-0.5">TYPE II</span>
-            </div>
-
-            {/* 6. Medical & Quality Certified Caduceus Seal */}
-            <div className="w-8 h-8 rounded-full border-2 border-slate-400 flex items-center justify-center text-slate-600 hover:text-[#0284c7] transition cursor-default" title="ISO 27001 Information Security">
-              <CheckCircle className="w-5 h-5 stroke-[2]" />
-            </div>
-
           </div>
 
         </div>
