@@ -47,7 +47,9 @@ import {
   Hotel,
   Lock,
   Headphones,
-  Cloud
+  Cloud,
+  Smartphone,
+  RefreshCw
 } from 'lucide-react';
 import { industriesData } from '../../data/industries';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -62,6 +64,7 @@ export const Home = () => {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [sliderMode, setSliderMode] = useState('categories'); // 'categories' | 'brands'
   const [activeErpProduct, setActiveErpProduct] = useState('trading');
+  const [activeSolutionTab, setActiveSolutionTab] = useState('omnichannel');
   const [productSlideIndex, setProductSlideIndex] = useState(0);
   const [showAllServices, setShowAllServices] = useState(false);
   const [testimonialSlideIndex, setTestimonialSlideIndex] = useState(0);
@@ -264,6 +267,244 @@ export const Home = () => {
       path: '/industries/jewellery'
     }
   ];
+
+  // 7 Tabs for "Innovative solutions for retailers, MSMEs and manufacturers"
+  const solutionsTabs = [
+    { id: 'pos', label: 'POS' },
+    { id: 'erp', label: 'ERP' },
+    { id: 'accounting', label: 'Accounting' },
+    { id: 'inventory', label: 'Inventory' },
+    { id: 'crm', label: 'CRM' },
+    { id: 'omnichannel', label: 'Omnichannel' },
+    { id: 'smart-retail', label: 'Smart Retail' }
+  ];
+
+  const solutionsData = {
+    pos: {
+      step: '01 / 07',
+      badge: 'High-Speed POS & Billing',
+      heading: 'Sub-Second Touchscreen POS & High-Speed Barcode Checkout',
+      desc: 'Process thousands of daily counter bills effortlessly. Integrate barcode scanners, digital weighing scales, customer pole displays, cash drawers, and instant dynamic UPI QR payments with zero lag.',
+      link: '/features',
+      diagram: {
+        sources: [
+          { label: 'Barcode Scanner', icon: Zap },
+          { label: 'Weigh Scale', icon: Activity },
+          { label: 'Touch POS Terminal', icon: Store },
+          { label: 'Customer Display', icon: LayoutDashboard },
+          { label: 'UPI QR Terminal', icon: Smartphone }
+        ],
+        hubName: 'Nirghos POS',
+        hubSub: 'Sub-Second Engine',
+        orderCard: {
+          title: 'Counter Billing Queue',
+          subtitle: 'High-speed counter telemetry',
+          statLabel: 'TODAY BILLS',
+          statValue: '342',
+          rows: [
+            { id: '#B-8801', source: 'Counter 1', amount: '₹1,450', icon: Store },
+            { id: '#B-8802', source: 'UPI QR', amount: '₹820', icon: Smartphone },
+            { id: '#B-8803', source: 'Express Lane', amount: '₹3,210', icon: Zap },
+            { id: '#B-8804', source: 'Counter 2', amount: '₹540', icon: Store },
+            { id: '#B-8805', source: 'Card Swiped', amount: '₹2,190', icon: CheckCircle2 }
+          ],
+          bottomText: '⚡ Avg checkout speed 3.8s • Zero counter queue'
+        }
+      }
+    },
+    erp: {
+      step: '02 / 07',
+      badge: 'Unified Enterprise ERP',
+      heading: 'All Business Departments, One Single Source of Truth',
+      desc: 'Seamlessly unite purchase procurement, multi-level BOM factory production, multi-godown inventory, employee attendance, and executive financial reports under one roof.',
+      link: '/features',
+      diagram: {
+        sources: [
+          { label: 'Purchase & PO', icon: ShoppingBag },
+          { label: 'Plant & Production', icon: Factory },
+          { label: 'Warehouse Stock', icon: Boxes },
+          { label: 'HR & Payroll', icon: Users },
+          { label: 'Sales & Dispatch', icon: TrendingUp }
+        ],
+        hubName: 'Nirghos Core',
+        hubSub: 'Enterprise Cloud',
+        orderCard: {
+          title: 'Enterprise Stream',
+          subtitle: 'Cross-department synchronization',
+          statLabel: 'ACTIVE WORKFLOWS',
+          statValue: '184',
+          rows: [
+            { id: '#PO-412', source: 'Raw Material Inward', amount: '₹48,500', icon: Boxes },
+            { id: '#WO-981', source: 'Shop Floor Assembly', amount: '₹1.24 L', icon: Factory },
+            { id: '#DS-304', source: 'Dispatch Challan', amount: '₹76,200', icon: Truck },
+            { id: '#PAY-02', source: 'Biometric Attendance', amount: '142 Present', icon: Users },
+            { id: '#INV-55', source: 'E-Way Bill Auto-Generated', amount: '₹95,000', icon: Zap }
+          ],
+          bottomText: '🔗 100% synchronized data • Zero duplicate entry'
+        }
+      }
+    },
+    accounting: {
+      step: '03 / 07',
+      badge: 'Double-Entry Accounting & GST',
+      heading: 'Automated General Ledger, Instant P&L and 1-Click GST Returns',
+      desc: 'Strict double-entry bookkeeping with automated bank reconciliation, debtor credit day locks, TDS/TCS auto-deductions, and 1-click GSTR-1, 2B, 3B tax e-filing payloads.',
+      link: '/features',
+      diagram: {
+        sources: [
+          { label: 'Sales Invoices', icon: TrendingUp },
+          { label: 'Purchase GRN', icon: ShoppingBag },
+          { label: 'Bank Feeds', icon: Landmark },
+          { label: 'TDS & GST Portal', icon: ShieldCheck },
+          { label: 'Expense Vouchers', icon: Calculator }
+        ],
+        hubName: 'Nirghos GL',
+        hubSub: 'Finance Engine',
+        orderCard: {
+          title: 'Financial Health',
+          subtitle: 'Real-time ledger & cash flow',
+          statLabel: 'REVENUE TODAY',
+          statValue: '₹2.84 L',
+          rows: [
+            { id: '#TX-101', source: 'GST Tax Invoiced', amount: '₹34,080', icon: Landmark },
+            { id: '#RC-228', source: 'Vendor Settlement', amount: '₹1,12,000', icon: CheckCircle2 },
+            { id: '#AG-402', source: 'Debtor Payment Recvd', amount: '₹45,000', icon: TrendingUp },
+            { id: '#RC-904', source: 'Bank Statement Synced', amount: 'Reconciled', icon: Check },
+            { id: '#TDS-18', source: 'TDS Compliance Lock', amount: 'Verified', icon: ShieldCheck }
+          ],
+          bottomText: '📊 Real-time P&L, Balance Sheet & GST ready'
+        }
+      }
+    },
+    inventory: {
+      step: '04 / 07',
+      badge: 'Multi-Godown Inventory',
+      heading: 'Live Multi-Godown Stock & Intelligent Reorder Automation',
+      desc: 'Gain 100% visibility over distributed warehouses. Enforce serial-number barcodes, FIFO/FEFO expiry dates, inter-branch transfer challans, and auto-purchase order triggers.',
+      link: '/features',
+      diagram: {
+        sources: [
+          { label: 'Central Godown', icon: Building2 },
+          { label: 'Regional Hubs', icon: Truck },
+          { label: 'Factory WIP', icon: Factory },
+          { label: 'Store Shelf', icon: Store },
+          { label: 'In-Transit Stock', icon: Boxes }
+        ],
+        hubName: 'Nirghos Stock',
+        hubSub: 'Inventory Hub',
+        orderCard: {
+          title: 'Inventory Telemetry',
+          subtitle: 'Multi-godown live balances',
+          statLabel: 'TOTAL SKUS',
+          statValue: '24,850',
+          rows: [
+            { id: '#TR-801', source: 'Godown 1 to Hub 2', amount: '450 Units', icon: Truck },
+            { id: '#BT-309', source: 'Batch #B-902 Passed QC', amount: '1,200 Pcs', icon: CheckCircle2 },
+            { id: '#AL-012', source: 'Reorder Level Alert', amount: 'Low Stock', icon: Zap },
+            { id: '#AU-440', source: 'Barcode Cycle Count', amount: '100% Match', icon: Check },
+            { id: '#FE-108', source: 'FEFO Expiry Allocation', amount: 'Safe Guard', icon: ShieldCheck }
+          ],
+          bottomText: '📦 Zero stockouts • Real-time valuation across all branches'
+        }
+      }
+    },
+    crm: {
+      step: '05 / 07',
+      badge: 'Customer Loyalty & WhatsApp',
+      heading: 'Turn Walk-In Customers into Repeat Buyers with Automated CRM',
+      desc: 'Build customer loyalty with points on every rupee spent. Automatically dispatch GST invoices and payment reminders to customer WhatsApp, and launch targeted festive campaigns.',
+      link: '/features',
+      diagram: {
+        sources: [
+          { label: 'Customer Directory', icon: Users },
+          { label: 'WhatsApp Bot', icon: MessageSquare },
+          { label: 'Loyalty Points', icon: Award },
+          { label: 'Campaign Engine', icon: Sparkles },
+          { label: 'Payment Reminders', icon: Smartphone }
+        ],
+        hubName: 'Nirghos CRM',
+        hubSub: 'Engagement Hub',
+        orderCard: {
+          title: 'CRM Engagement',
+          subtitle: 'Loyalty & WhatsApp stream',
+          statLabel: 'MEMBERS',
+          statValue: '18,450',
+          rows: [
+            { id: '#WA-501', source: 'WhatsApp Invoice Sent', amount: 'Delivered', icon: MessageSquare },
+            { id: '#LP-902', source: '500 Points Redeemed', amount: '₹500 Off', icon: Award },
+            { id: '#PM-330', source: 'Payment Reminder Nudge', amount: 'Collected', icon: Smartphone },
+            { id: '#BD-112', source: 'Birthday Offer Dispatched', amount: 'Opened', icon: Sparkles },
+            { id: '#CS-840', source: 'VIP Customer Checkout', amount: 'Counter 1', icon: Users }
+          ],
+          bottomText: '💬 Automated WhatsApp alerts • 35% repeat purchase boost'
+        }
+      }
+    },
+    omnichannel: {
+      step: '06 / 07',
+      badge: 'Connected Omnichannel',
+      heading: 'Sell Everywhere, Manage from One Place',
+      desc: 'Sync orders from multiple channels, track performance, and manage everything centrally for a seamless customer experience across platforms.',
+      link: '/features',
+      diagram: {
+        sources: [
+          { label: 'Store POS', icon: Store },
+          { label: 'Website', icon: Globe },
+          { label: 'Marketplace', icon: ShoppingBag },
+          { label: 'WhatsApp', icon: MessageSquare },
+          { label: 'Mobile app', icon: Smartphone }
+        ],
+        hubName: 'N.',
+        hubSub: 'Nirghos',
+        orderCard: {
+          title: 'All orders',
+          subtitle: 'One queue for every channel',
+          statLabel: 'TODAY',
+          statValue: '132',
+          rows: [
+            { id: '#A-1043', source: 'Mobile app', amount: '₹1,120', icon: Smartphone },
+            { id: '#S-2210', source: 'Store POS', amount: '₹2,365', icon: Store },
+            { id: '#M-9934', source: 'Marketplace', amount: '₹799', icon: ShoppingBag },
+            { id: '#W-5521', source: 'Website', amount: '₹1,840', icon: Globe },
+            { id: '#S-2209', source: 'Store POS', amount: '₹960', icon: Store }
+          ],
+          bottomText: '🔄 Stock & prices synced across 5 channels'
+        }
+      }
+    },
+    'smart-retail': {
+      step: '07 / 07',
+      badge: 'AI Cam 360 & Analytics',
+      heading: 'Turn In-Store CCTV Cameras into Real-Time Business Intelligence',
+      desc: 'Analyze customer footfalls, dwell time heatmaps, checkout counter queue lengths, and store conversion rates in real time directly inside your Nirghos ERP dashboard.',
+      link: '/features',
+      diagram: {
+        sources: [
+          { label: 'Store Entrance Cam', icon: Zap },
+          { label: 'Display Aisle Cam', icon: Store },
+          { label: 'Jewelry Counter Cam', icon: Gem },
+          { label: 'Billing Queue Cam', icon: Users },
+          { label: 'Exit Heatmap Cam', icon: Activity }
+        ],
+        hubName: 'AI Cam 360',
+        hubSub: 'Nirghos Vision',
+        orderCard: {
+          title: 'Store AI Telemetry',
+          subtitle: 'Real-time footfall & heatmaps',
+          statLabel: 'FOOTFALL TODAY',
+          statValue: '482',
+          rows: [
+            { id: '#FF-102', source: 'Entrance Footfall In', amount: '482 Visitors', icon: Users },
+            { id: '#DW-340', source: 'Avg Store Dwell Time', amount: '18.4 Mins', icon: Clock },
+            { id: '#QU-005', source: 'Checkout Queue Alert', amount: '< 2 Persons', icon: CheckCircle2 },
+            { id: '#HM-891', source: 'Hot Shelf Engagement', amount: '+42% Views', icon: TrendingUp },
+            { id: '#CV-720', source: 'Walk-In to Bill Ratio', amount: '68% Conversion', icon: Sparkles }
+          ],
+          bottomText: '📹 Zero hardware swap • Works with your existing IP cameras'
+        }
+      }
+    }
+  };
 
   // Featured Enterprise Brands for Hero Section (Exact match to User Screenshot)
   const featuredBrandLogos = [
@@ -735,6 +976,7 @@ export const Home = () => {
   ];
 
   const currentProduct = erpProducts.find(p => p.id === activeErpProduct) || erpProducts[0];
+  const currentSolution = solutionsData[activeSolutionTab] || solutionsData.omnichannel;
 
   // Comprehensive Services Tailored to Nirghos ERP Ecosystem (Exact match to screenshot)
   const nirghosServices = [
@@ -1252,6 +1494,176 @@ export const Home = () => {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* INNOVATIVE SOLUTIONS FOR RETAILERS, MSMES AND MANUFACTURERS               */}
+      {/* ========================================================================= */}
+      <section id="innovative-solutions-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-sky-50/25 to-white relative overflow-hidden border-b border-slate-200/80">
+        
+        {/* Subtle Background Accent Tiles */}
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header Section: Title & Subtitle (Exact Match to User Screenshot) */}
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-tight">
+              Innovative solutions for retailers, MSMEs and manufacturers
+            </h2>
+            <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-3 mb-3"></div>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+              Comprehensive solutions, modules, and features to make your stores and business units smart and automated
+            </p>
+          </div>
+
+          {/* Segmented Filter Tab Pills */}
+          <div className="flex items-center justify-center mb-8 sm:mb-10 overflow-x-auto no-scrollbar py-1">
+            <div className="inline-flex items-center p-1.5 rounded-2xl sm:rounded-full bg-slate-100/90 border border-slate-200/90 gap-1 sm:gap-1.5 shadow-2xs">
+              {solutionsTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveSolutionTab(tab.id)}
+                  className={`px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
+                    activeSolutionTab === tab.id
+                      ? 'bg-[#0284c7] text-white shadow-md shadow-sky-500/25 scale-[1.02]'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Interactive Split Showcase Card */}
+          <div className="bg-slate-50/70 border border-slate-200/90 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+              
+              {/* Left Column: Solution Details */}
+              <div className="lg:col-span-5 bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-2xs flex flex-col justify-between min-h-[360px]">
+                <div>
+                  <div className="flex items-center justify-between text-xs font-semibold text-slate-400 mb-6">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-100">
+                      {currentSolution.badge}
+                    </span>
+                    <span className="font-mono text-slate-400 font-bold">{currentSolution.step}</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
+                    {currentSolution.heading}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mt-4">
+                    {currentSolution.desc}
+                  </p>
+                </div>
+                
+                <div className="pt-6 border-t border-slate-100 mt-6">
+                  <Link
+                    to={currentSolution.link}
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0284c7] hover:text-[#0369a1] group cursor-pointer"
+                  >
+                    <span>View more</span>
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column: Live Hub & Queue Architecture Diagram */}
+              <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-slate-200/80 shadow-md relative overflow-hidden">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-4">
+                  
+                  {/* Left Column: 5 Source Channels */}
+                  <div className="flex flex-col gap-2.5 w-full sm:w-auto shrink-0">
+                    {currentSolution.diagram.sources.map((src, idx) => {
+                      const SrcIcon = src.icon;
+                      return (
+                        <div
+                          key={idx}
+                          className="bg-white rounded-xl px-3.5 py-2 border border-slate-200/90 shadow-2xs flex items-center justify-between sm:justify-start gap-2.5 text-xs font-bold text-slate-800 hover:border-sky-300 transition-colors"
+                        >
+                          <div className="flex items-center gap-2">
+                            <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
+                              <SrcIcon className="w-3.5 h-3.5" />
+                            </div>
+                            <span className="whitespace-nowrap">{src.label}</span>
+                          </div>
+                          <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0 hidden sm:block"></span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Center: Nirghos Hub Node */}
+                  <div className="flex flex-col items-center justify-center shrink-0 py-2 sm:py-0">
+                    <div className="relative bg-white rounded-2xl p-4 sm:p-5 border border-sky-200 shadow-lg shadow-sky-500/10 flex flex-col items-center justify-center text-center">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0284c7] to-[#0369a1] text-white flex items-center justify-center font-black text-xl shadow-md shadow-sky-500/25">
+                        N.
+                      </div>
+                      <span className="text-xs font-black text-slate-900 mt-2">{currentSolution.diagram.hubName}</span>
+                      <span className="text-[10px] text-slate-400 font-bold">{currentSolution.diagram.hubSub}</span>
+
+                      {/* Glowing Pulse Rings */}
+                      <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#0284c7] border-2 border-white shadow-xs"></span>
+                      <span className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#0284c7] border-2 border-white shadow-xs"></span>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Unified Queue Orders Card */}
+                  <div className="w-full sm:flex-1 bg-white rounded-2xl border border-slate-200/90 shadow-2xs p-4 sm:p-5 max-w-sm">
+                    <div className="flex items-start justify-between pb-3 border-b border-slate-100 mb-3">
+                      <div>
+                        <h4 className="text-sm font-black text-slate-900 leading-tight">
+                          {currentSolution.diagram.orderCard.title}
+                        </h4>
+                        <p className="text-[11px] text-slate-400 font-medium">
+                          {currentSolution.diagram.orderCard.subtitle}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-[9px] font-black uppercase text-slate-400 block tracking-wider">
+                          {currentSolution.diagram.orderCard.statLabel}
+                        </span>
+                        <span className="text-lg sm:text-xl font-black text-slate-900 leading-none">
+                          {currentSolution.diagram.orderCard.statValue}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Order Rows */}
+                    <div className="space-y-2">
+                      {currentSolution.diagram.orderCard.rows.map((row, idx) => {
+                        const RowIcon = row.icon;
+                        return (
+                          <div
+                            key={idx}
+                            className="flex items-center justify-between text-xs py-1.5 px-2.5 rounded-lg bg-slate-50/90 hover:bg-sky-50/60 transition-colors"
+                          >
+                            <div className="flex items-center gap-2 min-w-0">
+                              <RowIcon className="w-3.5 h-3.5 text-[#0284c7] shrink-0" />
+                              <span className="font-mono font-bold text-slate-800 shrink-0">{row.id}</span>
+                              <span className="text-[11px] text-slate-500 truncate hidden sm:inline">{row.source}</span>
+                            </div>
+                            <span className="font-black text-slate-900 shrink-0 ml-2">{row.amount}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Bottom Status Sync Pill */}
+                    <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-[#0284c7] bg-sky-50/70 py-1.5 px-2.5 rounded-xl border border-sky-100/70">
+                      <RefreshCw className="w-3.5 h-3.5 shrink-0" />
+                      <span className="truncate">{currentSolution.diagram.orderCard.bottomText}</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </section>
 
