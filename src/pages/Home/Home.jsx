@@ -1055,7 +1055,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION (EXACT MATCH TO USER'S SCREENSHOT - VASY / MODERN SAAS)    */}
       {/* ========================================================================= */}
-      <section className="relative pt-12 pb-10 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16 bg-white border-b border-slate-200/80 overflow-hidden text-center">
+      <section className="relative pt-12 pb-6 sm:pt-16 sm:pb-8 lg:pt-18 lg:pb-8 bg-white border-b border-slate-200/80 overflow-hidden text-center">
         
         {/* Subtle Modern Technical Grid Background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none opacity-85 [mask-image:radial-gradient(ellipse_85%_65%_at_50%_35%,#000_65%,transparent_100%)]"></div>
@@ -1142,7 +1142,7 @@ export const Home = () => {
 
 
         {/* Search bar & quick category exploration */}
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-1">
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-5 pb-1">
           <SearchBar 
             onSearchChange={(q) => setSearchQuery(q)}
             placeholder="Search specialized industry ERPs (e.g. Apparel, Jewellery, Footwear, Manufacturing)..."
@@ -1179,7 +1179,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 2. ABOUT NIRGHOS ERP SECTION (EXACT MATCH TO USER SCREENSHOT)              */}
       {/* ========================================================================= */}
-      <section id="about-section" className="py-12 lg:py-20 bg-white relative overflow-hidden">
+      <section id="about-section" className="!mt-0 pt-8 pb-12 lg:pt-10 lg:pb-16 bg-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
