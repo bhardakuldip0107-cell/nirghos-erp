@@ -77,12 +77,11 @@ export const Home = () => {
   const [sliderMode, setSliderMode] = useState('categories'); // 'categories' | 'brands'
   const [activeErpProduct, setActiveErpProduct] = useState('trading');
   const [activeSolutionTab, setActiveSolutionTab] = useState('pos');
-  const [isSolutionHovered, setIsSolutionHovered] = useState(false);
+  const [solutionCycleTrigger, setSolutionCycleTrigger] = useState(0);
   const [productSlideIndex, setProductSlideIndex] = useState(0);
   const [showAllServices, setShowAllServices] = useState(false);
   const [testimonialSlideIndex, setTestimonialSlideIndex] = useState(0);
   const [activeStoryVideo, setActiveStoryVideo] = useState(null);
-  const [isTestimonialHovered, setIsTestimonialHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
@@ -114,18 +113,17 @@ export const Home = () => {
     return () => window.removeEventListener('resize', updateCardStep);
   }, []);
 
-  // Auto-scroll testimonials slider every 4.5s (pauses on hover or drag)
+  // Auto-scroll testimonials slider every 5s (pauses during active touch/mouse drag)
   useEffect(() => {
-    if (isTestimonialHovered || isDragging) return;
+    if (isDragging) return;
     const interval = setInterval(() => {
       setTestimonialSlideIndex((prev) => (prev + 1) % 6);
-    }, 4500);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [isTestimonialHovered, isDragging]);
+  }, [isDragging]);
 
-  // Auto-cycle through the 7 Innovative Solutions tabs every 5 seconds (5000ms, pauses on hover)
+  // Auto-cycle through the 7 Innovative Solutions tabs every 5 seconds (5000ms, continuous & resets cleanly on tab click)
   useEffect(() => {
-    if (isSolutionHovered) return;
     const interval = setInterval(() => {
       setActiveSolutionTab((prevTab) => {
         const currentIndex = solutionsTabs.findIndex((t) => t.id === prevTab);
@@ -134,7 +132,7 @@ export const Home = () => {
       });
     }, 5000);
     return () => clearInterval(interval);
-  }, [isSolutionHovered]);
+  }, [solutionCycleTrigger]);
 
   // Mouse / Touch Drag handlers for cursor sliding right-to-left and left-to-right
   const handleDragStart = (e) => {
@@ -1542,7 +1540,10 @@ export const Home = () => {
                   <button
                     key={tab.id}
                     type="button"
-                    onClick={() => setActiveSolutionTab(tab.id)}
+                    onClick={() => {
+                      setActiveSolutionTab(tab.id);
+                      setSolutionCycleTrigger((prev) => prev + 1);
+                    }}
                     className={`relative px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer overflow-hidden ${
                       isActive
                         ? 'bg-[#0284c7] text-white shadow-md shadow-sky-500/25 scale-[1.02]'
@@ -1550,9 +1551,9 @@ export const Home = () => {
                     }`}
                   >
                     <span className="relative z-10">{tab.label}</span>
-                    {isActive && !isSolutionHovered && (
+                    {isActive && (
                       <span 
-                        key={`prog-${activeSolutionTab}`}
+                        key={`prog-${activeSolutionTab}-${solutionCycleTrigger}`}
                         className="absolute bottom-0 left-0 h-[2.5px] bg-white/80 animate-solution-progress rounded-full pointer-events-none"
                       />
                     )}
@@ -1563,11 +1564,7 @@ export const Home = () => {
           </div>
 
           {/* Interactive Split Showcase (Side-by-Side Matching Target Design) */}
-          <div 
-            onMouseEnter={() => setIsSolutionHovered(true)}
-            onMouseLeave={() => setIsSolutionHovered(false)}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             {/* Left Column: Solution Details Card */}
             <div 
               key={`sol-left-${activeSolutionTab}`}
@@ -2418,7 +2415,7 @@ export const Home = () => {
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-1">
                     <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
                     </div>
                   </div>
                   
@@ -2438,7 +2435,7 @@ export const Home = () => {
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-2">
                     <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
                     </div>
                   </div>
 
@@ -2474,7 +2471,7 @@ export const Home = () => {
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-3">
                     <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
                     </div>
                   </div>
 
@@ -2494,7 +2491,7 @@ export const Home = () => {
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-4">
                     <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
                     </div>
                   </div>
 
@@ -2519,7 +2516,7 @@ export const Home = () => {
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-2">
                     <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
                     </div>
                   </div>
 
@@ -2539,7 +2536,7 @@ export const Home = () => {
                   {/* Continuously Orbiting Satellite Blue Dot */}
                   <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-4">
                     <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-ping opacity-60"></div>
+                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
                     </div>
                   </div>
 
@@ -2632,9 +2629,7 @@ export const Home = () => {
             onMouseUp={handleDragEnd}
             onMouseLeave={() => {
               if (isDragging) handleDragEnd();
-              setIsTestimonialHovered(false);
             }}
-            onMouseEnter={() => setIsTestimonialHovered(true)}
             onTouchStart={handleDragStart}
             onTouchMove={handleDragMove}
             onTouchEnd={handleDragEnd}
