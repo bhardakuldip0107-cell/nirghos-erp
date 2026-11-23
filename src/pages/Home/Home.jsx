@@ -191,6 +191,80 @@ export const Home = () => {
 
   const currentHeroPreview = heroPreviews[heroSector] || heroPreviews.manufacturing;
 
+  // Nirghos Products Slider List for the Hero Section (Requested by User)
+  const nirghosProductSlider = [
+    {
+      id: 'trading',
+      title: 'Trading & Wholesale',
+      badge: 'Wholesale & B2B',
+      icon: Boxes,
+      path: '/industries/trading'
+    },
+    {
+      id: 'manufacturing',
+      title: 'Manufacturing & Fabrication',
+      badge: 'Plant & Production',
+      icon: Factory,
+      path: '/industries/manufacturing'
+    },
+    {
+      id: 'pharma',
+      title: 'Pharma & Healthcare',
+      badge: 'GMP & Regulatory',
+      icon: Pill,
+      path: '/industries/pharma'
+    },
+    {
+      id: 'food-beverage',
+      title: 'Food & Beverage',
+      badge: 'HACCP & Cold Chain',
+      icon: UtensilsCrossed,
+      path: '/industries/food-beverage'
+    },
+    {
+      id: 'hospital',
+      title: 'Hospitals & Clinics',
+      badge: 'Clinical & EMR',
+      icon: Building2,
+      path: '/industries/hospital'
+    },
+    {
+      id: 'hotel-restaurant',
+      title: 'Hotels & Restaurants',
+      badge: 'Hospitality & POS',
+      icon: Hotel,
+      path: '/industries/hotel-restaurant'
+    },
+    {
+      id: 'core-erp',
+      title: 'Core Enterprise ERP Suite',
+      badge: 'All-In-One Suite',
+      icon: Cpu,
+      path: '/features'
+    },
+    {
+      id: 'retail',
+      title: 'Retail POS & Supermarket',
+      badge: 'Touch POS & Billing',
+      icon: Store,
+      path: '/industries/retail'
+    },
+    {
+      id: 'textile',
+      title: 'Textile & Garments ERP',
+      badge: 'Style & Job Work',
+      icon: Shirt,
+      path: '/industries/textile'
+    },
+    {
+      id: 'jewellery',
+      title: 'Jewellery & Bullion ERP',
+      badge: 'Hallmark & Gold Ledger',
+      icon: Gem,
+      path: '/industries/jewellery'
+    }
+  ];
+
   // Featured Enterprise Brands for Hero Section (Exact match to User Screenshot)
   const featuredBrandLogos = [
     {
@@ -1025,23 +1099,43 @@ export const Home = () => {
         </div>
 
         {/* ========================================================================= */}
-        {/* ROW OF 8 ENTERPRISE BRAND LOGOS WITH VERTICAL DIVIDERS                    */}
+        {/* CONTINUOUS MARQUEE SLIDER OF NIRGHOS PRODUCTS (REQUESTED BY USER)         */}
         {/* ========================================================================= */}
-        <div className="mt-12 sm:mt-16 w-full max-w-7xl mx-auto px-4 overflow-hidden relative">
-          <div className="flex items-center justify-center gap-3 sm:gap-5 flex-wrap sm:flex-nowrap overflow-x-auto no-scrollbar py-2">
-            {featuredBrandLogos.map((brand, idx) => (
-              <React.Fragment key={brand.id}>
-                <div 
-                  className="shrink-0 px-2 sm:px-3 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform"
-                  onClick={() => setIsDemoModalOpen(true)}
-                >
-                  {brand.render()}
-                </div>
-                {idx < featuredBrandLogos.length - 1 && (
-                  <div className="h-8 w-px bg-slate-200/90 shrink-0 hidden sm:block"></div>
-                )}
-              </React.Fragment>
-            ))}
+        <div className="mt-12 sm:mt-16 w-full relative overflow-hidden py-3">
+          
+          {/* Subtle Side Fade Gradients */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10"></div>
+
+          {/* Marquee Track */}
+          <div 
+            className="animate-marquee-rtl flex items-center gap-5 sm:gap-7 hover:[animation-play-state:paused]"
+            style={{ animationDuration: '40s' }}
+          >
+            {[...nirghosProductSlider, ...nirghosProductSlider].map((prod, idx) => {
+              const ProdIcon = prod.icon;
+              return (
+                <React.Fragment key={`${prod.id}-${idx}`}>
+                  <Link
+                    to={prod.path}
+                    className="flex items-center gap-3 px-3 py-1.5 rounded-xl hover:bg-sky-50/70 transition-all group shrink-0"
+                  >
+                    <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#0284c7] border border-sky-100/90 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#0284c7] group-hover:text-white transition-all shadow-2xs">
+                      <ProdIcon className="w-4 h-4" />
+                    </div>
+                    <div className="flex flex-col text-left leading-tight">
+                      <span className="text-xs sm:text-sm font-black text-slate-800 group-hover:text-[#0284c7] transition-colors whitespace-nowrap">
+                        {prod.title}
+                      </span>
+                      <span className="text-[9px] font-bold text-sky-600 uppercase tracking-wider mt-0.5">
+                        {prod.badge}
+                      </span>
+                    </div>
+                  </Link>
+                  <div className="h-7 w-px bg-slate-200/90 shrink-0"></div>
+                </React.Fragment>
+              );
+            })}
           </div>
         </div>
 
