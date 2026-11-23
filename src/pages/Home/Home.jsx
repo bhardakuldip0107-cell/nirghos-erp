@@ -1652,10 +1652,10 @@ export const Home = () => {
                   </svg>
 
                   {/* Hub Card */}
-                  <div className="relative z-10 bg-white rounded-2xl p-3 border border-slate-200/90 shadow-md flex flex-col items-center justify-center text-center w-16 h-16 lg:w-18 lg:h-18">
+                  <div className="relative z-10 bg-white rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-md flex flex-col items-center justify-center text-center w-16 h-16 lg:w-20 lg:h-20 shrink-0">
                     <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none">N.</span>
                     <span className="text-[10px] text-slate-400 font-bold mt-1 leading-none">
-                      {currentSolution.diagram.hubSub || 'Nirghos'}
+                      Nirghos
                     </span>
                   </div>
                 </div>
