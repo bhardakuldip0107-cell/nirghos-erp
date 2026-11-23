@@ -1050,12 +1050,12 @@ export const Home = () => {
 
 
   return (
-    <div className="space-y-12 lg:space-y-16 pb-20 overflow-hidden">
+    <div className="overflow-hidden pb-12 sm:pb-16">
       
       {/* ========================================================================= */}
       {/* 1. HERO SECTION (EXACT MATCH TO USER'S SCREENSHOT - VASY / MODERN SAAS)    */}
       {/* ========================================================================= */}
-      <section className="relative pt-12 pb-6 sm:pt-16 sm:pb-8 lg:pt-18 lg:pb-8 bg-white border-b border-slate-200/80 overflow-hidden text-center">
+      <section className="relative pt-10 pb-8 sm:pt-14 sm:pb-10 lg:pt-16 lg:pb-12 bg-white border-b border-slate-200/80 overflow-hidden text-center">
         
         {/* Subtle Modern Technical Grid Background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none opacity-85 [mask-image:radial-gradient(ellipse_85%_65%_at_50%_35%,#000_65%,transparent_100%)]"></div>
@@ -1179,7 +1179,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 2. ABOUT NIRGHOS ERP SECTION (EXACT MATCH TO USER SCREENSHOT)              */}
       {/* ========================================================================= */}
-      <section id="about-section" className="!mt-0 pt-8 pb-12 lg:pt-10 lg:pb-16 bg-white relative overflow-hidden">
+      <section id="about-section" className="py-12 sm:py-14 lg:py-16 bg-white relative overflow-hidden border-b border-slate-200/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
@@ -1258,7 +1258,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 3. OUR PRODUCTS SECTION (EXACT MATCH TO USER SCREENSHOT)                  */}
       {/* ========================================================================= */}
-      <section id="our-products-section" className="py-14 lg:py-20 bg-gradient-to-b from-[#f9fbfe] via-white to-[#f9fbfe] relative overflow-hidden border-b border-slate-200/80">
+      <section id="our-products-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-[#f9fbfe] via-white to-[#f9fbfe] relative overflow-hidden border-b border-slate-200/80">
         
         {/* Soft Background Grid Tiles Matching Screenshot */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-60 pointer-events-none"></div>
@@ -1508,7 +1508,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 4. OUR SERVICES SECTION (EXACT MATCH TO USER SCREENSHOT)                  */}
       {/* ========================================================================= */}
-      <section id="our-services-section" className="py-14 lg:py-20 bg-white relative overflow-hidden border-b border-slate-200/80">
+      <section id="our-services-section" className="py-12 sm:py-14 lg:py-16 bg-white relative overflow-hidden border-b border-slate-200/80">
         
         {/* Soft Background Accent Dots */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
@@ -1602,7 +1602,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 5. WHY NIRGHOS SECTION (EXACT MATCH TO USER SCREENSHOT)                   */}
       {/* ========================================================================= */}
-      <section id="why-nirghos-section" className="py-14 lg:py-20 bg-gradient-to-b from-white via-[#f8fbff] to-white relative overflow-hidden border-b border-slate-200/80">
+      <section id="why-nirghos-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-[#f8fbff] to-white relative overflow-hidden border-b border-slate-200/80">
         
         {/* Soft Background Grid Accent */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
@@ -1700,7 +1700,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 6. OUR PROUD STATISTICS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
       {/* ========================================================================= */}
-      <section id="our-stats-section" className="py-14 lg:py-20 bg-white relative overflow-hidden border-b border-slate-200/80">
+      <section id="our-stats-section" className="py-12 sm:py-14 lg:py-16 bg-white relative overflow-hidden border-b border-slate-200/80">
         
         {/* Subtle Decorative Dot Matrix in Corners (Exact Match to Screenshot) */}
         <div className="absolute top-6 left-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0284c7_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
@@ -1873,7 +1873,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 7. API INTEGRATION & TRUSTED CUSTOMERS (EXACT MATCH TO USER SCREENSHOT)   */}
       {/* ========================================================================= */}
-      <section id="api-integration-section" className="py-14 lg:py-20 bg-gradient-to-b from-white via-[#f9fbfe] to-white relative overflow-hidden border-b border-slate-200/80">
+      <section id="api-integration-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-[#f9fbfe] to-white relative overflow-hidden border-b border-slate-200/80">
         
         {/* Soft Background Grid Tiles */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
@@ -2046,7 +2046,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* PRESS RELEASE SECTION - 100% NIRGHOS BRANDED                              */}
       {/* ========================================================================= */}
-      <section id="press-release-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#040810] text-white relative overflow-hidden">
+      <section id="press-release-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#040810] text-white relative overflow-hidden">
         {/* Subtle white dot-grid overlay matching the screenshot */}
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none"></div>
         {/* Soft background light glows */}
@@ -2122,7 +2122,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 9. OUR BLOG - ERP INSIGHTS SECTION (EXACT MATCH TO USER SCREENSHOT)       */}
       {/* ========================================================================= */}
-      <section id="home-blog-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#f8fbff] via-white to-slate-50 relative overflow-hidden border-b border-slate-100">
+      <section id="home-blog-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-[#f8fbff] via-white to-slate-50 relative overflow-hidden border-b border-slate-100">
         {/* Soft background ambient light */}
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -2201,7 +2201,7 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* 10. OUR CORPORATE EVENTS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
       {/* ========================================================================= */}
-      <section id="corporate-events-section" className="pt-14 sm:pt-16 lg:pt-20 pb-10 sm:pb-12 lg:pb-14 bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#040810] text-white relative overflow-hidden">
+      <section id="corporate-events-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#040810] text-white relative overflow-hidden">
         {/* Subtle radial ambient glows */}
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-sky-400/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -2280,8 +2280,8 @@ export const Home = () => {
       {/* ========================================================================= */}
       {/* HAVE ANY QUESTIONS? (FAQ ACCORDION SECTION - 100% NIRGHOS DETAILS)       */}
       {/* ========================================================================= */}
-      <section id="faq-section" className="!mt-0 py-8 sm:py-10 lg:py-12 bg-white border-b border-slate-100 relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+      <section id="faq-section" className="py-12 sm:py-14 lg:py-16 bg-white border-b border-slate-100 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
             {/* Left Column: Heading, Bar, Description */}
@@ -2347,7 +2347,7 @@ export const Home = () => {
       </section>
 
       {/* CALL TO ACTION STRIP */}
-      <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 pt-4 sm:pt-6">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="rounded-3xl bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950 text-white p-8 sm:p-14 text-center border border-navy-800 shadow-2xl relative overflow-hidden">
           
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
