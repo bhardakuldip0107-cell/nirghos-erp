@@ -1436,7 +1436,7 @@ export const Home = () => {
       {/* 2. ABOUT NIRGHOS ERP SECTION (EXACT MATCH TO USER SCREENSHOT)              */}
       {/* ========================================================================= */}
       <section id="about-section" className="py-12 sm:py-14 lg:py-16 bg-white relative overflow-hidden border-b border-slate-200/60">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column: Team Image with Floating 25+ Year Experience & Play Button */}
@@ -1519,7 +1519,7 @@ export const Home = () => {
         {/* Subtle Background Accent Tiles */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header Section: Title & Subtitle (Exact Match to User Screenshot) */}
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
@@ -1712,7 +1712,7 @@ export const Home = () => {
         {/* Soft Background Grid Tiles Matching Screenshot */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-60 pointer-events-none"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header Title on Left, View All Button on Right */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
@@ -1842,7 +1842,7 @@ export const Home = () => {
               <div className="lg:col-span-6 flex flex-col items-center justify-center">
                 
                 {/* Simulated Desktop Monitor / Terminal Frame */}
-                <div className="relative w-full max-w-[500px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
+                <div className="relative w-full max-w-[560px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
                   {/* Console Header Bar */}
                   <div className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -1962,7 +1962,7 @@ export const Home = () => {
         {/* Soft Background Accent Dots */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header Title & Orange Accent Underline (Exact Match to Screenshot) */}
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
@@ -2056,7 +2056,7 @@ export const Home = () => {
         {/* Soft Background Grid Accent */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header: Why Nirghos? & Orange Accent Underline (Exact Match to Screenshot) */}
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
@@ -2155,7 +2155,7 @@ export const Home = () => {
         <div className="absolute top-6 left-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0284c7_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
         <div className="absolute bottom-6 right-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0284c7_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header: Our Proud Statistics & Orange Accent Underline */}
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
@@ -2215,7 +2215,7 @@ export const Home = () => {
 
             {/* Middle Column: India Map with Client Density Points & State Capitals */}
             <div className="w-full lg:col-span-6 flex items-center justify-center relative py-2 order-2">
-              <div className="relative group max-w-[380px] sm:max-w-[460px] lg:max-w-[500px] w-full flex items-center justify-center">
+              <div className="relative group max-w-[380px] sm:max-w-[480px] lg:max-w-[540px] w-full flex items-center justify-center">
                 <img 
                   src="/stats/india-stats-map-hd.png" 
                   alt="Nirghos ERP Pan-India Client Statistics Map" 
@@ -2327,7 +2327,7 @@ export const Home = () => {
         {/* Soft Background Grid Tiles */}
         <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header: API Integration & Orange Accent Line */}
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
@@ -2341,7 +2341,7 @@ export const Home = () => {
           </div>
 
           {/* 10 Partner Logos Box Container (5x2 Grid - Exact Match to User Screenshot) */}
-          <div className="max-w-5xl mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-[0_15px_40px_-15px_rgba(0,96,185,0.08),0_0_1px_1px_rgba(0,0,0,0.03)] p-5 sm:p-7">
+          <div className="max-w-[1240px] mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-[0_15px_40px_-15px_rgba(0,96,185,0.08),0_0_1px_1px_rgba(0,0,0,0.03)] p-5 sm:p-7">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 sm:gap-4.5">
               {apiIntegrations.map((item) => (
                 <div 
@@ -2365,7 +2365,7 @@ export const Home = () => {
         <div className="mt-16 sm:mt-24 w-full">
           
           {/* Header Row: Title on Left, View All on Right */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
             <div className="text-left">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
                 Trusted By <span className="text-[#0284c7]">5,000+</span> Happy <br className="hidden sm:inline" /> Customers
@@ -2502,7 +2502,7 @@ export const Home = () => {
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="space-y-2">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
@@ -2576,7 +2576,7 @@ export const Home = () => {
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header with Title and View All Button */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
             <div>
@@ -2655,7 +2655,7 @@ export const Home = () => {
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-sky-400/15 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Section Heading & Subheading */}
           <div className="space-y-3 mb-10 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
@@ -2730,7 +2730,7 @@ export const Home = () => {
       {/* HAVE ANY QUESTIONS? (FAQ ACCORDION SECTION - 100% NIRGHOS DETAILS)       */}
       {/* ========================================================================= */}
       <section id="faq-section" className="py-12 sm:py-14 lg:py-16 bg-white border-b border-slate-100 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
             {/* Left Column: Heading, Bar, Description */}
@@ -2796,7 +2796,7 @@ export const Home = () => {
       </section>
 
       {/* CALL TO ACTION STRIP */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="rounded-3xl bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950 text-white p-8 sm:p-14 text-center border border-navy-800 shadow-2xl relative overflow-hidden">
           
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
