@@ -44,7 +44,10 @@ import {
   Minus,
   Factory,
   Pill,
-  Hotel
+  Hotel,
+  Lock,
+  Headphones,
+  Cloud
 } from 'lucide-react';
 import { industriesData } from '../../data/industries';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -187,6 +190,114 @@ export const Home = () => {
   };
 
   const currentHeroPreview = heroPreviews[heroSector] || heroPreviews.manufacturing;
+
+  // Featured Enterprise Brands for Hero Section (Exact match to User Screenshot)
+  const featuredBrandLogos = [
+    {
+      id: 'spl',
+      name: 'SPL',
+      render: () => (
+        <div className="flex flex-col items-center justify-center">
+          <div className="border border-red-300 rounded-lg px-3 py-0.5 text-center bg-white shadow-2xs">
+            <span className="text-xl sm:text-2xl font-black text-[#dc2626] tracking-wider leading-none">SPL</span>
+            <span className="block text-[6px] text-slate-400 font-sans tracking-tight">EVOLUTION IN CONSTANT</span>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'the-man-company',
+      name: 'THE MAN COMPANY',
+      render: () => (
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-7 h-7 rounded-full border-2 border-slate-900 flex items-center justify-center mb-0.5">
+            <span className="text-xs font-black text-slate-900 font-serif">M</span>
+          </div>
+          <span className="text-[8px] sm:text-[9px] font-black tracking-widest text-slate-900 uppercase">THE MAN COMPANY</span>
+        </div>
+      )
+    },
+    {
+      id: 'justdogs',
+      name: 'JUSTDOGS',
+      render: () => (
+        <div className="flex items-center justify-center">
+          <span className="text-xl sm:text-2xl font-black text-[#1d4ed8] tracking-tight uppercase font-sans">
+            JUSTDOGS
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'reliance-retail',
+      name: 'Reliance Retail',
+      render: () => (
+        <div className="flex items-center gap-1.5 justify-center">
+          <div className="w-7 h-7 rounded-full bg-[#dc2626] flex items-center justify-center text-white font-black text-xs shadow-2xs">
+            R
+          </div>
+          <div className="flex flex-col text-left leading-none">
+            <span className="text-lg sm:text-xl font-black text-[#dc2626] tracking-tight">Reliance</span>
+            <span className="text-[8px] font-bold text-[#1e3a8a] tracking-wider">RETAIL</span>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'prashant-corner',
+      name: 'प्रशांत कॉर्नर',
+      render: () => (
+        <div className="flex flex-col items-center justify-center text-center">
+          <span className="text-[7.5px] font-bold text-amber-800 tracking-wider">ESTD 1990</span>
+          <span className="text-base sm:text-lg font-bold text-amber-950 font-serif leading-none mt-0.5">
+            प्रशांत कॉर्नर™
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'gap',
+      name: 'GAP',
+      render: () => (
+        <div className="flex items-center justify-center">
+          <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-[0.25em] font-serif leading-none">
+            GAP
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'lee-cooper',
+      name: 'Lee Cooper',
+      render: () => (
+        <div className="flex flex-col items-center justify-center">
+          <div className="bg-[#dc2626] text-white px-3 py-1 rounded shadow-2xs text-center">
+            <span className="text-base sm:text-lg font-black italic font-serif tracking-tight leading-none block">
+              Lee Cooper
+            </span>
+            <span className="text-[7px] font-bold tracking-widest uppercase block -mt-0.5 opacity-90">
+              SINCE 1908
+            </span>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'rspl',
+      name: 'RSPL',
+      render: () => (
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-red-200/80 bg-red-50/20">
+          <div className="w-5 h-5 rounded-full border-2 border-[#dc2626] flex items-center justify-center">
+            <span className="text-[10px] font-bold text-[#dc2626]">R</span>
+          </div>
+          <div className="flex flex-col text-left leading-none">
+            <span className="text-sm sm:text-base font-black text-[#dc2626] tracking-wider">RSPL</span>
+            <span className="text-[6px] text-slate-400 font-sans tracking-tight">EVOLUTION IN CONSTANT</span>
+          </div>
+        </div>
+      )
+    }
+  ];
 
   // Trusted Client Brand Logos for the Right-to-Left Marquee Slider (Exact match to screenshot)
   const brandLogos = [
@@ -868,177 +979,155 @@ export const Home = () => {
     <div className="space-y-12 lg:space-y-16 pb-20 overflow-hidden">
       
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (EXACT MATCH TO USER'S SCREENSHOT)                        */}
+      {/* 1. HERO SECTION (EXACT MATCH TO USER'S SCREENSHOT - VASY / MODERN SAAS)    */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-8 lg:pt-14 lg:pb-10 bg-gradient-to-b from-[#fffcf8] via-white to-slate-50/60 border-b border-slate-200/80 overflow-hidden text-center">
+      <section className="relative pt-12 pb-10 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16 bg-white border-b border-slate-200/80 overflow-hidden text-center">
         
-        {/* Soft Warm Ambient Radial Glow Accents */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[550px] h-[380px] bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[550px] h-[380px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        {/* Subtle Modern Technical Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none opacity-85 [mask-image:radial-gradient(ellipse_85%_65%_at_50%_35%,#000_65%,transparent_100%)]"></div>
+        
+        {/* Soft Ambient Cyan Lighting on Bottom Corners */}
+        <div className="absolute -bottom-24 -left-12 w-80 h-80 bg-sky-100/60 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-24 -right-12 w-80 h-80 bg-sky-100/60 rounded-full blur-3xl pointer-events-none"></div>
 
-        {/* Faint dot matrix patterns on corners */}
-        <div className="absolute bottom-3 right-6 w-32 h-20 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-75 pointer-events-none"></div>
-        <div className="absolute bottom-3 left-6 w-32 h-20 bg-[radial-gradient(#cbd5e1_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-40 pointer-events-none"></div>
-
-        {/* Hero Headline and Trust Bar Container (Expanded to eliminate excessive side margins) */}
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 space-y-4">
+        {/* Hero Content Container */}
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
           
-          {/* Line 1: Trusted ERP Software (Orange) */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#0284c7] tracking-tight leading-tight">
-            Trusted ERP Software
-          </h2>
-
-          {/* Line 2 & 3: For Apparel-Lifestyle, Footwear & Jewellery Businesses in India (Blue) */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#0284c7] tracking-tight leading-[1.18]">
-            For Apparel-Lifestyle, Footwear & <br className="hidden sm:inline" />
-            Jewellery Businesses in India
+          {/* Main Headline: The System That Runs Systems. */}
+          <h1 className="text-4xl sm:text-6xl md:text-[68px] lg:text-[76px] font-black text-slate-950 tracking-tight leading-[1.08] max-w-4xl mx-auto">
+            The <span className="text-[#0284c7]">System</span> That Runs Systems.
           </h1>
 
-          {/* Line 4: 25+ Years of Trust | 5000+ Clients | 400+ Cities across India */}
-          <div className="pt-3 pb-2 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-slate-800 text-sm sm:text-base md:text-lg font-bold">
-            <span><strong className="font-black text-slate-900">25+</strong> Years of Trust</span>
-            <span className="text-slate-300 font-normal">|</span>
-            <span><strong className="font-black text-slate-900">5000+</strong> Clients</span>
-            <span className="text-slate-300 font-normal">|</span>
-            <span><strong className="font-black text-slate-900">400+</strong> Cities across India</span>
-          </div>
+          {/* Subheading */}
+          <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
+            One intelligent platform connecting every department with real-time insights and AI-driven recommendations.
+          </p>
 
-          {/* Line 5: Orange Pill "Get Demo" Button & Line 6: Hand-Drawn Sky Blue Curly Arrow */}
-          <div className="pt-2 flex flex-col items-center justify-center">
+          {/* Dual Action Buttons */}
+          <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
             <button
               type="button"
               onClick={() => setIsDemoModalOpen(true)}
-              className="px-8 py-3.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-semibold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
-              Get Demo
+              <span>Experience Nirghos</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
-
-            {/* Hand-Drawn Light Blue Curly Arrow */}
-            <div className="mt-2 text-[#60a5fa] select-none pointer-events-none">
-              <svg 
-                width="72" 
-                height="46" 
-                viewBox="0 0 75 48" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                className="transform -rotate-3"
-              >
-                <path 
-                  d="M48 2 C58 12, 60 22, 44 26 C32 29, 24 25, 22 19 C20 12, 32 10, 40 16 C48 22, 42 34, 18 37" 
-                  stroke="#60A5FA" 
-                  strokeWidth="2.4" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-                <path 
-                  d="M25 31 L 17 37 L 23 43" 
-                  stroke="#60A5FA" 
-                  strokeWidth="2.4" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
+            <a
+              href="#about-section"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-semibold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            >
+              <span>Discover Our Story</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
+
         </div>
 
         {/* ========================================================================= */}
-        {/* FULL-WIDTH CONTINUOUS RIGHT-TO-LEFT 25 CATEGORIES SLIDER (EDGE-TO-EDGE)   */}
+        {/* ROW OF 8 ENTERPRISE BRAND LOGOS WITH VERTICAL DIVIDERS                    */}
         {/* ========================================================================= */}
-        <div className="pt-4 pb-2 w-full relative overflow-hidden my-3">
-          
-          {/* Slider Switcher (25 Categories / Client Brands) */}
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <button
-              type="button"
-              onClick={() => setSliderMode('categories')}
-              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                sliderMode === 'categories'
-                  ? 'bg-[#0284c7] text-white shadow-md shadow-orange-500/20 scale-105'
-                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 hover:bg-slate-50'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>25 Specialized Industry ERPs</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setSliderMode('brands')}
-              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                sliderMode === 'brands'
-                  ? 'bg-[#0284c7] text-white shadow-md shadow-orange-500/20 scale-105'
-                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 hover:bg-slate-50'
-              }`}
-            >
-              <Award className="w-3.5 h-3.5" />
-              <span>Enterprise Client Brands</span>
-            </button>
-          </div>
-
-          {/* Seamless gradient edge fade masks */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#fffcf8] via-[#fffcf8]/90 to-transparent z-10"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#fffcf8] via-[#fffcf8]/90 to-transparent z-10"></div>
-
-          {/* 1. Track: 25 Specialized Industry Categories with Logos */}
-          {sliderMode === 'categories' && (
-            <div 
-              className="animate-marquee-rtl flex items-center gap-4 hover:[animation-play-state:paused]"
-              style={{ animationDuration: '65s' }}
-            >
-              {[...industriesData, ...industriesData].map((ind, idx) => {
-                const theme = categoryThemeMap[ind.slug] || {
-                  bg: 'bg-sky-50',
-                  text: 'text-[#0284c7]',
-                  border: 'border-sky-200',
-                  badge: 'Specialized ERP'
-                };
-
-                return (
-                  <Link
-                    key={`${ind.slug}-${idx}`}
-                    to={`/industries/${ind.slug}`}
-                    className="w-60 sm:w-72 h-20 sm:h-22 bg-white rounded-2xl border border-slate-200/90 hover:border-[#0284c7] shadow-[0_2px_12px_-3px_rgba(0,0,0,0.06)] hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-3.5 px-4 py-3 shrink-0 select-none group cursor-pointer"
-                  >
-                    {/* Category Logo Badge */}
-                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${theme.bg} ${theme.text} ${theme.border} border flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 group-hover:bg-[#0284c7] group-hover:text-white group-hover:border-[#0284c7] transition-all duration-200`}>
-                      <DynamicIcon name={ind.icon} className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-
-                    {/* Category Name & Tag */}
-                    <div className="flex flex-col min-w-0 text-left">
-                      <span className="text-xs sm:text-sm font-black text-slate-800 group-hover:text-[#0284c7] transition-colors leading-tight truncate">
-                        {ind.name}
-                      </span>
-                      <span className="text-[10px] font-bold text-slate-400 group-hover:text-slate-600 mt-1 flex items-center gap-1 uppercase tracking-wider">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
-                        <span className="truncate">{theme.badge || 'ERP Software'}</span>
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
-
-          {/* 2. Track: Enterprise Client Brands */}
-          {sliderMode === 'brands' && (
-            <div className="animate-marquee-rtl flex items-center gap-4 hover:[animation-play-state:paused]">
-              {[...brandLogos, ...brandLogos, ...brandLogos].map((brand, idx) => (
-                <div
-                  key={`${brand.id}-${idx}`}
-                  className="w-44 h-18 sm:w-52 sm:h-22 bg-white rounded-2xl border border-sky-100/90 hover:border-orange-300 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-md transition-all flex items-center justify-center px-4 py-2 shrink-0 select-none group cursor-pointer"
+        <div className="mt-12 sm:mt-16 w-full max-w-7xl mx-auto px-4 overflow-hidden relative">
+          <div className="flex items-center justify-center gap-3 sm:gap-5 flex-wrap sm:flex-nowrap overflow-x-auto no-scrollbar py-2">
+            {featuredBrandLogos.map((brand, idx) => (
+              <React.Fragment key={brand.id}>
+                <div 
+                  className="shrink-0 px-2 sm:px-3 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform"
                   onClick={() => setIsDemoModalOpen(true)}
                 >
                   {brand.render()}
                 </div>
-              ))}
-            </div>
-          )}
+                {idx < featuredBrandLogos.length - 1 && (
+                  <div className="h-8 w-px bg-slate-200/90 shrink-0 hidden sm:block"></div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
 
+        {/* ========================================================================= */}
+        {/* FLOATING TRUST & STATS RIBBON DOCK (EXACT MATCH TO USER SCREENSHOT)       */}
+        {/* ========================================================================= */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-10 sm:mt-12 relative z-10">
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl lg:rounded-full border border-slate-200/90 shadow-[0_12px_40px_-8px_rgba(0,0,0,0.08)] px-5 py-3.5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-0 lg:divide-x lg:divide-slate-200/80">
+              
+              {/* 1. 17,000+ Trusted Brands */}
+              <div className="flex items-center gap-3 px-3 py-1 justify-start lg:justify-center">
+                <div className="w-8 h-8 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 border border-sky-100">
+                  <Building2 className="w-4 h-4" />
+                </div>
+                <div className="text-left leading-tight">
+                  <div className="text-sm font-extrabold text-slate-900 tracking-tight">17,000+</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Trusted Brands</div>
+                </div>
+              </div>
+
+              {/* 2. 4.8/5 Google Rating */}
+              <div className="flex items-center gap-3 px-3 py-1 justify-start lg:justify-center">
+                <div className="w-8 h-8 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 border border-sky-100">
+                  <Star className="w-4 h-4 fill-[#0284c7]/20" />
+                </div>
+                <div className="text-left leading-tight">
+                  <div className="text-sm font-extrabold text-slate-900 tracking-tight">
+                    4.8<span className="text-[11px] text-slate-400 font-normal">/5</span>
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-medium">Google Rating</div>
+                </div>
+              </div>
+
+              {/* 3. 365-Day Support */}
+              <div className="flex items-center gap-3 px-3 py-1 justify-start lg:justify-center">
+                <div className="w-8 h-8 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 border border-sky-100">
+                  <Headphones className="w-4 h-4" />
+                </div>
+                <div className="text-left leading-tight">
+                  <div className="text-sm font-extrabold text-slate-900 tracking-tight">365-Day</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Support</div>
+                </div>
+              </div>
+
+              {/* 4. Cloud + Offline POS */}
+              <div className="flex items-center gap-3 px-3 py-1 justify-start lg:justify-center">
+                <div className="w-8 h-8 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 border border-sky-100">
+                  <Cloud className="w-4 h-4" />
+                </div>
+                <div className="text-left leading-tight">
+                  <div className="text-sm font-extrabold text-slate-900 tracking-tight whitespace-nowrap">Cloud + Offline</div>
+                  <div className="text-[11px] text-slate-500 font-medium">POS</div>
+                </div>
+              </div>
+
+              {/* 5. VAPT • HIPAA • GDPR Compliance */}
+              <div className="flex items-center gap-3 px-3 py-1 justify-start lg:justify-center">
+                <div className="w-8 h-8 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 border border-sky-100">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div className="text-left leading-tight">
+                  <div className="text-xs font-extrabold text-slate-900 tracking-tight whitespace-nowrap">VAPT • HIPAA • GDPR</div>
+                  <div className="text-[11px] text-slate-500 font-medium">
+                    <span className="border-b-2 border-[#0284c7] pb-0.5">Compliance</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 6. SOC 2 Type II */}
+              <div className="flex items-center gap-3 px-3 py-1 justify-start lg:justify-center">
+                <div className="w-8 h-8 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 border border-sky-100">
+                  <Lock className="w-4 h-4" />
+                </div>
+                <div className="text-left leading-tight">
+                  <div className="text-sm font-extrabold text-slate-900 tracking-tight">SOC 2</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Type II</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
 
         {/* Search bar & quick category exploration */}
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-4 pb-1">
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-1">
           <SearchBar 
             onSearchChange={(q) => setSearchQuery(q)}
             placeholder="Search specialized industry ERPs (e.g. Apparel, Jewellery, Footwear, Manufacturing)..."
@@ -1061,7 +1150,7 @@ export const Home = () => {
               <Link 
                 key={item.slug} 
                 to={`/industries/${item.slug}`}
-                className="px-3 py-1.5 rounded-full border border-slate-200/90 bg-white hover:border-[#0284c7] hover:bg-sky-50/60 hover:text-[#0284c7] transition-all text-xs font-bold text-slate-700 shadow-xs hover:shadow-sm hover:-translate-y-0.5 flex items-center gap-1.5 group cursor-pointer"
+                className="px-3 py-1.5 rounded-full border border-slate-200/90 bg-white hover:border-[#0284c7] hover:bg-sky-50/60 hover:text-[#0284c7] transition-all text-xs font-bold text-slate-700 shadow-2xs hover:shadow-sm hover:-translate-y-0.5 flex items-center gap-1.5 group cursor-pointer"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0284c7] group-hover:scale-125 transition-transform"></span>
                 <DynamicIcon name={item.icon} className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#0284c7] transition-colors" />
