@@ -863,7 +863,7 @@ export const Home = () => {
       slides: [
         'Live Multi-Godown Stock & Inventory Dashboard',
         'Automated Credit Limit & Ageing Ledger Control',
-        'High-Speed Bulk Invoicing & Automated E-Way Bills'
+        'Instant GST E-Way Bill & Dispatch Terminal'
       ],
       mockData: {
         tag: 'DISTRIBUTION TELEMETRY',
