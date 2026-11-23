@@ -1561,144 +1561,175 @@ export const Home = () => {
             </div>
           </div>
 
-          {/* Interactive Split Showcase Card (Auto-changes every 5s, pauses on mouse hover) */}
+          {/* Interactive Split Showcase (Side-by-Side Matching Target Design) */}
           <div 
             onMouseEnter={() => setIsSolutionHovered(true)}
             onMouseLeave={() => setIsSolutionHovered(false)}
-            className="bg-slate-50/70 border border-slate-200/90 rounded-3xl p-5 sm:p-7 lg:p-9 shadow-sm relative overflow-hidden transition-all duration-300"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch"
           >
-            <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-stretch">
-              
-              {/* Left Column: Solution Details */}
-              <div 
-                key={`sol-left-${activeSolutionTab}`}
-                className="xl:col-span-4 bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-2xs flex flex-col justify-between min-h-[360px] animate-in fade-in duration-300"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-xs font-semibold text-slate-400 mb-6">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-100">
-                      {currentSolution.badge}
-                    </span>
-                    <span className="font-mono text-slate-400 font-bold">{currentSolution.step}</span>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
-                    {currentSolution.heading}
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mt-4">
-                    {currentSolution.desc}
-                  </p>
+            {/* Left Column: Solution Details Card */}
+            <div 
+              key={`sol-left-${activeSolutionTab}`}
+              className="lg:col-span-4 xl:col-span-4 bg-white rounded-3xl p-6 sm:p-8 lg:p-9 border border-slate-200/80 shadow-sm flex flex-col justify-between min-h-[380px] animate-in fade-in duration-300"
+            >
+              <div>
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-400 mb-6">
+                  <span className="text-xs font-semibold text-sky-700 bg-sky-50 px-3 py-1 rounded-full border border-sky-200/70 inline-flex items-center">
+                    {currentSolution.badge}
+                  </span>
+                  <span className="font-mono text-slate-400 font-bold text-xs">{currentSolution.step}</span>
                 </div>
-                
-                <div className="pt-6 border-t border-slate-100 mt-6">
-                  <Link
-                    to={currentSolution.link}
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0284c7] hover:text-[#0369a1] group cursor-pointer"
-                  >
-                    <span>View more</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
-                </div>
+                <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-slate-900 leading-tight">
+                  {currentSolution.heading}
+                </h3>
+                <p className="text-slate-500 text-sm sm:text-base leading-relaxed mt-4">
+                  {currentSolution.desc}
+                </p>
               </div>
+              
+              <div className="pt-6 border-t border-slate-100 mt-6">
+                <Link
+                  to={currentSolution.link}
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0284c7] hover:text-[#0369a1] group cursor-pointer"
+                >
+                  <span>View more</span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+            </div>
 
-              {/* Right Column: Live Hub & Queue Architecture Diagram */}
-              <div 
-                key={`sol-right-${activeSolutionTab}`}
-                className="xl:col-span-8 bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-slate-200/80 shadow-md relative flex flex-col justify-center animate-in fade-in duration-300"
-              >
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-5 xl:gap-6">
-                  
-                  {/* Left Column: 5 Source Channels */}
-                  <div className="flex flex-col gap-2 w-full lg:w-auto shrink-0">
-                    {currentSolution.diagram.sources.map((src, idx) => {
-                      const SrcIcon = src.icon;
+            {/* Right Column: Live Hub & Queue Architecture Diagram */}
+            <div 
+              key={`sol-right-${activeSolutionTab}`}
+              className="lg:col-span-8 xl:col-span-8 bg-[#f8fafc] rounded-3xl p-5 sm:p-7 lg:p-8 border border-slate-200/80 shadow-sm relative flex flex-col justify-center animate-in fade-in duration-300"
+            >
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 lg:gap-4 relative">
+                
+                {/* Left: 5 Source Channels */}
+                <div className="flex flex-col gap-2.5 w-full md:w-36 lg:w-40 shrink-0 z-10">
+                  {currentSolution.diagram.sources.map((src, idx) => {
+                    const SrcIcon = src.icon;
+                    return (
+                      <div
+                        key={idx}
+                        className="bg-white rounded-xl px-3.5 py-2.5 border border-slate-200/80 shadow-2xs flex items-center justify-between gap-2 text-xs font-semibold text-slate-800 hover:border-sky-300 transition-colors w-full"
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
+                            <SrcIcon className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="truncate">{src.label}</span>
+                        </div>
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0 hidden md:block"></span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Center: Connectors & Nirghos Hub Node */}
+                <div className="hidden md:flex flex-1 items-center justify-center relative h-[250px] min-w-[100px] max-w-[200px] mx-1 lg:mx-2">
+                  {/* SVG Connecting Curves */}
+                  <svg 
+                    className="absolute inset-0 w-full h-full pointer-events-none" 
+                    viewBox="0 0 160 220" 
+                    preserveAspectRatio="none"
+                  >
+                    {/* 5 curves from channels to hub (hub center is at x=80, y=110; hub left is x=52) */}
+                    <path d="M 0 22 C 30 22, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M 0 66 C 30 66, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M 0 110 L 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M 0 154 C 30 154, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M 0 198 C 30 198, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    
+                    {/* Blue node on Website channel curve */}
+                    <circle cx="28" cy="66" r="3.5" fill="#0284c7" />
+
+                    {/* Connecting line from Hub right (x=108) to Orders card left (x=160) */}
+                    <path d="M 108 110 L 160 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    
+                    {/* Glowing pulse dot on dispatch line */}
+                    <circle cx="134" cy="110" r="3.5" fill="#0284c7" />
+                  </svg>
+
+                  {/* Hub Card */}
+                  <div className="relative z-10 bg-white rounded-2xl p-3 border border-slate-200/90 shadow-md flex flex-col items-center justify-center text-center w-16 h-16 lg:w-18 lg:h-18">
+                    <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none">N.</span>
+                    <span className="text-[10px] text-slate-400 font-bold mt-1 leading-none">
+                      {currentSolution.diagram.hubSub || 'Nirghos'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Mobile-only connector badge between channels and card */}
+                <div className="md:hidden flex items-center justify-center py-2">
+                  <div className="bg-white rounded-xl px-4 py-1.5 border border-slate-200 shadow-xs flex items-center gap-2">
+                    <span className="text-xs font-black text-slate-900">N. Nirghos</span>
+                    <span className="text-[10px] text-sky-600 font-bold bg-sky-50 px-2 py-0.5 rounded-full">Unified</span>
+                  </div>
+                </div>
+
+                {/* Right: Unified Queue Orders Card */}
+                <div className="w-full md:w-[280px] lg:w-[310px] xl:w-[330px] shrink-0 bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-slate-200/80 p-4 sm:p-5 z-10">
+                  <div className="flex items-start justify-between pb-3 border-b border-slate-100 mb-3">
+                    <div className="min-w-0">
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900 leading-tight truncate">
+                        {currentSolution.diagram.orderCard.title}
+                      </h4>
+                      <p className="text-[11px] text-slate-400 font-normal truncate mt-0.5">
+                        {currentSolution.diagram.orderCard.subtitle}
+                      </p>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block leading-none">
+                        {currentSolution.diagram.orderCard.statLabel}
+                      </span>
+                      <span className="text-base sm:text-lg font-black text-slate-900 block leading-tight mt-1">
+                        {currentSolution.diagram.orderCard.statValue}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Order Rows */}
+                  <div className="space-y-1.5">
+                    {currentSolution.diagram.orderCard.rows.map((row, idx) => {
+                      const RowIcon = row.icon;
+                      const isFirst = idx === 0;
                       return (
                         <div
                           key={idx}
-                          className="bg-white rounded-xl px-3 py-2 border border-slate-200/90 shadow-2xs flex items-center justify-between lg:justify-start gap-2.5 text-xs font-bold text-slate-800 hover:border-sky-300 transition-colors w-full lg:w-36 xl:w-40"
+                          className={`flex items-center justify-between text-xs py-2 px-3 rounded-xl transition-colors gap-2 ${
+                            isFirst
+                              ? 'bg-sky-50/90 border border-sky-100/90 text-sky-950 shadow-2xs'
+                              : 'bg-white hover:bg-slate-50/80 border border-slate-100 text-slate-800'
+                          }`}
                         >
-                          <div className="flex items-center gap-2 min-w-0">
-                            <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
-                              <SrcIcon className="w-3.5 h-3.5" />
+                          <div className="flex items-center gap-2 min-w-0 flex-1">
+                            <div className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
+                              isFirst ? 'text-[#0284c7]' : 'text-slate-400'
+                            }`}>
+                              <RowIcon className="w-3.5 h-3.5" />
                             </div>
-                            <span className="truncate">{src.label}</span>
+                            <span className="font-mono font-bold text-slate-900 text-[11px] shrink-0">{row.id}</span>
+                            <span className="text-[10px] sm:text-[11px] text-slate-500 font-normal truncate">{row.source}</span>
                           </div>
-                          <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0 hidden lg:block"></span>
+                          <span className="font-bold text-slate-900 text-xs sm:text-sm shrink-0 whitespace-nowrap pl-1 font-mono">
+                            {row.amount}
+                          </span>
                         </div>
                       );
                     })}
                   </div>
 
-                  {/* Center: Nirghos Hub Node */}
-                  <div className="flex flex-col items-center justify-center shrink-0 py-2 lg:py-0">
-                    <div className="relative bg-white rounded-2xl p-3.5 sm:p-4 border border-sky-200 shadow-lg shadow-sky-500/10 flex flex-col items-center justify-center text-center min-w-[90px]">
-                      <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0284c7] to-[#0369a1] text-white flex items-center justify-center font-black text-xl shadow-md shadow-sky-500/25">
-                        N.
-                      </div>
-                      <span className="text-xs font-black text-slate-900 mt-1.5">{currentSolution.diagram.hubName}</span>
-                      <span className="text-[10px] text-slate-400 font-bold leading-tight">{currentSolution.diagram.hubSub}</span>
-
-                      {/* Glowing Pulse Rings */}
-                      <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#0284c7] border-2 border-white shadow-xs"></span>
-                      <span className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#0284c7] border-2 border-white shadow-xs"></span>
-                    </div>
+                  {/* Bottom Status Sync Pill */}
+                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-[#0284c7] bg-sky-50/70 py-2 px-3 rounded-xl border border-sky-100/70">
+                    <RefreshCw className="w-3.5 h-3.5 shrink-0" />
+                    <span className="text-center leading-tight truncate">{currentSolution.diagram.orderCard.bottomText}</span>
                   </div>
-
-                  {/* Right Column: Unified Queue Orders Card */}
-                  <div className="w-full lg:flex-1 bg-slate-50/70 rounded-2xl border border-slate-200/90 shadow-2xs p-3.5 sm:p-4.5 min-w-0">
-                    <div className="flex items-start justify-between pb-2.5 border-b border-slate-200/80 mb-2.5 gap-2">
-                      <div className="min-w-0">
-                        <h4 className="text-sm font-black text-slate-900 leading-tight truncate">
-                          {currentSolution.diagram.orderCard.title}
-                        </h4>
-                        <p className="text-[11px] text-slate-500 font-medium truncate">
-                          {currentSolution.diagram.orderCard.subtitle}
-                        </p>
-                      </div>
-                      <div className="text-right shrink-0 bg-white px-2 py-0.5 rounded-lg border border-slate-200/80 shadow-2xs">
-                        <span className="text-[8px] sm:text-[9px] font-black uppercase text-slate-400 block tracking-wider leading-none mb-0.5">
-                          {currentSolution.diagram.orderCard.statLabel}
-                        </span>
-                        <span className="text-base sm:text-lg font-black text-[#0284c7] leading-none">
-                          {currentSolution.diagram.orderCard.statValue}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Order Rows */}
-                    <div className="space-y-1.5">
-                      {currentSolution.diagram.orderCard.rows.map((row, idx) => {
-                        const RowIcon = row.icon;
-                        return (
-                          <div
-                            key={idx}
-                            className="flex items-center justify-between text-xs py-1.5 px-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs hover:border-sky-200 transition-colors gap-2"
-                          >
-                            <div className="flex items-center gap-2 min-w-0 flex-1">
-                              <div className="w-5 h-5 rounded-md bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
-                                <RowIcon className="w-3 h-3" />
-                              </div>
-                              <span className="font-mono font-bold text-slate-900 text-[11px] shrink-0">{row.id}</span>
-                              <span className="text-[10px] sm:text-[11px] text-slate-500 font-medium truncate">{row.source}</span>
-                            </div>
-                            <span className="font-black text-slate-900 text-xs sm:text-sm shrink-0 whitespace-nowrap pl-1 font-mono">
-                              {row.amount}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* Bottom Status Sync Pill */}
-                    <div className="mt-2.5 pt-2 border-t border-slate-200/80 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-[#0284c7] bg-sky-50/80 py-1.5 px-2.5 rounded-xl border border-sky-100">
-                      <RefreshCw className="w-3 h-3 shrink-0" />
-                      <span className="text-center leading-tight truncate">{currentSolution.diagram.orderCard.bottomText}</span>
-                    </div>
-                  </div>
-
                 </div>
-              </div>
 
+              </div>
             </div>
+
           </div>
 
         </div>
