@@ -58,13 +58,25 @@ import DynamicIcon from '../../components/common/DynamicIcon';
 import AnimatedCounter from '../../components/common/AnimatedCounter';
 import { useDemo } from '../../context/DemoContext';
 
+// 7 Tabs for "Innovative solutions for retailers, MSMEs and manufacturers"
+const solutionsTabs = [
+  { id: 'pos', label: 'POS' },
+  { id: 'erp', label: 'ERP' },
+  { id: 'accounting', label: 'Accounting' },
+  { id: 'inventory', label: 'Inventory' },
+  { id: 'crm', label: 'CRM' },
+  { id: 'omnichannel', label: 'Omnichannel' },
+  { id: 'smart-retail', label: 'Smart Retail' }
+];
+
 export const Home = () => {
   const { isAuthenticated, profile } = useDemo();
   const [searchQuery, setSearchQuery] = useState('');
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [sliderMode, setSliderMode] = useState('categories'); // 'categories' | 'brands'
   const [activeErpProduct, setActiveErpProduct] = useState('trading');
-  const [activeSolutionTab, setActiveSolutionTab] = useState('omnichannel');
+  const [activeSolutionTab, setActiveSolutionTab] = useState('pos');
+  const [isSolutionHovered, setIsSolutionHovered] = useState(false);
   const [productSlideIndex, setProductSlideIndex] = useState(0);
   const [showAllServices, setShowAllServices] = useState(false);
   const [testimonialSlideIndex, setTestimonialSlideIndex] = useState(0);
@@ -109,6 +121,19 @@ export const Home = () => {
     }, 4500);
     return () => clearInterval(interval);
   }, [isTestimonialHovered, isDragging]);
+
+  // Auto-cycle through the 7 Innovative Solutions tabs every 5 seconds (5000ms, pauses on hover)
+  useEffect(() => {
+    if (isSolutionHovered) return;
+    const interval = setInterval(() => {
+      setActiveSolutionTab((prevTab) => {
+        const currentIndex = solutionsTabs.findIndex((t) => t.id === prevTab);
+        const nextIndex = (currentIndex + 1) % solutionsTabs.length;
+        return solutionsTabs[nextIndex].id;
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isSolutionHovered]);
 
   // Mouse / Touch Drag handlers for cursor sliding right-to-left and left-to-right
   const handleDragStart = (e) => {
@@ -266,17 +291,6 @@ export const Home = () => {
       icon: Gem,
       path: '/industries/jewellery'
     }
-  ];
-
-  // 7 Tabs for "Innovative solutions for retailers, MSMEs and manufacturers"
-  const solutionsTabs = [
-    { id: 'pos', label: 'POS' },
-    { id: 'erp', label: 'ERP' },
-    { id: 'accounting', label: 'Accounting' },
-    { id: 'inventory', label: 'Inventory' },
-    { id: 'crm', label: 'CRM' },
-    { id: 'omnichannel', label: 'Omnichannel' },
-    { id: 'smart-retail', label: 'Smart Retail' }
   ];
 
   const solutionsData = {
@@ -1521,29 +1535,45 @@ export const Home = () => {
           {/* Segmented Filter Tab Pills */}
           <div className="flex items-center justify-center mb-8 sm:mb-10 overflow-x-auto no-scrollbar py-1">
             <div className="inline-flex items-center p-1.5 rounded-2xl sm:rounded-full bg-slate-100/90 border border-slate-200/90 gap-1 sm:gap-1.5 shadow-2xs">
-              {solutionsTabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveSolutionTab(tab.id)}
-                  className={`px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
-                    activeSolutionTab === tab.id
-                      ? 'bg-[#0284c7] text-white shadow-md shadow-sky-500/25 scale-[1.02]'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+              {solutionsTabs.map((tab) => {
+                const isActive = activeSolutionTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveSolutionTab(tab.id)}
+                    className={`relative px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer overflow-hidden ${
+                      isActive
+                        ? 'bg-[#0284c7] text-white shadow-md shadow-sky-500/25 scale-[1.02]'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
+                    }`}
+                  >
+                    <span className="relative z-10">{tab.label}</span>
+                    {isActive && !isSolutionHovered && (
+                      <span 
+                        key={`prog-${activeSolutionTab}`}
+                        className="absolute bottom-0 left-0 h-[2.5px] bg-white/80 animate-solution-progress rounded-full pointer-events-none"
+                      />
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Interactive Split Showcase Card */}
-          <div className="bg-slate-50/70 border border-slate-200/90 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
+          {/* Interactive Split Showcase Card (Auto-changes every 5s, pauses on mouse hover) */}
+          <div 
+            onMouseEnter={() => setIsSolutionHovered(true)}
+            onMouseLeave={() => setIsSolutionHovered(false)}
+            className="bg-slate-50/70 border border-slate-200/90 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden transition-all duration-300"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
               {/* Left Column: Solution Details */}
-              <div className="lg:col-span-5 bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-2xs flex flex-col justify-between min-h-[360px]">
+              <div 
+                key={`sol-left-${activeSolutionTab}`}
+                className="lg:col-span-5 bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-2xs flex flex-col justify-between min-h-[360px] animate-in fade-in duration-300"
+              >
                 <div>
                   <div className="flex items-center justify-between text-xs font-semibold text-slate-400 mb-6">
                     <span className="text-[10px] font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-100">
@@ -1571,7 +1601,10 @@ export const Home = () => {
               </div>
 
               {/* Right Column: Live Hub & Queue Architecture Diagram */}
-              <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-slate-200/80 shadow-md relative overflow-hidden">
+              <div 
+                key={`sol-right-${activeSolutionTab}`}
+                className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-slate-200/80 shadow-md relative overflow-hidden animate-in fade-in duration-300"
+              >
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-4">
                   
                   {/* Left Column: 5 Source Channels */}

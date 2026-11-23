@@ -106,6 +106,16 @@
   animation-play-state: paused;
 }
 
+/* 5-second Solution Tab Progress Indicator */
+@keyframes solution-progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-solution-progress {
+  animation: solution-progress 5s linear forwards;
+}
+
 /* Continuous 360-degree circular orbit animations for statistics dots */
 @keyframes orbit-cw {
   from {
