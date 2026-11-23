@@ -49,7 +49,8 @@ import {
   Headphones,
   Cloud,
   Smartphone,
-  RefreshCw
+  RefreshCw,
+  ScanLine
 } from 'lucide-react';
 import { industriesData } from '../../data/industries';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -1732,6 +1733,214 @@ export const Home = () => {
 
           </div>
 
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 2.5 AI-DRIVEN RETAIL PLATFORM SHOWCASE (EXACT MATCH TO USER SCREENSHOT)   */}
+      {/* ========================================================================= */}
+      <section id="ai-retail-platform-section" className="py-14 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-sky-50/20 to-white relative overflow-hidden border-b border-slate-200/80">
+        
+        {/* Soft Ambient Glows matching screenshot */}
+        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-sky-200/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/3 -right-20 w-96 h-96 bg-blue-100/35 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-35 pointer-events-none"></div>
+
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
+            
+            {/* Left Column: Headline, Description & CTA Buttons */}
+            <div className="lg:col-span-6 xl:col-span-5 flex flex-col items-start text-left">
+              
+              {/* Badge matching screenshot */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50/90 border border-sky-200/80 text-sky-700 text-xs font-bold uppercase tracking-wider mb-5 shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-[#0284c7] animate-pulse"></span>
+                <span>All in One Retail Platform</span>
+              </div>
+
+              {/* Heading matching screenshot */}
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-[1.18]">
+                AI-Driven Retail Software <br />
+                <span className="text-slate-800">for </span>
+                <span className="text-[#0284c7]">Smarter Retail Business Management.</span>
+              </h2>
+
+              {/* Description customized for Nirghos */}
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-5 max-w-xl">
+                One AI-powered retail software to manage your entire retail business. Nirghos integrates POS Billing, Inventory Management, Accounting, CRM, Procurement, Warehouse Management, ERP and Omnichannel Commerce to streamline operations, boost profits and empower retailers to grow with Confidence.
+              </p>
+
+              {/* CTA Action Buttons */}
+              <div className="flex items-center gap-3.5 sm:gap-4 mt-8 flex-wrap">
+                <button
+                  type="button"
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="px-7 py-3.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 transition-all duration-200 cursor-pointer"
+                >
+                  Request Demo
+                </button>
+                <Link
+                  to="/industries"
+                  className="px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-[#0284c7] border-2 border-[#0284c7] font-bold text-sm shadow-2xs hover:shadow transition-all duration-200 cursor-pointer"
+                >
+                  Choose Your Retail Segment
+                </Link>
+              </div>
+
+            </div>
+
+            {/* Right Column: Live Store Network Telemetry Card & Floating Badges */}
+            <div className="lg:col-span-6 xl:col-span-7 relative">
+              <div className="relative max-w-[560px] mx-auto lg:max-w-none py-6 px-2 sm:px-4">
+                
+                {/* Floating Badge 1 (Top-Right): Checkout Speed */}
+                <div className="absolute top-0 right-2 sm:right-6 lg:right-2 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-xl shadow-slate-300/30 flex items-center gap-2.5 transition-transform hover:-translate-y-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
+                    <ScanLine className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-black uppercase text-slate-400 block tracking-wider leading-none">
+                      Checkout
+                    </span>
+                    <span className="text-xs sm:text-sm font-black text-slate-900 block leading-tight mt-0.5 font-bold">
+                      2.1s avg
+                    </span>
+                  </div>
+                </div>
+
+                {/* Floating Badge 2 (Bottom-Left): Inventory Sync Accuracy */}
+                <div className="absolute bottom-0 left-2 sm:left-4 lg:left-0 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 border border-slate-200/90 shadow-xl shadow-slate-300/30 min-w-[160px] sm:min-w-[175px] transition-transform hover:-translate-y-0.5">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
+                      <Boxes className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider">
+                      Inventory Sync
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-sm sm:text-base font-black text-slate-900 font-mono">98.6%</span>
+                    <span className="text-[11px] text-slate-500 font-medium">Accuracy</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-slate-100 rounded-full mt-1.5 overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-sky-400 to-[#0284c7] rounded-full w-[98.6%]"></div>
+                  </div>
+                </div>
+
+                {/* Main Store Network Dashboard Card */}
+                <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/60 p-5 sm:p-7 relative z-10">
+                  
+                  {/* Card Header: Store Network Title & Live Indicator */}
+                  <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 shadow-2xs">
+                        <Store className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm sm:text-base font-black text-slate-900 leading-tight">
+                          Store Network
+                        </h4>
+                        <p className="text-xs text-slate-400 font-medium mt-0.5">
+                          12 Stores Live
+                        </p>
+                      </div>
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-100 shadow-2xs">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      <span>Real-Time</span>
+                    </div>
+                  </div>
+
+                  {/* 3 Key Stats Row */}
+                  <div className="grid grid-cols-3 gap-2.5 sm:gap-3.5 mt-4">
+                    <div className="bg-slate-50/70 rounded-2xl p-3 sm:p-3.5 border border-slate-100">
+                      <span className="text-[11px] text-slate-500 font-medium block">Sales</span>
+                      <span className="text-sm sm:text-base lg:text-lg font-black text-slate-900 font-mono block leading-tight mt-1">
+                        ₹1,84,320
+                      </span>
+                      <span className="text-[10px] text-emerald-600 font-bold inline-flex items-center gap-0.5 mt-1">
+                        + 14.2%
+                      </span>
+                    </div>
+
+                    <div className="bg-slate-50/70 rounded-2xl p-3 sm:p-3.5 border border-slate-100">
+                      <span className="text-[11px] text-slate-500 font-medium block">Orders</span>
+                      <span className="text-sm sm:text-base lg:text-lg font-black text-slate-900 font-mono block leading-tight mt-1">
+                        386
+                      </span>
+                      <span className="text-[10px] text-emerald-600 font-bold inline-flex items-center gap-0.5 mt-1">
+                        + 8.7%
+                      </span>
+                    </div>
+
+                    <div className="bg-slate-50/70 rounded-2xl p-3 sm:p-3.5 border border-slate-100">
+                      <span className="text-[11px] text-slate-500 font-medium block">AOV</span>
+                      <span className="text-sm sm:text-base lg:text-lg font-black text-slate-900 font-mono block leading-tight mt-1">
+                        ₹477
+                      </span>
+                      <span className="text-[10px] text-emerald-600 font-bold inline-flex items-center gap-0.5 mt-1">
+                        + 2.1%
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Hourly Throughput Spline Wave Chart */}
+                  <div className="bg-slate-50/60 rounded-2xl p-3.5 sm:p-4 border border-slate-100 mt-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-bold text-slate-800">Hourly Throughput</span>
+                      <span className="inline-flex items-center gap-1.5 text-[10px] text-emerald-600 font-bold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        Today
+                      </span>
+                    </div>
+                    
+                    <div className="w-full h-20 sm:h-24">
+                      <svg className="w-full h-full" viewBox="0 0 360 80" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="retail-throughput-gradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#0284c7" stopOpacity="0.3" />
+                            <stop offset="100%" stopColor="#0284c7" stopOpacity="0.0" />
+                          </linearGradient>
+                        </defs>
+                        {/* Area fill */}
+                        <path
+                          d="M 0 65 Q 40 60, 80 50 T 160 55 T 240 25 T 320 28 T 360 30 L 360 80 L 0 80 Z"
+                          fill="url(#retail-throughput-gradient)"
+                        />
+                        {/* Spline curve stroke */}
+                        <path
+                          d="M 0 65 Q 40 60, 80 50 T 160 55 T 240 25 T 320 28 T 360 30"
+                          fill="none"
+                          stroke="#0284c7"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Store List Rows */}
+                  <div className="mt-4 space-y-2">
+                    <div className="bg-sky-50/70 rounded-xl px-3.5 py-2.5 flex items-center justify-between border border-sky-100/90 shadow-2xs">
+                      <span className="text-xs font-bold text-slate-900">Mumbai - Bandra</span>
+                      <span className="text-xs font-black text-slate-900 font-mono">₹86,420</span>
+                    </div>
+                    <div className="bg-white rounded-xl px-3.5 py-2.5 flex items-center justify-between border border-slate-100 shadow-2xs">
+                      <span className="text-xs font-bold text-slate-800">Indiranagar - Bengaluru</span>
+                      <span className="text-xs font-black text-slate-900 font-mono">₹71,420</span>
+                    </div>
+                    <div className="bg-white rounded-xl px-3.5 py-2.5 flex items-center justify-between border border-slate-100 shadow-2xs">
+                      <span className="text-xs font-bold text-slate-800">SG Highway - Ahmedabad</span>
+                      <span className="text-xs font-black text-slate-900 font-mono">₹64,240</span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
