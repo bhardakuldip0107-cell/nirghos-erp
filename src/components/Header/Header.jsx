@@ -20,15 +20,10 @@ import {
   Store,
   Truck,
   Cpu,
-  MessageSquare,
-  Smartphone,
-  Cloud,
-  Headphones,
   TrendingUp,
   Eye,
   Glasses,
   Zap,
-  Briefcase,
   UtensilsCrossed,
   ShieldCheck,
   Boxes,
@@ -42,7 +37,7 @@ import DemoModal from '../common/DemoModal';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null); // 'products' | 'services' | 'explore' | 'ai' | null
+  const [activeDropdown, setActiveDropdown] = useState(null); // 'products' | 'explore' | 'ai' | null
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
@@ -211,47 +206,7 @@ export const Header = () => {
     }
   ];
 
-  // 3. Services Dropdown Items
-  const servicesCards = [
-    {
-      title: 'B2B & B2C Mobile Applications',
-      desc: 'Native iOS & Android apps for sales reps, wholesale order booking & customer portals.',
-      icon: Smartphone,
-      path: '/features'
-    },
-    {
-      title: 'Digital Marketing & Growth',
-      desc: 'Take your business to the next level with ROI-focused digital marketing and SEO.',
-      icon: TrendingUp,
-      path: '/features'
-    },
-    {
-      title: 'Custom ERP Implementation',
-      desc: 'End-to-end enterprise blueprinting, legacy data migration & personalized rollout.',
-      icon: Briefcase,
-      path: '/contact'
-    },
-    {
-      title: 'Cloud & API Integration Hub',
-      desc: 'Real-time sync with GST Portal, E-way bill, Tally, bank payment gateways & Shopify.',
-      icon: Cloud,
-      path: '/features'
-    },
-    {
-      title: '24/7 Enterprise Support & SLA',
-      desc: 'Dedicated technical architect desk, SOC2 audited security, and 99.99% uptime guarantee.',
-      icon: Headphones,
-      path: '/contact'
-    },
-    {
-      title: 'WhatsApp Automation & CRM',
-      desc: 'Turn WhatsApp into an automated sales and support engine for your customers.',
-      icon: MessageSquare,
-      path: '/features'
-    }
-  ];
-
-  // 4. AI Tools Dropdown Items
+  // 3. AI Tools Dropdown Items
   const aiToolsCards = [
     {
       title: 'Nirghos Vision (AI Cam 360)',
@@ -347,26 +302,6 @@ export const Header = () => {
                 >
                   <span>Products</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180 text-[#0284c7]' : 'text-slate-500'}`} />
-                </button>
-              </div>
-
-              {/* Services ▾ */}
-              <div 
-                className="relative"
-                onMouseEnter={() => handleMouseEnter('services')}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button
-                  type="button"
-                  onClick={(e) => handleToggle('services', e)}
-                  className={`px-3.5 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
-                    activeDropdown === 'services'
-                      ? 'text-[#0284c7] font-bold border-b-2 border-[#0284c7]' 
-                      : 'text-slate-700 hover:text-[#0284c7]'
-                  }`}
-                >
-                  <span>Services</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180 text-[#0284c7]' : 'text-slate-500'}`} />
                 </button>
               </div>
 
@@ -570,49 +505,7 @@ export const Header = () => {
             </div>
           )}
 
-          {/* C. Services Dropdown (Horizontal Card Grid) */}
-          {activeDropdown === 'services' && (
-            <div 
-              className="absolute top-full left-0 right-0 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
-              onMouseEnter={() => handleMouseEnter('services')}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-slate-200/90 p-5 mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-                  {servicesCards.map((card) => {
-                    const CardIcon = card.icon;
-                    return (
-                      <Link
-                        key={card.title}
-                        to={card.path}
-                        onClick={() => setActiveDropdown(null)}
-                        className="p-4 rounded-xl bg-white hover:bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-all flex items-start gap-3.5 group shadow-2xs hover:shadow-sm"
-                      >
-                        <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                          <CardIcon className="w-5 h-5" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          {card.badge && (
-                            <span className="text-[9px] font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded border border-sky-100 inline-block mb-1">
-                              {card.badge}
-                            </span>
-                          )}
-                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#0284c7] transition-colors leading-tight">
-                            {card.title}
-                          </h4>
-                          <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-snug">
-                            {card.desc}
-                          </p>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* D. AI Tools Dropdown (Horizontal Card Grid) */}
+          {/* C. AI Tools Dropdown (Horizontal Card Grid) */}
           {activeDropdown === 'ai' && (
             <div 
               className="absolute top-full left-0 right-0 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
