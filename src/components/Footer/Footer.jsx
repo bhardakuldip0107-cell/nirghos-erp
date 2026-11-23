@@ -271,7 +271,7 @@ export const Footer = () => {
 
           {/* Right: Copyright */}
           <div className="text-slate-500">
-            © {new Date().getFullYear()} Nirghos ERP Solutions Pvt. Ltd.
+            © {new Date().getFullYear()} Infinity Soft Tech Pvt. Ltd.
           </div>
 
         </div>

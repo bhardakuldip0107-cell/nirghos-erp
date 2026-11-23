@@ -30,7 +30,12 @@ import {
   Zap,
   Briefcase,
   UtensilsCrossed,
-  ShieldCheck
+  ShieldCheck,
+  Boxes,
+  Factory,
+  Pill,
+  Hotel,
+  Globe
 } from 'lucide-react';
 import { useDemo } from '../../context/DemoContext';
 import DemoModal from '../common/DemoModal';
@@ -146,54 +151,62 @@ export const Header = () => {
     }
   ];
 
-  // 2. Products Dropdown Items (Specialized Industry Suites)
+  // 2. Products Dropdown Items (Specialized Industry Suites & Core Suite)
   const productsCards = [
     {
-      title: 'G-Soft Apparel & Lifestyle ERP',
-      desc: 'Style-Color-Size matrix, barcode scanning, digital job cards & wholesale order booking.',
-      icon: Shirt,
-      path: '/industries/textile-garment'
+      title: 'Trading & Wholesale',
+      badge: 'Wholesale & B2B',
+      desc: 'Multi-warehouse distribution, tier pricing, credit control & high-speed GST e-invoicing.',
+      icon: Boxes,
+      path: '/industries/trading'
     },
     {
-      title: 'J-Soft Jewellery & Bullion ERP',
-      desc: 'Hallmark & HUID tracking, Karigar wastage, metal rate-cut & certified bullion ledger.',
-      icon: Gem,
-      path: '/industries/gems-jewelry'
+      title: 'Manufacturing & Fabrication',
+      badge: 'Plant & Production',
+      desc: 'Multi-level BOM engineering, shop floor tracking, machine maintenance & scrap reduction.',
+      icon: Factory,
+      path: '/industries/manufacturing'
     },
     {
-      title: 'Nirghos Chatbox (WhatsApp ERP)',
-      desc: 'Automated GST invoice dispatch, payment reminder bots & customer WhatsApp catalog.',
-      icon: MessageSquare,
-      path: '/features'
+      title: 'Pharma & Healthcare',
+      badge: 'GMP & Regulatory',
+      desc: 'WHO-GMP compliance, electronic batch records (eBR), FEFO allocation & recall audit trails.',
+      icon: Pill,
+      path: '/industries/pharma'
     },
     {
-      title: 'Retail POS & Supermarket ERP',
-      desc: 'Sub-second touchscreen checkout, barcode billing, loyalty points & table order maps.',
-      icon: Store,
-      path: '/industries/retail-supermarket'
+      title: 'Food & Beverage',
+      badge: 'HACCP & Cold Chain',
+      desc: 'Recipe formulation, HACCP quality checklists, ingredient yield & cold-chain telemetry.',
+      icon: UtensilsCrossed,
+      path: '/industries/food-beverage'
+    },
+    {
+      title: 'Hospitals & Clinics',
+      badge: 'Clinical & EMR',
+      desc: 'OPD/IPD queue, digital patient EMR records, pharmacy dispensing & cashless TPA claims.',
+      icon: Building2,
+      path: '/industries/hospital'
+    },
+    {
+      title: 'Hotels & Restaurants',
+      badge: 'Hospitality & POS',
+      desc: 'Touch POS, wireless KOT kitchen display, room reservations & recipe inventory depletion.',
+      icon: Hotel,
+      path: '/industries/hotel-restaurant'
     },
     {
       title: 'Core Enterprise ERP Suite',
+      badge: 'All-In-One Suite',
       desc: 'HRMS, Payroll, double-entry General Ledger, multi-branch inventory & CRM pipeline.',
       icon: Cpu,
       path: '/features'
     },
     {
-      title: 'Wholesale & Distribution ERP',
-      desc: 'Inter-branch stock transfers, automated credit limits, transporter E-way bill & dispatch.',
-      icon: Truck,
-      path: '/industries/wholesale-trading'
-    },
-    {
-      title: 'Food, Cafe & Restaurant ERP',
-      desc: 'KOT kitchen display, recipe costing, table reservations & omnichannel delivery sync.',
-      icon: UtensilsCrossed,
-      path: '/industries/hospitality-tourism'
-    },
-    {
       title: 'Browse All 25 Industries',
-      desc: 'Explore the complete directory of sector-specific live modules and workflows.',
-      icon: Building2,
+      badge: 'Full Directory',
+      desc: 'Explore the complete directory of sector-specific live modules and specialized workflows.',
+      icon: Globe,
       path: '/industries'
     }
   ];
@@ -495,6 +508,11 @@ export const Header = () => {
                           <CardIcon className="w-5 h-5" />
                         </div>
                         <div className="flex-1 min-w-0">
+                          {card.badge && (
+                            <span className="text-[9px] font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded border border-sky-100 inline-block mb-1">
+                              {card.badge}
+                            </span>
+                          )}
                           <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#0284c7] transition-colors leading-tight">
                             {card.title}
                           </h4>
@@ -532,6 +550,11 @@ export const Header = () => {
                           <CardIcon className="w-5 h-5" />
                         </div>
                         <div className="flex-1 min-w-0">
+                          {card.badge && (
+                            <span className="text-[9px] font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded border border-sky-100 inline-block mb-1">
+                              {card.badge}
+                            </span>
+                          )}
                           <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#0284c7] transition-colors leading-tight">
                             {card.title}
                           </h4>
@@ -569,6 +592,11 @@ export const Header = () => {
                           <CardIcon className="w-5 h-5" />
                         </div>
                         <div className="flex-1 min-w-0">
+                          {card.badge && (
+                            <span className="text-[9px] font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded border border-sky-100 inline-block mb-1">
+                              {card.badge}
+                            </span>
+                          )}
                           <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#0284c7] transition-colors leading-tight">
                             {card.title}
                           </h4>
@@ -652,14 +680,19 @@ export const Header = () => {
               <div className="pt-2 pb-1 px-4 text-[11px] font-black uppercase tracking-wider text-slate-400">
                 Products & Suites
               </div>
-              {productsCards.slice(0, 4).map((p) => (
+              {productsCards.map((p) => (
                 <Link
                   key={p.title}
                   to={p.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 flex items-center justify-between"
                 >
-                  {p.title}
+                  <span>{p.title}</span>
+                  {p.badge && (
+                    <span className="text-[9px] font-bold text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded border border-sky-100">
+                      {p.badge}
+                    </span>
+                  )}
                 </Link>
               ))}
 
