@@ -1942,6 +1942,136 @@ export const Home = () => {
       </section>
 
       {/* ========================================================================= */}
+      {/* 2.6 OUTCOMES - BUSINESS IMPACT (EXACT MATCH TO USER SCREENSHOT)            */}
+      {/* ========================================================================= */}
+      <section id="business-impact-section" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-[#f8fbff] to-white relative overflow-hidden border-b border-slate-200/80">
+        
+        {/* Soft Background Radial Ambient Tint matching screenshot */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-sky-100/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            
+            {/* Header: Left-Aligned 'OUTCOMES' Badge & 'Business Impact' Title */}
+            <div className="mb-6 sm:mb-8 text-left">
+              <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#0284c7] block mb-2">
+                Outcomes
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-tight">
+                Business Impact
+              </h2>
+            </div>
+
+            {/* 2 x 3 Grid Card (Exact visual border and styling as user screenshot) */}
+            <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white shadow-sm overflow-hidden divide-y divide-slate-200/80">
+              
+              {/* Row 1: 3 Metrics */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/80">
+                
+                {/* Metric 1: 98% Faster Checkout Operations */}
+                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center text-left hover:bg-sky-50/20 transition-colors">
+                  <div className="flex items-baseline">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
+                      <AnimatedCounter target={98} duration={2000} />
+                    </span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-0.5">
+                      %
+                    </span>
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold text-slate-800 mt-3 sm:mt-4 block leading-snug">
+                    Faster Checkout Operations
+                  </span>
+                </div>
+
+                {/* Metric 2: 95% Inventory Accuracy */}
+                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center text-left hover:bg-sky-50/20 transition-colors">
+                  <div className="flex items-baseline">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
+                      <AnimatedCounter target={95} duration={2000} />
+                    </span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-0.5">
+                      %
+                    </span>
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold text-slate-800 mt-3 sm:mt-4 block leading-snug">
+                    Inventory Accuracy
+                  </span>
+                </div>
+
+                {/* Metric 3: 85% Reduction in Manual Tasks */}
+                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center text-left sm:col-span-2 lg:col-span-1 border-t sm:border-t-0 hover:bg-sky-50/20 transition-colors">
+                  <div className="flex items-baseline">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
+                      <AnimatedCounter target={85} duration={2000} />
+                    </span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-0.5">
+                      %
+                    </span>
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold text-slate-800 mt-3 sm:mt-4 block leading-snug">
+                    Reduction in Manual Tasks
+                  </span>
+                </div>
+
+              </div>
+
+              {/* Row 2: 3 Metrics */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/80">
+                
+                {/* Metric 4: 75% Faster Inventory Replenishment */}
+                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center text-left hover:bg-sky-50/20 transition-colors">
+                  <div className="flex items-baseline">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
+                      <AnimatedCounter target={75} duration={2000} />
+                    </span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-0.5">
+                      %
+                    </span>
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold text-slate-800 mt-3 sm:mt-4 block leading-snug">
+                    Faster Inventory Replenishment
+                  </span>
+                </div>
+
+                {/* Metric 5: 60% Increase in Staff Productivity */}
+                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center text-left hover:bg-sky-50/20 transition-colors">
+                  <div className="flex items-baseline">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
+                      <AnimatedCounter target={60} duration={2000} />
+                    </span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-0.5">
+                      %
+                    </span>
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold text-slate-800 mt-3 sm:mt-4 block leading-snug">
+                    Increase in Staff Productivity
+                  </span>
+                </div>
+
+                {/* Metric 6: 50% Lower Operational Costs */}
+                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center text-left sm:col-span-2 lg:col-span-1 border-t sm:border-t-0 hover:bg-sky-50/20 transition-colors">
+                  <div className="flex items-baseline">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
+                      <AnimatedCounter target={50} duration={2000} />
+                    </span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-0.5">
+                      %
+                    </span>
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold text-slate-800 mt-3 sm:mt-4 block leading-snug">
+                    Lower Operational Costs
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
       {/* 3. OUR PRODUCTS SECTION (EXACT MATCH TO USER SCREENSHOT)                  */}
       {/* ========================================================================= */}
       <section id="our-products-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-[#f9fbfe] via-white to-[#f9fbfe] relative overflow-hidden border-b border-slate-200/80">
