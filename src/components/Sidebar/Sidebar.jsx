@@ -61,17 +61,14 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen, activeTab, setActiveTab
         {/* Brand Header */}
         <div className="p-5 border-b border-navy-800 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-md shadow-brand-500/20">
-              <div className="grid grid-cols-2 gap-1 p-1.5">
-                <div className="w-1.5 h-1.5 rounded-sm bg-white"></div>
-                <div className="w-1.5 h-1.5 rounded-sm bg-brand-200"></div>
-                <div className="w-1.5 h-1.5 rounded-sm bg-brand-200"></div>
-                <div className="w-1.5 h-1.5 rounded-sm bg-white"></div>
-              </div>
-            </div>
+            <img 
+              src="/nirghos-icon.png" 
+              alt="Nirghos ERP" 
+              className="w-10 h-10 object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
+            />
             <div>
               <span className="text-xl font-extrabold text-white tracking-tight flex items-center">
-                Nirghos<span className="text-brand-400">ERP</span>
+                NIRGHOS<span className="text-brand-400 ml-1">ERP</span>
               </span>
               <span className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold block">
                 Workspace

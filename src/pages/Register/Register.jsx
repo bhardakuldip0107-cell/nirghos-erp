@@ -94,16 +94,13 @@ export const Register = () => {
         {/* Brand Logo & Header */}
         <div className="text-center space-y-2">
           <Link to="/" className="inline-flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-600 via-brand-700 to-indigo-800 flex items-center justify-center shadow-lg shadow-brand-600/25 p-2.5 group-hover:scale-105 transition-transform border-2 border-brand-400/30">
-              <div className="grid grid-cols-2 gap-1">
-                <div className="w-2.5 h-2.5 rounded-xs bg-white"></div>
-                <div className="w-2.5 h-2.5 rounded-xs bg-brand-200"></div>
-                <div className="w-2.5 h-2.5 rounded-xs bg-brand-200"></div>
-                <div className="w-2.5 h-2.5 rounded-xs bg-white"></div>
-              </div>
-            </div>
-            <span className="text-2xl font-black text-navy-950">
-              Nirghos<span className="text-brand-600">ERP</span>
+            <img 
+              src="/nirghos-icon.png" 
+              alt="Nirghos ERP" 
+              className="w-12 h-12 object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
+            />
+            <span className="text-2xl font-black text-navy-950 flex items-center">
+              NIRGHOS<span className="text-brand-600 ml-1">ERP</span>
             </span>
           </Link>
           <h1 className="text-2xl sm:text-3xl font-black text-navy-950 tracking-tight">

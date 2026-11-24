@@ -1604,8 +1604,12 @@ export const Home = () => {
                   </svg>
 
                   {/* Hub Card with Pulsating Glow */}
-                  <div className="relative z-10 bg-white rounded-2xl p-2.5 sm:p-3 border border-sky-300 shadow-lg shadow-sky-500/20 flex flex-col items-center justify-center text-center w-16 h-16 lg:w-20 lg:h-20 shrink-0 animate-pulse-glow">
-                    <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none">N.</span>
+                  <div className="relative z-10 bg-white rounded-2xl p-2 sm:p-2.5 border border-sky-300 shadow-lg shadow-sky-500/20 flex flex-col items-center justify-center text-center w-16 h-16 lg:w-20 lg:h-20 shrink-0 animate-pulse-glow group">
+                    <img 
+                      src="/nirghos-icon.png" 
+                      alt="Nirghos Hub" 
+                      className="w-8 h-8 lg:w-10 lg:h-10 object-contain drop-shadow-xs group-hover:scale-105 transition-transform" 
+                    />
                     <span className="text-[10px] text-[#0284c7] font-black mt-1 leading-none uppercase tracking-wider">
                       Nirghos
                     </span>
@@ -1615,7 +1619,8 @@ export const Home = () => {
                 {/* Mobile-only connector badge between channels and card */}
                 <div className="md:hidden flex items-center justify-center py-2">
                   <div className="bg-white rounded-xl px-4 py-1.5 border border-slate-200 shadow-xs flex items-center gap-2">
-                    <span className="text-xs font-black text-slate-900">N. Nirghos</span>
+                    <img src="/nirghos-icon.png" alt="Nirghos" className="w-5 h-5 object-contain" />
+                    <span className="text-xs font-black text-slate-900">Nirghos</span>
                     <span className="text-[10px] text-sky-600 font-bold bg-sky-50 px-2 py-0.5 rounded-full">Unified</span>
                   </div>
                 </div>
