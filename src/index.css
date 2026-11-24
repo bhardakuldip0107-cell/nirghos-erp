@@ -158,3 +158,134 @@
   transform-origin: center center;
   will-change: transform;
 }
+
+/* ========================================================================= */
+/* VASY.AI-GRADE MODERN HIGH-TECH ANIMATIONS & MICRO-INTERACTIONS            */
+/* ========================================================================= */
+
+/* 1. Multi-Phase Floating Badges */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.6deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(-4px) rotate(-0.6deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(0.3deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5.2s ease-in-out infinite 1.2s;
+  will-change: transform;
+}
+
+/* 2. Moving Laser Scan Beam (CCTV / Telemetry Screen) */
+@keyframes laser-scan {
+  0% {
+    top: 2%;
+    opacity: 0.15;
+  }
+  50% {
+    top: 92%;
+    opacity: 0.9;
+  }
+  100% {
+    top: 2%;
+    opacity: 0.15;
+  }
+}
+
+.animate-laser-scan {
+  animation: laser-scan 3.6s ease-in-out infinite;
+  will-change: top, opacity;
+}
+
+/* 3. Flowing SVG Data Streams (Particle / Dash Flow along Connectors) */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 6 5;
+  animation: dash-flow 1.8s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+/* 4. Pulsating Neon Node Glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.6));
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(14, 165, 233, 0.95));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.8s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+/* 5. Throughput Wave Chart Pulse */
+@keyframes wave-pulse {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scaleY(1.06);
+    opacity: 0.95;
+  }
+}
+
+.animate-wave-pulse {
+  animation: wave-pulse 3.2s ease-in-out infinite;
+  transform-origin: bottom;
+  will-change: transform, opacity;
+}
+
+/* 6. Card Hover Elevation & Diffused Glow */
+.hover-lift-glow {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift-glow:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(2, 132, 199, 0.22), 0 0 0 1px rgba(2, 132, 199, 0.35);
+}
+
+/* 7. Subtle Breathing Gradient Border */
+@keyframes border-breathe {
+  0%, 100% {
+    border-color: rgba(2, 132, 199, 0.3);
+    box-shadow: 0 0 15px -3px rgba(2, 132, 199, 0.15);
+  }
+  50% {
+    border-color: rgba(56, 189, 248, 0.7);
+    box-shadow: 0 0 25px 2px rgba(56, 189, 248, 0.3);
+  }
+}
+
+.animate-border-breathe {
+  animation: border-breathe 4s ease-in-out infinite;
+  will-change: border-color, box-shadow;
+}

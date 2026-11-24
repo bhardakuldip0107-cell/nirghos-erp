@@ -242,29 +242,36 @@ export const AISolutions = () => {
                   <span className="font-mono text-emerald-400">EDGE AI LIVE</span>
                 </div>
 
-                {/* Simulated Camera Blueprint */}
+                {/* Simulated Camera Blueprint with Active Laser Scan */}
                 <div className="relative mt-4 h-64 sm:h-72 bg-slate-950/80 rounded-xl overflow-hidden border border-slate-800/80 flex items-center justify-center">
                   
+                  {/* Moving Active Laser Scan Beam (vasy.ai style vision sweep) */}
+                  <div className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent pointer-events-none animate-laser-scan z-30 shadow-[0_0_15px_#34d399]"></div>
+
                   {/* Grid lines */}
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:32px_32px] opacity-40"></div>
 
                   {/* Virtual Tripwire */}
-                  <div className="absolute inset-y-0 left-1/2 w-0.5 bg-gradient-to-b from-transparent via-emerald-400 to-transparent"></div>
-                  <span className="absolute top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-400 text-emerald-300 text-[10px] font-mono">
-                    COUNT TRIPWIRE
+                  <div className="absolute inset-y-0 left-1/2 w-0.5 bg-gradient-to-b from-transparent via-emerald-400 to-transparent animate-pulse"></div>
+                  <span className="absolute top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-400 text-emerald-300 text-[10px] font-mono shadow-xs">
+                    COUNT TRIPWIRE (ACTIVE)
                   </span>
 
-                  {/* Bounding Box Simulators */}
-                  <div className="absolute top-16 left-1/4 p-2 border-2 border-sky-400 bg-sky-500/10 rounded">
-                    <span className="text-[10px] font-mono bg-sky-500 text-white px-1 rounded block">Shopper #104 [IN]</span>
+                  {/* Bounding Box Simulators with Animated Pulsing Badges */}
+                  <div className="absolute top-16 left-1/4 p-2 border-2 border-sky-400 bg-sky-500/10 rounded animate-float-slow">
+                    <span className="text-[10px] font-mono bg-sky-500 text-white px-1.5 py-0.5 rounded block shadow-xs">
+                      Shopper #104 [IN] • 99.4%
+                    </span>
                   </div>
-                  <div className="absolute bottom-16 right-1/4 p-2 border-2 border-violet-400 bg-violet-500/10 rounded">
-                    <span className="text-[10px] font-mono bg-violet-500 text-white px-1 rounded block">Shopper #105 [OUT]</span>
+                  <div className="absolute bottom-16 right-1/4 p-2 border-2 border-violet-400 bg-violet-500/10 rounded animate-float-delayed">
+                    <span className="text-[10px] font-mono bg-violet-500 text-white px-1.5 py-0.5 rounded block shadow-xs">
+                      Shopper #105 [OUT] • 98.8%
+                    </span>
                   </div>
 
                   {/* Heatmap Glow Overlay */}
-                  <div className="absolute top-10 right-10 w-32 h-32 bg-red-500/25 rounded-full blur-2xl pointer-events-none"></div>
-                  <div className="absolute bottom-10 left-10 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl pointer-events-none"></div>
+                  <div className="absolute top-10 right-10 w-36 h-36 bg-red-500/30 rounded-full blur-2xl pointer-events-none animate-pulse"></div>
+                  <div className="absolute bottom-10 left-10 w-36 h-36 bg-amber-500/25 rounded-full blur-2xl pointer-events-none"></div>
                 </div>
 
                 {/* Telemetry Counter Strip */}

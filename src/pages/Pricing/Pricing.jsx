@@ -287,15 +287,15 @@ export const Pricing = () => {
               key={plan.id}
               className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 ${
                 plan.popular
-                  ? 'bg-gradient-to-b from-[#0284c7] via-[#0369a1] to-[#075985] text-white shadow-2xl shadow-sky-600/30 scale-100 xl:-translate-y-2 border-2 border-sky-300'
-                  : 'bg-white border border-slate-200 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:border-slate-300'
+                  ? 'bg-gradient-to-b from-[#0284c7] via-[#0369a1] to-[#075985] text-white shadow-2xl shadow-sky-600/30 scale-100 xl:-translate-y-2 border-2 border-sky-300 animate-border-breathe'
+                  : 'bg-white border border-slate-200 shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:border-sky-300 hover-lift-glow'
               }`}
             >
               {/* Popular Badge */}
               {plan.badge && (
                 <div className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-black tracking-wider shadow-md uppercase whitespace-nowrap ${
                   plan.popular 
-                    ? 'bg-amber-400 text-slate-950 border border-amber-300' 
+                    ? 'bg-amber-400 text-slate-950 border border-amber-300 shadow-amber-400/30 animate-pulse' 
                     : 'bg-sky-100 text-[#0284c7] border border-sky-300'
                 }`}>
                   {plan.badge}

@@ -1674,27 +1674,35 @@ export const Home = () => {
                     viewBox="0 0 160 220" 
                     preserveAspectRatio="none"
                   >
-                    {/* 5 curves from channels to hub (hub center is at x=80, y=110; hub left is x=52) */}
+                    {/* 5 base curves from channels to hub (hub center is at x=80, y=110; hub left is x=52) */}
                     <path d="M 0 22 C 30 22, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                     <path d="M 0 66 C 30 66, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                     <path d="M 0 110 L 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                     <path d="M 0 154 C 30 154, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                     <path d="M 0 198 C 30 198, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+
+                    {/* Flowing Animated Data Streams (vasy.ai style particle cables) */}
+                    <path d="M 0 22 C 30 22, 35 110, 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-70" />
+                    <path d="M 0 66 C 30 66, 35 110, 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-90" />
+                    <path d="M 0 110 L 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-75" />
+                    <path d="M 0 154 C 30 154, 35 110, 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-80" />
+                    <path d="M 0 198 C 30 198, 35 110, 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-60" />
                     
                     {/* Blue node on Website channel curve */}
-                    <circle cx="28" cy="66" r="3.5" fill="#0284c7" />
+                    <circle cx="28" cy="66" r="3.5" fill="#0284c7" className="animate-pulse" />
 
                     {/* Connecting line from Hub right (x=108) to Orders card left (x=160) */}
                     <path d="M 108 110 L 160 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M 108 110 L 160 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-90" />
                     
                     {/* Glowing pulse dot on dispatch line */}
-                    <circle cx="134" cy="110" r="3.5" fill="#0284c7" />
+                    <circle cx="134" cy="110" r="3.5" fill="#0284c7" className="animate-ping" />
                   </svg>
 
-                  {/* Hub Card */}
-                  <div className="relative z-10 bg-white rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-md flex flex-col items-center justify-center text-center w-16 h-16 lg:w-20 lg:h-20 shrink-0">
+                  {/* Hub Card with Pulsating Glow */}
+                  <div className="relative z-10 bg-white rounded-2xl p-2.5 sm:p-3 border border-sky-300 shadow-lg shadow-sky-500/20 flex flex-col items-center justify-center text-center w-16 h-16 lg:w-20 lg:h-20 shrink-0 animate-pulse-glow">
                     <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none">N.</span>
-                    <span className="text-[10px] text-slate-400 font-bold mt-1 leading-none">
+                    <span className="text-[10px] text-[#0284c7] font-black mt-1 leading-none uppercase tracking-wider">
                       Nirghos
                     </span>
                   </div>
@@ -1832,9 +1840,9 @@ export const Home = () => {
             <div className="lg:col-span-6 xl:col-span-7 relative">
               <div className="relative max-w-[560px] mx-auto lg:max-w-none py-6 px-2 sm:px-4">
                 
-                {/* Floating Badge 1 (Top-Right): Checkout Speed */}
-                <div className="absolute top-0 right-2 sm:right-6 lg:right-2 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-xl shadow-slate-300/30 flex items-center gap-2.5 transition-transform hover:-translate-y-0.5">
-                  <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
+                {/* Floating Badge 1 (Top-Right): Checkout Speed (vasy.ai style smooth levitation) */}
+                <div className="absolute top-0 right-2 sm:right-6 lg:right-2 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-xl shadow-slate-300/30 flex items-center gap-2.5 transition-transform hover:-translate-y-1 animate-float-slow">
+                  <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 shadow-2xs">
                     <ScanLine className="w-4 h-4" />
                   </div>
                   <div>
@@ -1847,10 +1855,10 @@ export const Home = () => {
                   </div>
                 </div>
 
-                {/* Floating Badge 2 (Bottom-Left): Inventory Sync Accuracy */}
-                <div className="absolute bottom-0 left-2 sm:left-4 lg:left-0 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 border border-slate-200/90 shadow-xl shadow-slate-300/30 min-w-[160px] sm:min-w-[175px] transition-transform hover:-translate-y-0.5">
+                {/* Floating Badge 2 (Bottom-Left): Inventory Sync Accuracy (vasy.ai style delayed levitation) */}
+                <div className="absolute bottom-0 left-2 sm:left-4 lg:left-0 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 border border-slate-200/90 shadow-xl shadow-slate-300/30 min-w-[160px] sm:min-w-[175px] transition-transform hover:-translate-y-1 animate-float-delayed">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
+                    <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 shadow-2xs">
                       <Boxes className="w-3.5 h-3.5" />
                     </div>
                     <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider">
@@ -1866,8 +1874,11 @@ export const Home = () => {
                   </div>
                 </div>
 
-                {/* Main Store Network Dashboard Card */}
-                <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/60 p-5 sm:p-7 relative z-10">
+                {/* Main Store Network Dashboard Card with Laser Scan Effect */}
+                <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/60 p-5 sm:p-7 relative z-10 overflow-hidden hover-lift-glow">
+                  
+                  {/* Moving Laser Scan Line (vasy.ai high-tech telemetry effect) */}
+                  <div className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#0284c7] to-transparent pointer-events-none animate-laser-scan z-20"></div>
                   
                   {/* Card Header: Store Network Title & Live Indicator */}
                   <div className="flex items-center justify-between pb-4 border-b border-slate-100">
@@ -1937,14 +1948,15 @@ export const Home = () => {
                       <svg className="w-full h-full" viewBox="0 0 360 80" preserveAspectRatio="none">
                         <defs>
                           <linearGradient id="retail-throughput-gradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#0284c7" stopOpacity="0.3" />
+                            <stop offset="0%" stopColor="#0284c7" stopOpacity="0.35" />
                             <stop offset="100%" stopColor="#0284c7" stopOpacity="0.0" />
                           </linearGradient>
                         </defs>
-                        {/* Area fill */}
+                        {/* Area fill with breathing wave pulse */}
                         <path
                           d="M 0 65 Q 40 60, 80 50 T 160 55 T 240 25 T 320 28 T 360 30 L 360 80 L 0 80 Z"
                           fill="url(#retail-throughput-gradient)"
+                          className="animate-wave-pulse"
                         />
                         {/* Spline curve stroke */}
                         <path
@@ -1954,6 +1966,9 @@ export const Home = () => {
                           strokeWidth="2.5"
                           strokeLinecap="round"
                         />
+                        {/* Live pulsating peak throughput node */}
+                        <circle cx="240" cy="25" r="6" fill="#0284c7" className="animate-ping" opacity="0.5" />
+                        <circle cx="240" cy="25" r="3.5" fill="#0284c7" />
                       </svg>
                     </div>
                   </div>
