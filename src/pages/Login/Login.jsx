@@ -75,14 +75,14 @@ export const Login = () => {
         
         {/* Brand Logo & Header */}
         <div className="text-center space-y-2">
-          <Link to="/" className="inline-flex items-center gap-3 group">
+          <Link to="/" className="inline-flex items-center gap-2 group">
             <img 
-              src="/nirghos-icon.png" 
+              src="/nirghos-logo-nav.png" 
               alt="Nirghos ERP" 
-              className="w-12 h-12 object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
+              className="h-11 sm:h-12 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
             />
-            <span className="text-2xl font-black text-navy-950 flex items-center">
-              NIRGHOS<span className="text-brand-600 ml-1">ERP</span>
+            <span className="text-brand-600 text-xs font-black uppercase px-2 py-0.5 rounded bg-sky-100 border border-sky-200 tracking-wider">
+              ERP
             </span>
           </Link>
           <h1 className="text-2xl sm:text-3xl font-black text-navy-950 tracking-tight">

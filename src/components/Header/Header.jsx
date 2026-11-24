@@ -264,17 +264,15 @@ export const Header = () => {
           <div className="flex items-center justify-between h-20">
             
             {/* Official Logo on Left */}
-            <Link to="/" className="flex items-center gap-2.5 group focus:outline-none shrink-0">
+            <Link to="/" className="flex items-center gap-2 group focus:outline-none shrink-0" title="Nirghos ERP Homepage">
               <img 
-                src="/nirghos-icon.png" 
-                alt="Nirghos ERP Official 3D Ribbon Logo" 
-                className="w-10 h-10 sm:w-11 sm:h-11 object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
+                src="/nirghos-logo-nav.png" 
+                alt="NIRGHOS ERP Official Logo" 
+                className="h-9 sm:h-10 md:h-11 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform" 
               />
-              <div className="flex flex-col">
-                <span className="text-2xl font-black tracking-tight text-slate-900 flex items-center">
-                  NIRGHOS<span className="text-[#0284c7] ml-1 text-[11px] font-black uppercase px-1.5 py-0.5 rounded bg-sky-100 border border-sky-200">ERP</span>
-                </span>
-              </div>
+              <span className="text-[#0284c7] text-[10px] sm:text-[11px] font-black uppercase px-1.5 py-0.5 rounded bg-sky-100 border border-sky-200 tracking-wider">
+                ERP
+              </span>
             </Link>
 
             {/* Center Nav Links */}

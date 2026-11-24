@@ -23,14 +23,14 @@ export const Footer = () => {
           
           {/* Column 1: Brand Logo, Tagline, Socials (Span 4) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="inline-flex items-center gap-2.5 group focus:outline-none">
+            <Link to="/" className="inline-flex items-center gap-2 group focus:outline-none">
               <img 
-                src="/nirghos-icon.png" 
-                alt="Nirghos ERP Official Logo" 
-                className="w-10 h-10 object-contain drop-shadow-sm group-hover:scale-105 transition-transform" 
+                src="/nirghos-logo-nav.png" 
+                alt="NIRGHOS ERP Official Logo" 
+                className="h-9 sm:h-10 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform" 
               />
-              <span className="text-2xl sm:text-[28px] font-black tracking-tight text-slate-900 font-sans flex items-center">
-                NIRGHOS<span className="text-[#0284c7]">.</span>
+              <span className="text-[#0284c7] text-[10px] font-black uppercase px-1.5 py-0.5 rounded bg-sky-100 border border-sky-200 tracking-wider">
+                ERP
               </span>
             </Link>
 
