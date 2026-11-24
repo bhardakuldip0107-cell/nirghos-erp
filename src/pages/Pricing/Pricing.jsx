@@ -72,7 +72,7 @@ export const Pricing = () => {
       capacity: '3 Users • 1 Store • Multi-Counter',
       features: [
         'Everything in Lite, plus:',
-        'Industry-Specific Module (JSoft Jewellery OR GSoft Apparel)',
+        'Industry-Specific Module (Jewellery, Apparel OR Supermarket)',
         'Digital Weigh-Scale Serial Port Auto-Reading (0.001g)',
         'Style-Color-Size Apparel Matrix Billing Grid',
         'Promotional Schemes: BOGO, Tier Discounts & Bundles',
@@ -184,8 +184,8 @@ export const Pricing = () => {
       { name: 'Double-Entry General Ledger, Daybook & P&L', lite: false, std: false, pro: true, ent: true }
     ]},
     { category: 'Industry Suites & Manufacturing', features: [
-      { name: 'JSoft Gems & Jewellery Bullion Recalculation', lite: false, std: true, pro: true, ent: true },
-      { name: 'GSoft Fashion & Garment Barcode Hang-Tags', lite: false, std: true, pro: true, ent: true },
+      { name: 'Gems & Jewellery Bullion Recalculation', lite: false, std: true, pro: true, ent: true },
+      { name: 'Apparel & Fashion Matrix Barcode Hang-Tags', lite: false, std: true, pro: true, ent: true },
       { name: 'Multi-Level Engineering Bill of Materials (BOM)', lite: false, std: false, pro: false, ent: true },
       { name: 'Shop Floor Job Card Routing & Machine OEE', lite: false, std: false, pro: false, ent: true },
       { name: '21 CFR Part 11 Compliance & eBMR Audit Trails', lite: false, std: false, pro: false, ent: true }

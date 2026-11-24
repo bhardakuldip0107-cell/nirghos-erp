@@ -148,63 +148,63 @@ export const Header = () => {
     }
   ];
 
-  // 2. Products Dropdown Items (Specialized Industry Suites & Core Suite)
+  // 2. Products Dropdown Items (Nirghos Core Products & Enterprise Suites)
   const productsCards = [
     {
-      title: 'JSoft Gems & Jewellery',
-      badge: 'Flagship JSoft',
-      desc: 'Bullion market rate sync, HUID hallmark, 0.001g weighing scale & karigar metal loss.',
-      icon: Gem,
-      path: '/industries/gems-jewellery'
-    },
-    {
-      title: 'GSoft Apparel & Footwear',
-      badge: 'Flagship GSoft',
-      desc: 'Style-Color-Size matrix billing, barcode hang-tags, seasonal schemes & alterations.',
-      icon: Shirt,
-      path: '/industries/textile'
-    },
-    {
-      title: 'Supermarket & Retail POS',
-      badge: 'Fast Checkout',
-      desc: 'Loose produce scale integration, sub-second barcode checkout, BOGO & WhatsApp bills.',
+      title: 'Nirghos POS Billing',
+      badge: 'Smart POS',
+      desc: 'Sub-second touchscreen checkout, barcode scanning, weigh-scale sync & dynamic UPI QR.',
       icon: Store,
-      path: '/industries/retail'
+      path: '/features'
     },
     {
-      title: 'Trading & Wholesale',
-      badge: 'Wholesale & B2B',
-      desc: 'Multi-warehouse distribution, tier pricing, credit control & high-speed GST e-invoicing.',
+      title: 'Enterprise Cloud ERP',
+      badge: 'Enterprise Core',
+      desc: 'Central multi-department synchronization, branch management & real-time telemetry.',
+      icon: Cpu,
+      path: '/features'
+    },
+    {
+      title: 'Financial Accounting & GST',
+      badge: 'GST Compliance',
+      desc: 'Automated double-entry general ledger, bank reconciliation & 1-click GSTR-1/3B filing.',
+      icon: ShieldCheck,
+      path: '/features'
+    },
+    {
+      title: 'Multi-Godown Inventory (WMS)',
+      badge: 'Inventory & WMS',
+      desc: 'Live multi-warehouse stock, batch/lot FEFO expiry tracking & automated reorder triggers.',
       icon: Boxes,
+      path: '/features'
+    },
+    {
+      title: 'CRM & Customer Loyalty',
+      badge: 'CRM & Marketing',
+      desc: 'Automated WhatsApp digital invoices, reward points passbook & customer retention campaigns.',
+      icon: Users,
+      path: '/features'
+    },
+    {
+      title: 'Omnichannel Commerce Hub',
+      badge: 'Omnichannel Sync',
+      desc: 'Two-way catalog, order & inventory synchronization with Shopify, WooCommerce & Amazon.',
+      icon: ShoppingBag,
+      path: '/features'
+    },
+    {
+      title: 'Trading & Wholesale ERP',
+      badge: 'Wholesale & B2B',
+      desc: 'Multi-warehouse distribution, tier pricing, customer credit control & automated e-way bills.',
+      icon: Truck,
       path: '/industries/trading'
     },
     {
       title: 'Manufacturing & Fabrication',
       badge: 'Plant & Production',
-      desc: 'Multi-level BOM engineering, shop floor tracking, machine maintenance & scrap reduction.',
+      desc: 'Multi-level BOM engineering, shop floor tracking, machine OEE & scrap reduction.',
       icon: Factory,
       path: '/industries/manufacturing'
-    },
-    {
-      title: 'Pharma & Healthcare',
-      badge: '21 CFR Part 11',
-      desc: 'WHO-GMP compliance, electronic batch records (eBR), FEFO allocation & recall audit trails.',
-      icon: Pill,
-      path: '/industries/pharma'
-    },
-    {
-      title: 'Hospitals & Clinics (HMIS)',
-      badge: 'Clinical & EMR',
-      desc: 'OPD/IPD queue, digital patient EMR records, pharmacy dispensing & cashless TPA claims.',
-      icon: Building2,
-      path: '/industries/hospital'
-    },
-    {
-      title: 'Hotels & Restaurants',
-      badge: 'Hospitality & POS',
-      desc: 'Touch POS, wireless KOT kitchen display, room reservations & recipe inventory depletion.',
-      icon: Hotel,
-      path: '/industries/hotel-restaurant'
     }
   ];
 

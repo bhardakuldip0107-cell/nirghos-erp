@@ -60,8 +60,8 @@ export const Testimonials = () => {
     },
     {
       id: 4,
-      quote: 'I have been using Nirghos\'s JSoft ERP Software for almost four years. It is specially designed for the jewellery industry according to their...',
-      fullQuote: 'I have been using Nirghos\'s JSoft ERP Software for almost four years. It is specially designed for the jewellery industry according to their karigar, bullion rate fluctuation, and hallmark tracking needs. It has boosted our team\'s operational output by 40%.',
+      quote: 'I have been using Nirghos\'s Jewellery ERP Software for almost four years. It is specially designed for the jewellery industry according to their...',
+      fullQuote: 'I have been using Nirghos\'s Jewellery ERP Software for almost four years. It is specially designed for the jewellery industry according to their karigar, bullion rate fluctuation, and hallmark tracking needs. It has boosted our team\'s operational output by 40%.',
       name: 'Mr. Sagar',
       org: 'Sagar Gold , Surat',
       hasVideo: true,
@@ -79,8 +79,8 @@ export const Testimonials = () => {
     },
     {
       id: 6,
-      quote: 'Thank you for Supporting our Business with Gsoft Extreme ERP and E-commerce website. All the small issues which we faced have...',
-      fullQuote: 'Thank you for Supporting our Business with Gsoft Extreme ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team. The bi-directional sync between POS and online store is lightning fast.',
+      quote: 'Thank you for Supporting our Business with Nirghos Apparel ERP and E-commerce website. All the small issues which we faced have...',
+      fullQuote: 'Thank you for Supporting our Business with Nirghos Apparel ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team. The bi-directional sync between POS and online store is lightning fast.',
       name: 'Mr. Narendra Mehta',
       org: 'In Vogue, Ahmedabad',
       hasVideo: false,

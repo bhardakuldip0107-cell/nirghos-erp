@@ -1116,8 +1116,8 @@ export const Home = () => {
     },
     {
       id: 4,
-      quote: "I have been using Nirghos's JSoft ERP Software for almost four years. It is specially designed for the jewellery industry according to their requirements. If you are thinking of getting software, then JSoft ER...",
-      fullQuote: "I have been using Nirghos's JSoft ERP Software for almost four years. It is specially designed for the jewellery industry according to their requirements. If you are thinking of getting software, then JSoft ERP is the top choice for hallmarking, bullion fluctuation and worker loss tracking.",
+      quote: "I have been using Nirghos's Jewellery ERP Software for almost four years. It is specially designed for the jewellery industry according to their requirements. If you are thinking of getting software, then Nirghos Jewellery ERP...",
+      fullQuote: "I have been using Nirghos's Jewellery ERP Software for almost four years. It is specially designed for the jewellery industry according to their requirements. If you are thinking of getting software, then Nirghos Jewellery ERP is the top choice for hallmarking, bullion fluctuation and worker loss tracking.",
       name: "Mr. Sagar",
       org: "Sagar Gold , Surat",
       hasVideo: true,
@@ -1133,8 +1133,8 @@ export const Home = () => {
     },
     {
       id: 6,
-      quote: "Thank you for Supporting our Business with Gsoft Extreme ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team...",
-      fullQuote: "Thank you for Supporting our Business with Gsoft Extreme ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team. The bi-directional sync between POS and online store is lightning fast.",
+      quote: "Thank you for Supporting our Business with Nirghos Apparel ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team...",
+      fullQuote: "Thank you for Supporting our Business with Nirghos Apparel ERP and E-commerce website. All the small issues which we faced have been resolved swiftly by their engineering team. The bi-directional sync between POS and online store is lightning fast.",
       name: "Mr. Narendra Mehta",
       org: "In Vogue, Ahmedabad",
       hasVideo: false
@@ -1274,9 +1274,9 @@ export const Home = () => {
       image: '/events/event-card-1.png',
       desc: 'Nirghos E Barcode Solutions celebrated 25 successful years and unveiled its new identity: Nirghos ERP Solutions Pvt. Ltd., showcasing cutting-edge cloud ERP advancements with founders Narendra Lunagaria and Nitesh Lunagaria.',
       highlights: [
-        'Launch of Cloud ERP for Jewellers (JSoft ERP)',
+        'Launch of Cloud ERP for Jewellers (Nirghos Jewellery ERP)',
         'AI, RFID Batch Automation & CCTV Analytics',
-        'Web Reports for Apparel, Lifestyle & Footwear (GSoft ERP)'
+        'Web Reports for Apparel, Lifestyle & Footwear (Nirghos Apparel ERP)'
       ]
     },
     {
@@ -1329,7 +1329,7 @@ export const Home = () => {
       id: 3,
       num: '3.',
       question: 'Can your ERP system be customized for my industry?',
-      answer: 'Yes, 100%! Nirghos ERP provides dedicated, purpose-built editions out of the box: JSoft ERP tailored specifically for Jewellery retailers and manufacturers (with purity recalculation, karigar metal loss tracking, and hallmarking), GSoft ERP for Apparel, Footwear & Lifestyle (with style-color-size matrix billing and automated e-way bills), alongside customized suites for Discrete & Process Manufacturing, Supermarkets, and Wholesale Distribution.'
+      answer: 'Yes, 100%! Nirghos ERP provides dedicated, purpose-built editions out of the box: Nirghos Jewellery ERP tailored specifically for Jewellery retailers and manufacturers (with purity recalculation, karigar metal loss tracking, and hallmarking), Nirghos Apparel ERP for Fashion, Footwear & Lifestyle (with style-color-size matrix billing and automated e-way bills), alongside customized suites for Discrete & Process Manufacturing, Supermarkets, and Wholesale Distribution.'
     },
     {
       id: 4,

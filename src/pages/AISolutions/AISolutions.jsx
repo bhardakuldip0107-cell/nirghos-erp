@@ -94,8 +94,8 @@ export const AISolutions = () => {
       setVinaResponse({
         answer: 'Today’s Gross Margin Analysis across 12 outlets:',
         items: [
-          { name: 'Jewellery Showroom (JSoft)', stock: '₹4.8L Sales', velocity: 'Margin: 24.2%', reorder: 'Top Category: 22K Bangles' },
-          { name: 'Fashion Retail (GSoft)', stock: '₹1.9L Sales', velocity: 'Margin: 38.5%', reorder: 'Top Category: Summer Shirts' },
+          { name: 'Jewellery Retail Showroom', stock: '₹4.8L Sales', velocity: 'Margin: 24.2%', reorder: 'Top Category: 22K Bangles' },
+          { name: 'Fashion & Apparel Retail Chain', stock: '₹1.9L Sales', velocity: 'Margin: 38.5%', reorder: 'Top Category: Summer Shirts' },
           { name: 'Supermarket Chain', stock: '₹3.1L Sales', velocity: 'Margin: 16.8%', reorder: 'Top Category: Dairy & Staples' }
         ]
       });

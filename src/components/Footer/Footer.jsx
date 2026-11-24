@@ -119,10 +119,10 @@ export const Footer = () => {
                 <Link to="/industries/retail" className="hover:text-[#0284c7] transition-colors">Supermarket POS</Link>
               </li>
               <li>
-                <Link to="/industries/gems-jewellery" className="hover:text-[#0284c7] transition-colors">JSoft Jewellery ERP</Link>
+                <Link to="/industries/gems-jewellery" className="hover:text-[#0284c7] transition-colors">Jewellery &amp; Bullion ERP</Link>
               </li>
               <li>
-                <Link to="/industries/textile" className="hover:text-[#0284c7] transition-colors">GSoft Apparel ERP</Link>
+                <Link to="/industries/textile" className="hover:text-[#0284c7] transition-colors">Apparel &amp; Footwear ERP</Link>
               </li>
               <li>
                 <Link to="/industries/manufacturing" className="hover:text-[#0284c7] transition-colors">Manufacturing BOM</Link>
