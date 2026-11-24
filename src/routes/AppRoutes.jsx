@@ -5,6 +5,7 @@ import Home from '../pages/Home/Home';
 import Industries from '../pages/Industries/Industries';
 import IndustryDetails from '../pages/IndustryDetails/IndustryDetails';
 import Features from '../pages/Features/Features';
+import ProductDetails from '../pages/ProductDetails/ProductDetails';
 import About from '../pages/About/About';
 import Contact from '../pages/Contact/Contact';
 import Careers from '../pages/Careers/Careers';
@@ -28,6 +29,7 @@ export const AppRoutes = () => {
         <Route path="/industries" element={<Industries />} />
         <Route path="/industries/:slug" element={<IndustryDetails />} />
         <Route path="/features" element={<Features />} />
+        <Route path="/products/:slug" element={<ProductDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />

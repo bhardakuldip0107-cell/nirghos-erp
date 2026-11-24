@@ -1,32 +1,42 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Check, 
-  X, 
-  Sparkles, 
-  ArrowRight, 
-  ShieldCheck, 
-  Zap, 
-  HelpCircle, 
-  ChevronDown, 
-  ChevronUp, 
-  Store, 
-  Building2, 
-  Cpu, 
-  Boxes, 
-  Award, 
-  Eye, 
-  PhoneCall,
-  Flame,
-  CheckCircle2
-} from 'lucide-react';
+import { Check, X, Sparkles, ArrowRight, ChevronDown, ChevronRight, Search, Plus, Minus } from 'lucide-react';
 import DemoModal from '../../components/common/DemoModal';
+
+const planKeys = ['lite', 'std', 'pro', 'ent'];
+const planIdToKey = { lite: 'lite', standard: 'std', pro: 'pro', enterprise: 'ent' };
+
+const Cell = ({ v }) => {
+  if (v === true) return <Check className="w-4 h-4 text-slate-800 mx-auto" />;
+  if (v === false) return <X className="w-3.5 h-3.5 text-slate-300 mx-auto" />;
+  return <span className="text-[11px] font-medium text-[#0284c7]">{v}</span>;
+};
+
+const SubNav = () => (
+  <div className="bg-white border-b border-slate-200">
+    <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-end gap-6 text-sm text-slate-600">
+      {[
+        ['Plans', '#plans'],
+        ['Compare', '#compare'],
+        ['Notes', '#notes'],
+        ['FAQs', '#faqs']
+      ].map(([l, h]) => (
+        <a key={l} href={h} className="hover:text-[#0284c7] transition">
+          {l}
+        </a>
+      ))}
+    </div>
+  </div>
+);
 
 export const Pricing = () => {
   const [billingCycle, setBillingCycle] = useState('annual'); // 'annual' | 'multi-year'
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState('Nirghos Multi-Store Pro');
+  const [selectedPlan, setSelectedPlan] = useState('pro');
+  const [query, setQuery] = useState('');
+  const [onlyDiff, setOnlyDiff] = useState(false);
+  const [expanded, setExpanded] = useState({ 0: true });
 
   const discountMultiplier = billingCycle === 'multi-year' ? 0.8 : 1.0; // 20% extra discount on multi-year
 
@@ -215,392 +225,377 @@ export const Pricing = () => {
     }
   ];
 
-  const handleBookDemo = (planName) => {
-    setSelectedPlan(planName);
+  const handleBookDemo = (planId) => {
+    setSelectedPlan(planId);
     setIsDemoModalOpen(true);
   };
 
+  const filteredMatrix = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return featureMatrix
+      .map((cat) => ({
+        ...cat,
+        features: cat.features.filter((f) => {
+          const matches = !q || f.name.toLowerCase().includes(q) || cat.category.toLowerCase().includes(q);
+          const vals = planKeys.map((k) => String(f[k]));
+          const differs = new Set(vals).size > 1;
+          return matches && (!onlyDiff || differs);
+        })
+      }))
+      .filter((cat) => cat.features.length);
+  }, [featureMatrix, query, onlyDiff]);
+
+  const totalFeatures = featureMatrix.reduce((n, c) => n + c.features.length, 0);
+  const shownFeatures = filteredMatrix.reduce((n, c) => n + c.features.length, 0);
+  const allExpanded = filteredMatrix.every((_, i) => expanded[i]);
+
+  const toggleAll = () => {
+    if (allExpanded) setExpanded({});
+    else setExpanded(Object.fromEntries(filteredMatrix.map((_, i) => [i, true])));
+  };
+
+  const selectedKey = planIdToKey[selectedPlan];
+
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-900">
-      
-      {/* ========================================================================= */}
-      {/* 1. HERO HEADER                                                            */}
-      {/* ========================================================================= */}
-      <section className="pt-16 pb-12 sm:pt-20 sm:pb-16 bg-gradient-to-b from-white via-sky-50/40 to-slate-50 relative overflow-hidden border-b border-slate-200/80">
-        <div className="absolute inset-0 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:28px_28px] opacity-15 pointer-events-none"></div>
+    <div className="bg-white min-h-screen text-slate-900">
+      <SubNav />
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100/90 border border-sky-200 text-[#0284c7] text-xs font-bold uppercase tracking-wider mb-5 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#0284c7]" />
-            <span>TRANSPARENT, ENTERPRISE-GRADE PRICING</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
-            Scale Your Business with <span className="text-[#0284c7]">Predictable Pricing.</span>
+      {/* Hero */}
+      <section className="bg-[#0B192C] text-white">
+        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+          <p className="font-mono text-[11px] tracking-[0.25em] text-sky-400 uppercase">Subscription packages</p>
+          <h1 className="mt-4 text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.05] max-w-3xl">
+            Upgrade your business with our affordable plans
           </h1>
-
-          <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            From single retail counters to 100+ multi-store chains and manufacturing plants. Choose the plan that fits your growth stage with zero hidden fees.
+          <p className="mt-5 text-lg text-slate-300 max-w-2xl">
+            No matter how big or small your business is, Nirghos works seamlessly at every scale — from a single counter to a multi-plant enterprise.
           </p>
-
-          {/* Billing Cycle Switcher Toggle */}
-          <div className="mt-8 sm:mt-10 inline-flex items-center p-1.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-            <button
-              type="button"
-              onClick={() => setBillingCycle('annual')}
-              className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer ${
-                billingCycle === 'annual'
-                  ? 'bg-[#0284c7] text-white shadow-md shadow-sky-500/25'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Annual Billing
-            </button>
-            <button
-              type="button"
-              onClick={() => setBillingCycle('multi-year')}
-              className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
-                billingCycle === 'multi-year'
-                  ? 'bg-[#0284c7] text-white shadow-md shadow-sky-500/25'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <span>3-Year Enterprise</span>
-              <span className="px-2 py-0.5 rounded-full bg-emerald-500 text-white text-[10px] font-black tracking-wide">
-                SAVE 20%
-              </span>
-            </button>
-          </div>
-
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 2. PRICING CARDS 4-COLUMN GRID                                            */}
-      {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 items-stretch">
-          
-          {pricingPlans.map((plan) => (
-            <div
-              key={plan.id}
-              className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 ${
-                plan.popular
-                  ? 'bg-gradient-to-b from-[#0284c7] via-[#0369a1] to-[#075985] text-white shadow-2xl shadow-sky-600/30 scale-100 xl:-translate-y-2 border-2 border-sky-300 animate-border-breathe'
-                  : 'bg-white border border-slate-200 shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:border-sky-300 hover-lift-glow'
-              }`}
-            >
-              {/* Popular Badge */}
-              {plan.badge && (
-                <div className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-black tracking-wider shadow-md uppercase whitespace-nowrap ${
-                  plan.popular 
-                    ? 'bg-amber-400 text-slate-950 border border-amber-300 shadow-amber-400/30 animate-pulse' 
-                    : 'bg-sky-100 text-[#0284c7] border border-sky-300'
-                }`}>
-                  {plan.badge}
-                </div>
-              )}
+      {/* Plans */}
+      <section id="plans" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-8 scroll-mt-28">
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="inline-flex rounded-full border border-slate-200 p-1">
+            {[
+              ['annual', 'Annual'],
+              ['multi-year', 'Multi-year']
+            ].map(([id, l]) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setBillingCycle(id)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition ${
+                  billingCycle === id ? 'bg-[#0B192C] text-white' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+          <p className="text-sm text-slate-500">
+            Commit for multiple years and <span className="text-[#0284c7] font-medium underline underline-offset-2">save an extra 20%</span>.
+          </p>
+        </div>
 
-              <div>
-                {/* Plan Header */}
-                <h3 className={`text-xl sm:text-2xl font-black ${plan.popular ? 'text-white' : 'text-slate-900'}`}>
-                  {plan.name}
-                </h3>
-                <p className={`mt-2 text-xs sm:text-sm leading-relaxed ${plan.popular ? 'text-sky-100' : 'text-slate-500'}`}>
-                  {plan.tagline}
-                </p>
-
-                {/* Price Display */}
-                <div className="mt-5 pb-5 border-b border-slate-200/40">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-3xl sm:text-4xl font-black tabular-nums tracking-tight">
-                      ₹{plan.price.toLocaleString('en-IN')}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-2xl border border-slate-200 overflow-hidden">
+          {pricingPlans.map((plan, i) => {
+            const dark = plan.popular;
+            const isSel = plan.id === selectedPlan;
+            return (
+              <div
+                key={plan.id}
+                onClick={() => setSelectedPlan(plan.id)}
+                className={`relative flex flex-col p-6 cursor-pointer transition ${
+                  dark ? 'bg-[#0B192C] text-white' : 'bg-white'
+                } ${i > 0 ? 'border-t sm:border-t-0 lg:border-l border-slate-200' : ''} ${isSel && !dark ? 'ring-2 ring-inset ring-[#0ea5e9]' : ''}`}
+              >
+                <div className="flex items-center gap-2">
+                  <span className={`font-mono text-[11px] tracking-[0.2em] uppercase ${dark ? 'text-slate-300' : 'text-slate-500'}`}>
+                    {plan.name.replace('Nirghos ', '')}
+                  </span>
+                  {plan.badge && (
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                        dark ? 'bg-white text-[#0B192C]' : 'border border-slate-200 text-slate-500'
+                      }`}
+                    >
+                      {plan.popular ? 'Most chosen' : plan.badge.split(' ').slice(0, 2).join(' ')}
                     </span>
-                    <span className={`text-xs font-semibold ${plan.popular ? 'text-sky-200' : 'text-slate-500'}`}>
-                      {plan.period}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className={`text-xs line-through ${plan.popular ? 'text-sky-300' : 'text-slate-400'}`}>
-                      {plan.originalPrice}
-                    </span>
-                    <span className="text-[11px] font-bold text-emerald-400">
-                      + 18% GST Applicable
-                    </span>
-                  </div>
-                  <div className={`mt-3 inline-block px-3 py-1 rounded-lg text-xs font-bold ${
-                    plan.popular ? 'bg-white/15 text-white' : 'bg-slate-100 text-slate-700'
-                  }`}>
-                    {plan.capacity}
-                  </div>
-                </div>
-
-                {/* Features List */}
-                <div className="mt-6 space-y-3 text-xs sm:text-sm">
-                  <p className={`font-black uppercase tracking-wider text-[11px] ${plan.popular ? 'text-sky-200' : 'text-slate-400'}`}>
-                    What is Included:
-                  </p>
-                  {plan.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5">
-                      <Check className={`w-4 h-4 shrink-0 mt-0.5 ${plan.popular ? 'text-emerald-300' : 'text-emerald-600'}`} />
-                      <span className={`leading-snug ${plan.popular ? 'text-slate-100' : 'text-slate-700'}`}>
-                        {feat}
-                      </span>
-                    </div>
-                  ))}
-
-                  {/* Excluded Features for transparency */}
-                  {plan.notIncluded && plan.notIncluded.length > 0 && (
-                    <div className="pt-3 space-y-2 opacity-60">
-                      {plan.notIncluded.slice(0, 2).map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 text-xs">
-                          <X className="w-3.5 h-3.5 shrink-0 mt-0.5 text-slate-400" />
-                          <span className="line-through">{item}</span>
-                        </div>
-                      ))}
-                    </div>
                   )}
                 </div>
-              </div>
-
-              {/* Action Button */}
-              <div className="mt-8 pt-4 border-t border-slate-200/20">
-                <button
-                  type="button"
-                  onClick={() => handleBookDemo(plan.name)}
-                  className={`w-full py-3.5 px-4 rounded-2xl font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md ${
-                    plan.popular
-                      ? 'bg-white text-[#0284c7] hover:bg-sky-50 shadow-black/10'
-                      : 'bg-[#0284c7] text-white hover:bg-[#0369a1] shadow-sky-600/20'
+                <p className="mt-4 text-3xl font-semibold">
+                  ₹{plan.price.toLocaleString('en-IN')}
+                  <span className={`ml-2 text-sm line-through font-normal ${dark ? 'text-slate-500' : 'text-slate-400'}`}>{plan.originalPrice}</span>
+                </p>
+                <p className={`font-mono text-[11px] tracking-widest uppercase ${dark ? 'text-slate-400' : 'text-slate-400'}`}>per year</p>
+                <p className={`mt-4 text-sm leading-relaxed flex-1 ${dark ? 'text-slate-300' : 'text-slate-500'}`}>{plan.tagline}</p>
+                <p
+                  className={`mt-5 pt-4 border-t font-mono text-[10px] tracking-wider uppercase ${
+                    dark ? 'border-white/10 text-slate-400' : 'border-slate-100 text-slate-400'
                   }`}
                 >
-                  <span>Choose {plan.name}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-
-            </div>
-          ))}
-
-        </div>
-
-        {/* ========================================================================= */}
-        {/* 3. AI VISION ADD-ON BANNER (MATCHING VASY.AI'S SMART RETAIL HIGHLIGHT)     */}
-        {/* ========================================================================= */}
-        <div className="mt-12 bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border border-slate-700">
-          <div className="absolute right-0 top-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            
-            <div className="lg:col-span-8 space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/20 border border-violet-400/40 text-violet-300 text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Next-Gen Add-On Module</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
-                {aiAddon.name}
-              </h3>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-                {aiAddon.tagline}. Compatible with all standard IP cameras. Includes VINA conversational business AI co-pilot and real-time checkout queue alerts.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {aiAddon.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{feat}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 text-center lg:text-left flex flex-col justify-between h-full">
-              <div>
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">Add-on Price</span>
-                <div className="flex items-baseline justify-center lg:justify-start gap-1 mt-1">
-                  <span className="text-3xl font-black text-white">₹{aiAddon.price.toLocaleString('en-IN')}</span>
-                  <span className="text-xs text-slate-300">{aiAddon.period}</span>
-                </div>
-                <p className="text-xs text-slate-400 mt-2">
-                  Works on top of Standard, Multi-Store Pro, or Enterprise Cloud plans.
+                  Includes {plan.capacity}
                 </p>
-              </div>
-
-              <div className="pt-6">
-                <Link
-                  to="/ai-solutions"
-                  className="w-full py-3 px-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-violet-600/30"
-                >
-                  <Eye className="w-4 h-4" />
-                  <span>Explore AI Vision Features</span>
-                </Link>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 4. DETAILED FEATURE COMPARISON TABLE                                      */}
-      {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-white border-t border-b border-slate-200/80">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Detailed Feature Comparison
-            </h2>
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2.5"></div>
-            <p className="text-slate-600 text-sm sm:text-base mt-2">
-              Compare capabilities side-by-side to choose the exact plan your business requires.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-md">
-            <table className="w-full text-left text-sm border-collapse">
-              <thead>
-                <tr className="bg-slate-100/80 border-b border-slate-200 text-slate-900 font-bold">
-                  <th className="py-4 px-6 min-w-[280px]">Feature & Capability</th>
-                  <th className="py-4 px-4 text-center min-w-[130px]">Lite (₹6.9k)</th>
-                  <th className="py-4 px-4 text-center min-w-[130px]">Standard (₹14.9k)</th>
-                  <th className="py-4 px-4 text-center min-w-[150px] bg-sky-50/80 text-[#0284c7] font-black">
-                    Multi-Store Pro (₹28.9k)
-                  </th>
-                  <th className="py-4 px-4 text-center min-w-[140px]">Enterprise (₹44.9k)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {featureMatrix.map((cat, cIdx) => (
-                  <React.Fragment key={cIdx}>
-                    <tr className="bg-slate-50/90 border-b border-slate-200">
-                      <td colSpan={5} className="py-2.5 px-6 font-black text-xs text-[#0284c7] uppercase tracking-wider">
-                        {cat.category}
-                      </td>
-                    </tr>
-                    {cat.features.map((f, fIdx) => (
-                      <tr key={fIdx} className="border-b border-slate-200/60 hover:bg-slate-50/50 transition-colors">
-                        <td className="py-3 px-6 text-slate-700 font-medium">{f.name}</td>
-                        <td className="py-3 px-4 text-center">
-                          {typeof f.lite === 'boolean' ? (
-                            f.lite ? <Check className="w-4 h-4 text-emerald-600 mx-auto" /> : <X className="w-4 h-4 text-slate-300 mx-auto" />
-                          ) : (
-                            <span className="text-xs font-bold text-slate-500">{f.lite}</span>
-                          )}
-                        </td>
-                        <td className="py-3 px-4 text-center">
-                          {typeof f.std === 'boolean' ? (
-                            f.std ? <Check className="w-4 h-4 text-emerald-600 mx-auto" /> : <X className="w-4 h-4 text-slate-300 mx-auto" />
-                          ) : (
-                            <span className="text-xs font-bold text-slate-500">{f.std}</span>
-                          )}
-                        </td>
-                        <td className="py-3 px-4 text-center bg-sky-50/40">
-                          {typeof f.pro === 'boolean' ? (
-                            f.pro ? <Check className="w-4 h-4 text-emerald-600 mx-auto font-bold" /> : <X className="w-4 h-4 text-slate-300 mx-auto" />
-                          ) : (
-                            <span className="text-xs font-bold text-[#0284c7]">{f.pro}</span>
-                          )}
-                        </td>
-                        <td className="py-3 px-4 text-center">
-                          {typeof f.ent === 'boolean' ? (
-                            f.ent ? <Check className="w-4 h-4 text-emerald-600 mx-auto" /> : <X className="w-4 h-4 text-slate-300 mx-auto" />
-                          ) : (
-                            <span className="text-xs font-bold text-violet-600">{f.ent}</span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </React.Fragment>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 5. PRICING FAQ ACCORDION                                                  */}
-      {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Frequently Asked Pricing Questions
-          </h2>
-          <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2"></div>
-        </div>
-
-        <div className="space-y-4">
-          {pricingFaqs.map((faq, idx) => {
-            const isOpen = openFaqIndex === idx;
-            return (
-              <div 
-                key={idx}
-                className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden transition-all"
-              >
                 <button
                   type="button"
-                  onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-800 hover:text-[#0284c7] transition-colors cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleBookDemo(plan.id);
+                  }}
+                  className={`mt-4 w-full rounded-lg py-3 text-sm font-semibold transition ${
+                    dark ? 'bg-[#38bdf8] text-[#0B192C] hover:bg-sky-300' : plan.id === 'enterprise' ? 'bg-[#0B192C] text-white hover:bg-[#132842]' : 'bg-[#0B192C] text-white hover:bg-[#132842]'
+                  }`}
                 >
-                  <span className="text-base sm:text-lg">{faq.q}</span>
-                  {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-[#0284c7] shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
-                  )}
+                  {plan.id === 'enterprise' ? 'Talk to sales' : 'Select'}
                 </button>
-                {isOpen && (
-                  <div className="px-5 pb-5 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-3">
-                    {faq.a}
-                  </div>
-                )}
               </div>
             );
           })}
         </div>
+        <p className="mt-3 text-xs text-slate-400">Select a plan to follow it down the comparison table.</p>
+
+        {/* Plan feature lists */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {pricingPlans.map((plan) => (
+            <div key={plan.id}>
+              <p className="text-sm font-semibold text-slate-800">{plan.name}</p>
+              <ul className="mt-3 space-y-2">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex gap-2 text-sm text-slate-600">
+                    <Check className="w-4 h-4 text-[#0284c7] shrink-0 mt-0.5" /> {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 6. FINAL ENTERPRISE CTA BANNER                                            */}
-      {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-gradient-to-r from-[#0284c7] via-[#0369a1] to-[#075985] text-white text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Have More than 50+ Stores or Unique Factory Workflows?
-          </h2>
-          <p className="text-sky-100 text-sm sm:text-base leading-relaxed">
-            Our Enterprise Architecture team crafts tailored multi-tenant deployments with custom API webhooks, SLA guarantees, and on-site training.
-          </p>
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+      {/* Compare */}
+      <section id="compare" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-28">
+        <p className="font-mono text-[11px] tracking-[0.25em] text-sky-500 uppercase">Feature availability</p>
+        <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
+          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-slate-800">What each plan includes</h2>
+          <div className="flex flex-wrap items-center gap-3">
+            <label className="flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-500 w-60">
+              <Search className="w-4 h-4" />
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search a feature or module"
+                className="w-full outline-none bg-transparent text-slate-700 placeholder:text-slate-400"
+              />
+            </label>
+            <label className="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
+              <button
+                type="button"
+                role="switch"
+                aria-checked={onlyDiff}
+                onClick={() => setOnlyDiff((v) => !v)}
+                className={`w-9 h-5 rounded-full relative transition ${onlyDiff ? 'bg-[#0284c7]' : 'bg-slate-200'}`}
+              >
+                <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-all ${onlyDiff ? 'left-[18px]' : 'left-0.5'}`} />
+              </button>
+              Only show differences
+            </label>
+            <button type="button" onClick={toggleAll} className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium hover:border-slate-300">
+              {allExpanded ? 'Collapse all' : 'Expand all'}
+            </button>
+          </div>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-5 font-mono text-[10px] tracking-wider uppercase text-slate-400">
+          <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-slate-700" /> Included</span>
+          <span className="flex items-center gap-1.5"><span className="text-[#0284c7]">Add-On</span> Chargeable add-on</span>
+          <span className="flex items-center gap-1.5"><X className="w-3.5 h-3.5" /> Not available</span>
+          <span>Showing {shownFeatures} of {totalFeatures}</span>
+        </div>
+
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full min-w-[760px] text-sm">
+            <thead>
+              <tr className="border-b-2 border-slate-800">
+                <th className="text-left font-mono text-[10px] tracking-wider uppercase text-slate-400 py-3">Modules and features</th>
+                {pricingPlans.map((p) => (
+                  <th
+                    key={p.id}
+                    className={`w-[14%] py-3 font-medium ${planIdToKey[p.id] === selectedKey ? 'bg-sky-50 text-[#0284c7]' : 'text-slate-700'}`}
+                  >
+                    {p.name.replace('Nirghos ', '')}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            {filteredMatrix.map((cat, ci) => {
+              const open = !!expanded[ci] || !!query;
+              return (
+                <tbody key={cat.category}>
+                  <tr
+                    className="border-b border-slate-200 bg-slate-50/60 hover:bg-slate-100/70 cursor-pointer"
+                    onClick={() => setExpanded((e) => ({ ...e, [ci]: !e[ci] }))}
+                  >
+                    <td className="py-3.5 font-medium text-slate-800">
+                      <span className="inline-flex items-center gap-2">
+                        {open ? <ChevronDown className="w-4 h-4 text-slate-400" /> : <ChevronRight className="w-4 h-4 text-slate-400" />}
+                        {cat.category}
+                        <span className="font-mono text-[10px] text-slate-400 ml-2">{cat.features.length}</span>
+                      </span>
+                    </td>
+                    {planKeys.map((k) => {
+                      const inc = cat.features.filter((f) => f[k] === true).length;
+                      const all = inc === cat.features.length;
+                      return (
+                        <td key={k} className={`text-center ${k === selectedKey ? 'bg-sky-50' : ''}`}>
+                          {all ? (
+                            <Check className="w-4 h-4 text-slate-800 mx-auto" />
+                          ) : inc === 0 ? (
+                            <X className="w-3.5 h-3.5 text-slate-300 mx-auto" />
+                          ) : (
+                            <span className="font-mono text-[11px] text-slate-500">
+                              {inc}/{cat.features.length}
+                            </span>
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                  {open &&
+                    cat.features.map((f) => (
+                      <tr key={f.name} className="border-b border-slate-100">
+                        <td className="py-3 pl-8 text-slate-600">{f.name}</td>
+                        {planKeys.map((k) => (
+                          <td key={k} className={`text-center ${k === selectedKey ? 'bg-sky-50' : ''}`}>
+                            <Cell v={f[k]} />
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                </tbody>
+              );
+            })}
+          </table>
+          {!filteredMatrix.length && <p className="py-10 text-center text-sm text-slate-400">No features match “{query}”.</p>}
+        </div>
+      </section>
+
+      {/* AI add-on */}
+      <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#075985] p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 text-white">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs">
+              <Sparkles className="w-3.5 h-3.5 text-sky-300" /> Optional add-on
+            </span>
+            <h3 className="mt-4 text-2xl sm:text-3xl font-semibold">{aiAddon.name}</h3>
+            <p className="mt-2 text-slate-300">{aiAddon.tagline}</p>
+            <p className="mt-5 text-3xl font-semibold">
+              ₹{aiAddon.price.toLocaleString('en-IN')}
+              <span className="text-sm font-normal text-slate-400"> {aiAddon.period}</span>
+            </p>
+          </div>
+          <ul className="space-y-2.5">
+            {aiAddon.features.map((f) => (
+              <li key={f} className="flex gap-2 text-sm text-slate-200">
+                <Check className="w-4 h-4 text-sky-300 shrink-0 mt-0.5" /> {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Notes */}
+      <section id="notes" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-28">
+        <p className="font-mono text-[11px] tracking-[0.25em] text-sky-500 uppercase">Before you buy</p>
+        <h2 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight text-slate-800">Notes on what is in the price</h2>
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-10">
+          {[
+            [
+              'Included in every plan',
+              ['Free software updates and statutory GST changes', 'Automated cloud data backups', 'Technical support as per your plan']
+            ],
+            [
+              'Adding outlets and users',
+              ['Additional branch / store: ₹5,999 per store per year', 'Additional billing counter / user: ₹2,999 per user per year', 'Add at any time with prorated billing']
+            ],
+            [
+              'Billing options',
+              ['Annual plans are billed once a year', 'Multi-year plans get an extra 20% discount', 'Upgrade to a higher plan whenever you grow']
+            ],
+            [
+              'Add-ons',
+              [`${aiAddon.name}: ₹${aiAddon.price.toLocaleString('en-IN')} ${aiAddon.period}`, 'Data migration from Tally, Busy or Excel by our deployment team', 'Custom reports, formats and integrations on request']
+            ]
+          ].map(([title, items]) => (
+            <div key={title}>
+              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-slate-400 pb-3 border-b border-slate-200">{title}</p>
+              <ul className="mt-4 space-y-2.5">
+                {items.map((t) => (
+                  <li key={t} className="flex gap-2.5 text-sm text-slate-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 shrink-0" /> {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faqs" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-28 grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10">
+        <div>
+          <p className="font-mono text-[11px] tracking-[0.25em] text-sky-500 uppercase">FAQs</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-800">Questions about pricing</h2>
+          <Link to="/contact" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0369a1]">
+            Talk to our sales team <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div className="divide-y divide-slate-200 border-y border-slate-200">
+          {pricingFaqs.map((f, i) => (
+            <div key={f.q}>
+              <button
+                type="button"
+                onClick={() => setOpenFaqIndex(openFaqIndex === i ? -1 : i)}
+                className="w-full flex items-center justify-between gap-4 py-5 text-left"
+                aria-expanded={openFaqIndex === i}
+              >
+                <span className={`font-medium ${openFaqIndex === i ? 'text-[#0284c7]' : 'text-slate-800'}`}>{f.q}</span>
+                <span className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                  {openFaqIndex === i ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                </span>
+              </button>
+              {openFaqIndex === i && <p className="pb-5 text-sm text-slate-500 leading-relaxed animate-fadeIn">{f.a}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="rounded-[32px] bg-[#0ea5e9] px-6 py-12 sm:px-12 flex flex-wrap items-center justify-between gap-6">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-white">Not sure which plan fits?</h2>
+            <p className="mt-2 text-sky-50">Our experts will recommend the right plan for your business in a free demo.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={() => handleBookDemo('Enterprise Custom')}
-              className="px-8 py-3.5 rounded-full bg-white text-[#0284c7] font-bold text-sm hover:bg-sky-50 shadow-lg shadow-black/20 transition-all cursor-pointer"
+              onClick={() => setIsDemoModalOpen(true)}
+              className="inline-flex items-center gap-2 rounded-xl bg-white text-[#0369a1] font-semibold px-6 py-3.5 hover:bg-sky-50 transition"
             >
-              Talk to Enterprise Solution Architect
+              Book a Free Demo <ArrowRight className="w-4 h-4" />
             </button>
-            <Link
-              to="/contact"
-              className="px-8 py-3.5 rounded-full bg-sky-800/80 hover:bg-sky-800 text-white font-bold text-sm border border-sky-400/40 transition-all"
-            >
-              Contact Sales Team
+            <Link to="/contact" className="inline-flex items-center rounded-xl border border-white/50 text-white font-semibold px-6 py-3.5 hover:bg-white/10 transition">
+              Contact Sales
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Demo Modal Trigger */}
       <DemoModal
         isOpen={isDemoModalOpen}
         onClose={() => setIsDemoModalOpen(false)}
         type="book-demo"
         defaultIndustry="Retail Supermarket & Multi-Store"
       />
-
     </div>
   );
 };

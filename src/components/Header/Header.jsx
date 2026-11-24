@@ -155,42 +155,42 @@ export const Header = () => {
       badge: 'Smart POS',
       desc: 'Sub-second touchscreen checkout, barcode scanning, weigh-scale sync & dynamic UPI QR.',
       icon: Store,
-      path: '/features'
+      path: '/products/pos'
     },
     {
       title: 'Enterprise Cloud ERP',
       badge: 'Enterprise Core',
       desc: 'Central multi-department synchronization, branch management & real-time telemetry.',
       icon: Cpu,
-      path: '/features'
+      path: '/products/erp'
     },
     {
       title: 'Financial Accounting & GST',
       badge: 'GST Compliance',
       desc: 'Automated double-entry general ledger, bank reconciliation & 1-click GSTR-1/3B filing.',
       icon: ShieldCheck,
-      path: '/features'
+      path: '/products/accounting'
     },
     {
       title: 'Multi-Godown Inventory (WMS)',
       badge: 'Inventory & WMS',
       desc: 'Live multi-warehouse stock, batch/lot FEFO expiry tracking & automated reorder triggers.',
       icon: Boxes,
-      path: '/features'
+      path: '/products/inventory'
     },
     {
       title: 'CRM & Customer Loyalty',
       badge: 'CRM & Marketing',
       desc: 'Automated WhatsApp digital invoices, reward points passbook & customer retention campaigns.',
       icon: Users,
-      path: '/features'
+      path: '/products/crm'
     },
     {
       title: 'Omnichannel Commerce Hub',
       badge: 'Omnichannel Sync',
       desc: 'Two-way catalog, order & inventory synchronization with Shopify, WooCommerce & Amazon.',
       icon: ShoppingBag,
-      path: '/features'
+      path: '/products/omnichannel'
     },
     {
       title: 'Trading & Wholesale ERP',

@@ -58,6 +58,19 @@ import DemoModal from '../../components/common/DemoModal';
 import DynamicIcon from '../../components/common/DynamicIcon';
 import AnimatedCounter from '../../components/common/AnimatedCounter';
 import { useDemo } from '../../context/DemoContext';
+import {
+  TrustStrip,
+  DashboardPreview,
+  SectorsSection,
+  ErpForSection,
+  SmartStoreFeatures,
+  AiBanner,
+  IntegrationsHub,
+  ClientsWall,
+  TestimonialStories,
+  CtaBanner,
+  ExploreNirghos
+} from './sections/VasySections';
 
 // 7 Tabs for "Innovative solutions for retailers, MSMEs and manufacturers"
 const solutionsTabs = [
@@ -340,7 +353,7 @@ export const Home = () => {
       badge: 'High-Speed POS & Billing',
       heading: 'Sub-Second Touchscreen POS & High-Speed Barcode Checkout',
       desc: 'Process thousands of daily counter bills effortlessly. Integrate barcode scanners, digital weighing scales, customer pole displays, cash drawers, and instant dynamic UPI QR payments with zero lag.',
-      link: '/features',
+      link: '/products/pos',
       diagram: {
         sources: [
           { label: 'Barcode Scanner', icon: Zap },
@@ -372,7 +385,7 @@ export const Home = () => {
       badge: 'Unified Enterprise ERP',
       heading: 'All Business Departments, One Single Source of Truth',
       desc: 'Seamlessly unite purchase procurement, multi-level BOM factory production, multi-godown inventory, employee attendance, and executive financial reports under one roof.',
-      link: '/features',
+      link: '/products/erp',
       diagram: {
         sources: [
           { label: 'Purchase & PO', icon: ShoppingBag },
@@ -404,7 +417,7 @@ export const Home = () => {
       badge: 'Double-Entry Accounting & GST',
       heading: 'Automated General Ledger, Instant P&L and 1-Click GST Returns',
       desc: 'Strict double-entry bookkeeping with automated bank reconciliation, debtor credit day locks, TDS/TCS auto-deductions, and 1-click GSTR-1, 2B, 3B tax e-filing payloads.',
-      link: '/features',
+      link: '/products/accounting',
       diagram: {
         sources: [
           { label: 'Sales Invoices', icon: TrendingUp },
@@ -436,7 +449,7 @@ export const Home = () => {
       badge: 'Multi-Godown Inventory',
       heading: 'Live Multi-Godown Stock & Intelligent Reorder Automation',
       desc: 'Gain 100% visibility over distributed warehouses. Enforce serial-number barcodes, FIFO/FEFO expiry dates, inter-branch transfer challans, and auto-purchase order triggers.',
-      link: '/features',
+      link: '/products/inventory',
       diagram: {
         sources: [
           { label: 'Central Godown', icon: Building2 },
@@ -468,7 +481,7 @@ export const Home = () => {
       badge: 'Customer Loyalty & WhatsApp',
       heading: 'Turn Walk-In Customers into Repeat Buyers with Automated CRM',
       desc: 'Build customer loyalty with points on every rupee spent. Automatically dispatch GST invoices and payment reminders to customer WhatsApp, and launch targeted festive campaigns.',
-      link: '/features',
+      link: '/products/crm',
       diagram: {
         sources: [
           { label: 'Customer Directory', icon: Users },
@@ -500,7 +513,7 @@ export const Home = () => {
       badge: 'Connected Omnichannel',
       heading: 'Sell Everywhere, Manage from One Place',
       desc: 'Sync orders from multiple channels, track performance, and manage everything centrally for a seamless customer experience across platforms.',
-      link: '/features',
+      link: '/products/omnichannel',
       diagram: {
         sources: [
           { label: 'Store POS', icon: Store },
@@ -532,7 +545,7 @@ export const Home = () => {
       badge: 'AI Cam 360 & Analytics',
       heading: 'Turn In-Store CCTV Cameras into Real-Time Business Intelligence',
       desc: 'Analyze customer footfalls, dwell time heatmaps, checkout counter queue lengths, and store conversion rates in real time directly inside your Nirghos ERP dashboard.',
-      link: '/features',
+      link: '/ai-solutions',
       diagram: {
         sources: [
           { label: 'Store Entrance Cam', icon: Zap },
@@ -1365,7 +1378,7 @@ export const Home = () => {
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
           
           {/* Main Headline: The System That Runs Systems. */}
-          <h1 className="text-4xl sm:text-6xl md:text-[68px] lg:text-[76px] font-black text-slate-950 tracking-tight leading-[1.08] max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-6xl md:text-[68px] lg:text-[76px] font-bold text-slate-950 tracking-tight leading-[1.08] max-w-4xl mx-auto">
             The <span className="text-[#0284c7]">System</span> That Runs Systems.
           </h1>
 
@@ -1438,118 +1451,9 @@ export const Home = () => {
 
 
 
-        {/* Search bar & quick category exploration */}
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 pt-5 pb-1">
-          <SearchBar 
-            onSearchChange={(q) => setSearchQuery(q)}
-            placeholder="Search specialized industry ERPs (e.g. Apparel, Jewellery, Footwear, Manufacturing)..."
-          />
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-3 text-xs">
-            <span className="font-bold text-slate-600 flex items-center gap-1.5 mr-1">
-              <Sparkles className="w-3.5 h-3.5 text-[#0284c7]" />
-              <span>Popular ERP Blueprints:</span>
-            </span>
-            {[
-              { slug: 'textile', name: 'Textile & Garments', icon: 'Scissors' },
-              { slug: 'jewellery', name: 'Jewellery & Diamond', icon: 'Gem' },
-              { slug: 'manufacturing', name: 'Manufacturing', icon: 'Factory' },
-              { slug: 'retail', name: 'Retail Shops', icon: 'Store' },
-              { slug: 'pharma', name: 'Pharma & Healthcare', icon: 'Pill' },
-              { slug: 'hospital', name: 'Hospitals & Clinics', icon: 'Hospital' },
-              { slug: 'trading', name: 'Trading & Wholesale', icon: 'ArrowLeftRight' },
-              { slug: 'construction', name: 'Construction', icon: 'HardHat' }
-            ].map(item => (
-              <Link 
-                key={item.slug} 
-                to={`/industries/${item.slug}`}
-                className="px-3 py-1.5 rounded-full border border-slate-200/90 bg-white hover:border-[#0284c7] hover:bg-sky-50/60 hover:text-[#0284c7] transition-all text-xs font-bold text-slate-700 shadow-2xs hover:shadow-sm hover:-translate-y-0.5 flex items-center gap-1.5 group cursor-pointer"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0284c7] group-hover:scale-125 transition-transform"></span>
-                <DynamicIcon name={item.icon} className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#0284c7] transition-colors" />
-                <span>{item.name}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+        <TrustStrip />
+        <DashboardPreview />
 
-      {/* ========================================================================= */}
-      {/* 2. ABOUT NIRGHOS ERP SECTION (EXACT MATCH TO USER SCREENSHOT)              */}
-      {/* ========================================================================= */}
-      <section id="about-section" className="py-12 sm:py-14 lg:py-16 bg-white relative overflow-hidden border-b border-slate-200/60">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Column: Team Image with Floating 25+ Year Experience & Play Button */}
-            <div className="lg:col-span-6 relative pb-8 sm:pb-6">
-              <div className="relative rounded-3xl overflow-hidden border border-slate-200/80 shadow-xl bg-slate-50 group">
-                <img 
-                  src="/about-team.jpg" 
-                  alt="Nirghos ERP Solutions Leadership Team" 
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Floating 25+ Year Experience & Video Play Card */}
-              <div className="absolute -bottom-2 sm:-bottom-4 left-4 sm:left-6 right-4 sm:right-auto sm:w-80 bg-white rounded-2xl shadow-[0_15px_35px_-5px_rgba(0,0,0,0.12),0_0_1px_1px_rgba(0,0,0,0.05)] border border-slate-100 p-4 flex items-center justify-between z-10">
-                <div className="flex items-center gap-3">
-                  {/* Orange Award Ribbon Icon Badge */}
-                  <div className="w-12 h-12 rounded-xl bg-sky-50 border border-sky-200 text-[#0284c7] flex items-center justify-center shrink-0">
-                    <Award className="w-7 h-7 stroke-[2.2]" />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <span className="text-2xl sm:text-3xl font-black text-slate-900 leading-none">
-                      25+
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500 mt-1">
-                      Year Experience
-                    </span>
-                  </div>
-                </div>
-
-                {/* Sky Blue Circular Play Button */}
-                <button
-                  type="button"
-                  onClick={() => setIsDemoModalOpen(true)}
-                  className="w-11 h-11 rounded-full bg-sky-100 hover:bg-sky-200 text-sky-600 flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-sm cursor-pointer ml-3 shrink-0"
-                  title="Watch Video / Book Demo"
-                  aria-label="Play video"
-                >
-                  <Play className="w-5 h-5 fill-current ml-0.5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Right Column: About Nirghos ERP, Line, Text, Know More Button */}
-            <div className="lg:col-span-6 space-y-4 text-left">
-              
-              {/* Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-tight">
-                About Nirghos ERP
-              </h2>
-
-              {/* Orange Horizontal Accent Line */}
-              <div className="w-16 h-1 bg-[#0284c7] rounded-full my-3"></div>
-
-              {/* Exact Description Paragraph */}
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
-                Nirghos ERP Solutions Pvt. Ltd. provides absolute ERP, Desktop, Mobile application and Cloud Based Solutions for the Retailers, Distributors, and Manufacturers to enhance them with advanced technology and contains expertise of 25 years. We are accomplished to deliver quality software products and solutions. We have successfully served 5,000+ clients across 400+ cities, including major cities and small towns in Gujarat, Rajasthan, Maharashtra, Madhya Pradesh, Delhi, Hyderabad, and Haryana, supported by a strong team of 250+ employees.
-              </p>
-
-              {/* Blue "Know More" Button */}
-              <div className="pt-4">
-                <Link
-                  to="/about"
-                  className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
-                >
-                  Know More
-                </Link>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
       </section>
 
       {/* ========================================================================= */}
@@ -1564,7 +1468,7 @@ export const Home = () => {
           
           {/* Header Section: Title & Subtitle (Exact Match to User Screenshot) */}
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-slate-800 tracking-tight leading-tight">
               Innovative solutions for retailers, MSMEs and manufacturers
             </h2>
             <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-3 mb-3"></div>
@@ -1619,7 +1523,7 @@ export const Home = () => {
                   </span>
                   <span className="font-mono text-slate-400 font-bold text-xs">{currentSolution.step}</span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-slate-900 leading-tight">
+                <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold text-slate-800 leading-tight">
                   {currentSolution.heading}
                 </h3>
                 <p className="text-slate-500 text-sm sm:text-base leading-relaxed mt-4">
@@ -1783,6 +1687,10 @@ export const Home = () => {
         </div>
       </section>
 
+      <SectorsSection />
+
+      <ErpForSection />
+
       {/* ========================================================================= */}
       {/* 2.5 AI-DRIVEN RETAIL PLATFORM SHOWCASE (EXACT MATCH TO USER SCREENSHOT)   */}
       {/* ========================================================================= */}
@@ -1806,7 +1714,7 @@ export const Home = () => {
               </div>
 
               {/* Heading matching screenshot */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-900 tracking-tight leading-[1.18]">
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-slate-800 tracking-tight leading-[1.18]">
                 AI-Driven Retail Software <br />
                 <span className="text-slate-800">for </span>
                 <span className="text-[#0284c7]">Smarter Retail Business Management.</span>
@@ -2017,7 +1925,7 @@ export const Home = () => {
               <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#0284c7] block mb-2">
                 Outcomes
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-slate-800 tracking-tight leading-tight">
                 Business Impact
               </h2>
             </div>
@@ -2133,791 +2041,15 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 3. OUR PRODUCTS SECTION (EXACT MATCH TO USER SCREENSHOT)                  */}
-      {/* ========================================================================= */}
-      <section id="our-products-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-[#f9fbfe] via-white to-[#f9fbfe] relative overflow-hidden border-b border-slate-200/80">
-        
-        {/* Soft Background Grid Tiles Matching Screenshot */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-60 pointer-events-none"></div>
+      <SmartStoreFeatures />
 
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header Title on Left, View All Button on Right */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
-            <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-                Our Products
-              </h2>
-              <div className="w-16 h-1 bg-[#0284c7] rounded-full mt-2.5"></div>
-            </div>
+      <AiBanner onWatch={() => setIsDemoModalOpen(true)} />
 
-            <Link
-              to="/industries"
-              className="self-start sm:self-auto inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider shadow-xs hover:shadow transition-all duration-200 cursor-pointer"
-            >
-              <span>View All</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
+      <IntegrationsHub />
 
-          {/* 6 Product Selection Cards Grid (3 Columns on Desktop, 2 on Tablet, 1 on Mobile - No Cutoff, No Scrollbar) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 mb-6">
-            {erpProducts.map((prod) => {
-              const isActive = activeErpProduct === prod.id;
-              const IconComp = prod.icon;
-              return (
-                <button
-                  key={prod.id}
-                  type="button"
-                  onClick={() => {
-                    setActiveErpProduct(prod.id);
-                    setProductSlideIndex(0);
-                  }}
-                  className={`p-3.5 sm:p-4 rounded-2xl text-left flex items-center justify-between transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? 'bg-gradient-to-r from-sky-50 to-blue-50/60 border-2 border-[#0284c7] shadow-md shadow-blue-500/10 ring-2 ring-[#0284c7]/15 -translate-y-0.5'
-                      : 'bg-white border border-slate-200/90 hover:border-sky-300 hover:shadow-xs hover:bg-slate-50/70 hover:-translate-y-0.5'
-                  }`}
-                  aria-label={prod.name}
-                >
-                  <div className="flex items-center gap-3 min-w-0">
-                    {/* Clean Vector Icon Badge */}
-                    <div 
-                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 shadow-2xs transition-transform"
-                      style={{ backgroundColor: prod.iconBg, color: prod.iconColor }}
-                    >
-                      <IconComp className="w-5 h-5 stroke-[2.2]" />
-                    </div>
+      <ClientsWall />
 
-                    {/* Name & Category Tag */}
-                    <div className="flex flex-col text-left min-w-0">
-                      <span className={`text-sm sm:text-[15px] font-black truncate leading-tight ${
-                        isActive ? 'text-[#0284c7]' : 'text-slate-900'
-                      }`}>
-                        {prod.name}
-                      </span>
-                      <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider mt-0.5 truncate">
-                        {prod.badge}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Active Selection Check Indicator */}
-                  <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all ml-2 ${
-                    isActive 
-                      ? 'bg-[#0284c7] text-white' 
-                      : 'border border-slate-300 bg-slate-50 text-transparent'
-                  }`}>
-                    <Check className="w-3 h-3 stroke-[3]" />
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Main Active Product Showcase Box (Large Card Container) */}
-          <div className="mt-4 bg-white rounded-3xl border border-sky-100/90 shadow-[0_20px_50px_-15px_rgba(0,96,185,0.08),0_0_1px_1px_rgba(0,0,0,0.03)] p-6 sm:p-10 lg:p-12 transition-all">
-            
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              
-              {/* Left Column: Heading, Description, Bullet Points & Explore More Button */}
-              <div className="lg:col-span-6 space-y-5 text-left">
-                
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-xs font-bold tracking-wide">
-                  <span className="w-2 h-2 rounded-full bg-[#0284c7] animate-pulse"></span>
-                  <span>{currentProduct.badge}</span>
-                </div>
-
-                <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-slate-900 tracking-tight leading-tight">
-                  {currentProduct.heading}
-                </h3>
-
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  {currentProduct.desc}
-                </p>
-
-                {/* 4 Feature Bullet Points */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                  {currentProduct.bulletPoints.map((point, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs font-semibold text-slate-700">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                      <span>{point}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Explore More Button */}
-                <div className="pt-3 flex flex-wrap items-center gap-3.5">
-                  <Link
-                    to={currentProduct.link}
-                    className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
-                  >
-                    Explore More
-                  </Link>
-
-                  <button
-                    type="button"
-                    onClick={() => setIsDemoModalOpen(true)}
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-slate-300 hover:border-orange-300 hover:text-[#0284c7] bg-white text-slate-700 font-bold text-sm transition-all shadow-2xs cursor-pointer"
-                  >
-                    Request Live Demo
-                  </button>
-                </div>
-
-              </div>
-
-              {/* Right Column: High-Tech Nirghos ERP Console Mockup & Navigation */}
-              <div className="lg:col-span-6 flex flex-col items-center justify-center">
-                
-                {/* Simulated Desktop Monitor / Terminal Frame */}
-                <div className="relative w-full max-w-[560px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
-                  {/* Console Header Bar */}
-                  <div className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="w-3 h-3 rounded-full bg-rose-500/80"></span>
-                      <span className="w-3 h-3 rounded-full bg-amber-500/80"></span>
-                      <span className="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-                      <span className="text-[11px] font-mono text-slate-400 pl-2 font-semibold">
-                        nirghos-erp // {currentProduct.id}.telemetry
-                      </span>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/50">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                      LIVE SYNC
-                    </span>
-                  </div>
-
-                  {/* Console Body */}
-                  <div className="p-5 space-y-4 text-left">
-                    {/* Top Stat Cards */}
-                    <div className="grid grid-cols-3 gap-2.5">
-                      <div className="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800/80">
-                        <span className="text-[10px] text-slate-400 font-medium block">
-                          {currentProduct.mockData.stat1.label}
-                        </span>
-                        <span className="text-sm sm:text-base font-black text-white mt-0.5 block">
-                          {currentProduct.mockData.stat1.value}
-                        </span>
-                      </div>
-                      <div className="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800/80">
-                        <span className="text-[10px] text-slate-400 font-medium block">
-                          {currentProduct.mockData.stat2.label}
-                        </span>
-                        <span className="text-sm sm:text-base font-black text-sky-400 mt-0.5 block">
-                          {currentProduct.mockData.stat2.value}
-                        </span>
-                      </div>
-                      <div className="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800/80">
-                        <span className="text-[10px] text-slate-400 font-medium block">
-                          {currentProduct.mockData.stat3.label}
-                        </span>
-                        <span className="text-sm sm:text-base font-black text-emerald-400 mt-0.5 block">
-                          {currentProduct.mockData.stat3.value}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Active Telemetry Box */}
-                    <div className="bg-slate-900/70 rounded-xl p-3.5 border border-slate-800/60 space-y-2.5">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">
-                          {currentProduct.mockData.tag}
-                        </span>
-                        <span className="text-[11px] font-semibold text-sky-300">
-                          {currentProduct.slides[productSlideIndex]}
-                        </span>
-                      </div>
-                      
-                      {/* Dynamic Progress / Capacity Bar */}
-                      <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden flex">
-                        <div 
-                          className="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full transition-all duration-500" 
-                          style={{ width: productSlideIndex === 0 ? '88%' : productSlideIndex === 1 ? '96%' : '82%' }}
-                        ></div>
-                      </div>
-
-                      {/* Live Activity Row */}
-                      <div className="flex items-center justify-between text-[11px] text-slate-300 pt-1">
-                        <span className="truncate">{currentProduct.mockData.activity}</span>
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 ml-2" />
-                      </div>
-                    </div>
-
-                    {/* Bottom Status Ribbon */}
-                    <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-slate-800/60">
-                      <span>Nirghos Core Engine v4.2</span>
-                      <span className="text-sky-400 font-semibold">256-bit SSL • 99.9% Uptime</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Caption */}
-                <span className="text-xs sm:text-sm font-bold text-slate-700 mt-4 text-center">
-                  {currentProduct.slides[productSlideIndex] || currentProduct.monitorCaption}
-                </span>
-
-                {/* 3 Pagination Carousel Dots */}
-                <div className="flex items-center justify-center gap-2 mt-2.5">
-                  {[0, 1, 2].map((dotIdx) => (
-                    <button
-                      key={dotIdx}
-                      type="button"
-                      onClick={() => setProductSlideIndex(dotIdx)}
-                      className={`transition-all rounded-full cursor-pointer ${
-                        productSlideIndex === dotIdx
-                          ? 'w-6 h-2 bg-[#0284c7]'
-                          : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-                      }`}
-                      aria-label={`Slide ${dotIdx + 1}`}
-                    />
-                  ))}
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 4. OUR SERVICES SECTION (EXACT MATCH TO USER SCREENSHOT)                  */}
-      {/* ========================================================================= */}
-      <section id="our-services-section" className="py-12 sm:py-14 lg:py-16 bg-white relative overflow-hidden border-b border-slate-200/80">
-        
-        {/* Soft Background Accent Dots */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
-
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header Title & Orange Accent Underline (Exact Match to Screenshot) */}
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-              Our Services
-            </h2>
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2.5"></div>
-            <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
-              Comprehensive software development, digital commerce, and technical solutions engineered to extend and accelerate your Nirghos ERP ecosystem.
-            </p>
-          </div>
-
-          {/* Service Cards Grid (Matching User Screenshot Layout) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-            {displayedServices.map((service) => (
-              <div 
-                key={service.id}
-                onClick={() => setIsDemoModalOpen(true)}
-                className="bg-white rounded-3xl border border-slate-200/90 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.06)] hover:shadow-2xl hover:border-sky-300 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between group cursor-pointer hover:-translate-y-1.5"
-              >
-                {/* Card Top: Subtitle/Tag + Title on Left, Blue Circular Arrow on Right */}
-                <div>
-                  <div className="flex items-start justify-between gap-3 mb-2.5">
-                    <div className="text-left">
-                      <span className="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider block">
-                        {service.tag}
-                      </span>
-                      <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug mt-0.5 group-hover:text-[#0284c7] transition-colors">
-                        {service.title}
-                      </h3>
-                    </div>
-
-                    {/* Circular Blue Action Button with ArrowUpRight */}
-                    <div 
-                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0284c7] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-[#0369a1] group-hover:scale-110 group-hover:rotate-12 transition-all"
-                      aria-label={`Explore ${service.title}`}
-                    >
-                      <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
-                    </div>
-                  </div>
-
-                  {/* Description Paragraph */}
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed text-left line-clamp-3 mb-4">
-                    {service.desc}
-                  </p>
-                </div>
-
-                {/* Bottom Image Container (Rounded Corners with Zoom on Hover) */}
-                <div className="rounded-2xl overflow-hidden h-40 sm:h-44 w-full relative bg-slate-100 shadow-inner mt-2">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover select-none transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Action Controls: Toggle All Services & Consultation Button */}
-          <div className="mt-10 sm:mt-12 text-center flex flex-wrap items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => setShowAllServices(!showAllServices)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 hover:border-[#0284c7] hover:text-[#0284c7] bg-white text-slate-700 font-bold text-sm transition-all shadow-2xs hover:shadow-sm cursor-pointer"
-            >
-              <span>{showAllServices ? 'Show Less Services' : 'View All Services (6)'}</span>
-              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showAllServices ? 'rotate-180' : ''}`} />
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setIsDemoModalOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
-            >
-              <span>Schedule Free Service Consultation</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 5. WHY NIRGHOS SECTION (EXACT MATCH TO USER SCREENSHOT)                   */}
-      {/* ========================================================================= */}
-      <section id="why-nirghos-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-[#f8fbff] to-white relative overflow-hidden border-b border-slate-200/80">
-        
-        {/* Soft Background Grid Accent */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
-
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header: Why Nirghos? & Orange Accent Underline (Exact Match to Screenshot) */}
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-              Why Nirghos?
-            </h2>
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2.5"></div>
-          </div>
-
-          {/* 2-Column Showcase: 4-Quadrant Blue Card on Left + Success Team Culture on Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-            
-            {/* Left Column: 4-Quadrant Royal Blue Card with Center Lightbulb Badge */}
-            <div className="lg:col-span-7 relative bg-gradient-to-br from-[#0066c0] via-[#0284c7] to-[#00509e] rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_-15px_rgba(0,96,185,0.25)] overflow-hidden flex flex-col justify-center min-h-[380px] sm:min-h-[440px]">
-              
-              {/* Subtle Ambient Radial Highlight */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-400/10 rounded-full blur-2xl pointer-events-none"></div>
-
-              {/* White Cross Dividers Dividing 4 Quadrants */}
-              <div className="absolute inset-y-8 left-1/2 -translate-x-1/2 w-px bg-white/20 pointer-events-none"></div>
-              <div className="absolute inset-x-8 top-1/2 -translate-y-1/2 h-px bg-white/20 pointer-events-none"></div>
-
-              {/* Center Lightbulb Badge */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white shadow-2xl flex items-center justify-center border-4 border-[#0284c7] z-20 transition-transform duration-300 hover:scale-110">
-                <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7 text-[#0284c7] stroke-[2.4]" />
-              </div>
-
-              {/* 4 Quadrants Content Grid */}
-              <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 relative z-10 text-center">
-                
-                {/* Quadrant 1: Top-Left (360 Degree Solution) */}
-                <div className="flex flex-col items-center justify-center p-2 sm:p-3">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-white/30 flex items-center justify-center mb-3 shadow-inner">
-                    <span className="text-white text-xs sm:text-sm font-black tracking-tight">360°</span>
-                  </div>
-                  <p className="text-white text-xs sm:text-[13px] font-medium leading-relaxed max-w-[210px]">
-                    Having 360 Degree Solution for any of your Business Needs
-                  </p>
-                </div>
-
-                {/* Quadrant 2: Top-Right (Customer Collaboration) */}
-                <div className="flex flex-col items-center justify-center p-2 sm:p-3">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-white/30 flex items-center justify-center mb-3 shadow-inner">
-                    <Users className="w-5 h-5 text-white stroke-[2.2]" />
-                  </div>
-                  <p className="text-white text-xs sm:text-[13px] font-medium leading-relaxed max-w-[210px]">
-                    Engage Customer for Long-Term Connection and Collaboration
-                  </p>
-                </div>
-
-                {/* Quadrant 3: Bottom-Left (Employee Proficiency) */}
-                <div className="flex flex-col items-center justify-center p-2 sm:p-3">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-white/30 flex items-center justify-center mb-3 shadow-inner">
-                    <Award className="w-5 h-5 text-white stroke-[2.2]" />
-                  </div>
-                  <p className="text-white text-xs sm:text-[13px] font-medium leading-relaxed max-w-[210px]">
-                    Ensuring Proficiency of Employees helps Serve our Clients more Efficiently
-                  </p>
-                </div>
-
-                {/* Quadrant 4: Bottom-Right (Latest Technology) */}
-                <div className="flex flex-col items-center justify-center p-2 sm:p-3">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/15 border border-white/30 flex items-center justify-center mb-3 shadow-inner">
-                    <Cpu className="w-5 h-5 text-white stroke-[2.2]" />
-                  </div>
-                  <p className="text-white text-xs sm:text-[13px] font-medium leading-relaxed max-w-[210px]">
-                    We serve Latest Technology to have Best Features and a User Friendly System
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Right Column: Office Success Culture & Team Photo Card */}
-            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl bg-white group min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
-              <img 
-                src="/why-nirghos-team.jpg" 
-                alt="Why Nirghos Team Culture and Success" 
-                className="w-full h-full object-cover select-none transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 6. OUR PROUD STATISTICS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
-      {/* ========================================================================= */}
-      <section id="our-stats-section" className="py-12 sm:py-14 lg:py-16 bg-white relative overflow-hidden border-b border-slate-200/80">
-        
-        {/* Subtle Decorative Dot Matrix in Corners (Exact Match to Screenshot) */}
-        <div className="absolute top-6 left-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0284c7_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
-        <div className="absolute bottom-6 right-6 w-28 h-28 sm:w-36 sm:h-36 bg-[radial-gradient(#0284c7_1.5px,transparent_1.5px)] [background-size:12px_12px] opacity-20 pointer-events-none"></div>
-
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Header: Our Proud Statistics & Orange Accent Underline */}
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-              Our Proud Statistics
-            </h2>
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2.5"></div>
-          </div>
-
-          {/* Statistics Showcase: 4 Circular Badges Flanking Center India Map */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-items-center">
-            
-            {/* Desktop Left Column (Stats 1 & 2) / Mobile Top Pair */}
-            <div className="w-full lg:col-span-3 flex lg:flex-col items-center justify-around sm:justify-center gap-6 sm:gap-12 lg:gap-16 order-1">
-              
-              {/* Stat 1: 5,000+ Happy Clients */}
-              <div className="relative group">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0284c7] group-hover:shadow-xl">
-                  
-                  {/* Continuously Orbiting Satellite Blue Dot */}
-                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-1">
-                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
-                    </div>
-                  </div>
-                  
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0284c7] tracking-tight relative z-10">
-                    <AnimatedCounter target={5000} suffix="+" duration={2200} />
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
-                    Happy Clients
-                  </span>
-                </div>
-              </div>
-
-              {/* Stat 2: 4.8+ Google Rating (Desktop Only on Left) */}
-              <div className="relative group hidden lg:block">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0284c7] group-hover:shadow-xl">
-                  
-                  {/* Continuously Orbiting Satellite Blue Dot */}
-                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-2">
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
-                    </div>
-                  </div>
-
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0284c7] tracking-tight relative z-10">
-                    <AnimatedCounter target={4.8} decimals={1} suffix="+" duration={2000} />
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
-                    Google Rating
-                  </span>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Middle Column: India Map with Client Density Points & State Capitals */}
-            <div className="w-full lg:col-span-6 flex items-center justify-center relative py-2 order-2">
-              <div className="relative group max-w-[380px] sm:max-w-[480px] lg:max-w-[540px] w-full flex items-center justify-center">
-                <img 
-                  src="/stats/india-stats-map-hd.png" 
-                  alt="Nirghos ERP Pan-India Client Statistics Map" 
-                  className="w-full h-auto object-contain select-none transition-transform duration-500 group-hover:scale-[1.03] drop-shadow-md"
-                />
-              </div>
-            </div>
-
-            {/* Desktop Right Column (Stats 3 & 4) / Mobile Bottom Pair */}
-            <div className="w-full lg:col-span-3 flex lg:flex-col items-center justify-around sm:justify-center gap-6 sm:gap-12 lg:gap-16 order-3">
-              
-              {/* Stat 3: 250+ Employees */}
-              <div className="relative group">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0284c7] group-hover:shadow-xl">
-                  
-                  {/* Continuously Orbiting Satellite Blue Dot */}
-                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-3">
-                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
-                    </div>
-                  </div>
-
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0284c7] tracking-tight relative z-10">
-                    <AnimatedCounter target={250} suffix="+" duration={2000} />
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
-                    Employees
-                  </span>
-                </div>
-              </div>
-
-              {/* Stat 4: 400+ Cities */}
-              <div className="relative group hidden lg:block">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0284c7] group-hover:shadow-xl">
-                  
-                  {/* Continuously Orbiting Satellite Blue Dot */}
-                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-4">
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
-                    </div>
-                  </div>
-
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0284c7] tracking-tight relative z-10">
-                    <AnimatedCounter target={400} suffix="+" duration={2200} />
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
-                    Cities
-                  </span>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Mobile / Tablet Bottom Pair (Google Rating & Cities visible on < lg screens) */}
-            <div className="w-full flex lg:hidden items-center justify-around sm:justify-center gap-6 sm:gap-12 order-4">
-              
-              {/* Stat 2: 4.8+ Google Rating (Mobile) */}
-              <div className="relative group">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0284c7] group-hover:shadow-xl">
-                  
-                  {/* Continuously Orbiting Satellite Blue Dot */}
-                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-2">
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
-                    </div>
-                  </div>
-
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0284c7] tracking-tight relative z-10">
-                    <AnimatedCounter target={4.8} decimals={1} suffix="+" duration={2000} />
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
-                    Google Rating
-                  </span>
-                </div>
-              </div>
-
-              {/* Stat 4: 400+ Cities (Mobile) */}
-              <div className="relative group">
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-300/80 bg-white shadow-lg shadow-sky-500/5 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:scale-105 group-hover:border-[#0284c7] group-hover:shadow-xl">
-                  
-                  {/* Continuously Orbiting Satellite Blue Dot */}
-                  <div className="absolute inset-0 pointer-events-none rounded-full animate-orbit-4">
-                    <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#0284c7] ring-4 ring-white shadow-md">
-                      <div className="w-full h-full rounded-full bg-sky-400 animate-pulse opacity-75"></div>
-                    </div>
-                  </div>
-
-                  <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0284c7] tracking-tight relative z-10">
-                    <AnimatedCounter target={400} suffix="+" duration={2200} />
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-700 mt-1 whitespace-nowrap relative z-10">
-                    Cities
-                  </span>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 7. API INTEGRATION & TRUSTED CUSTOMERS (EXACT MATCH TO USER SCREENSHOT)   */}
-      {/* ========================================================================= */}
-      <section id="api-integration-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-[#f9fbfe] to-white relative overflow-hidden border-b border-slate-200/80">
-        
-        {/* Soft Background Grid Tiles */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
-
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Header: API Integration & Orange Accent Line */}
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-              API Integration
-            </h2>
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-2.5"></div>
-            <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
-              Connect Nirghos ERP natively with your essential e-commerce storefronts, payment gateways, accounting software, and banking APIs in real time.
-            </p>
-          </div>
-
-          {/* 10 Partner Logos Box Container (5x2 Grid - Exact Match to User Screenshot) */}
-          <div className="max-w-[1240px] mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-[0_15px_40px_-15px_rgba(0,96,185,0.08),0_0_1px_1px_rgba(0,0,0,0.03)] p-5 sm:p-7">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 sm:gap-4.5">
-              {apiIntegrations.map((item) => (
-                <div 
-                  key={item.id}
-                  onClick={() => setIsDemoModalOpen(true)}
-                  className="h-16 sm:h-20 rounded-2xl bg-white border border-slate-200/90 hover:border-[#0284c7] shadow-2xs hover:shadow-md transition-all flex items-center justify-center p-3 sm:p-4 group cursor-pointer hover:-translate-y-0.5"
-                  title={`${item.name} Integration for Nirghos ERP`}
-                >
-                  <img 
-                    src={item.logo} 
-                    alt={`${item.name} Integration`} 
-                    className="max-h-9 sm:max-h-11 w-auto object-contain select-none transition-transform duration-200 group-hover:scale-105"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Trusted By 5,000+ Happy Customers & Full-Screen Drag/Swipe Testimonials Carousel */}
-        <div className="mt-16 sm:mt-24 w-full">
-          
-          {/* Header Row: Title on Left, View All on Right */}
-          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-            <div className="text-left">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                Trusted By <span className="text-[#0284c7]">5,000+</span> Happy <br className="hidden sm:inline" /> Customers
-              </h3>
-              <div className="w-16 h-1 bg-[#0284c7] rounded-full mt-2.5"></div>
-            </div>
-
-            {/* Orange "View All" Button */}
-            <div>
-              <Link
-                to="/testimonials"
-                className="inline-flex items-center justify-center px-7 py-2.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
-              >
-                View All
-              </Link>
-            </div>
-          </div>
-
-          {/* Full Screen Cursor-Draggable Testimonials Track (Right-to-Left / Left-to-Right by cursor swipe) */}
-          <div 
-            className="w-full relative overflow-hidden py-3 cursor-grab active:cursor-grabbing select-none"
-            onMouseDown={handleDragStart}
-            onMouseMove={handleDragMove}
-            onMouseUp={handleDragEnd}
-            onMouseLeave={() => {
-              if (isDragging) handleDragEnd();
-            }}
-            onTouchStart={handleDragStart}
-            onTouchMove={handleDragMove}
-            onTouchEnd={handleDragEnd}
-          >
-            <div 
-              ref={sliderTrackRef}
-              className="flex pl-4 sm:pl-8 lg:pl-16 pr-4 sm:pr-8 gap-5 sm:gap-6"
-              style={{
-                transform: `translateX(calc(-${testimonialSlideIndex * cardStep}px + ${dragOffset}px))`,
-                transition: isDragging ? 'none' : 'transform 500ms cubic-bezier(0.25, 1, 0.5, 1)',
-                willChange: 'transform'
-              }}
-            >
-              {[...homeTestimonials, ...homeTestimonials].map((t, idx) => (
-                <div
-                  key={`${t.id}-${idx}`}
-                  className="testimonial-card w-[290px] sm:w-[340px] lg:w-[380px] xl:w-[410px] shrink-0 bg-white rounded-2xl border border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-sky-300 transition-all duration-300 p-6 sm:p-7 flex flex-col justify-between group pointer-events-auto"
-                >
-                  <div>
-                    {/* Quotation Mark Icon in Soft Sky Blue */}
-                    <div className="text-sky-300/80 group-hover:text-sky-400 transition-colors mb-3">
-                      <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                      </svg>
-                    </div>
-
-                    {/* Quote Text Excerpt */}
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                      {t.quote}
-                    </p>
-
-                    {/* Orange Read More Link */}
-                    <Link
-                      to="/testimonials"
-                      onClick={(e) => {
-                        if (Math.abs(dragOffset) > 8) e.preventDefault();
-                      }}
-                      className="text-xs font-bold text-[#0284c7] hover:text-[#0369a1] mt-2.5 inline-block cursor-pointer transition-colors"
-                    >
-                      Read More
-                    </Link>
-                  </div>
-
-                  {/* Bottom Row: Author Name, Org and Video Play Button */}
-                  <div className="mt-5 pt-3.5 flex items-end justify-between border-t border-slate-50">
-                    <div className="min-w-0 pr-2">
-                      <h4 className="text-sm sm:text-base font-black text-slate-900 tracking-tight truncate">
-                        {t.name}
-                      </h4>
-                      <p className="text-xs font-medium text-slate-500 mt-0.5 truncate">
-                        {t.org}
-                      </p>
-                    </div>
-
-                    {/* Video Play Button (Only for Cards with Video: Mr. Sunil Mosun & Mr. Sagar) */}
-                    {t.hasVideo && (
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          if (Math.abs(dragOffset) > 8) {
-                            e.preventDefault();
-                            return;
-                          }
-                          setActiveStoryVideo(t);
-                        }}
-                        title={`Watch ${t.name}'s Video Story`}
-                        className="w-9 h-9 rounded-full bg-sky-100 hover:bg-sky-200 text-[#0284c7] flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 shadow-xs cursor-pointer shrink-0 ml-2"
-                      >
-                        <Play className="w-4 h-4 fill-current ml-0.5" />
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Slider Pagination Dots (Exact Match to Screenshot: Active Blue Pill + Inactive Gray Circles) */}
-          <div className="flex items-center justify-center gap-2 mt-6">
-            {[0, 1, 2, 3, 4, 5].map((idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setTestimonialSlideIndex(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
-                className={`transition-all duration-300 cursor-pointer ${
-                  testimonialSlideIndex === idx
-                    ? 'w-6 h-2 rounded-full bg-[#0284c7]'
-                    : 'w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400'
-                }`}
-              />
-            ))}
-          </div>
-
-        </div>
-      </section>
+      <TestimonialStories testimonials={homeTestimonials} onPlay={setActiveStoryVideo} />
 
       {/* ========================================================================= */}
       {/* PRESS RELEASE SECTION - 100% NIRGHOS BRANDED                              */}
@@ -2932,7 +2064,7 @@ export const Home = () => {
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="space-y-2">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
               Press release
             </h2>
             <div className="w-16 h-1 bg-[#0284c7] rounded-full"></div>
@@ -2996,164 +2128,6 @@ export const Home = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 9. OUR BLOG - ERP INSIGHTS SECTION (EXACT MATCH TO USER SCREENSHOT)       */}
-      {/* ========================================================================= */}
-      <section id="home-blog-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-[#f8fbff] via-white to-slate-50 relative overflow-hidden border-b border-slate-100">
-        {/* Soft background ambient light */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header with Title and View All Button */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
-            <div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
-                Our Blog - ERP Insights
-              </h2>
-              <div className="w-14 h-1 bg-[#0284c7] rounded-full mt-2"></div>
-            </div>
-            
-            <Link
-              to="/blogs"
-              className="self-start sm:self-auto inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs shadow-xs hover:shadow transition-all duration-200 cursor-pointer"
-            >
-              <span>View All</span>
-            </Link>
-          </div>
-
-          {/* 3 Blog Cards Grid (Matching User Screenshot Layout) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-            {homeBlogPosts.map((post) => (
-              <article
-                key={post.id}
-                onClick={() => setSelectedBlogModal(post)}
-                className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group p-3.5 sm:p-4 hover:-translate-y-1 cursor-pointer"
-              >
-                <div>
-                  {/* Image Container with Rounded Corners Inside */}
-                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-100 mb-3.5">
-                    <img
-                      src={post.image}
-                      alt={post.fullTitle}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Meta Row: Tag and Date */}
-                  <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-sky-50 text-[#0284c7] font-semibold text-[11px] border border-sky-100/80">
-                      {post.tag}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 font-medium">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                      <span>{post.date}</span>
-                    </span>
-                  </div>
-
-                  {/* Card Title */}
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors leading-snug line-clamp-2 mb-3">
-                    {post.fullTitle}
-                  </h3>
-                </div>
-
-                {/* Card Footer: Author and Read Post */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-1.5 text-slate-600 font-medium text-[11px] sm:text-xs">
-                    <User className="w-3.5 h-3.5 text-slate-400" />
-                    <span className="truncate">{post.author}</span>
-                  </div>
-
-                  <span className="font-bold text-slate-800 group-hover:text-[#0284c7] flex items-center gap-1 transition-colors text-[11px] sm:text-xs shrink-0">
-                    <span>Read Post</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 10. OUR CORPORATE EVENTS SECTION (EXACT MATCH TO USER SCREENSHOT)          */}
-      {/* ========================================================================= */}
-      <section id="corporate-events-section" className="py-12 sm:py-14 lg:py-16 bg-gradient-to-br from-[#060e19] via-[#0B192C] to-[#040810] text-white relative overflow-hidden">
-        {/* Subtle radial ambient glows */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-sky-400/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Section Heading & Subheading */}
-          <div className="space-y-3 mb-10 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-              Our Corporate Events
-            </h2>
-            <div className="w-14 h-1 bg-white rounded-full mx-auto"></div>
-            <p className="text-white/90 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed pt-1">
-              Bringing Innovation, Ideas &amp; Industry Leaders Together. We craft corporate experiences where innovation meets collaboration, bringing leaders together to shape the future of business technology.
-            </p>
-          </div>
-
-          {/* 3 Event Cards Grid (Exact Match to User Screenshot) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 text-left">
-            {homeCorporateEvents.map((event) => (
-              <div
-                key={event.id}
-                onClick={() => setSelectedEventModal(event)}
-                className="bg-white text-slate-800 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden flex flex-col justify-between group p-3.5 sm:p-4 hover:-translate-y-1.5 transition-all duration-300 border border-white/20 cursor-pointer"
-              >
-                <div>
-                  {/* Top Image with Rounded Corners */}
-                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 mb-3.5">
-                    <img
-                      src={event.image}
-                      alt={event.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Meta Row: Date & Location */}
-                  <div className="flex items-center justify-between gap-2 text-[11px] font-medium text-slate-500 mb-2">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                      <span>{event.date}</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-slate-500 truncate">
-                      <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                      <span className="truncate">{event.location}</span>
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#0284c7] transition-colors leading-snug line-clamp-2 my-2">
-                    {event.title}
-                  </h3>
-                </div>
-
-                {/* Footer Action: View Details */}
-                <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs mt-3">
-                  <span className="font-bold text-slate-800 group-hover:text-[#0284c7] flex items-center gap-1 transition-colors text-[11px] sm:text-xs">
-                    <span>View Details</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Centered Orange "View All" Button */}
-          <div className="mt-8 sm:mt-10 flex justify-center">
-            <Link
-              to="/events"
-              className="px-8 py-2.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer inline-flex items-center gap-2"
-            >
-              <span>View All</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
       {/* HAVE ANY QUESTIONS? (FAQ ACCORDION SECTION - 100% NIRGHOS DETAILS)       */}
       {/* ========================================================================= */}
       <section id="faq-section" className="py-12 sm:py-14 lg:py-16 bg-white border-b border-slate-100 relative overflow-hidden">
@@ -3162,7 +2136,7 @@ export const Home = () => {
             
             {/* Left Column: Heading, Bar, Description */}
             <div className="lg:col-span-5 space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-black text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-800 tracking-tight leading-tight">
                 Have Any Questions?
               </h2>
               <div className="w-14 h-1 bg-[#0284c7] rounded-full"></div>
@@ -3222,42 +2196,9 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* CALL TO ACTION STRIP */}
-      <section className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-        <div className="rounded-3xl bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950 text-white p-8 sm:p-14 text-center border border-navy-800 shadow-2xl relative overflow-hidden">
-          
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <CtaBanner onBook={() => setIsDemoModalOpen(true)} />
 
-          <div className="max-w-2xl mx-auto space-y-6 relative z-10">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-brand-400">
-              Transform Your Organization Today
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Ready to See Nirghos ERP in Action?
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Launch our interactive demo workspace pre-configured with realistic data for your industry, or talk with an enterprise solution architect.
-            </p>
-
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                to="/dashboard"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-black text-navy-950 bg-gradient-to-r from-brand-300 via-brand-400 to-sky-300 hover:brightness-110 shadow-lg shadow-brand-400/25 flex items-center justify-center gap-2 transition text-sm"
-              >
-                <LayoutDashboard className="w-4 h-4" />
-                <span>Launch Interactive Demo</span>
-              </Link>
-              <button
-                onClick={() => setIsDemoModalOpen(true)}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-bold text-white bg-navy-850 hover:bg-navy-800 border border-navy-700 transition text-sm"
-              >
-                Schedule Architecture Call
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <ExploreNirghos onBook={() => setIsDemoModalOpen(true)} />
 
       {/* Video Modal Popup for Client Story */}
       {activeStoryVideo && (
@@ -3276,7 +2217,7 @@ export const Home = () => {
                 <Play className="w-6 h-6 fill-current ml-0.5" />
               </div>
               <div>
-                <h3 className="text-base font-black text-slate-900">
+                <h3 className="text-base font-semibold text-slate-800">
                   {activeStoryVideo.name}
                 </h3>
                 <p className="text-xs text-slate-500 font-medium">
@@ -3350,7 +2291,7 @@ export const Home = () => {
               </span>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+            <h3 className="text-xl sm:text-2xl font-semibold text-slate-800 leading-tight">
               {selectedPressModal.headline}
             </h3>
 
@@ -3453,7 +2394,7 @@ export const Home = () => {
               </span>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+            <h3 className="text-xl sm:text-2xl font-semibold text-slate-800 leading-tight">
               {selectedBlogModal.fullTitle}
             </h3>
 
@@ -3544,7 +2485,7 @@ export const Home = () => {
               </span>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+            <h3 className="text-xl sm:text-2xl font-semibold text-slate-800 leading-tight">
               {selectedEventModal.fullTitle}
             </h3>
 
