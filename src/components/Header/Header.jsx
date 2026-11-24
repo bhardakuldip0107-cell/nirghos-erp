@@ -30,7 +30,9 @@ import {
   Factory,
   Pill,
   Hotel,
-  Globe
+  Globe,
+  ScanLine,
+  ShoppingBag
 } from 'lucide-react';
 import { useDemo } from '../../context/DemoContext';
 import DemoModal from '../common/DemoModal';
