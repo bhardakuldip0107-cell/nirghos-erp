@@ -13,6 +13,8 @@ import Team from '../pages/Team/Team';
 import Blogs from '../pages/Blogs/Blogs';
 import Events from '../pages/Events/Events';
 import Testimonials from '../pages/Testimonials/Testimonials';
+import Pricing from '../pages/Pricing/Pricing';
+import AISolutions from '../pages/AISolutions/AISolutions';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import Dashboard from '../pages/Dashboard/Dashboard';
@@ -34,6 +36,8 @@ export const AppRoutes = () => {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/events" element={<Events />} />
         <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/ai-solutions" element={<AISolutions />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>

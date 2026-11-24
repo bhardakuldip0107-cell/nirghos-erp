@@ -102,27 +102,33 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Solution (Span 2) */}
+          {/* Column 2: Solutions & Products (Span 2) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-sm font-bold text-slate-900 tracking-tight">Solution</h4>
+            <h4 className="text-sm font-bold text-slate-900 tracking-tight">Products</h4>
             <ul className="space-y-2.5 text-xs sm:text-[13px] text-slate-600">
               <li>
-                <Link to="/features" className="hover:text-[#0284c7] transition-colors">POS</Link>
+                <Link to="/ai-solutions" className="text-[#0284c7] font-bold hover:underline flex items-center gap-1">
+                  <span>AI Solutions</span>
+                  <span className="text-[9px] bg-sky-100 text-[#0284c7] px-1 rounded">NEW</span>
+                </Link>
               </li>
               <li>
-                <Link to="/features" className="hover:text-[#0284c7] transition-colors">Accounting</Link>
+                <Link to="/pricing" className="hover:text-[#0284c7] font-semibold transition-colors">Pricing Plans</Link>
               </li>
               <li>
-                <Link to="/features" className="hover:text-[#0284c7] transition-colors">ERP</Link>
+                <Link to="/industries/retail" className="hover:text-[#0284c7] transition-colors">Supermarket POS</Link>
               </li>
               <li>
-                <Link to="/features" className="hover:text-[#0284c7] transition-colors">CRM</Link>
+                <Link to="/industries/gems-jewellery" className="hover:text-[#0284c7] transition-colors">JSoft Jewellery ERP</Link>
               </li>
               <li>
-                <Link to="/features" className="hover:text-[#0284c7] transition-colors">Inventory Management</Link>
+                <Link to="/industries/textile" className="hover:text-[#0284c7] transition-colors">GSoft Apparel ERP</Link>
               </li>
               <li>
-                <Link to="/features" className="hover:text-[#0284c7] transition-colors">Omnichannel E-Commerce</Link>
+                <Link to="/industries/manufacturing" className="hover:text-[#0284c7] transition-colors">Manufacturing BOM</Link>
+              </li>
+              <li>
+                <Link to="/industries/trading" className="hover:text-[#0284c7] transition-colors">Multi-Godown WMS</Link>
               </li>
             </ul>
           </div>
@@ -132,22 +138,22 @@ export const Footer = () => {
             <h4 className="text-sm font-bold text-slate-900 tracking-tight">Company</h4>
             <ul className="space-y-2.5 text-xs sm:text-[13px] text-slate-600">
               <li>
-                <Link to="/industries/retail" className="hover:text-[#0284c7] transition-colors">Supermarket</Link>
+                <Link to="/about" className="hover:text-[#0284c7] transition-colors">About Nirghos</Link>
               </li>
               <li>
-                <Link to="/industries/textile" className="hover:text-[#0284c7] transition-colors">Readymade Garment</Link>
+                <Link to="/industries" className="hover:text-[#0284c7] transition-colors">Browse 25 Industries</Link>
               </li>
               <li>
-                <Link to="/industries/jewellery" className="hover:text-[#0284c7] transition-colors">The Retail Guru</Link>
+                <Link to="/testimonials" className="hover:text-[#0284c7] transition-colors">Client Testimonials</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-[#0284c7] transition-colors">About Us</Link>
+                <Link to="/blogs" className="hover:text-[#0284c7] transition-colors">ERP Insights &amp; Blogs</Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-[#0284c7] transition-colors">Career</Link>
+                <Link to="/careers" className="hover:text-[#0284c7] transition-colors">Careers</Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-[#0284c7] transition-colors">Contact Us</Link>
+                <Link to="/contact" className="hover:text-[#0284c7] transition-colors">Contact Sales</Link>
               </li>
             </ul>
           </div>

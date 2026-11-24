@@ -149,6 +149,27 @@ export const Header = () => {
   // 2. Products Dropdown Items (Specialized Industry Suites & Core Suite)
   const productsCards = [
     {
+      title: 'JSoft Gems & Jewellery',
+      badge: 'Flagship JSoft',
+      desc: 'Bullion market rate sync, HUID hallmark, 0.001g weighing scale & karigar metal loss.',
+      icon: Gem,
+      path: '/industries/gems-jewellery'
+    },
+    {
+      title: 'GSoft Apparel & Footwear',
+      badge: 'Flagship GSoft',
+      desc: 'Style-Color-Size matrix billing, barcode hang-tags, seasonal schemes & alterations.',
+      icon: Shirt,
+      path: '/industries/textile'
+    },
+    {
+      title: 'Supermarket & Retail POS',
+      badge: 'Fast Checkout',
+      desc: 'Loose produce scale integration, sub-second barcode checkout, BOGO & WhatsApp bills.',
+      icon: Store,
+      path: '/industries/retail'
+    },
+    {
       title: 'Trading & Wholesale',
       badge: 'Wholesale & B2B',
       desc: 'Multi-warehouse distribution, tier pricing, credit control & high-speed GST e-invoicing.',
@@ -164,20 +185,13 @@ export const Header = () => {
     },
     {
       title: 'Pharma & Healthcare',
-      badge: 'GMP & Regulatory',
+      badge: '21 CFR Part 11',
       desc: 'WHO-GMP compliance, electronic batch records (eBR), FEFO allocation & recall audit trails.',
       icon: Pill,
       path: '/industries/pharma'
     },
     {
-      title: 'Food & Beverage',
-      badge: 'HACCP & Cold Chain',
-      desc: 'Recipe formulation, HACCP quality checklists, ingredient yield & cold-chain telemetry.',
-      icon: UtensilsCrossed,
-      path: '/industries/food-beverage'
-    },
-    {
-      title: 'Hospitals & Clinics',
+      title: 'Hospitals & Clinics (HMIS)',
       badge: 'Clinical & EMR',
       desc: 'OPD/IPD queue, digital patient EMR records, pharmacy dispensing & cashless TPA claims.',
       icon: Building2,
@@ -189,48 +203,38 @@ export const Header = () => {
       desc: 'Touch POS, wireless KOT kitchen display, room reservations & recipe inventory depletion.',
       icon: Hotel,
       path: '/industries/hotel-restaurant'
-    },
-    {
-      title: 'Core Enterprise ERP Suite',
-      badge: 'All-In-One Suite',
-      desc: 'HRMS, Payroll, double-entry General Ledger, multi-branch inventory & CRM pipeline.',
-      icon: Cpu,
-      path: '/features'
-    },
-    {
-      title: 'Browse All 25 Industries',
-      badge: 'Full Directory',
-      desc: 'Explore the complete directory of sector-specific live modules and specialized workflows.',
-      icon: Globe,
-      path: '/industries'
     }
   ];
 
-  // 3. AI Tools Dropdown Items
+  // 3. AI Solutions Dropdown Items (vasy.ai style)
   const aiToolsCards = [
     {
-      title: 'Nirghos Vision (AI Cam 360)',
-      desc: 'AI CCTV video analytics: Footfall counting, dwell time, peak hours & store heatmaps.',
+      title: 'In-Store CCTV Footfall & Heatmaps',
+      badge: 'Edge AI Vision',
+      desc: 'Connects to existing CCTV: In/out visitor counting, dwell time & queue alerts.',
       icon: Eye,
-      path: '/features'
+      path: '/ai-solutions'
     },
     {
-      title: 'AI Product Photoshoot Studio',
-      desc: 'Generate photorealistic apparel & jewellery models without expensive physical shoots.',
+      title: 'Zero-Barcode Produce Recognition',
+      badge: 'Sub-Second POS',
+      desc: 'Top-down AI camera identifies loose fruits, vegetables, and bakery items in 150ms.',
+      icon: ScanLine,
+      path: '/ai-solutions'
+    },
+    {
+      title: 'VINA: Conversational AI Co-Pilot',
+      badge: 'Enterprise LLM',
+      desc: 'Ask questions in English or Gujarati to analyze millions of rows, margins, and draft POs.',
       icon: Sparkles,
-      path: '/features'
+      path: '/ai-solutions'
     },
     {
-      title: 'AI Virtual 3D Try-On',
-      desc: 'Realistic interactive product visualization for rings, necklaces, watches & fashion garments.',
-      icon: Glasses,
-      path: '/features'
-    },
-    {
-      title: 'Predictive Demand & Forecasting',
-      desc: 'Machine learning algorithms forecasting replenishment schedules, stockouts & cash flow.',
-      icon: TrendingUp,
-      path: '/features'
+      title: 'Smart Cart & Self-Checkout Kiosk',
+      badge: 'Frictionless Retail',
+      desc: 'Tablet-mounted scan-as-you-shop smart cart with instant gate pass and UPI payment.',
+      icon: ShoppingBag,
+      path: '/ai-solutions'
     }
   ];
 
@@ -276,7 +280,7 @@ export const Header = () => {
               <NavLink
                 to="/"
                 end
-                className={({ isActive }) => `px-3.5 py-2 text-sm font-semibold transition-all relative ${
+                className={({ isActive }) => `px-3 py-2 text-sm font-semibold transition-all relative ${
                   isActive 
                     ? 'text-[#0284c7] font-bold border-b-2 border-[#0284c7]' 
                     : 'text-slate-700 hover:text-[#0284c7]'
@@ -284,6 +288,26 @@ export const Header = () => {
               >
                 Home
               </NavLink>
+
+              {/* ✨ AI Solutions ▾ */}
+              <div 
+                className="relative"
+                onMouseEnter={() => handleMouseEnter('ai')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <NavLink
+                  to="/ai-solutions"
+                  className={({ isActive }) => `px-3 py-2 text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer relative ${
+                    isActive || activeDropdown === 'ai'
+                      ? 'text-[#0284c7] font-bold border-b-2 border-[#0284c7]' 
+                      : 'text-slate-700 hover:text-[#0284c7]'
+                  }`}
+                >
+                  <Sparkles className="w-4 h-4 text-[#0284c7] animate-pulse" />
+                  <span>AI Solutions</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'ai' ? 'rotate-180 text-[#0284c7]' : 'text-slate-500'}`} />
+                </NavLink>
+              </div>
 
               {/* Products ▾ */}
               <div 
@@ -294,7 +318,7 @@ export const Header = () => {
                 <button
                   type="button"
                   onClick={(e) => handleToggle('products', e)}
-                  className={`px-3.5 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
+                  className={`px-3 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
                     activeDropdown === 'products'
                       ? 'text-[#0284c7] font-bold border-b-2 border-[#0284c7]' 
                       : 'text-slate-700 hover:text-[#0284c7]'
@@ -305,26 +329,34 @@ export const Header = () => {
                 </button>
               </div>
 
-              {/* ✨ AI Tools */}
-              <div 
-                className="relative"
-                onMouseEnter={() => handleMouseEnter('ai')}
-                onMouseLeave={handleMouseLeave}
+              {/* Industries */}
+              <NavLink
+                to="/industries"
+                className={({ isActive }) => `px-3 py-2 text-sm font-semibold transition-all relative ${
+                  isActive 
+                    ? 'text-[#0284c7] font-bold border-b-2 border-[#0284c7]' 
+                    : 'text-slate-700 hover:text-[#0284c7]'
+                }`}
               >
-                <NavLink
-                  to="/features"
-                  className={({ isActive }) => `px-3.5 py-2 text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer relative ${
-                    isActive || activeDropdown === 'ai'
-                      ? 'text-sky-600 font-bold border-b-2 border-sky-500' 
-                      : 'text-slate-700 hover:text-sky-600'
-                  }`}
-                >
-                  <Sparkles className="w-4 h-4 text-sky-500 animate-pulse" />
-                  <span>AI Tools</span>
-                </NavLink>
-              </div>
+                Industries
+              </NavLink>
 
-              {/* Explore Nirghos ▾ (Contains About Us, Contact Us, Life, Team, Blogs, Events, Testimonials) */}
+              {/* Pricing (Direct link with Save 20% pill) */}
+              <NavLink
+                to="/pricing"
+                className={({ isActive }) => `px-3 py-2 text-sm font-semibold transition-all relative flex items-center gap-1.5 ${
+                  isActive 
+                    ? 'text-[#0284c7] font-bold border-b-2 border-[#0284c7]' 
+                    : 'text-slate-700 hover:text-[#0284c7]'
+                }`}
+              >
+                <span>Pricing</span>
+                <span className="px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[9px] font-black tracking-wide border border-emerald-200">
+                  SAVE 20%
+                </span>
+              </NavLink>
+
+              {/* Company / Explore Nirghos ▾ */}
               <div 
                 className="relative"
                 onMouseEnter={() => handleMouseEnter('explore')}
@@ -333,32 +365,20 @@ export const Header = () => {
                 <button
                   type="button"
                   onClick={(e) => handleToggle('explore', e)}
-                  className={`px-3.5 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
+                  className={`px-3 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
                     activeDropdown === 'explore' || ['/about', '/contact', '/life', '/team', '/blogs', '/events', '/testimonials'].includes(location.pathname)
                       ? 'text-[#0284c7] font-bold border-b-2 border-[#0284c7]' 
                       : 'text-slate-700 hover:text-[#0284c7]'
                   }`}
                 >
-                  <span>Explore Nirghos</span>
+                  <span>Company</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'explore' ? 'rotate-180 text-[#0284c7]' : 'text-slate-500'}`} />
                 </button>
               </div>
 
-              {/* Join Our Team */}
-              <NavLink
-                to="/careers"
-                className={({ isActive }) => `px-3.5 py-2 text-sm font-semibold transition-all relative ${
-                  isActive 
-                    ? 'text-[#0284c7] font-bold border-b-2 border-[#0284c7]' 
-                    : 'text-slate-700 hover:text-[#0284c7]'
-                }`}
-              >
-                Join Our Team
-              </NavLink>
-
             </nav>
 
-            {/* Right Action: Orange Pill "Get Demo" Button */}
+            {/* Right Action: Sign In & Book a Demo Button */}
             <div className="hidden md:flex items-center gap-3.5">
               
               {isAuthenticated ? (
@@ -386,13 +406,14 @@ export const Header = () => {
                 </Link>
               )}
 
-              {/* ORANGE PILL GET DEMO BUTTON (Exact match to screenshot) */}
+              {/* BOOK A DEMO BUTTON (vasy.ai style glowing cyan button) */}
               <button
                 type="button"
                 onClick={() => setIsDemoModalOpen(true)}
-                className="px-6 py-2.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#0284c7] to-[#0ea5e9] hover:from-[#0369a1] hover:to-[#0284c7] text-white font-bold text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 transition-all transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-1.5"
               >
-                Get Demo
+                <span>Book a Demo</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
 
             </div>
@@ -404,7 +425,7 @@ export const Header = () => {
                 onClick={() => setIsDemoModalOpen(true)}
                 className="px-4 py-1.5 rounded-full bg-[#0284c7] text-white font-bold text-xs shadow-sm"
               >
-                Get Demo
+                Book Demo
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -562,12 +583,40 @@ export const Header = () => {
               </NavLink>
 
               <NavLink
-                to="/features"
+                to="/ai-solutions"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2.5 rounded-xl text-sm font-bold text-sky-600 hover:bg-slate-100 flex items-center gap-2"
+                className="block px-4 py-2.5 rounded-xl text-sm font-bold text-[#0284c7] hover:bg-slate-100 flex items-center justify-between"
               >
-                <Sparkles className="w-4 h-4 text-sky-500" />
-                <span>AI Tools (Vision & Analytics)</span>
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#0284c7]" />
+                  <span>AI Solutions (Vision & VINA)</span>
+                </div>
+                <span className="text-[10px] bg-sky-100 text-[#0284c7] font-black px-2 py-0.5 rounded-full">
+                  NEW
+                </span>
+              </NavLink>
+
+              <NavLink
+                to="/industries"
+                onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) => `block px-4 py-2.5 rounded-xl text-sm font-bold transition ${
+                  isActive ? 'bg-sky-50 text-[#0284c7]' : 'text-slate-700 hover:bg-slate-100'
+                }`}
+              >
+                Industries (25 Verticals)
+              </NavLink>
+
+              <NavLink
+                to="/pricing"
+                onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) => `block px-4 py-2.5 rounded-xl text-sm font-bold transition flex items-center justify-between ${
+                  isActive ? 'bg-sky-50 text-[#0284c7]' : 'text-slate-700 hover:bg-slate-100'
+                }`}
+              >
+                <span>Pricing Plans</span>
+                <span className="text-[10px] bg-emerald-100 text-emerald-700 font-black px-2 py-0.5 rounded-full">
+                  SAVE 20%
+                </span>
               </NavLink>
 
               <div className="pt-2 pb-1 px-4 text-[11px] font-black uppercase tracking-wider text-slate-400">
@@ -590,7 +639,7 @@ export const Header = () => {
               ))}
 
               <div className="pt-2 pb-1 px-4 text-[11px] font-black uppercase tracking-wider text-slate-400">
-                Explore Nirghos
+                Company & Explore
               </div>
               {exploreCards.map((item) => (
                 <Link
@@ -615,9 +664,9 @@ export const Header = () => {
               <button
                 type="button"
                 onClick={() => { setIsDemoModalOpen(true); setMobileMenuOpen(false); }}
-                className="w-full py-3 rounded-full bg-[#0284c7] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-full bg-gradient-to-r from-[#0284c7] to-[#0ea5e9] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Get Demo</span>
+                <span>Book a Demo</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
