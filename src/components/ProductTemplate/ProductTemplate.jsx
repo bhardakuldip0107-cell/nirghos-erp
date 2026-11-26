@@ -20,146 +20,118 @@ const Icon = ({ name, className }) => <DynamicIcon name={name} className={classN
 /* ----------------------------- Hero ------------------------------------- */
 
 const Hero = ({ cfg }) => {
-  const [c1, c2, c3, c4] = cfg.chips || [];
-  const Chip = ({ chip, className }) =>
-    chip ? (
-      <div className={`hidden lg:flex flex-col items-center gap-1.5 text-center absolute ${className}`}>
-        <span className="w-10 h-10 rounded-xl bg-white shadow-md border border-slate-100 text-nirghos-primary flex items-center justify-center">
-          <Icon name={chip[0]} className="w-5 h-5" />
-        </span>
-        <span className="text-xs font-medium text-slate-600 max-w-[90px] leading-tight">{chip[1]}</span>
-      </div>
-    ) : null;
+  const chips = (cfg.chips || []).slice(0, 4);
 
   return (
-    <section className="relative pt-14 sm:pt-20 pb-10 bg-gradient-to-b from-sky-50/70 via-white to-white overflow-hidden">
+    <section className="relative pt-12 sm:pt-16 pb-14 bg-gradient-to-b from-sky-50/70 via-white to-white border-b border-slate-200/80 overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f033_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f033_1px,transparent_1px)] bg-[size:56px_56px] pointer-events-none" />
-      <svg className="hidden lg:block absolute left-0 top-28 w-[320px] h-[180px] text-sky-200" viewBox="0 0 320 180" fill="none" aria-hidden="true">
-        <path d="M0 40 C 80 10, 120 120, 200 90 S 300 150, 320 120" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 6" />
-      </svg>
-      <svg className="hidden lg:block absolute right-0 top-24 w-[320px] h-[180px] text-sky-200" viewBox="0 0 320 180" fill="none" aria-hidden="true">
-        <path d="M320 30 C 240 10, 200 120, 120 100 S 20 150, 0 120" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 6" />
-      </svg>
 
       <Container className="relative">
-        <Chip chip={c1} className="left-[4%] top-6" />
-        <Chip chip={c2} className="left-[13%] top-36" />
-        <Chip chip={c3} className="right-[4%] top-4" />
-        <Chip chip={c4} className="right-[13%] top-36" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Left Column: Category Badge + Headline + Subtitle + CTAs + Chips */}
+          <div className="lg:col-span-6 text-left">
+            {cfg.badge && (
+              <span className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 shadow-xs text-nirghos-primary text-xs font-bold tracking-wider uppercase px-3.5 py-1.5 mb-5 animate-fadeIn">
+                <span className="w-2 h-2 rounded-full bg-nirghos-gradient" />
+                {cfg.badge}
+              </span>
+            )}
+            <h1 className="text-3xl sm:text-5xl lg:text-[50px] font-bold tracking-tight text-slate-900 leading-[1.12]">
+              {cfg.titleTop}{' '}
+              <span className="text-nirghos-gradient">{cfg.titleAccent}</span>
+            </h1>
+            <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
+              {cfg.subtitle}
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-3.5">
+              <button
+                type="button"
+                onClick={cfg.primary.onClick}
+                className="inline-flex items-center gap-2 rounded-full bg-nirghos-gradient hover:opacity-95 text-white text-sm sm:text-base font-bold px-7 py-3.5 shadow-lg shadow-sky-500/25 transition cursor-pointer"
+              >
+                {cfg.primary.label} <ArrowRight className="w-4 h-4" />
+              </button>
+              {cfg.secondary &&
+                (cfg.secondary.to ? (
+                  <Link
+                    to={cfg.secondary.to}
+                    className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 hover:border-nirghos-primary text-nirghos-primary hover:bg-sky-50 text-sm sm:text-base font-semibold px-6 py-3.5 transition"
+                  >
+                    {cfg.secondary.label}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={cfg.secondary.onClick}
+                    className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 hover:border-nirghos-primary text-nirghos-primary hover:bg-sky-50 text-sm sm:text-base font-semibold px-6 py-3.5 transition cursor-pointer"
+                  >
+                    {cfg.secondary.label}
+                  </button>
+                ))}
+            </div>
 
-        <div className="text-center max-w-3xl mx-auto">
-          {cfg.badge && (
-            <span className="inline-flex items-center rounded-full bg-sky-100/80 text-nirghos-primary-hover text-xs font-semibold tracking-wider uppercase px-3 py-1 mb-5">
-              {cfg.badge}
-            </span>
-          )}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-800 leading-[1.1]">
-            {cfg.titleTop}
-            <br />
-            <span className="text-nirghos-electric">{cfg.titleAccent}</span>
-          </h1>
-          <p className="mt-5 text-base sm:text-lg text-slate-500 leading-relaxed">{cfg.subtitle}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <button
-              type="button"
-              onClick={cfg.primary.onClick}
-              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-gradient hover:bg-nirghos-gradient text-white text-sm font-semibold px-6 py-3.5 transition"
-            >
-              {cfg.primary.label} <ArrowRight className="w-4 h-4" />
-            </button>
-            {cfg.secondary &&
-              (cfg.secondary.to ? (
-                <Link
-                  to={cfg.secondary.to}
-                  className="inline-flex items-center gap-2 rounded-xl border border-nirghos-electric text-nirghos-primary hover:bg-sky-50 text-sm font-semibold px-6 py-3.5 transition"
-                >
-                  {cfg.secondary.label}
-                </Link>
-              ) : (
-                <button
-                  type="button"
-                  onClick={cfg.secondary.onClick}
-                  className="inline-flex items-center gap-2 rounded-xl border border-nirghos-electric text-nirghos-primary hover:bg-sky-50 text-sm font-semibold px-6 py-3.5 transition"
-                >
-                  {cfg.secondary.label}
-                </button>
-              ))}
-          </div>
-        </div>
-
-        {/* Device mock */}
-        <div className="relative mt-14 max-w-[980px] mx-auto">
-          <div className="absolute -inset-x-10 top-10 bottom-0 bg-sky-200/40 blur-3xl rounded-full" />
-          <div className="relative rounded-[26px] bg-slate-900 p-2.5 sm:p-3 shadow-[0_40px_80px_-30px_rgba(11,25,44,0.5)]">
-            <div className="rounded-[18px] bg-white overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50">
-                <span className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                  <span className="w-5 h-5 rounded-md bg-nirghos-gradient text-white text-[10px] flex items-center justify-center">N</span>
-                  Nirghos · {cfg.productName}
-                </span>
-                <span className="text-[10px] rounded-full bg-emerald-50 text-emerald-600 px-2 py-0.5">● Live</span>
+            {chips.length > 0 && (
+              <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {chips.map((chip) => (
+                  <div
+                    key={chip[1]}
+                    className="rounded-xl bg-white border border-slate-200/80 px-3 py-2.5 flex items-center gap-2 shadow-2xs"
+                  >
+                    <span className="w-7 h-7 rounded-lg bg-sky-50 text-nirghos-primary flex items-center justify-center shrink-0">
+                      <Icon name={chip[0]} className="w-4 h-4" />
+                    </span>
+                    <span className="text-[11px] font-semibold text-slate-700 leading-tight line-clamp-2">
+                      {chip[1]}
+                    </span>
+                  </div>
+                ))}
               </div>
-              <div className="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-[1fr_220px] gap-4 text-left">
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {(cfg.kpis || []).slice(0, 4).map(([l, v, d]) => (
-                      <div key={l} className="rounded-xl border border-slate-100 p-3">
-                        <p className="text-[10px] text-slate-400 truncate">{l}</p>
-                        <p className="text-base font-semibold text-slate-800 truncate">{v}</p>
-                        <p className={`text-[10px] truncate ${String(d).startsWith('-') ? 'text-rose-500' : 'text-emerald-600'}`}>{d}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="rounded-xl border border-slate-100 overflow-hidden">
-                    <div className="grid grid-cols-[40px_1fr_70px_80px] text-[10px] uppercase tracking-wider text-slate-400 bg-slate-50 px-3 py-2">
-                      <span>#</span>
-                      <span>Item</span>
-                      <span className="text-right">Qty</span>
-                      <span className="text-right">Amount</span>
-                    </div>
-                    {['Item A – Premium', 'Item B – Standard', 'Item C – Pack of 6', 'Item D – Combo', 'Item E – Large'].map((n, i) => (
-                      <div key={n} className="grid grid-cols-[40px_1fr_70px_80px] text-xs text-slate-600 px-3 py-2 border-t border-slate-50">
-                        <span className="text-slate-400">{i + 1}</span>
-                        <span className="truncate">{n}</span>
-                        <span className="text-right">{[2, 1, 4, 1, 3][i]}</span>
-                        <span className="text-right font-medium text-slate-800">₹{[1240, 860, 2160, 1499, 2970][i].toLocaleString('en-IN')}</span>
-                      </div>
-                    ))}
-                  </div>
+            )}
+          </div>
+
+          {/* Right Column: Category-Wise Studio Visual + Live Nirghos Frame */}
+          <div className="lg:col-span-6 relative">
+            <div className="absolute -inset-4 bg-sky-200/35 blur-3xl rounded-full pointer-events-none" />
+
+            <div className="relative rounded-3xl bg-slate-900 p-2 sm:p-2.5 shadow-[0_30px_70px_-25px_rgba(11,25,44,0.45)] border border-slate-700">
+              <div className="rounded-2xl bg-white overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50">
+                  <span className="flex items-center gap-2 text-xs font-bold text-slate-800">
+                    <img src="/nirghos-icon.png" alt="Nirghos" className="w-5 h-5 object-contain" />
+                    Nirghos · {cfg.productName}
+                  </span>
+                  <span className="text-[10px] font-semibold rounded-full bg-emerald-50 text-emerald-600 px-2.5 py-0.5">
+                    ● Live Ready
+                  </span>
                 </div>
-                <div className="hidden md:flex flex-col gap-3">
-                  <div className="rounded-xl border border-slate-100 p-3 flex-1">
-                    <p className="text-[11px] font-semibold text-slate-700">This week</p>
-                    <div className="mt-3 h-24 flex items-end gap-1.5">
-                      {[40, 55, 48, 70, 62, 85, 74].map((h, i) => (
-                        <div key={i} className={`flex-1 self-end rounded-t ${i === 5 ? 'bg-nirghos-gradient' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="rounded-xl bg-nirghos-gradient text-white p-3">
-                    <p className="text-[10px] text-sky-100">Total</p>
-                    <p className="text-lg font-semibold">₹8,729</p>
-                    <p className="text-[10px] text-sky-100">UPI · Card · Cash</p>
-                  </div>
+                <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden group">
+                  <img
+                    src={cfg.heroImage || '/sectors/industrial-manufacturing.jpg'}
+                    alt={`${cfg.productName} preview`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
             </div>
-          </div>
-          {cfg.kpis?.[0] && (
-            <div className="hidden xl:block absolute -left-24 bottom-8 rounded-xl bg-white shadow-xl border border-slate-100 px-4 py-3 text-left animate-float-slow">
-              <p className="text-[10px] text-slate-400">{cfg.kpis[0][0]}</p>
-              <p className="text-lg font-semibold text-slate-800">{cfg.kpis[0][1]}</p>
-              <p className="text-[10px] text-emerald-600">{cfg.kpis[0][2]}</p>
+
+            {cfg.kpis?.[0] && (
+              <div className="hidden sm:block absolute -left-4 lg:-left-8 -bottom-5 rounded-2xl bg-white shadow-xl border border-slate-100 px-4 py-3 text-left animate-float-slow z-10">
+                <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">{cfg.kpis[0][0]}</p>
+                <p className="text-lg font-bold text-slate-900">{cfg.kpis[0][1]}</p>
+                <p className="text-[10px] font-semibold text-emerald-600">{cfg.kpis[0][2]}</p>
+              </div>
+            )}
+
+            <div className="hidden sm:flex absolute -right-3 lg:-right-6 -top-4 rounded-2xl bg-white shadow-xl border border-slate-100 px-3.5 py-2.5 items-center gap-2.5 animate-float-delayed z-10">
+              <span className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                <Check className="w-4 h-4" />
+              </span>
+              <span className="text-left">
+                <span className="block text-xs font-bold text-slate-800">Real-time sync</span>
+                <span className="block text-[10px] text-slate-400">Cloud &amp; Offline POS</span>
+              </span>
             </div>
-          )}
-          <div className="hidden xl:flex absolute -right-24 top-10 rounded-xl bg-white shadow-xl border border-slate-100 px-4 py-3 items-center gap-3 animate-float-delayed">
-            <span className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <Check className="w-4 h-4" />
-            </span>
-            <span className="text-left">
-              <span className="block text-xs font-semibold text-slate-800">Real-time sync</span>
-              <span className="block text-[10px] text-slate-400">Updated 2s ago</span>
-            </span>
           </div>
         </div>
       </Container>

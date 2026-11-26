@@ -5,6 +5,15 @@ import DemoModal from '../../components/common/DemoModal';
 import { getProductBySlug } from '../../data/products';
 import { industriesData } from '../../data/industries';
 
+const productHeroImages = {
+  pos: '/sectors/trade-commerce.jpg',
+  erp: '/sectors/industrial-manufacturing.jpg',
+  accounting: '/sectors/accounting-erp.jpg',
+  inventory: '/sectors/healthcare-life-sciences.jpg',
+  crm: '/sectors/institutional-hospitality.jpg',
+  omnichannel: '/sectors/services-technology.jpg'
+};
+
 export const ProductDetails = () => {
   const { slug } = useParams();
   const [isDemoOpen, setIsDemoOpen] = useState(false);
@@ -19,6 +28,8 @@ export const ProductDetails = () => {
   const openDemo = () => setIsDemoOpen(true);
 
   const cfg = {
+    badge: 'Nirghos Core Suite',
+    heroImage: productHeroImages[slug] || '/sectors/trade-commerce.jpg',
     productName: product.name,
     titleTop: product.titleTop,
     titleAccent: product.titleAccent,

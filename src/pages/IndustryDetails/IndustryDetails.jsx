@@ -7,6 +7,15 @@ import { useDemo } from '../../context/DemoContext';
 import { getIndustryBySlug, getRelatedIndustries, industriesData } from '../../data/industries';
 import { getIndustryLandingData } from '../../data/industryLandingData';
 
+const categoryHeroImages = {
+  'Industrial & Manufacturing': '/sectors/industrial-manufacturing.jpg',
+  'Trade & Commerce': '/sectors/trade-commerce.jpg',
+  'Healthcare & Life Sciences': '/sectors/healthcare-life-sciences.jpg',
+  'Institutional & Hospitality': '/sectors/institutional-hospitality.jpg',
+  'Services & Technology': '/sectors/services-technology.jpg',
+  'Energy & Resources': '/sectors/energy-resources.jpg'
+};
+
 const problemIcons = ['AlertTriangle', 'Boxes', 'Calculator', 'BarChart3'];
 
 export const IndustryDetails = () => {
@@ -54,6 +63,7 @@ export const IndustryDetails = () => {
 
   const cfg = {
     badge: industry.category,
+    heroImage: categoryHeroImages[industry.category] || '/sectors/industrial-manufacturing.jpg',
     productName: `${shortName} ERP`,
     titleTop: industry.name,
     titleAccent: 'ERP Software',
