@@ -271,6 +271,15 @@ const sectorIcons = {
 
 const SECTOR_PAGE_SIZE = 4;
 
+const sectorImages = {
+  'Industrial & Manufacturing': '/sectors/industrial-manufacturing.jpg',
+  'Trade & Commerce': '/sectors/trade-commerce.jpg',
+  'Healthcare & Life Sciences': '/sectors/healthcare-life-sciences.jpg',
+  'Institutional & Hospitality': '/sectors/institutional-hospitality.jpg',
+  'Services & Technology': '/sectors/services-technology.jpg',
+  'Energy & Resources': '/sectors/energy-resources.jpg'
+};
+
 export const SectorsSection = () => {
   const sectors = industryCategories.filter((c) => c !== 'All');
   const [activeSector, setActiveSector] = useState('Trade & Commerce');
@@ -353,24 +362,25 @@ export const SectorsSection = () => {
 
             {/* Visual + CTA */}
             <div className="flex flex-col gap-3 xl:pt-16">
-              <div className="relative rounded-2xl bg-gradient-to-br from-slate-50 to-sky-50 border border-slate-100 h-60 overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.15),transparent_65%)]" />
-                <div className="relative">
-                  <div className="w-28 h-28 rounded-3xl bg-white shadow-xl border border-slate-100 flex items-center justify-center animate-float-slow">
-                    <SectorIcon className="w-14 h-14 text-[#0284c7]" strokeWidth={1.5} />
-                  </div>
-                  {featured && (
-                    <span className="absolute -top-4 -right-16 rounded-lg bg-[#0284c7] text-white text-[11px] font-semibold px-2.5 py-1 shadow-lg rotate-3 whitespace-nowrap">
-                      {featured.name.split('&')[0].trim()}
-                    </span>
-                  )}
-                  {featured?.stats?.[0] && (
-                    <span className="absolute -bottom-6 -left-20 rounded-xl bg-white text-[11px] px-3 py-2 shadow-lg border border-slate-100 whitespace-nowrap animate-float-delayed">
-                      <span className="font-semibold text-emerald-600">{featured.stats[0].value}</span>{' '}
-                      <span className="text-slate-500">{featured.stats[0].label}</span>
-                    </span>
-                  )}
-                </div>
+              <div className="relative rounded-2xl bg-gradient-to-br from-slate-50 to-sky-50 border border-slate-200/80 h-60 overflow-hidden group">
+                <img
+                  key={activeSector}
+                  src={sectorImages[activeSector] || '/sectors/industrial-manufacturing.jpg'}
+                  alt={`${activeSector} ERP illustration`}
+                  className="w-full h-full object-cover animate-fadeIn group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent pointer-events-none" />
+                {featured && (
+                  <span className="absolute top-3 right-3 rounded-full bg-[#0284c7]/95 backdrop-blur-xs text-white text-[11px] font-semibold px-3 py-1 shadow-md">
+                    {featured.name.split('&')[0].trim()}
+                  </span>
+                )}
+                {featured?.stats?.[0] && (
+                  <span className="absolute bottom-3 left-3 rounded-xl bg-white/95 backdrop-blur-xs text-[11px] px-3 py-1.5 shadow-md border border-slate-100 animate-float-delayed">
+                    <span className="font-semibold text-emerald-600">{featured.stats[0].value}</span>{' '}
+                    <span className="text-slate-600">{featured.stats[0].label}</span>
+                  </span>
+                )}
               </div>
               <Link
                 to="/industries"
