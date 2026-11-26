@@ -54,31 +54,32 @@ export const Industries = () => {
   return (
     <div className="space-y-16 pb-28">
       
-      {/* Top Banner Header */}
-      <section className="bg-navy-950 text-white pt-14 pb-20 border-b border-navy-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-500/15 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Top Banner Header (Vasy.ai Clean Light Sky Theme) */}
+      <section className="bg-gradient-to-b from-sky-50/80 via-white to-white pt-14 pb-16 border-b border-slate-200/80 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-40 bg-grid-pattern pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-sky-200/25 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-slate-400 mb-4">
-            <Link to="/" className="hover:text-white transition">Home</Link>
+          <div className="flex items-center gap-2 text-xs text-slate-500 mb-4">
+            <Link to="/" className="hover:text-[#0284c7] transition">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-brand-400 font-semibold">Industry Solutions Directory</span>
+            <span className="text-[#0284c7] font-semibold">Industry Solutions Directory</span>
           </div>
 
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-brand-400" />
+          <div className="max-w-3xl space-y-4 animate-fadeIn">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-[#0284c7] text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-[#0284c7]" />
               <span>Full Directory of 25 Specialized Verticals</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-              Tailored ERP Blueprints for Every Business
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 leading-tight">
+              Tailored ERP Blueprints for{' '}
+              <span className="text-[#0284c7]">Every Business</span>
             </h1>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
               Browse our complete library of 25 dedicated industry ERP engines. Each solution is pre-packaged with distinct master databases, customized Bill of Materials, sector-specific workflows, and localized compliance rules.
             </p>
           </div>
@@ -168,10 +169,10 @@ export const Industries = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2.5 rounded-2xl text-xs font-extrabold whitespace-nowrap transition-all duration-200 border-2 cursor-pointer ${
+                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 border cursor-pointer ${
                   selectedCategory === category
-                    ? 'bg-navy-950 text-white border-navy-950 shadow-lg shadow-navy-950/30 scale-105'
-                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-100 shadow-2xs'
+                    ? 'bg-[#0284c7] text-white border-[#0284c7] shadow-md shadow-sky-500/25'
+                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-sky-300 hover:text-[#0284c7]'
                 }`}
               >
                 {category}

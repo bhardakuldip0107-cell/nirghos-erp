@@ -336,7 +336,7 @@ export const Register = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-4 rounded-2xl font-black text-white bg-navy-950 hover:bg-brand-600 shadow-xl shadow-navy-950/20 hover:shadow-brand-600/30 flex items-center justify-center gap-2 transition-all active:scale-98 cursor-pointer text-sm"
+              className="w-full py-4 rounded-full font-bold text-white bg-[#0284c7] hover:bg-[#0369a1] shadow-lg shadow-sky-500/25 hover:shadow-sky-500/35 flex items-center justify-center gap-2 transition-all active:scale-98 cursor-pointer text-sm"
             >
               <span>Create Enterprise Workspace</span>
               <ArrowRight className="w-4 h-4 text-brand-300" />
