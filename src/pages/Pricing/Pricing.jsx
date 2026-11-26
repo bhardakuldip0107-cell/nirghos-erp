@@ -6,7 +6,7 @@ import DemoModal from '../../components/common/DemoModal';
 const SubNav = () => (
   <div className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-20 z-30">
     <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-between gap-4 text-sm text-slate-600">
-      <span className="text-xs font-bold text-[#2e6bcc] uppercase tracking-wider hidden sm:inline">
+      <span className="text-xs font-bold text-nirghos-primary uppercase tracking-wider hidden sm:inline">
         Nirghos ERP Pricing
       </span>
       <div className="flex items-center gap-6 ml-auto">
@@ -14,7 +14,7 @@ const SubNav = () => (
           ['Included', '#notes'],
           ['FAQs', '#faqs']
         ].map(([l, h]) => (
-          <a key={l} href={h} className="hover:text-[#2e6bcc] font-medium transition">
+          <a key={l} href={h} className="hover:text-nirghos-primary font-medium transition">
             {l}
           </a>
         ))}
@@ -58,13 +58,13 @@ export const Pricing = () => {
       <section className="relative bg-gradient-to-b from-sky-50/80 via-white to-white border-b border-slate-200/80 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
         <div className="relative max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-[#2e6bcc] text-xs font-bold uppercase tracking-wider mb-5 animate-fadeIn">
-            <span className="w-2 h-2 rounded-full bg-[#2e6bcc] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-nirghos-primary text-xs font-bold uppercase tracking-wider mb-5 animate-fadeIn">
+            <span className="w-2 h-2 rounded-full bg-nirghos-primary animate-pulse"></span>
             <span>Tailored Enterprise Pricing</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-tight text-slate-900 leading-[1.12] max-w-3xl mx-auto">
             Custom ERP pricing built for{' '}
-            <span className="text-[#2e6bcc]">your exact scale</span>
+            <span className="text-nirghos-primary">your exact scale</span>
           </h1>
           <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Every retail store, warehouse, and manufacturing plant has unique workflows. Book a quick consultation and get a transparent quote customized for your outlets and modules.
@@ -73,29 +73,29 @@ export const Pricing = () => {
             <button
               type="button"
               onClick={() => setIsDemoModalOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold px-8 py-3.5 shadow-lg shadow-sky-500/25 transition cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold px-8 py-3.5 shadow-lg shadow-sky-500/25 transition cursor-pointer"
             >
               <span>Request Custom Quote</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-white hover:bg-slate-50 text-[#2e6bcc] border-2 border-[#2e6bcc] font-bold px-7 py-3.5 transition"
+              className="inline-flex items-center gap-2 rounded-full bg-white hover:bg-slate-50 text-nirghos-primary border-2 border-nirghos-primary font-bold px-7 py-3.5 transition"
             >
               Talk to Sales
             </Link>
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-500">
-            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#2e6bcc]" /> Zero hidden setup surprises</span>
-            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#2e6bcc]" /> Multi-year commitment discounts</span>
-            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#2e6bcc]" /> Free Tally / Excel data migration</span>
+            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-nirghos-primary" /> Zero hidden setup surprises</span>
+            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-nirghos-primary" /> Multi-year commitment discounts</span>
+            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-nirghos-primary" /> Free Tally / Excel data migration</span>
           </div>
         </div>
       </section>
 
       {/* Notes */}
       <section id="notes" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-32">
-        <p className="font-mono text-[11px] tracking-[0.2em] text-[#2e6bcc] uppercase font-bold">Before you buy</p>
+        <p className="font-mono text-[11px] tracking-[0.2em] text-nirghos-primary uppercase font-bold">Before you buy</p>
         <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">What is included with Nirghos ERP</h2>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-8">
           {[
@@ -121,7 +121,7 @@ export const Pricing = () => {
               <ul className="mt-4 space-y-2.5">
                 {items.map((t) => (
                   <li key={t} className="flex gap-2.5 text-sm text-slate-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#2e6bcc] mt-2 shrink-0" /> {t}
+                    <span className="w-1.5 h-1.5 rounded-full bg-nirghos-primary mt-2 shrink-0" /> {t}
                   </li>
                 ))}
               </ul>
@@ -133,9 +133,9 @@ export const Pricing = () => {
       {/* FAQ */}
       <section id="faqs" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-mt-32 grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10">
         <div>
-          <p className="font-mono text-[11px] tracking-[0.2em] text-[#2e6bcc] uppercase font-bold">FAQs</p>
+          <p className="font-mono text-[11px] tracking-[0.2em] text-nirghos-primary uppercase font-bold">FAQs</p>
           <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">Questions about pricing</h2>
-          <Link to="/contact" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#2e6bcc] hover:text-[#2355a6]">
+          <Link to="/contact" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-nirghos-primary hover:text-nirghos-primary-hover">
             Talk to our sales team <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -148,7 +148,7 @@ export const Pricing = () => {
                 className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer"
                 aria-expanded={openFaqIndex === i}
               >
-                <span className={`font-medium ${openFaqIndex === i ? 'text-[#2e6bcc]' : 'text-slate-800'}`}>{f.q}</span>
+                <span className={`font-medium ${openFaqIndex === i ? 'text-nirghos-primary' : 'text-slate-800'}`}>{f.q}</span>
                 <span className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
                   {openFaqIndex === i ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </span>
@@ -161,7 +161,7 @@ export const Pricing = () => {
 
       {/* CTA Banner (Vasy.ai Sky Gradient) */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="rounded-[32px] bg-gradient-to-r from-[#2e6bcc] via-[#4582e6] to-[#2e6bcc] px-6 py-12 sm:px-12 flex flex-wrap items-center justify-between gap-6 shadow-xl shadow-sky-500/20">
+        <div className="rounded-[32px] bg-gradient-to-r from-nirghos-primary via-nirghos-electric to-nirghos-primary px-6 py-12 sm:px-12 flex flex-wrap items-center justify-between gap-6 shadow-xl shadow-sky-500/20">
           <div>
             <h2 className="text-3xl sm:text-4xl font-semibold text-white">Need a custom quote for your business?</h2>
             <p className="mt-2 text-sky-50">Our experts will recommend the ideal Nirghos ERP setup in a free live demo.</p>
@@ -170,7 +170,7 @@ export const Pricing = () => {
             <button
               type="button"
               onClick={() => setIsDemoModalOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full bg-white text-[#2e6bcc] font-bold px-7 py-3.5 hover:bg-sky-50 transition cursor-pointer shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full bg-white text-nirghos-primary font-bold px-7 py-3.5 hover:bg-sky-50 transition cursor-pointer shadow-sm"
             >
               Book a Free Demo <ArrowRight className="w-4 h-4" />
             </button>

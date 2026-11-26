@@ -144,24 +144,24 @@ export const Team = () => {
       {/* ========================================================================= */}
       <section className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white pt-14 pb-24 border-b border-navy-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-15 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-[#2e6bcc]/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-nirghos-primary/15 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs text-slate-400 mb-5">
             <Link to="/" className="hover:text-white transition">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-[#2e6bcc] font-semibold">Team Nirghos</span>
+            <span className="text-nirghos-primary font-semibold">Team Nirghos</span>
           </div>
 
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2e6bcc]/15 border border-[#2e6bcc]/30 text-[#2e6bcc] text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-nirghos-primary/15 border border-nirghos-primary/30 text-nirghos-primary text-xs font-black uppercase tracking-wider">
               <Users className="w-3.5 h-3.5" />
               <span>Team Nirghos</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              A Team of <span className="text-[#2e6bcc]">Believers, Thinkers</span> & Creators.
+              A Team of <span className="text-nirghos-primary">Believers, Thinkers</span> & Creators.
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
@@ -171,7 +171,7 @@ export const Team = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 to="/careers"
-                className="px-6 py-3.5 rounded-full bg-[#2e6bcc] text-white font-bold text-sm hover:bg-[#2355a6] shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2"
+                className="px-6 py-3.5 rounded-full bg-nirghos-primary text-white font-bold text-sm hover:bg-nirghos-primary-hover shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2"
               >
                 <span>Join Our Team</span>
                 <ArrowRight className="w-4 h-4" />
@@ -182,7 +182,7 @@ export const Team = () => {
                 className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2 cursor-pointer"
               >
                 <span>Book a Demo</span>
-                <Sparkles className="w-4 h-4 text-[#2e6bcc]" />
+                <Sparkles className="w-4 h-4 text-nirghos-primary" />
               </button>
             </div>
           </div>
@@ -195,7 +195,7 @@ export const Team = () => {
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 -mt-10 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl">
           <div className="text-center p-4 border-r last:border-none border-slate-100">
-            <div className="text-3xl sm:text-4xl font-black text-[#2e6bcc]">120+</div>
+            <div className="text-3xl sm:text-4xl font-black text-nirghos-primary">120+</div>
             <div className="text-xs text-slate-500 font-semibold mt-1">Engineers & Creators</div>
           </div>
           <div className="text-center p-4 border-r last:border-none border-slate-100">
@@ -220,7 +220,7 @@ export const Team = () => {
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <div className="text-xs font-black uppercase tracking-wider text-[#2e6bcc] mb-2">
+            <div className="text-xs font-black uppercase tracking-wider text-nirghos-primary mb-2">
               People Behind Nirghos
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
@@ -237,7 +237,7 @@ export const Team = () => {
                 onClick={() => setSelectedDept(dept)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   selectedDept === dept
-                    ? 'bg-[#2e6bcc] text-white shadow-xs'
+                    ? 'bg-nirghos-primary text-white shadow-xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >
@@ -261,10 +261,10 @@ export const Team = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-black text-slate-900 group-hover:text-[#2e6bcc] transition-colors">
+                  <h3 className="text-lg font-black text-slate-900 group-hover:text-nirghos-primary transition-colors">
                     {member.name}
                   </h3>
-                  <div className="text-xs font-bold text-[#2e6bcc] mt-0.5">
+                  <div className="text-xs font-bold text-nirghos-primary mt-0.5">
                     {member.role}
                   </div>
                   <div className="text-[11px] font-semibold text-slate-400 mt-0.5">
@@ -281,7 +281,7 @@ export const Team = () => {
                 <span className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold">
                   {member.dept}
                 </span>
-                <span className="text-[#2e6bcc] font-bold hover:underline cursor-pointer flex items-center gap-1">
+                <span className="text-nirghos-primary font-bold hover:underline cursor-pointer flex items-center gap-1">
                   <span>Connect</span>
                   <ArrowRight className="w-3 h-3" />
                 </span>
@@ -298,7 +298,7 @@ export const Team = () => {
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-slate-900 via-navy-950 to-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-800 shadow-xl">
           <div className="space-y-3 max-w-2xl text-center md:text-left">
-            <span className="text-xs font-black uppercase tracking-wider text-[#2e6bcc] px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
+            <span className="text-xs font-black uppercase tracking-wider text-nirghos-primary px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
               We Are Hiring
             </span>
             <h3 className="text-2xl sm:text-4xl font-black">
@@ -312,7 +312,7 @@ export const Team = () => {
           <div className="shrink-0">
             <Link
               to="/careers"
-              className="px-8 py-4 rounded-full bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
             >
               <span>View Open Roles</span>
               <ArrowRight className="w-4 h-4" />

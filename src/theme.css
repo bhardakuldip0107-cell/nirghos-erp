@@ -1,0 +1,18 @@
+:root {
+  /* ========================================================================= */
+  /* NIRGHOS ERP — MASTER COLOR THEME (SINGLE FILE CONTROL)                    */
+  /* Change these values here to update the color theme across the entire site */
+  /* ========================================================================= */
+
+  /* 1. Direct Hex Tokens (used by SVG strokes, fills, and custom CSS) */
+  --brand-primary: #2e6bcc;
+  --brand-hover: #2355a6;
+  --brand-electric: #4582e6;
+  --brand-light: #6ca0f2;
+
+  /* 2. Space-Separated RGB Channels (used by Tailwind opacity utilities like /15, /50, /95) */
+  --brand-primary-rgb: 46 107 204;
+  --brand-hover-rgb: 35 85 166;
+  --brand-electric-rgb: 69 130 230;
+  --brand-light-rgb: 108 160 242;
+}

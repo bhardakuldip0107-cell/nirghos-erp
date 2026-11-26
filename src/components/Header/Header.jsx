@@ -212,7 +212,7 @@ export const Header = () => {
         {/* ========================================================================= */}
         {/* 1. TOP ANNOUNCEMENT BANNER (Electric Sky Gradient from Screenshot)        */}
         {/* ========================================================================= */}
-        <div className="w-full bg-gradient-to-r from-[#2e6bcc] via-[#4582e6] to-[#2e6bcc] text-white py-2 px-4 text-center select-none shadow-xs">
+        <div className="w-full bg-gradient-to-r from-nirghos-primary via-nirghos-electric to-nirghos-primary text-white py-2 px-4 text-center select-none shadow-xs">
           <div className="w-full max-w-[1750px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
             <span>&ldquo;Nirghos E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Nirghos ERP Solutions Pvt. Ltd.&rdquo;</span>
           </div>
@@ -231,7 +231,7 @@ export const Header = () => {
                 alt="NIRGHOS ERP Official Logo" 
                 className="h-9 sm:h-10 md:h-11 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform" 
               />
-              <span className="text-[#2e6bcc] text-[10px] sm:text-[11px] font-black uppercase px-1.5 py-0.5 rounded bg-sky-100 border border-sky-200 tracking-wider">
+              <span className="text-nirghos-primary text-[10px] sm:text-[11px] font-black uppercase px-1.5 py-0.5 rounded bg-sky-100 border border-sky-200 tracking-wider">
                 ERP
               </span>
             </Link>
@@ -245,8 +245,8 @@ export const Header = () => {
                 end
                 className={({ isActive }) => `px-3 py-2 text-sm font-semibold transition-all relative ${
                   isActive 
-                    ? 'text-[#2e6bcc] font-bold border-b-2 border-[#2e6bcc]' 
-                    : 'text-slate-700 hover:text-[#2e6bcc]'
+                    ? 'text-nirghos-primary font-bold border-b-2 border-nirghos-primary' 
+                    : 'text-slate-700 hover:text-nirghos-primary'
                 }`}
               >
                 Home
@@ -263,12 +263,12 @@ export const Header = () => {
                   onClick={(e) => handleToggle('products', e)}
                   className={`px-3 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
                     activeDropdown === 'products'
-                      ? 'text-[#2e6bcc] font-bold border-b-2 border-[#2e6bcc]' 
-                      : 'text-slate-700 hover:text-[#2e6bcc]'
+                      ? 'text-nirghos-primary font-bold border-b-2 border-nirghos-primary' 
+                      : 'text-slate-700 hover:text-nirghos-primary'
                   }`}
                 >
                   <span>Products</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180 text-[#2e6bcc]' : 'text-slate-500'}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180 text-nirghos-primary' : 'text-slate-500'}`} />
                 </button>
               </div>
 
@@ -277,8 +277,8 @@ export const Header = () => {
                 to="/industries"
                 className={({ isActive }) => `px-3 py-2 text-sm font-semibold transition-all relative ${
                   isActive 
-                    ? 'text-[#2e6bcc] font-bold border-b-2 border-[#2e6bcc]' 
-                    : 'text-slate-700 hover:text-[#2e6bcc]'
+                    ? 'text-nirghos-primary font-bold border-b-2 border-nirghos-primary' 
+                    : 'text-slate-700 hover:text-nirghos-primary'
                 }`}
               >
                 Industries
@@ -289,8 +289,8 @@ export const Header = () => {
                 to="/pricing"
                 className={({ isActive }) => `px-3 py-2 text-sm font-semibold transition-all relative flex items-center gap-1.5 ${
                   isActive 
-                    ? 'text-[#2e6bcc] font-bold border-b-2 border-[#2e6bcc]' 
-                    : 'text-slate-700 hover:text-[#2e6bcc]'
+                    ? 'text-nirghos-primary font-bold border-b-2 border-nirghos-primary' 
+                    : 'text-slate-700 hover:text-nirghos-primary'
                 }`}
               >
                 <span>Pricing</span>
@@ -310,12 +310,12 @@ export const Header = () => {
                   onClick={(e) => handleToggle('explore', e)}
                   className={`px-3 py-2 text-sm font-semibold transition-all flex items-center gap-1 cursor-pointer relative ${
                     activeDropdown === 'explore' || ['/about', '/contact', '/life', '/team', '/blogs', '/events', '/testimonials'].includes(location.pathname)
-                      ? 'text-[#2e6bcc] font-bold border-b-2 border-[#2e6bcc]' 
-                      : 'text-slate-700 hover:text-[#2e6bcc]'
+                      ? 'text-nirghos-primary font-bold border-b-2 border-nirghos-primary' 
+                      : 'text-slate-700 hover:text-nirghos-primary'
                   }`}
                 >
                   <span>Company</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'explore' ? 'rotate-180 text-[#2e6bcc]' : 'text-slate-500'}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'explore' ? 'rotate-180 text-nirghos-primary' : 'text-slate-500'}`} />
                 </button>
               </div>
 
@@ -353,7 +353,7 @@ export const Header = () => {
               <button
                 type="button"
                 onClick={() => setIsDemoModalOpen(true)}
-                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#2e6bcc] to-[#4582e6] hover:from-[#2355a6] hover:to-[#2e6bcc] text-white font-bold text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 transition-all transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-1.5"
+                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-nirghos-primary to-nirghos-electric hover:from-nirghos-primary-hover hover:to-nirghos-primary text-white font-bold text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 transition-all transform hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-1.5"
               >
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4 h-4" />
@@ -366,7 +366,7 @@ export const Header = () => {
               <button
                 type="button"
                 onClick={() => setIsDemoModalOpen(true)}
-                className="px-4 py-1.5 rounded-full bg-[#2e6bcc] text-white font-bold text-xs shadow-sm"
+                className="px-4 py-1.5 rounded-full bg-nirghos-primary text-white font-bold text-xs shadow-sm"
               >
                 Book Demo
               </button>
@@ -412,7 +412,7 @@ export const Header = () => {
                               {card.badge}
                             </span>
                           )}
-                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#2e6bcc] transition-colors leading-tight">
+                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-nirghos-primary transition-colors leading-tight">
                             {card.title}
                           </h4>
                           <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-snug">
@@ -445,7 +445,7 @@ export const Header = () => {
                         onClick={() => setActiveDropdown(null)}
                         className="p-4 rounded-xl bg-white hover:bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-all flex items-start gap-3.5 group shadow-2xs hover:shadow-sm"
                       >
-                        <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#2e6bcc] border border-sky-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <div className="w-10 h-10 rounded-xl bg-sky-50 text-nirghos-primary border border-sky-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                           <CardIcon className="w-5 h-5" />
                         </div>
                         <div className="flex-1 min-w-0">
@@ -454,7 +454,7 @@ export const Header = () => {
                               {card.badge}
                             </span>
                           )}
-                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-[#2e6bcc] transition-colors leading-tight">
+                          <h4 className="text-sm font-bold text-slate-800 group-hover:text-nirghos-primary transition-colors leading-tight">
                             {card.title}
                           </h4>
                           <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-snug">
@@ -482,7 +482,7 @@ export const Header = () => {
                 end
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) => `block px-4 py-2.5 rounded-xl text-sm font-bold transition ${
-                  isActive ? 'bg-sky-50 text-[#2e6bcc]' : 'text-slate-700 hover:bg-slate-100'
+                  isActive ? 'bg-sky-50 text-nirghos-primary' : 'text-slate-700 hover:bg-slate-100'
                 }`}
               >
                 Home
@@ -492,7 +492,7 @@ export const Header = () => {
                 to="/industries"
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) => `block px-4 py-2.5 rounded-xl text-sm font-bold transition ${
-                  isActive ? 'bg-sky-50 text-[#2e6bcc]' : 'text-slate-700 hover:bg-slate-100'
+                  isActive ? 'bg-sky-50 text-nirghos-primary' : 'text-slate-700 hover:bg-slate-100'
                 }`}
               >
                 Industries (25 Verticals)
@@ -502,7 +502,7 @@ export const Header = () => {
                 to="/pricing"
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) => `block px-4 py-2.5 rounded-xl text-sm font-bold transition flex items-center justify-between ${
-                  isActive ? 'bg-sky-50 text-[#2e6bcc]' : 'text-slate-700 hover:bg-slate-100'
+                  isActive ? 'bg-sky-50 text-nirghos-primary' : 'text-slate-700 hover:bg-slate-100'
                 }`}
               >
                 <span>Pricing Plans</span>
@@ -556,7 +556,7 @@ export const Header = () => {
               <button
                 type="button"
                 onClick={() => { setIsDemoModalOpen(true); setMobileMenuOpen(false); }}
-                className="w-full py-3 rounded-full bg-gradient-to-r from-[#2e6bcc] to-[#4582e6] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3 rounded-full bg-gradient-to-r from-nirghos-primary to-nirghos-electric text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4 h-4" />

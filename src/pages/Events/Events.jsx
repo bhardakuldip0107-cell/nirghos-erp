@@ -176,24 +176,24 @@ export const Events = () => {
       {/* ========================================================================= */}
       <section className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white pt-14 pb-24 border-b border-navy-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-15 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-[#2e6bcc]/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-nirghos-primary/15 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs text-slate-400 mb-5">
             <Link to="/" className="hover:text-white transition">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-[#2e6bcc] font-semibold">Nirghos's Events</span>
+            <span className="text-nirghos-primary font-semibold">Nirghos's Events</span>
           </div>
 
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2e6bcc]/15 border border-[#2e6bcc]/30 text-[#2e6bcc] text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-nirghos-primary/15 border border-nirghos-primary/30 text-nirghos-primary text-xs font-black uppercase tracking-wider">
               <CalendarCheck className="w-3.5 h-3.5" />
               <span>Events & Summits</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              Where Technology Meets <span className="text-[#2e6bcc]">Memorable Experiences.</span>
+              Where Technology Meets <span className="text-nirghos-primary">Memorable Experiences.</span>
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
@@ -204,7 +204,7 @@ export const Events = () => {
               <button
                 type="button"
                 onClick={() => handleRegister(eventsList[0])}
-                className="px-6 py-3.5 rounded-full bg-[#2e6bcc] text-white font-bold text-sm hover:bg-[#2355a6] shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-full bg-nirghos-primary text-white font-bold text-sm hover:bg-nirghos-primary-hover shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 cursor-pointer"
               >
                 <span>Reserve Free Summit Pass</span>
                 <ArrowRight className="w-4 h-4" />
@@ -215,7 +215,7 @@ export const Events = () => {
                 className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2 cursor-pointer"
               >
                 <span>Book 1-on-1 Walkthrough</span>
-                <Sparkles className="w-4 h-4 text-[#2e6bcc]" />
+                <Sparkles className="w-4 h-4 text-nirghos-primary" />
               </button>
             </div>
           </div>
@@ -231,10 +231,10 @@ export const Events = () => {
             
             <div className="lg:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3.5 py-1 rounded-full bg-[#2e6bcc] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-xs">
+                <span className="px-3.5 py-1 rounded-full bg-nirghos-primary text-white font-mono font-bold text-xs uppercase tracking-wider shadow-xs">
                   Flagship Event
                 </span>
-                <span className="px-3 py-1 rounded-full bg-sky-50 text-[#2e6bcc] border border-sky-200 text-xs font-bold">
+                <span className="px-3 py-1 rounded-full bg-sky-50 text-nirghos-primary border border-sky-200 text-xs font-bold">
                   {eventsList[0].seatsLeft}
                 </span>
                 <span className="text-xs text-slate-500 font-medium flex items-center gap-1.5">
@@ -253,11 +253,11 @@ export const Events = () => {
 
               <div className="pt-2 flex flex-wrap items-center gap-6 text-xs text-slate-600 font-semibold">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#2e6bcc]" />
+                  <MapPin className="w-4 h-4 text-nirghos-primary" />
                   <span>{eventsList[0].location}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#2e6bcc]" />
+                  <Clock className="w-4 h-4 text-nirghos-primary" />
                   <span>{eventsList[0].time}</span>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export const Events = () => {
                 <button
                   type="button"
                   onClick={() => handleRegister(eventsList[0])}
-                  className="px-6 py-3 rounded-full bg-slate-900 hover:bg-[#2e6bcc] text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3 rounded-full bg-slate-900 hover:bg-nirghos-primary text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span>Register Free Ticket</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -329,7 +329,7 @@ export const Events = () => {
                 onClick={() => setSelectedTab(tab)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   selectedTab === tab
-                    ? 'bg-[#2e6bcc] text-white shadow-xs'
+                    ? 'bg-nirghos-primary text-white shadow-xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >
@@ -348,7 +348,7 @@ export const Events = () => {
             >
               <div className="space-y-3.5">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="px-3 py-1 rounded-full bg-sky-50 text-[#2e6bcc] font-bold text-[11px] border border-sky-200">
+                  <span className="px-3 py-1 rounded-full bg-sky-50 text-nirghos-primary font-bold text-[11px] border border-sky-200">
                     {evt.mode}
                   </span>
                   <span className="text-slate-500 font-semibold text-[11px]">
@@ -356,7 +356,7 @@ export const Events = () => {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-black text-slate-900 group-hover:text-[#2e6bcc] transition-colors leading-snug">
+                <h3 className="text-lg font-black text-slate-900 group-hover:text-nirghos-primary transition-colors leading-snug">
                   {evt.title}
                 </h3>
 
@@ -366,7 +366,7 @@ export const Events = () => {
 
                 <div className="pt-2 space-y-1.5 text-xs text-slate-600 font-medium">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-3.5 h-3.5 text-[#2e6bcc] shrink-0" />
+                    <Calendar className="w-3.5 h-3.5 text-nirghos-primary shrink-0" />
                     <span>{evt.date}</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -388,7 +388,7 @@ export const Events = () => {
                 <button
                   type="button"
                   onClick={() => handleRegister(evt)}
-                  className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-[#2e6bcc] text-white font-bold text-xs transition shadow-xs flex items-center gap-1.5 cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-nirghos-primary text-white font-bold text-xs transition shadow-xs flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>RSVP Now</span>
                   <ArrowRight className="w-3 h-3" />
@@ -406,7 +406,7 @@ export const Events = () => {
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-slate-900 via-navy-950 to-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-800 shadow-xl">
           <div className="space-y-3 max-w-xl text-center md:text-left">
-            <span className="text-xs font-black uppercase tracking-wider text-[#2e6bcc] px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
+            <span className="text-xs font-black uppercase tracking-wider text-nirghos-primary px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
               Co-Host or Sponsor
             </span>
             <h3 className="text-2xl sm:text-3xl font-black">
@@ -420,7 +420,7 @@ export const Events = () => {
           <div className="shrink-0">
             <Link
               to="/contact"
-              className="px-8 py-4 rounded-full bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
             >
               <PhoneCall className="w-4 h-4" />
               <span>Contact Events Team</span>

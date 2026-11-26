@@ -1054,7 +1054,7 @@ export const Dashboard = () => {
             </div>
 
             {/* Stat 3: Processing */}
-            <div className="bg-white rounded-3xl p-6 border-2 border-sky-300 shadow-[0_8px_24px_-4px_rgba(69,130,230,0.14)] hover:shadow-xl hover:border-sky-500 transition-all flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-6 border-2 border-sky-300 shadow-[0_8px_24px_-4px_rgb(var(--brand-electric-rgb)/0.14)] hover:shadow-xl hover:border-sky-500 transition-all flex flex-col justify-between">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-black uppercase tracking-wider text-sky-800">Bank Clearance In-Flight</span>
                 <div className="w-10 h-10 rounded-2xl bg-sky-50 text-sky-700 border-2 border-sky-200 flex items-center justify-center font-bold shadow-2xs">
@@ -1414,7 +1414,7 @@ export const Dashboard = () => {
             </div>
 
             {/* Card 4: Optimal Inventory */}
-            <div className="bg-white rounded-3xl p-6 border-2 border-sky-300 shadow-[0_8px_24px_-4px_rgba(69,130,230,0.14)] hover:shadow-xl hover:border-sky-500 transition-all flex flex-col justify-between">
+            <div className="bg-white rounded-3xl p-6 border-2 border-sky-300 shadow-[0_8px_24px_-4px_rgb(var(--brand-electric-rgb)/0.14)] hover:shadow-xl hover:border-sky-500 transition-all flex flex-col justify-between">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-black uppercase tracking-wider text-sky-800">Optimal Stock Health</span>
                 <div className="w-10 h-10 rounded-2xl bg-sky-50 text-sky-700 border-2 border-sky-200 flex items-center justify-center font-bold shadow-2xs">

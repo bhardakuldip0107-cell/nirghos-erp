@@ -69,7 +69,7 @@ export const SectionHeading = ({ title, subtitle, highlight, className = '' }) =
     <h2 className="text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-800 leading-[1.15]">
       {highlight ? (
         <>
-          <span className="text-[#4582e6]">{highlight}</span> {title}
+          <span className="text-nirghos-electric">{highlight}</span> {title}
         </>
       ) : (
         title
@@ -97,7 +97,7 @@ const RoundNav = ({ onPrev, onNext, size = 'md' }) => {
         type="button"
         onClick={onPrev}
         aria-label="Previous"
-        className={`${s} rounded-full bg-white border border-slate-200 text-slate-700 hover:border-[#2e6bcc] hover:text-[#2e6bcc] flex items-center justify-center transition shadow-sm`}
+        className={`${s} rounded-full bg-white border border-slate-200 text-slate-700 hover:border-nirghos-primary hover:text-nirghos-primary flex items-center justify-center transition shadow-sm`}
       >
         <ArrowLeft className="w-4 h-4" />
       </button>
@@ -105,7 +105,7 @@ const RoundNav = ({ onPrev, onNext, size = 'md' }) => {
         type="button"
         onClick={onNext}
         aria-label="Next"
-        className={`${s} rounded-full bg-white border border-slate-200 text-slate-700 hover:border-[#2e6bcc] hover:text-[#2e6bcc] flex items-center justify-center transition shadow-sm`}
+        className={`${s} rounded-full bg-white border border-slate-200 text-slate-700 hover:border-nirghos-primary hover:text-nirghos-primary flex items-center justify-center transition shadow-sm`}
       >
         <ArrowRight className="w-4 h-4" />
       </button>
@@ -128,16 +128,16 @@ const trustItems = [
 
 export const TrustStrip = () => (
   <Container className="relative z-10 mt-6">
-    <div className="bg-white/90 backdrop-blur rounded-2xl border border-slate-200/80 shadow-[0_8px_30px_-12px_rgba(46,107,204,0.18)] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 lg:divide-x divide-slate-100">
+    <div className="bg-white/90 backdrop-blur rounded-2xl border border-slate-200/80 shadow-[0_8px_30px_-12px_rgb(var(--brand-primary-rgb)/0.18)] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 lg:divide-x divide-slate-100">
       {trustItems.map(({ icon: Icon, value, suffix, label }) => (
         <div key={label} className="flex items-center gap-3 px-4 py-4 text-left">
-          <span className="w-9 h-9 rounded-xl bg-sky-50 text-[#2e6bcc] flex items-center justify-center shrink-0">
+          <span className="w-9 h-9 rounded-xl bg-sky-50 text-nirghos-primary flex items-center justify-center shrink-0">
             <Icon className="w-[18px] h-[18px]" />
           </span>
           <div className="min-w-0">
             <p className="text-[15px] font-semibold text-slate-800 leading-tight truncate">
               {value}
-              {suffix && <span className="text-xs text-[#2e6bcc]">{suffix}</span>}
+              {suffix && <span className="text-xs text-nirghos-primary">{suffix}</span>}
             </p>
             <p className="text-xs text-slate-500">{label}</p>
           </div>
@@ -162,7 +162,7 @@ export const DashboardPreview = () => (
           {/* Sidebar */}
           <aside className="hidden md:flex col-span-3 lg:col-span-2 flex-col gap-1 border-r border-slate-100 bg-slate-50/60 p-4">
             <div className="flex items-center gap-2 mb-5">
-              <span className="w-7 h-7 rounded-lg bg-[#2e6bcc] text-white text-xs font-bold flex items-center justify-center">N</span>
+              <span className="w-7 h-7 rounded-lg bg-nirghos-primary text-white text-xs font-bold flex items-center justify-center">N</span>
               <span className="font-semibold text-slate-800 text-sm">Nirghos</span>
             </div>
             {[
@@ -178,7 +178,7 @@ export const DashboardPreview = () => (
               <div
                 key={l}
                 className={`flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs ${
-                  active ? 'bg-sky-100 text-[#2e6bcc] font-semibold' : 'text-slate-500'
+                  active ? 'bg-sky-100 text-nirghos-primary font-semibold' : 'text-slate-500'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -201,7 +201,7 @@ export const DashboardPreview = () => (
                 <span className="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400">
                   <Bell className="w-3.5 h-3.5" />
                 </span>
-                <span className="rounded-lg bg-[#2e6bcc] text-white text-[11px] font-semibold px-3 py-2">+ New Invoice</span>
+                <span className="rounded-lg bg-nirghos-primary text-white text-[11px] font-semibold px-3 py-2">+ New Invoice</span>
               </div>
             </div>
 
@@ -224,13 +224,13 @@ export const DashboardPreview = () => (
               <div className="lg:col-span-2 rounded-xl border border-slate-100 p-4">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-xs font-semibold text-slate-700">Revenue overview</p>
-                  <span className="text-[10px] rounded-full bg-sky-50 text-[#2e6bcc] px-2 py-0.5">Last 12 months</span>
+                  <span className="text-[10px] rounded-full bg-sky-50 text-nirghos-primary px-2 py-0.5">Last 12 months</span>
                 </div>
                 <div className="h-36 flex items-end gap-2">
                   {bars.map((h, i) => (
                     <div key={i} className="flex-1 h-full flex flex-col justify-end">
                       <div
-                        className={`rounded-t-md ${i === 10 ? 'bg-[#2e6bcc]' : 'bg-sky-200/80'}`}
+                        className={`rounded-t-md ${i === 10 ? 'bg-nirghos-primary' : 'bg-sky-200/80'}`}
                         style={{ height: `${h}%` }}
                       />
                     </div>
@@ -242,7 +242,7 @@ export const DashboardPreview = () => (
                 <div className="flex-1 flex items-center justify-center py-2">
                   <svg viewBox="0 0 120 70" className="w-40">
                     <path d="M10 62 A50 50 0 0 1 110 62" fill="none" stroke="#e2e8f0" strokeWidth="10" strokeLinecap="round" />
-                    <path d="M10 62 A50 50 0 0 1 96 28" fill="none" stroke="#4582e6" strokeWidth="10" strokeLinecap="round" />
+                    <path d="M10 62 A50 50 0 0 1 96 28" fill="none" stroke="var(--brand-electric)" strokeWidth="10" strokeLinecap="round" />
                     <text x="60" y="58" textAnchor="middle" className="fill-slate-800" fontSize="18" fontWeight="600">86</text>
                   </svg>
                 </div>
@@ -316,7 +316,7 @@ export const SectorsSection = () => {
                   type="button"
                   onClick={() => selectSector(s)}
                   className={`shrink-0 flex items-center gap-3 rounded-xl px-4 py-3.5 text-left text-[15px] transition ${
-                    active ? 'bg-sky-100/70 text-[#2e6bcc] font-semibold' : 'text-slate-600 hover:bg-slate-50'
+                    active ? 'bg-sky-100/70 text-nirghos-primary font-semibold' : 'text-slate-600 hover:bg-slate-50'
                   }`}
                 >
                   <Icon className="w-5 h-5 shrink-0" />
@@ -345,14 +345,14 @@ export const SectorsSection = () => {
                   <Link
                     key={ind.slug}
                     to={`/industries/${ind.slug}`}
-                    className="group rounded-2xl border border-slate-200 p-5 hover:border-[#2e6bcc]/50 hover:shadow-card-hover transition bg-white"
+                    className="group rounded-2xl border border-slate-200 p-5 hover:border-nirghos-primary/50 hover:shadow-card-hover transition bg-white"
                   >
-                    <span className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-100 text-slate-700 group-hover:text-[#2e6bcc] group-hover:bg-sky-50 flex items-center justify-center transition">
+                    <span className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-100 text-slate-700 group-hover:text-nirghos-primary group-hover:bg-sky-50 flex items-center justify-center transition">
                       <DynamicIcon name={ind.icon} className="w-[18px] h-[18px]" />
                     </span>
                     <p className="mt-4 font-semibold text-slate-800 flex items-center gap-1">
                       {ind.name}
-                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 text-[#2e6bcc] transition" />
+                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 text-nirghos-primary transition" />
                     </p>
                     <p className="mt-1.5 text-sm text-slate-500 leading-relaxed line-clamp-2">{ind.shortDesc}</p>
                   </Link>
@@ -371,7 +371,7 @@ export const SectorsSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent pointer-events-none" />
                 {featured && (
-                  <span className="absolute top-3 right-3 rounded-full bg-[#2e6bcc]/95 backdrop-blur-xs text-white text-[11px] font-semibold px-3 py-1 shadow-md">
+                  <span className="absolute top-3 right-3 rounded-full bg-nirghos-primary/95 backdrop-blur-xs text-white text-[11px] font-semibold px-3 py-1 shadow-md">
                     {featured.name.split('&')[0].trim()}
                   </span>
                 )}
@@ -384,9 +384,9 @@ export const SectorsSection = () => {
               </div>
               <Link
                 to="/industries"
-                className="group rounded-2xl bg-[#2e6bcc] hover:bg-[#2355a6] text-white px-5 py-4 flex items-center gap-3 transition"
+                className="group rounded-2xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white px-5 py-4 flex items-center gap-3 transition"
               >
-                <span className="w-10 h-10 rounded-xl bg-white text-[#2e6bcc] flex items-center justify-center shrink-0">
+                <span className="w-10 h-10 rounded-xl bg-white text-nirghos-primary flex items-center justify-center shrink-0">
                   <SectorIcon className="w-5 h-5" />
                 </span>
                 <span className="flex-1 min-w-0">
@@ -501,7 +501,7 @@ const HubDiagram = ({ nodes }) => {
   const right = nodes.slice(3, 6);
   const Node = ([Icon, label]) => (
     <div key={label} className="flex items-center gap-2 rounded-xl bg-white border border-slate-100 shadow-sm px-3 py-2.5 text-xs font-medium text-slate-700 w-[132px]">
-      <Icon className="w-4 h-4 text-[#2e6bcc] shrink-0" />
+      <Icon className="w-4 h-4 text-nirghos-primary shrink-0" />
       <span className="truncate">{label}</span>
     </div>
   );
@@ -555,18 +555,18 @@ export const ErpForSection = () => {
               >
                 <span
                   className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                    active ? 'bg-[#4582e6] text-white' : 'bg-white text-slate-700 border border-slate-200'
+                    active ? 'bg-nirghos-electric text-white' : 'bg-white text-slate-700 border border-slate-200'
                   }`}
                 >
                   <Icon className="w-6 h-6" />
                 </span>
                 <span className="flex-1 min-w-0">
-                  <span className={`block text-base sm:text-lg font-semibold ${active ? 'text-[#2355a6]' : 'text-slate-800'}`}>{t.tab}</span>
+                  <span className={`block text-base sm:text-lg font-semibold ${active ? 'text-nirghos-primary-hover' : 'text-slate-800'}`}>{t.tab}</span>
                   <span className="block text-xs sm:text-sm text-slate-500">{t.tabSub}</span>
                 </span>
                 <span
                   className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-                    active ? 'bg-[#4582e6] text-white' : 'bg-white text-slate-500'
+                    active ? 'bg-nirghos-electric text-white' : 'bg-white text-slate-500'
                   }`}
                 >
                   {active ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
@@ -582,18 +582,18 @@ export const ErpForSection = () => {
             <div>
               <h3 className="text-2xl sm:text-3xl font-semibold text-slate-800">{data.title}</h3>
               <p className="mt-4 text-slate-500 leading-relaxed">{data.desc}</p>
-              <p className="mt-5 border-l-2 border-[#2e6bcc] pl-4 text-sm font-medium text-slate-700">{data.quote}</p>
+              <p className="mt-5 border-l-2 border-nirghos-primary pl-4 text-sm font-medium text-slate-700">{data.quote}</p>
               <div className="mt-6 flex gap-12">
                 {data.stats.map(([v, l]) => (
                   <div key={l}>
-                    <p className="text-3xl font-semibold text-[#2355a6]">{v}</p>
+                    <p className="text-3xl font-semibold text-nirghos-primary-hover">{v}</p>
                     <p className="text-xs text-slate-500 mt-1">{l}</p>
                   </div>
                 ))}
               </div>
               <Link
                 to={data.cta.to}
-                className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#4582e6] hover:bg-[#2e6bcc] text-white text-sm font-semibold px-5 py-3.5 transition"
+                className="mt-7 inline-flex items-center gap-2 rounded-xl bg-nirghos-electric hover:bg-nirghos-primary text-white text-sm font-semibold px-5 py-3.5 transition"
               >
                 {data.cta.label} <ArrowRight className="w-4 h-4" />
               </Link>
@@ -624,7 +624,7 @@ export const ErpForSection = () => {
                     <Link
                       key={slug}
                       to={`/industries/${slug}`}
-                      className="rounded-full bg-white border border-slate-200 px-3.5 py-1.5 text-sm text-slate-700 hover:border-[#2e6bcc] hover:text-[#2e6bcc] transition"
+                      className="rounded-full bg-white border border-slate-200 px-3.5 py-1.5 text-sm text-slate-700 hover:border-nirghos-primary hover:text-nirghos-primary transition"
                     >
                       {ind.name.split('&')[0].trim()}
                     </Link>
@@ -740,7 +740,7 @@ export const SmartStoreFeatures = () => {
                   setS(0);
                 }}
                 className={`shrink-0 text-left text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight transition-colors ${
-                  i === g ? 'text-[#4582e6]' : 'text-slate-200 hover:text-slate-300'
+                  i === g ? 'text-nirghos-electric' : 'text-slate-200 hover:text-slate-300'
                 }`}
               >
                 {f.group}
@@ -753,7 +753,7 @@ export const SmartStoreFeatures = () => {
               <span className="font-mono text-[11px] text-slate-500">{pad(s + 1)}</span>
               <div className="w-px flex-1 bg-slate-300 relative">
                 <div
-                  className="absolute top-0 left-0 w-px bg-[#2e6bcc] transition-all duration-500"
+                  className="absolute top-0 left-0 w-px bg-nirghos-primary transition-all duration-500"
                   style={{ height: `${((s + 1) / group.slides.length) * 100}%` }}
                 />
               </div>
@@ -762,7 +762,7 @@ export const SmartStoreFeatures = () => {
 
             <div key={`${g}-${s}`} className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_280px] gap-6 animate-fadeIn">
               <div className="flex flex-col">
-                <span className="self-start rounded-full bg-white px-3 py-1 text-xs font-medium text-[#2355a6] shadow-sm">{group.group}</span>
+                <span className="self-start rounded-full bg-white px-3 py-1 text-xs font-medium text-nirghos-primary-hover shadow-sm">{group.group}</span>
                 <div className="mt-auto pt-10">
                   <h3 className="text-2xl sm:text-3xl font-semibold text-slate-800">{slide.title}</h3>
                   <p className="mt-3 text-slate-500 leading-relaxed max-w-md">{slide.desc}</p>
@@ -777,7 +777,7 @@ export const SmartStoreFeatures = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/25 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 rounded-xl bg-white/95 backdrop-blur-xs px-3 py-2 shadow-md border border-slate-100">
-                    <span className="w-7 h-7 rounded-lg bg-sky-50 text-[#2e6bcc] flex items-center justify-center shrink-0">
+                    <span className="w-7 h-7 rounded-lg bg-sky-50 text-nirghos-primary flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4" />
                     </span>
                     <span className="text-xs font-semibold text-slate-800 truncate">{slide.title}</span>
@@ -795,7 +795,7 @@ export const SmartStoreFeatures = () => {
         <div className="mt-10 flex justify-center">
           <Link
             to="/dashboard"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#4582e6] hover:bg-[#2e6bcc] text-white text-sm font-semibold px-6 py-3.5 transition"
+            className="inline-flex items-center gap-2 rounded-xl bg-nirghos-electric hover:bg-nirghos-primary text-white text-sm font-semibold px-6 py-3.5 transition"
           >
             Try Nirghos Now <ArrowRight className="w-4 h-4" />
           </Link>
@@ -869,13 +869,13 @@ export const AiBanner = ({ onWatch }) => (
             <div className="rounded-2xl bg-white shadow-2xl p-5 max-w-md ml-auto">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-1.5 text-sm font-semibold text-slate-800">
-                  <Sparkles className="w-4 h-4 text-[#2e6bcc]" /> Nirghos AI
+                  <Sparkles className="w-4 h-4 text-nirghos-primary" /> Nirghos AI
                 </span>
                 <span className="text-[10px] rounded-full bg-emerald-50 text-emerald-600 px-2 py-0.5">Online</span>
               </div>
               <p className="mt-4 text-sm font-medium text-slate-800">Good morning 👋</p>
               <p className="text-xs text-slate-400">How can I help you today?</p>
-              <div className="mt-4 ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-sm bg-[#2e6bcc] text-white text-xs px-3.5 py-2.5">
+              <div className="mt-4 ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-sm bg-nirghos-primary text-white text-xs px-3.5 py-2.5">
                 Which products should I reorder this week?
               </div>
               <div className="mt-3 rounded-2xl rounded-bl-sm bg-slate-50 border border-slate-100 text-xs text-slate-600 px-3.5 py-3 space-y-2">
@@ -887,7 +887,7 @@ export const AiBanner = ({ onWatch }) => (
                 ].map(([n, q]) => (
                   <div key={n} className="flex justify-between rounded-lg bg-white border border-slate-100 px-2.5 py-1.5">
                     <span className="text-slate-700">{n}</span>
-                    <span className="font-semibold text-[#2e6bcc]">{q}</span>
+                    <span className="font-semibold text-nirghos-primary">{q}</span>
                   </div>
                 ))}
               </div>
@@ -963,7 +963,7 @@ export const IntegrationsHub = () => {
           <img src={n.logo} alt={n.name} className="max-h-8 max-w-[110px] object-contain" />
         ) : (
           <span className="text-xs font-semibold text-slate-700 flex items-center gap-1">
-            <FileBadge className="w-3.5 h-3.5 text-[#2e6bcc]" /> {n.text}
+            <FileBadge className="w-3.5 h-3.5 text-nirghos-primary" /> {n.text}
           </span>
         )}
       </div>
@@ -990,7 +990,7 @@ export const IntegrationsHub = () => {
                   type="button"
                   onClick={() => setActive(c)}
                   className={`shrink-0 flex items-center justify-between gap-6 border-l-2 px-4 py-3 text-left text-[17px] transition ${
-                    c === active ? 'border-[#4582e6] text-[#2e6bcc] font-medium' : 'border-slate-200 text-slate-400 hover:text-slate-600'
+                    c === active ? 'border-nirghos-electric text-nirghos-primary font-medium' : 'border-slate-200 text-slate-400 hover:text-slate-600'
                   }`}
                 >
                   {c}
@@ -1028,10 +1028,10 @@ export const IntegrationsHub = () => {
 const OrbitStatCircle = ({ value, label, sublabel, orbitClass }) => (
   <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-400/75 bg-sky-50/50 flex items-center justify-center shadow-sm mx-auto">
     <div className={`absolute inset-0 pointer-events-none ${orbitClass}`}>
-      <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#2e6bcc] shadow-[0_0_10px_rgba(46,107,204,0.75)] ring-4 ring-sky-200/60" />
+      <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-nirghos-primary shadow-[0_0_10px_rgb(var(--brand-primary-rgb)/0.75)] ring-4 ring-sky-200/60" />
     </div>
     <div className="relative z-10 text-center px-3">
-      <p className="text-2xl sm:text-3xl font-bold text-[#2e6bcc] tracking-tight">{value}</p>
+      <p className="text-2xl sm:text-3xl font-bold text-nirghos-primary tracking-tight">{value}</p>
       <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-1 leading-tight">{label}</p>
       {sublabel && <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 leading-tight">{sublabel}</p>}
     </div>
@@ -1042,7 +1042,7 @@ export const ClientsWall = () => (
   <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
     <Container>
       <h2 className="text-center text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-800 leading-[1.15]">
-        <span className="text-[#4582e6]">50+</span> businesses
+        <span className="text-nirghos-electric">50+</span> businesses
         <br />
         happy clients who make us
       </h2>
@@ -1083,9 +1083,9 @@ export const ClientsWall = () => (
 /* ------------------------------------------------------------------------- */
 
 const storyGradients = [
-  'from-[#0B192C] via-[#075985] to-[#4582e6]',
-  'from-[#132842] via-[#2355a6] to-[#6ca0f2]',
-  'from-[#060e19] via-[#1E3E62] to-[#2e6bcc]'
+  'from-[#0B192C] via-[#075985] to-nirghos-electric',
+  'from-[#132842] via-nirghos-primary-hover to-nirghos-cyan',
+  'from-[#060e19] via-[#1E3E62] to-nirghos-primary'
 ];
 
 export const TestimonialStories = ({ testimonials, onPlay }) => {
@@ -1108,13 +1108,13 @@ export const TestimonialStories = ({ testimonials, onPlay }) => {
 
         <div className="mt-12 rounded-[32px] bg-slate-100/80 p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div key={`q${i}`} className="animate-fadeIn">
-            <div className="flex gap-1 text-[#4582e6]">
+            <div className="flex gap-1 text-nirghos-electric">
               {[...Array(5)].map((_, k) => (
                 <Star key={k} className="w-4 h-4 fill-current" />
               ))}
             </div>
             <p className="mt-5 text-lg sm:text-xl text-slate-700 leading-relaxed">“{t.fullQuote || t.quote}”</p>
-            <p className="mt-5 border-l-2 border-[#2e6bcc] pl-3 text-sm">
+            <p className="mt-5 border-l-2 border-nirghos-primary pl-3 text-sm">
               <span className="font-semibold text-slate-800">{t.name}</span>
               <span className="text-slate-300 mx-2">|</span>
               <span className="text-slate-500">{t.org}</span>
@@ -1125,7 +1125,7 @@ export const TestimonialStories = ({ testimonials, onPlay }) => {
                   type="button"
                   aria-label="Previous story"
                   onClick={() => setI((i - 1 + total) % total)}
-                  className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-slate-700 hover:text-[#2e6bcc]"
+                  className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-slate-700 hover:text-nirghos-primary"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -1133,7 +1133,7 @@ export const TestimonialStories = ({ testimonials, onPlay }) => {
                   type="button"
                   aria-label="Next story"
                   onClick={() => setI((i + 1) % total)}
-                  className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-slate-700 hover:text-[#2e6bcc]"
+                  className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center text-slate-700 hover:text-nirghos-primary"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -1158,13 +1158,13 @@ export const TestimonialStories = ({ testimonials, onPlay }) => {
                   aria-label={`Play ${t.name} story`}
                   className="relative w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-2xl ring-8 ring-white/20 hover:scale-105 transition"
                 >
-                  <Play className="w-7 h-7 text-[#4582e6] fill-current ml-1" />
+                  <Play className="w-7 h-7 text-nirghos-electric fill-current ml-1" />
                 </button>
               ) : (
                 <span className="relative text-white text-7xl font-serif opacity-40">“</span>
               )}
               <div className="absolute left-4 bottom-4 rounded-xl bg-white/90 backdrop-blur px-4 py-3">
-                <p className="font-mono text-[11px] tracking-widest text-[#2e6bcc]">
+                <p className="font-mono text-[11px] tracking-widest text-nirghos-primary">
                   STORY {pad(i + 1)} / {pad(total)}
                 </p>
                 <p className="font-semibold text-slate-800">{t.org.split(',')[0]}</p>
@@ -1185,7 +1185,7 @@ export const TestimonialStories = ({ testimonials, onPlay }) => {
 export const CtaBanner = ({ onBook }) => (
   <section className="py-10 sm:py-14 bg-white">
     <Container>
-      <div className="relative overflow-hidden rounded-[32px] bg-[#4582e6] px-6 py-12 sm:px-12 sm:py-16">
+      <div className="relative overflow-hidden rounded-[32px] bg-nirghos-electric px-6 py-12 sm:px-12 sm:py-16">
         <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full border border-white/20" />
         <div className="absolute right-10 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-white/20" />
 
@@ -1201,7 +1201,7 @@ export const CtaBanner = ({ onBook }) => (
               <button
                 type="button"
                 onClick={onBook}
-                className="inline-flex items-center gap-2 rounded-xl bg-white text-[#2355a6] font-semibold px-6 py-3.5 hover:bg-sky-50 transition"
+                className="inline-flex items-center gap-2 rounded-xl bg-white text-nirghos-primary-hover font-semibold px-6 py-3.5 hover:bg-sky-50 transition"
               >
                 Book a Free Demo <ArrowRight className="w-4 h-4" />
               </button>
@@ -1221,7 +1221,7 @@ export const CtaBanner = ({ onBook }) => (
               <p className="text-2xl font-semibold text-slate-800">₹4,82,350</p>
               <div className="mt-4 h-24 flex items-end gap-1.5">
                 {bars.map((h, k) => (
-                  <div key={k} className={`flex-1 self-end rounded-t ${k === 10 ? 'bg-[#2e6bcc]' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
+                  <div key={k} className={`flex-1 self-end rounded-t ${k === 10 ? 'bg-nirghos-primary' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
                 ))}
               </div>
               <p className="mt-3 text-[11px] text-emerald-600 font-medium">+12.4% vs yesterday</p>
@@ -1283,7 +1283,7 @@ export const ExploreNirghos = ({ onBook }) => (
             <h3 className="text-2xl sm:text-3xl font-semibold text-slate-800">Explore Nirghos</h3>
             <p className="mt-1 text-slate-500">Solutions, industries, features and resources, all in one place.</p>
           </div>
-          <button type="button" onClick={onBook} className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2355a6] hover:gap-2.5 transition-all">
+          <button type="button" onClick={onBook} className="inline-flex items-center gap-1.5 text-sm font-semibold text-nirghos-primary-hover hover:gap-2.5 transition-all">
             Book a demo <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -1294,7 +1294,7 @@ export const ExploreNirghos = ({ onBook }) => (
               <ul className="mt-4 space-y-2.5">
                 {c.links.map(([l, to]) => (
                   <li key={l}>
-                    <Link to={to} className="text-sm text-slate-600 hover:text-[#2e6bcc] transition">
+                    <Link to={to} className="text-sm text-slate-600 hover:text-nirghos-primary transition">
                       {l}
                     </Link>
                   </li>
