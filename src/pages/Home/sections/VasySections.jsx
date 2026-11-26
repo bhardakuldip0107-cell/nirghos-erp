@@ -519,9 +519,7 @@ const HubDiagram = ({ nodes }) => {
       <div className="relative flex items-center justify-between gap-2 min-h-[230px]">
         <div className="flex flex-col justify-between h-[230px]">{left.map(Node)}</div>
         <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-white shadow-xl border border-slate-100 flex items-center justify-center animate-pulse-glow">
-          <span className="text-3xl font-bold text-slate-900">
-            N<span className="text-[#0ea5e9]">.</span>
-          </span>
+          <img src="/nirghos-icon.png" alt="Nirghos Hub" className="w-12 h-12 sm:w-14 sm:h-14 object-contain" />
         </div>
         <div className="flex flex-col justify-between h-[230px]">{right.map(Node)}</div>
       </div>
@@ -925,12 +923,12 @@ const integrationNodes = [
   { name: 'HDFC Bank', logo: '/integrations/hdfc-logo.png', cat: 'Banking', side: 'L' },
   { name: 'Shopify', logo: '/integrations/shopify-logo.png', cat: 'E-commerce', side: 'L' },
   { name: 'WooCommerce', logo: '/integrations/woocommerce-logo.png', cat: 'E-commerce', side: 'L' },
-  { name: 'Fynd', logo: '/integrations/fynd-logo.png', cat: 'E-commerce', side: 'R' },
-  { name: 'QuickSell', logo: '/integrations/quicksell-logo.png', cat: 'E-commerce', side: 'R' },
+  { name: 'WhatsApp API', text: 'WhatsApp Business', cat: 'Messaging', side: 'R' },
   { name: 'Tally Prime', logo: '/integrations/tally-logo.png', cat: 'Accounting', side: 'R' },
-  { name: 'Sequel 247', logo: '/integrations/sequel-logo.png', cat: 'Logistics', side: 'R' },
-  { name: 'E-way Bill', text: 'E-way Bill', cat: 'Compliance', side: 'R' },
-  { name: 'E-Invoice', text: 'GST E-Invoice', cat: 'Compliance', side: 'R' }
+  { name: 'Barcode & Scale', text: 'Weigh-Scale & POS', cat: 'Hardware', side: 'R' },
+  { name: 'Thermal Print', text: 'ESC/POS Printers', cat: 'Hardware', side: 'R' },
+  { name: 'E-way Bill', text: 'NIC E-Way Bill', cat: 'Compliance', side: 'R' },
+  { name: 'E-Invoice', text: 'GST E-Invoice (IRN)', cat: 'Compliance', side: 'R' }
 ];
 
 export const IntegrationsHub = () => {
@@ -977,7 +975,7 @@ export const IntegrationsHub = () => {
       <Container>
         <SectionHeading
           title="Our integration partners"
-          subtitle="Seamless integration with payment gateways, banks, online stores, accounting tools and government compliance portals"
+          subtitle="Connect Nirghos ERP seamlessly with payment gateways, banks, WhatsApp Business, barcode & weigh-scale hardware, online stores and GST portals"
         />
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-8 items-start">
@@ -1009,10 +1007,8 @@ export const IntegrationsHub = () => {
               <div className="relative w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-sky-100/60 animate-ping [animation-duration:3s]" />
                 <div className="absolute inset-2 rounded-full bg-sky-100" />
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white shadow-xl flex items-center justify-center">
-                  <span className="text-2xl sm:text-3xl font-bold text-slate-900">
-                    N<span className="text-[#0ea5e9]">.</span>
-                  </span>
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white shadow-xl flex items-center justify-center border border-sky-100">
+                  <img src="/nirghos-icon.png" alt="Nirghos ERP" className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
                 </div>
               </div>
 
