@@ -828,12 +828,12 @@ export const Home = () => {
   const categoryThemeMap = {
     manufacturing: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200', badge: 'Discrete & Process' },
     trading: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', badge: 'B2B Wholesale' },
-    retail: { bg: 'bg-sky-50', text: 'text-[#0284c7]', border: 'border-sky-200', badge: 'POS & Billing' },
+    retail: { bg: 'bg-sky-50', text: 'text-[#2e6bcc]', border: 'border-sky-200', badge: 'POS & Billing' },
     construction: { bg: 'bg-yellow-50', text: 'text-yellow-800', border: 'border-yellow-200', badge: 'Real Estate & EPC' },
     automobile: { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200', badge: 'Auto & Spare Parts' },
     textile: { bg: 'bg-pink-50', text: 'text-pink-700', border: 'border-pink-200', badge: 'Apparel & Fabric' },
     pharma: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', badge: 'FDA & Batch Trace' },
-    'food-beverage': { bg: 'bg-sky-50', text: 'text-[#0369a1]', border: 'border-sky-200', badge: 'Food & Processing' },
+    'food-beverage': { bg: 'bg-sky-50', text: 'text-[#2355a6]', border: 'border-sky-200', badge: 'Food & Processing' },
     logistics: { bg: 'bg-sky-50', text: 'text-sky-700', border: 'border-sky-200', badge: 'Fleet & Dispatch' },
     education: { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200', badge: 'Campus & Academy' },
     hospital: { bg: 'bg-teal-50', text: 'text-teal-700', border: 'border-teal-200', badge: 'HMS & Clinical' },
@@ -846,7 +846,7 @@ export const Home = () => {
     electronics: { bg: 'bg-blue-50', text: 'text-blue-800', border: 'border-blue-200', badge: 'PCB & Hardware' },
     printing: { bg: 'bg-fuchsia-50', text: 'text-fuchsia-700', border: 'border-fuchsia-200', badge: 'Packaging & Offset' },
     furniture: { bg: 'bg-stone-100', text: 'text-stone-800', border: 'border-stone-300', badge: 'Woodwork & Modular' },
-    ecommerce: { bg: 'bg-sky-50', text: 'text-[#0284c7]', border: 'border-sky-200', badge: 'Omnichannel D2C' },
+    ecommerce: { bg: 'bg-sky-50', text: 'text-[#2e6bcc]', border: 'border-sky-200', badge: 'Omnichannel D2C' },
     'export-import': { bg: 'bg-sky-50', text: 'text-sky-800', border: 'border-sky-200', badge: 'Customs & Port EDI' },
     'oil-gas': { bg: 'bg-amber-50', text: 'text-amber-900', border: 'border-amber-300', badge: 'Fuel & Pipeline' },
     'security-facility': { bg: 'bg-slate-100', text: 'text-slate-800', border: 'border-slate-300', badge: 'Facility & Guards' },
@@ -861,7 +861,7 @@ export const Home = () => {
       categorySlug: 'trading',
       icon: Boxes,
       iconBg: '#e0f2fe',
-      iconColor: '#0284c7',
+      iconColor: '#2e6bcc',
       badge: 'Wholesale & B2B',
       heading: 'High-Velocity Trading, Wholesale & Multi-Warehouse ERP',
       desc: 'Engineered for bulk traders, indenting agents, and wholesale distributors. Nirghos ERP unifies multi-godown inventory, automated customer credit limits, dynamic tier pricing, and instant GST e-invoicing.',
@@ -1379,7 +1379,7 @@ export const Home = () => {
             {/* Left Column: Pill Badge + Headline + Subtitle + CTA */}
             <div className="lg:col-span-6 text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-slate-700 mb-6 animate-fadeIn">
-                <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center">
+                <span className="w-5 h-5 rounded-full bg-[#2e6bcc] text-white flex items-center justify-center">
                   <ArrowRight className="w-3 h-3" />
                 </span>
                 <span>All in One Place</span>
@@ -1387,7 +1387,7 @@ export const Home = () => {
 
               <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-900 tracking-tight leading-[1.12]">
                 Lead the Future with{' '}
-                <span className="text-[#0284c7]">AI-enabled</span> Cloud-based ERP Solutions &amp; Services
+                <span className="text-[#2e6bcc]">AI-enabled</span> Cloud-based ERP Solutions &amp; Services
               </h1>
 
               <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
@@ -1398,14 +1398,14 @@ export const Home = () => {
                 <button
                   type="button"
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   <span>Get Free ERP Consultation</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <Link
                   to="/dashboard"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-sky-50 text-[#0284c7] border border-sky-200 font-semibold text-sm sm:text-base transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-sky-50 text-[#2e6bcc] border border-sky-200 font-semibold text-sm sm:text-base transition-all cursor-pointer"
                 >
                   <span>Explore Live Demo</span>
                 </Link>
@@ -1431,20 +1431,20 @@ export const Home = () => {
                       <div className="flex items-center gap-2 text-[7px] font-semibold text-slate-500">
                         <span>Products</span>
                         <span>Industries</span>
-                        <span className="px-1.5 py-0.5 rounded-full bg-[#0284c7] text-white">Demo</span>
+                        <span className="px-1.5 py-0.5 rounded-full bg-[#2e6bcc] text-white">Demo</span>
                       </div>
                     </div>
                     {/* Mini Hero & Metrics inside Laptop Screen */}
                     <div className="p-3 flex-1 bg-gradient-to-br from-white via-sky-50/40 to-white grid grid-cols-12 gap-2 items-center">
                       <div className="col-span-7 space-y-1.5">
-                        <span className="inline-block text-[6px] font-bold uppercase tracking-wider text-[#0284c7] bg-sky-50 px-1.5 py-0.5 rounded-full">
+                        <span className="inline-block text-[6px] font-bold uppercase tracking-wider text-[#2e6bcc] bg-sky-50 px-1.5 py-0.5 rounded-full">
                           All in One ERP
                         </span>
                         <p className="text-[10px] sm:text-[11px] font-bold text-slate-900 leading-tight">
-                          Lead the Future with <span className="text-[#0284c7]">AI-enabled</span> Nirghos ERP
+                          Lead the Future with <span className="text-[#2e6bcc]">AI-enabled</span> Nirghos ERP
                         </p>
                         <div className="flex gap-1.5 pt-1">
-                          <span className="px-2 py-0.5 rounded-full bg-[#0284c7] text-white text-[6px] font-bold">Get Started</span>
+                          <span className="px-2 py-0.5 rounded-full bg-[#2e6bcc] text-white text-[6px] font-bold">Get Started</span>
                           <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[6px] font-semibold">Live POS</span>
                         </div>
                       </div>
@@ -1475,10 +1475,10 @@ export const Home = () => {
                   <div className="rounded-[18px] bg-white overflow-hidden aspect-[9/18.5] flex flex-col">
                     <div className="px-2.5 py-2 border-b border-slate-100 flex items-center justify-between bg-sky-50/50">
                       <img src="/nirghos-icon.png" alt="Nirghos Mobile" className="w-4 h-4 object-contain" />
-                      <span className="text-[7px] font-bold text-[#0284c7]">NIRGHOS</span>
+                      <span className="text-[7px] font-bold text-[#2e6bcc]">NIRGHOS</span>
                     </div>
                     <div className="p-2.5 space-y-2 flex-1 bg-white">
-                      <div className="rounded-xl bg-[#0284c7] text-white p-2">
+                      <div className="rounded-xl bg-[#2e6bcc] text-white p-2">
                         <p className="text-[6px] opacity-80 uppercase">Mobile POS</p>
                         <p className="text-[10px] font-black">₹1,24,500</p>
                       </div>
@@ -1531,11 +1531,11 @@ export const Home = () => {
                     to={prod.path}
                     className="flex items-center gap-3 px-3 py-1.5 rounded-xl hover:bg-sky-50/70 transition-all group shrink-0"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#0284c7] border border-sky-100/90 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#0284c7] group-hover:text-white transition-all shadow-2xs">
+                    <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#2e6bcc] border border-sky-100/90 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#2e6bcc] group-hover:text-white transition-all shadow-2xs">
                       <ProdIcon className="w-4 h-4" />
                     </div>
                     <div className="flex flex-col text-left leading-tight">
-                      <span className="text-xs sm:text-sm font-black text-slate-800 group-hover:text-[#0284c7] transition-colors whitespace-nowrap">
+                      <span className="text-xs sm:text-sm font-black text-slate-800 group-hover:text-[#2e6bcc] transition-colors whitespace-nowrap">
                         {prod.title}
                       </span>
                       <span className="text-[9px] font-bold text-sky-600 uppercase tracking-wider mt-0.5">
@@ -1572,7 +1572,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-slate-800 tracking-tight leading-tight">
               Innovative solutions for retailers, MSMEs and manufacturers
             </h2>
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full mx-auto mt-3 mb-3"></div>
+            <div className="w-16 h-1 bg-[#2e6bcc] rounded-full mx-auto mt-3 mb-3"></div>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
               Comprehensive solutions, modules, and features to make your stores and business units smart and automated
             </p>
@@ -1593,7 +1593,7 @@ export const Home = () => {
                     }}
                     className={`relative px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer overflow-hidden ${
                       isActive
-                        ? 'bg-[#0284c7] text-white shadow-md shadow-sky-500/25 scale-[1.02]'
+                        ? 'bg-[#2e6bcc] text-white shadow-md shadow-sky-500/25 scale-[1.02]'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
                     }`}
                   >
@@ -1635,7 +1635,7 @@ export const Home = () => {
               <div className="pt-6 border-t border-slate-100 mt-6">
                 <Link
                   to={currentSolution.link}
-                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0284c7] hover:text-[#0369a1] group cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#2e6bcc] hover:text-[#2355a6] group cursor-pointer"
                 >
                   <span>View more</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -1660,7 +1660,7 @@ export const Home = () => {
                         className="bg-white rounded-xl px-3.5 py-2.5 border border-slate-200/80 shadow-2xs flex items-center justify-between gap-2 text-xs font-semibold text-slate-800 hover:border-sky-300 transition-colors w-full"
                       >
                         <div className="flex items-center gap-2 min-w-0">
-                          <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
+                          <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#2e6bcc] flex items-center justify-center shrink-0">
                             <SrcIcon className="w-3.5 h-3.5" />
                           </div>
                           <span className="truncate">{src.label}</span>
@@ -1687,21 +1687,21 @@ export const Home = () => {
                     <path d="M 0 198 C 30 198, 35 110, 52 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
 
                     {/* Flowing Animated Data Streams (vasy.ai style particle cables) */}
-                    <path d="M 0 22 C 30 22, 35 110, 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-70" />
-                    <path d="M 0 66 C 30 66, 35 110, 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-90" />
-                    <path d="M 0 110 L 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-75" />
-                    <path d="M 0 154 C 30 154, 35 110, 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-80" />
-                    <path d="M 0 198 C 30 198, 35 110, 52 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-60" />
+                    <path d="M 0 22 C 30 22, 35 110, 52 110" stroke="#2e6bcc" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-70" />
+                    <path d="M 0 66 C 30 66, 35 110, 52 110" stroke="#2e6bcc" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-90" />
+                    <path d="M 0 110 L 52 110" stroke="#2e6bcc" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-75" />
+                    <path d="M 0 154 C 30 154, 35 110, 52 110" stroke="#2e6bcc" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-80" />
+                    <path d="M 0 198 C 30 198, 35 110, 52 110" stroke="#2e6bcc" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-60" />
                     
                     {/* Blue node on Website channel curve */}
-                    <circle cx="28" cy="66" r="3.5" fill="#0284c7" className="animate-pulse" />
+                    <circle cx="28" cy="66" r="3.5" fill="#2e6bcc" className="animate-pulse" />
 
                     {/* Connecting line from Hub right (x=108) to Orders card left (x=160) */}
                     <path d="M 108 110 L 160 110" stroke="#cbd5e1" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                    <path d="M 108 110 L 160 110" stroke="#0284c7" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-90" />
+                    <path d="M 108 110 L 160 110" stroke="#2e6bcc" strokeWidth="1.5" fill="none" strokeLinecap="round" className="animate-dash-flow opacity-90" />
                     
                     {/* Glowing pulse dot on dispatch line */}
-                    <circle cx="134" cy="110" r="3.5" fill="#0284c7" className="animate-ping" />
+                    <circle cx="134" cy="110" r="3.5" fill="#2e6bcc" className="animate-ping" />
                   </svg>
 
                   {/* Hub Card with Pulsating Glow */}
@@ -1711,7 +1711,7 @@ export const Home = () => {
                       alt="Nirghos Hub" 
                       className="w-8 h-8 lg:w-10 lg:h-10 object-contain drop-shadow-xs group-hover:scale-105 transition-transform" 
                     />
-                    <span className="text-[10px] text-[#0284c7] font-black mt-1 leading-none uppercase tracking-wider">
+                    <span className="text-[10px] text-[#2e6bcc] font-black mt-1 leading-none uppercase tracking-wider">
                       Nirghos
                     </span>
                   </div>
@@ -1763,7 +1763,7 @@ export const Home = () => {
                         >
                           <div className="flex items-center gap-2 min-w-0 flex-1">
                             <div className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
-                              isFirst ? 'text-[#0284c7]' : 'text-slate-400'
+                              isFirst ? 'text-[#2e6bcc]' : 'text-slate-400'
                             }`}>
                               <RowIcon className="w-3.5 h-3.5" />
                             </div>
@@ -1779,7 +1779,7 @@ export const Home = () => {
                   </div>
 
                   {/* Bottom Status Sync Pill */}
-                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-[#0284c7] bg-sky-50/70 py-2 px-3 rounded-xl border border-sky-100/70">
+                  <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-[#2e6bcc] bg-sky-50/70 py-2 px-3 rounded-xl border border-sky-100/70">
                     <RefreshCw className="w-3.5 h-3.5 shrink-0" />
                     <span className="text-center leading-tight truncate">{currentSolution.diagram.orderCard.bottomText}</span>
                   </div>
@@ -1815,7 +1815,7 @@ export const Home = () => {
               
               {/* Badge matching screenshot */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50/90 border border-sky-200/80 text-sky-700 text-xs font-bold uppercase tracking-wider mb-5 shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-[#0284c7] animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-[#2e6bcc] animate-pulse"></span>
                 <span>All in One Retail Platform</span>
               </div>
 
@@ -1823,7 +1823,7 @@ export const Home = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-slate-800 tracking-tight leading-[1.18]">
                 AI-Driven Retail Software <br />
                 <span className="text-slate-800">for </span>
-                <span className="text-[#0284c7]">Smarter Retail Business Management.</span>
+                <span className="text-[#2e6bcc]">Smarter Retail Business Management.</span>
               </h2>
 
               {/* Description customized for Nirghos */}
@@ -1836,13 +1836,13 @@ export const Home = () => {
                 <button
                   type="button"
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="px-7 py-3.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 transition-all duration-200 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 transition-all duration-200 cursor-pointer"
                 >
                   Request Demo
                 </button>
                 <Link
                   to="/industries"
-                  className="px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-[#0284c7] border-2 border-[#0284c7] font-bold text-sm shadow-2xs hover:shadow transition-all duration-200 cursor-pointer"
+                  className="px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-[#2e6bcc] border-2 border-[#2e6bcc] font-bold text-sm shadow-2xs hover:shadow transition-all duration-200 cursor-pointer"
                 >
                   Choose Your Retail Segment
                 </Link>
@@ -1856,7 +1856,7 @@ export const Home = () => {
                 
                 {/* Floating Badge 1 (Top-Right): Checkout Speed (vasy.ai style smooth levitation) */}
                 <div className="absolute top-0 right-2 sm:right-6 lg:right-2 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-xl shadow-slate-300/30 flex items-center gap-2.5 transition-transform hover:-translate-y-1 animate-float-slow">
-                  <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 shadow-2xs">
+                  <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#2e6bcc] flex items-center justify-center shrink-0 shadow-2xs">
                     <ScanLine className="w-4 h-4" />
                   </div>
                   <div>
@@ -1872,7 +1872,7 @@ export const Home = () => {
                 {/* Floating Badge 2 (Bottom-Left): Inventory Sync Accuracy (vasy.ai style delayed levitation) */}
                 <div className="absolute bottom-0 left-2 sm:left-4 lg:left-0 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 border border-slate-200/90 shadow-xl shadow-slate-300/30 min-w-[160px] sm:min-w-[175px] transition-transform hover:-translate-y-1 animate-float-delayed">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 shadow-2xs">
+                    <div className="w-6 h-6 rounded-lg bg-sky-50 text-[#2e6bcc] flex items-center justify-center shrink-0 shadow-2xs">
                       <Boxes className="w-3.5 h-3.5" />
                     </div>
                     <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider">
@@ -1884,7 +1884,7 @@ export const Home = () => {
                     <span className="text-[11px] text-slate-500 font-medium">Accuracy</span>
                   </div>
                   <div className="w-full h-1.5 bg-slate-100 rounded-full mt-1.5 overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-sky-400 to-[#0284c7] rounded-full w-[98.6%]"></div>
+                    <div className="h-full bg-gradient-to-r from-sky-400 to-[#2e6bcc] rounded-full w-[98.6%]"></div>
                   </div>
                 </div>
 
@@ -1892,12 +1892,12 @@ export const Home = () => {
                 <div className="bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/60 p-5 sm:p-7 relative z-10 overflow-hidden hover-lift-glow">
                   
                   {/* Moving Laser Scan Line (vasy.ai high-tech telemetry effect) */}
-                  <div className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#0284c7] to-transparent pointer-events-none animate-laser-scan z-20"></div>
+                  <div className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#2e6bcc] to-transparent pointer-events-none animate-laser-scan z-20"></div>
                   
                   {/* Card Header: Store Network Title & Live Indicator */}
                   <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 shadow-2xs">
+                      <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#2e6bcc] flex items-center justify-center shrink-0 shadow-2xs">
                         <Store className="w-5 h-5" />
                       </div>
                       <div>
@@ -1962,8 +1962,8 @@ export const Home = () => {
                       <svg className="w-full h-full" viewBox="0 0 360 80" preserveAspectRatio="none">
                         <defs>
                           <linearGradient id="retail-throughput-gradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#0284c7" stopOpacity="0.35" />
-                            <stop offset="100%" stopColor="#0284c7" stopOpacity="0.0" />
+                            <stop offset="0%" stopColor="#2e6bcc" stopOpacity="0.35" />
+                            <stop offset="100%" stopColor="#2e6bcc" stopOpacity="0.0" />
                           </linearGradient>
                         </defs>
                         {/* Area fill with breathing wave pulse */}
@@ -1976,13 +1976,13 @@ export const Home = () => {
                         <path
                           d="M 0 65 Q 40 60, 80 50 T 160 55 T 240 25 T 320 28 T 360 30"
                           fill="none"
-                          stroke="#0284c7"
+                          stroke="#2e6bcc"
                           strokeWidth="2.5"
                           strokeLinecap="round"
                         />
                         {/* Live pulsating peak throughput node */}
-                        <circle cx="240" cy="25" r="6" fill="#0284c7" className="animate-ping" opacity="0.5" />
-                        <circle cx="240" cy="25" r="3.5" fill="#0284c7" />
+                        <circle cx="240" cy="25" r="6" fill="#2e6bcc" className="animate-ping" opacity="0.5" />
+                        <circle cx="240" cy="25" r="3.5" fill="#2e6bcc" />
                       </svg>
                     </div>
                   </div>
@@ -2028,7 +2028,7 @@ export const Home = () => {
             
             {/* Header: Left-Aligned 'OUTCOMES' Badge & 'Business Impact' Title with proper maintained spacing */}
             <div className="mb-7 sm:mb-9 text-left">
-              <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#0284c7] block mb-2">
+              <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#2e6bcc] block mb-2">
                 Outcomes
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-slate-800 tracking-tight leading-tight">
@@ -2050,7 +2050,7 @@ export const Home = () => {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
                       {Math.round(impactProgress * 98)}
                     </span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2e6bcc] font-mono leading-none ml-1">
                       %
                     </span>
                   </div>
@@ -2065,7 +2065,7 @@ export const Home = () => {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
                       {Math.round(impactProgress * 95)}
                     </span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2e6bcc] font-mono leading-none ml-1">
                       %
                     </span>
                   </div>
@@ -2080,7 +2080,7 @@ export const Home = () => {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
                       {Math.round(impactProgress * 85)}
                     </span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2e6bcc] font-mono leading-none ml-1">
                       %
                     </span>
                   </div>
@@ -2100,7 +2100,7 @@ export const Home = () => {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
                       {Math.round(impactProgress * 75)}
                     </span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2e6bcc] font-mono leading-none ml-1">
                       %
                     </span>
                   </div>
@@ -2115,7 +2115,7 @@ export const Home = () => {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
                       {Math.round(impactProgress * 60)}
                     </span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2e6bcc] font-mono leading-none ml-1">
                       %
                     </span>
                   </div>
@@ -2130,7 +2130,7 @@ export const Home = () => {
                     <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 font-mono tracking-tight leading-none">
                       {Math.round(impactProgress * 50)}
                     </span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0284c7] font-mono leading-none ml-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2e6bcc] font-mono leading-none ml-1">
                       %
                     </span>
                   </div>
@@ -2173,7 +2173,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
               Press release
             </h2>
-            <div className="w-16 h-1 bg-[#0284c7] rounded-full"></div>
+            <div className="w-16 h-1 bg-[#2e6bcc] rounded-full"></div>
             <p className="text-slate-300 text-sm sm:text-base pt-1 max-w-2xl">
               Official press announcements, nationwide platform launches, strategic alliances, and excellence recognitions.
             </p>
@@ -2210,7 +2210,7 @@ export const Home = () => {
                     </div>
                   </div>
                   <div className="p-4 sm:p-5 space-y-2 text-left">
-                    <h5 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-[#0284c7] transition-colors line-clamp-2">
+                    <h5 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-[#2e6bcc] transition-colors line-clamp-2">
                       {article.headline}
                     </h5>
                     {article.subtitle && (
@@ -2223,7 +2223,7 @@ export const Home = () => {
                     </p>
                   </div>
                 </div>
-                <div className="px-4 py-3 bg-slate-50/80 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0284c7] group-hover:text-[#0369a1]">
+                <div className="px-4 py-3 bg-slate-50/80 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#2e6bcc] group-hover:text-[#2355a6]">
                   <span>Read Full Article</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
@@ -2245,7 +2245,7 @@ export const Home = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-800 tracking-tight leading-tight">
                 Have Any Questions?
               </h2>
-              <div className="w-14 h-1 bg-[#0284c7] rounded-full"></div>
+              <div className="w-14 h-1 bg-[#2e6bcc] rounded-full"></div>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1 max-w-md">
                 Got ERP questions? Explore our FAQs to see how our solutions can support your business growth and daily operations.
               </p>
@@ -2264,15 +2264,15 @@ export const Home = () => {
                         className="w-full py-3.5 sm:py-4 flex items-center justify-between text-left group transition-colors focus:outline-none"
                       >
                         <span className={`text-base sm:text-lg font-bold pr-4 flex items-baseline gap-2 transition-colors ${
-                          isOpen ? 'text-[#0284c7]' : 'text-slate-900 group-hover:text-[#0284c7]'
+                          isOpen ? 'text-[#2e6bcc]' : 'text-slate-900 group-hover:text-[#2e6bcc]'
                         }`}>
                           <span className="shrink-0">{faq.num}</span>
                           <span>{faq.question}</span>
                         </span>
                         <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                           isOpen 
-                            ? 'text-[#0284c7] bg-sky-50' 
-                            : 'text-slate-600 group-hover:text-[#0284c7] group-hover:bg-slate-100'
+                            ? 'text-[#2e6bcc] bg-sky-50' 
+                            : 'text-slate-600 group-hover:text-[#2e6bcc] group-hover:bg-slate-100'
                         }`}>
                           {isOpen ? (
                             <Minus className="w-4 h-4 stroke-[2.5]" />
@@ -2319,7 +2319,7 @@ export const Home = () => {
             </button>
 
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-sky-100 text-[#0284c7] flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-sky-100 text-[#2e6bcc] flex items-center justify-center shrink-0">
                 <Play className="w-6 h-6 fill-current ml-0.5" />
               </div>
               <div>
@@ -2358,7 +2358,7 @@ export const Home = () => {
                   setActiveStoryVideo(null);
                   setIsDemoModalOpen(true);
                 }}
-                className="w-full py-2.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs transition"
+                className="w-full py-2.5 rounded-xl bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-xs transition"
               >
                 Experience This in Nirghos Live Demo
               </button>
@@ -2449,7 +2449,7 @@ export const Home = () => {
                   setSelectedPressModal(null);
                   setIsDemoModalOpen(true);
                 }}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Schedule A Product Demo
               </button>
@@ -2487,7 +2487,7 @@ export const Home = () => {
             </button>
 
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-xs font-bold px-3 py-1 rounded-full bg-sky-50 text-[#0284c7] border border-sky-200">
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-sky-50 text-[#2e6bcc] border border-sky-200">
                 {selectedBlogModal.tag}
               </span>
               <span className="text-xs font-medium text-slate-500 flex items-center gap-1">
@@ -2505,7 +2505,7 @@ export const Home = () => {
             </h3>
 
             <div className="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
-              <div className="w-7 h-7 rounded-full bg-sky-100 text-[#0284c7] font-bold flex items-center justify-center text-xs">
+              <div className="w-7 h-7 rounded-full bg-sky-100 text-[#2e6bcc] font-bold flex items-center justify-center text-xs">
                 {selectedBlogModal.author.slice(0, 2).toUpperCase()}
               </div>
               <span>By {selectedBlogModal.author}</span>
@@ -2543,7 +2543,7 @@ export const Home = () => {
               <Link
                 to="/blogs"
                 onClick={() => setSelectedBlogModal(null)}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Read More on Nirghos Blogs →
               </Link>
@@ -2632,7 +2632,7 @@ export const Home = () => {
               <Link
                 to="/events"
                 onClick={() => setSelectedEventModal(null)}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Explore All Corporate Events →
               </Link>

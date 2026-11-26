@@ -35,7 +35,7 @@ export const Life = () => {
       desc: 'Recognizing breakthroughs in autonomous AI and double-entry financial ledger architecture.',
       date: 'October 2026',
       icon: PartyPopper,
-      badgeColor: 'bg-sky-50 text-[#0284c7] border-sky-200'
+      badgeColor: 'bg-sky-50 text-[#2e6bcc] border-sky-200'
     },
     {
       id: 2,
@@ -134,24 +134,24 @@ export const Life = () => {
       {/* ========================================================================= */}
       <section className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white pt-14 pb-24 border-b border-navy-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-15 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-[#0284c7]/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-[#2e6bcc]/15 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs text-slate-400 mb-5">
             <Link to="/" className="hover:text-white transition">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-            <span className="text-[#0284c7] font-semibold">Life @ Nirghos ERP</span>
+            <span className="text-[#2e6bcc] font-semibold">Life @ Nirghos ERP</span>
           </div>
 
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0284c7]/15 border border-[#0284c7]/30 text-[#0284c7] text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2e6bcc]/15 border border-[#2e6bcc]/30 text-[#2e6bcc] text-xs font-black uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Life @ Nirghos ERP</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              Where Deep Passion Meets <span className="text-[#0284c7]">Unstoppable Energy.</span>
+              Where Deep Passion Meets <span className="text-[#2e6bcc]">Unstoppable Energy.</span>
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
@@ -161,7 +161,7 @@ export const Life = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 to="/careers"
-                className="px-6 py-3.5 rounded-full bg-[#0284c7] text-white font-bold text-sm hover:bg-[#0369a1] shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2"
+                className="px-6 py-3.5 rounded-full bg-[#2e6bcc] text-white font-bold text-sm hover:bg-[#2355a6] shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2"
               >
                 <span>Join Our Growing Team</span>
                 <ArrowRight className="w-4 h-4" />
@@ -183,7 +183,7 @@ export const Life = () => {
       {/* ========================================================================= */}
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-black uppercase tracking-wider text-[#0284c7] px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200">
+          <span className="text-xs font-black uppercase tracking-wider text-[#2e6bcc] px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200">
             Our DNA
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -196,7 +196,7 @@ export const Life = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-lg transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center font-bold">
+            <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#2e6bcc] flex items-center justify-center font-bold">
               <Sparkles className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-black text-slate-900">Radical Ownership</h3>
@@ -235,7 +235,7 @@ export const Life = () => {
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#0284c7] mb-2">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#2e6bcc] mb-2">
                 <Camera className="w-4 h-4" />
                 <span>Life in Action</span>
               </div>
@@ -253,7 +253,7 @@ export const Life = () => {
                   onClick={() => setActiveTab(tab)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === tab
-                      ? 'bg-[#0284c7] text-white shadow-xs'
+                      ? 'bg-[#2e6bcc] text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
@@ -275,7 +275,7 @@ export const Life = () => {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold">
-                        <Icon className="w-6 h-6 text-[#0284c7]" />
+                        <Icon className="w-6 h-6 text-[#2e6bcc]" />
                       </div>
                       <span className={`text-[11px] font-bold px-3 py-1 rounded-full border ${item.badgeColor}`}>
                         {item.tag}
@@ -293,7 +293,7 @@ export const Life = () => {
 
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-semibold">
                     <span>{item.date}</span>
-                    <span className="text-[#0284c7] font-bold">#LifeAtNirghos</span>
+                    <span className="text-[#2e6bcc] font-bold">#LifeAtNirghos</span>
                   </div>
                 </div>
               );
@@ -327,7 +327,7 @@ export const Life = () => {
                 key={perk.title}
                 className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs hover:shadow-md transition-all flex items-start gap-4"
               >
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0 border border-sky-100">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#2e6bcc] flex items-center justify-center shrink-0 border border-sky-100">
                   <Icon className="w-6 h-6" />
                 </div>
                 <div className="space-y-1.5">
@@ -350,7 +350,7 @@ export const Life = () => {
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-slate-900 via-navy-950 to-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-800 shadow-xl">
           <div className="space-y-3 max-w-2xl text-center md:text-left">
-            <span className="text-xs font-black uppercase tracking-wider text-[#0284c7] px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
+            <span className="text-xs font-black uppercase tracking-wider text-[#2e6bcc] px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
               Join Our Tribe
             </span>
             <h3 className="text-2xl sm:text-4xl font-black">
@@ -364,7 +364,7 @@ export const Life = () => {
           <div className="shrink-0 flex flex-wrap items-center gap-4">
             <Link
               to="/careers"
-              className="px-8 py-4 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-[#2e6bcc] hover:bg-[#2355a6] text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
             >
               <span>Explore Open Roles</span>
               <ArrowRight className="w-4 h-4" />

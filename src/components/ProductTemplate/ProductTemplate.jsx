@@ -24,7 +24,7 @@ const Hero = ({ cfg }) => {
   const Chip = ({ chip, className }) =>
     chip ? (
       <div className={`hidden lg:flex flex-col items-center gap-1.5 text-center absolute ${className}`}>
-        <span className="w-10 h-10 rounded-xl bg-white shadow-md border border-slate-100 text-[#0284c7] flex items-center justify-center">
+        <span className="w-10 h-10 rounded-xl bg-white shadow-md border border-slate-100 text-[#2e6bcc] flex items-center justify-center">
           <Icon name={chip[0]} className="w-5 h-5" />
         </span>
         <span className="text-xs font-medium text-slate-600 max-w-[90px] leading-tight">{chip[1]}</span>
@@ -49,21 +49,21 @@ const Hero = ({ cfg }) => {
 
         <div className="text-center max-w-3xl mx-auto">
           {cfg.badge && (
-            <span className="inline-flex items-center rounded-full bg-sky-100/80 text-[#0369a1] text-xs font-semibold tracking-wider uppercase px-3 py-1 mb-5">
+            <span className="inline-flex items-center rounded-full bg-sky-100/80 text-[#2355a6] text-xs font-semibold tracking-wider uppercase px-3 py-1 mb-5">
               {cfg.badge}
             </span>
           )}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-800 leading-[1.1]">
             {cfg.titleTop}
             <br />
-            <span className="text-[#0ea5e9]">{cfg.titleAccent}</span>
+            <span className="text-[#4582e6]">{cfg.titleAccent}</span>
           </h1>
           <p className="mt-5 text-base sm:text-lg text-slate-500 leading-relaxed">{cfg.subtitle}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <button
               type="button"
               onClick={cfg.primary.onClick}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#0ea5e9] hover:bg-[#0284c7] text-white text-sm font-semibold px-6 py-3.5 transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#4582e6] hover:bg-[#2e6bcc] text-white text-sm font-semibold px-6 py-3.5 transition"
             >
               {cfg.primary.label} <ArrowRight className="w-4 h-4" />
             </button>
@@ -71,7 +71,7 @@ const Hero = ({ cfg }) => {
               (cfg.secondary.to ? (
                 <Link
                   to={cfg.secondary.to}
-                  className="inline-flex items-center gap-2 rounded-xl border border-[#0ea5e9] text-[#0284c7] hover:bg-sky-50 text-sm font-semibold px-6 py-3.5 transition"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#4582e6] text-[#2e6bcc] hover:bg-sky-50 text-sm font-semibold px-6 py-3.5 transition"
                 >
                   {cfg.secondary.label}
                 </Link>
@@ -79,7 +79,7 @@ const Hero = ({ cfg }) => {
                 <button
                   type="button"
                   onClick={cfg.secondary.onClick}
-                  className="inline-flex items-center gap-2 rounded-xl border border-[#0ea5e9] text-[#0284c7] hover:bg-sky-50 text-sm font-semibold px-6 py-3.5 transition"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#4582e6] text-[#2e6bcc] hover:bg-sky-50 text-sm font-semibold px-6 py-3.5 transition"
                 >
                   {cfg.secondary.label}
                 </button>
@@ -94,7 +94,7 @@ const Hero = ({ cfg }) => {
             <div className="rounded-[18px] bg-white overflow-hidden">
               <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50">
                 <span className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                  <span className="w-5 h-5 rounded-md bg-[#0284c7] text-white text-[10px] flex items-center justify-center">N</span>
+                  <span className="w-5 h-5 rounded-md bg-[#2e6bcc] text-white text-[10px] flex items-center justify-center">N</span>
                   Nirghos · {cfg.productName}
                 </span>
                 <span className="text-[10px] rounded-full bg-emerald-50 text-emerald-600 px-2 py-0.5">● Live</span>
@@ -132,11 +132,11 @@ const Hero = ({ cfg }) => {
                     <p className="text-[11px] font-semibold text-slate-700">This week</p>
                     <div className="mt-3 h-24 flex items-end gap-1.5">
                       {[40, 55, 48, 70, 62, 85, 74].map((h, i) => (
-                        <div key={i} className={`flex-1 self-end rounded-t ${i === 5 ? 'bg-[#0284c7]' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
+                        <div key={i} className={`flex-1 self-end rounded-t ${i === 5 ? 'bg-[#2e6bcc]' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-xl bg-[#0284c7] text-white p-3">
+                  <div className="rounded-xl bg-[#2e6bcc] text-white p-3">
                     <p className="text-[10px] text-sky-100">Total</p>
                     <p className="text-lg font-semibold">₹8,729</p>
                     <p className="text-[10px] text-sky-100">UPI · Card · Cash</p>
@@ -176,7 +176,7 @@ const Problems = ({ cfg }) => {
   const right = items.slice(2, 4);
   const Card = ([icon, title, desc], align) => (
     <div key={title} className={`max-w-sm ${align === 'right' ? 'lg:text-right lg:ml-auto' : ''}`}>
-      <span className={`w-12 h-12 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center ${align === 'right' ? 'lg:ml-auto' : ''}`}>
+      <span className={`w-12 h-12 rounded-2xl bg-sky-50 text-[#2e6bcc] flex items-center justify-center ${align === 'right' ? 'lg:ml-auto' : ''}`}>
         <Icon name={icon} className="w-6 h-6" />
       </span>
       <h3 className="mt-4 text-lg font-semibold text-slate-800">{title}</h3>
@@ -193,12 +193,12 @@ const Problems = ({ cfg }) => {
             <div className="absolute inset-0 rounded-full border-2 border-dashed border-sky-200 animate-[spin_40s_linear_infinite]" />
             <div className="absolute inset-6 rounded-full bg-gradient-to-br from-sky-50 to-white border border-sky-100 flex flex-col items-center justify-center text-center px-6 shadow-inner">
               <span className="text-5xl font-bold text-slate-900">
-                N<span className="text-[#0ea5e9]">.</span>
+                N<span className="text-[#4582e6]">.</span>
               </span>
               <p className="mt-2 text-xs text-slate-500">One platform that solves them all</p>
             </div>
             {['-left-6 top-1/4', '-left-6 bottom-1/4', '-right-6 top-1/4', '-right-6 bottom-1/4'].map((pos, i) => (
-              <span key={i} className={`hidden lg:block absolute ${pos} w-3 h-3 rounded-full bg-[#0ea5e9] ring-4 ring-sky-100`} />
+              <span key={i} className={`hidden lg:block absolute ${pos} w-3 h-3 rounded-full bg-[#4582e6] ring-4 ring-sky-100`} />
             ))}
           </div>
           <div className="space-y-12">{right.map((p) => Card(p, 'left'))}</div>
@@ -221,11 +221,11 @@ const WhyUs = ({ cfg }) => {
       <Container>
         <SectionHeading title={cfg.whyTitle} subtitle={cfg.whySub} />
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          <div className="relative rounded-[28px] bg-gradient-to-br from-[#0284c7] to-[#075985] p-8 overflow-hidden min-h-[360px] flex items-center justify-center">
+          <div className="relative rounded-[28px] bg-gradient-to-br from-[#2e6bcc] to-[#075985] p-8 overflow-hidden min-h-[360px] flex items-center justify-center">
             <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full border border-white/20" />
             <div className="absolute -right-10 -top-10 w-60 h-60 rounded-full border border-white/20" />
             <div key={active} className="relative w-full max-w-sm rounded-2xl bg-white shadow-2xl p-6 animate-fadeIn">
-              <span className="text-[10px] font-mono tracking-widest text-[#0284c7]">0{active + 1} / 0{items.length}</span>
+              <span className="text-[10px] font-mono tracking-widest text-[#2e6bcc]">0{active + 1} / 0{items.length}</span>
               <p className="mt-2 text-lg font-semibold text-slate-800">{items[active]?.[0]}</p>
               <div className="mt-5 space-y-2.5">
                 {[82, 64, 91].map((w, i) => (
@@ -235,7 +235,7 @@ const WhyUs = ({ cfg }) => {
                       <span>{w}%</span>
                     </div>
                     <div className="h-1.5 rounded-full bg-slate-100">
-                      <div className="h-full rounded-full bg-[#0ea5e9]" style={{ width: `${w}%` }} />
+                      <div className="h-full rounded-full bg-[#4582e6]" style={{ width: `${w}%` }} />
                     </div>
                   </div>
                 ))}
@@ -252,7 +252,7 @@ const WhyUs = ({ cfg }) => {
                 onFocus={() => setActive(i)}
                 onClick={() => setActive(i)}
                 className={`w-full text-left rounded-2xl border p-5 sm:p-6 transition ${
-                  i === active ? 'border-[#0ea5e9]/40 bg-sky-50/60 shadow-md' : 'border-slate-200 bg-white hover:border-slate-300'
+                  i === active ? 'border-[#4582e6]/40 bg-sky-50/60 shadow-md' : 'border-slate-200 bg-white hover:border-slate-300'
                 }`}
               >
                 <p className="text-lg font-semibold text-slate-800">{title}</p>
@@ -276,9 +276,9 @@ const FeatureGrid = ({ cfg }) => (
         {(cfg.features || []).map(([icon, title, desc]) => (
           <div
             key={title}
-            className="group rounded-2xl border border-slate-200 border-l-4 border-l-slate-200 hover:border-l-[#0ea5e9] bg-white p-6 transition hover:shadow-card-hover"
+            className="group rounded-2xl border border-slate-200 border-l-4 border-l-slate-200 hover:border-l-[#4582e6] bg-white p-6 transition hover:shadow-card-hover"
           >
-            <span className="w-11 h-11 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center group-hover:bg-[#0ea5e9] group-hover:text-white transition">
+            <span className="w-11 h-11 rounded-xl bg-sky-50 text-[#2e6bcc] flex items-center justify-center group-hover:bg-[#4582e6] group-hover:text-white transition">
               <Icon name={icon} className="w-5 h-5" />
             </span>
             <h3 className="mt-4 text-lg font-semibold text-slate-800">{title}</h3>
@@ -308,7 +308,7 @@ const Tour = ({ cfg }) => {
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-tight text-slate-800 leading-tight">
             {cfg.productName} Dashboard with
             <br />
-            <span className="text-[#0ea5e9]">Real-Time Business Insights</span>
+            <span className="text-[#4582e6]">Real-Time Business Insights</span>
           </h2>
           <p className="mt-4 text-slate-500">Monitor sales, track stock and manage every location with real-time insights and alerts.</p>
         </div>
@@ -320,10 +320,10 @@ const Tour = ({ cfg }) => {
                 type="button"
                 onClick={() => setI(k)}
                 className={`w-full flex items-center gap-3 rounded-xl border px-4 py-3.5 text-left text-sm font-medium transition ${
-                  k === i ? 'border-[#0ea5e9] bg-white shadow-md text-slate-800 border-l-4' : 'border-slate-200 bg-white/60 text-slate-500 hover:text-slate-700'
+                  k === i ? 'border-[#4582e6] bg-white shadow-md text-slate-800 border-l-4' : 'border-slate-200 bg-white/60 text-slate-500 hover:text-slate-700'
                 }`}
               >
-                <span className={`w-8 h-8 rounded-lg flex items-center justify-center ${k === i ? 'bg-[#0ea5e9] text-white' : 'bg-slate-100 text-slate-500'}`}>
+                <span className={`w-8 h-8 rounded-lg flex items-center justify-center ${k === i ? 'bg-[#4582e6] text-white' : 'bg-slate-100 text-slate-500'}`}>
                   <Icon name={icon} className="w-4 h-4" />
                 </span>
                 {label}
@@ -333,7 +333,7 @@ const Tour = ({ cfg }) => {
           <div className="rounded-[24px] bg-white border border-slate-200 shadow-[0_30px_60px_-30px_rgba(11,25,44,0.35)] p-5">
             <div key={i} className="animate-fadeIn">
               <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-                <span className="w-10 h-10 rounded-xl bg-sky-50 text-[#0284c7] flex items-center justify-center">
+                <span className="w-10 h-10 rounded-xl bg-sky-50 text-[#2e6bcc] flex items-center justify-center">
                   <Icon name={items[i][0]} className="w-5 h-5" />
                 </span>
                 <div>
@@ -352,8 +352,8 @@ const Tour = ({ cfg }) => {
               <svg viewBox="0 0 400 120" className="mt-4 w-full h-32">
                 <defs>
                   <linearGradient id="tourFill" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#4582e6" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#4582e6" stopOpacity="0" />
                   </linearGradient>
                 </defs>
                 <path
@@ -363,7 +363,7 @@ const Tour = ({ cfg }) => {
                 <path
                   d={`M0 ${90 - i * 6} C 60 ${60 + i * 4}, 100 100, 160 ${70 - i * 3} S 260 ${30 + i * 5}, 320 ${50 - i * 2} S 380 20, 400 ${25 + i * 2}`}
                   fill="none"
-                  stroke="#0284c7"
+                  stroke="#2e6bcc"
                   strokeWidth="2.5"
                 />
               </svg>
@@ -391,17 +391,17 @@ const Stats = ({ cfg, onBook }) => (
                   cy="50"
                   r="44"
                   fill="none"
-                  stroke="#0284c7"
+                  stroke="#2e6bcc"
                   strokeWidth="6"
                   strokeLinecap="round"
                   strokeDasharray={`${[210, 170, 240, 190][i % 4]} 400`}
                 />
               </svg>
-              <span className="absolute inset-0 flex items-center justify-center text-[#0284c7]">
+              <span className="absolute inset-0 flex items-center justify-center text-[#2e6bcc]">
                 <Icon name={['TrendingUp', 'Clock', 'Zap', 'ShieldCheck'][i % 4]} className="w-6 h-6" />
               </span>
             </div>
-            <p className="mt-4 text-3xl font-semibold text-[#0369a1]">{v}</p>
+            <p className="mt-4 text-3xl font-semibold text-[#2355a6]">{v}</p>
             <p className="text-sm text-slate-500">{l}</p>
           </div>
         ))}
@@ -410,7 +410,7 @@ const Stats = ({ cfg, onBook }) => (
         <button
           type="button"
           onClick={onBook}
-          className="inline-flex items-center gap-2 rounded-xl bg-[#0ea5e9] hover:bg-[#0284c7] text-white text-sm font-semibold px-6 py-3.5 transition"
+          className="inline-flex items-center gap-2 rounded-xl bg-[#4582e6] hover:bg-[#2e6bcc] text-white text-sm font-semibold px-6 py-3.5 transition"
         >
           Grow Your Business Now <ArrowRight className="w-4 h-4" />
         </button>
@@ -445,7 +445,7 @@ const Comparison = ({ cfg }) => {
             <thead>
               <tr>
                 <th className="text-left font-medium text-slate-500 px-6 py-5 w-[22%]">Metrics</th>
-                <th className="px-6 py-5 bg-gradient-to-b from-[#0284c7] to-[#0ea5e9] text-white font-semibold rounded-t-2xl">Nirghos</th>
+                <th className="px-6 py-5 bg-gradient-to-b from-[#2e6bcc] to-[#4582e6] text-white font-semibold rounded-t-2xl">Nirghos</th>
                 <th className="px-6 py-5 font-medium text-slate-700">Manual / Excel</th>
                 <th className="px-6 py-5 font-medium text-slate-700">Basic Billing Software</th>
               </tr>
@@ -494,7 +494,7 @@ const Related = ({ cfg }) => {
                 type="button"
                 aria-label="Previous"
                 onClick={() => setPage((p) => (p - 1 + pages) % pages)}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:text-[#0284c7]"
+                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:text-[#2e6bcc]"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -502,7 +502,7 @@ const Related = ({ cfg }) => {
                 type="button"
                 aria-label="Next"
                 onClick={() => setPage((p) => (p + 1) % pages)}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:text-[#0284c7]"
+                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:text-[#2e6bcc]"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -515,10 +515,10 @@ const Related = ({ cfg }) => {
               key={it.to}
               to={it.to}
               className={`group relative h-64 rounded-3xl overflow-hidden p-6 flex flex-col justify-end bg-gradient-to-br ${
-                ['from-[#0B192C] to-[#0369a1]', 'from-[#132842] to-[#0284c7]', 'from-[#060e19] to-[#075985]'][k % 3]
+                ['from-[#0B192C] to-[#2355a6]', 'from-[#132842] to-[#2e6bcc]', 'from-[#060e19] to-[#075985]'][k % 3]
               }`}
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(56,189,248,0.35),transparent_55%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(108,160,242,0.35),transparent_55%)]" />
               <span className="absolute top-6 right-6 w-16 h-16 rounded-2xl bg-white/10 text-sky-200 flex items-center justify-center group-hover:scale-110 transition">
                 <Icon name={it.icon} className="w-8 h-8" />
               </span>
@@ -532,7 +532,7 @@ const Related = ({ cfg }) => {
           <div className="mt-10 flex justify-center">
             <Link
               to={r.cta.to}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white text-sm font-semibold px-6 py-3.5 transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#2e6bcc] hover:bg-[#2355a6] text-white text-sm font-semibold px-6 py-3.5 transition"
             >
               {r.cta.label} <ArrowRight className="w-4 h-4" />
             </Link>
@@ -550,13 +550,13 @@ const Testimonial = ({ t }) =>
     <section className="py-12 bg-white">
       <Container>
         <div className="rounded-[32px] bg-slate-100/80 p-8 sm:p-12 max-w-5xl mx-auto">
-          <div className="flex gap-1 text-[#0ea5e9]">
+          <div className="flex gap-1 text-[#4582e6]">
             {[...Array(5)].map((_, k) => (
               <Star key={k} className="w-4 h-4 fill-current" />
             ))}
           </div>
           <p className="mt-5 text-xl sm:text-2xl text-slate-700 leading-relaxed">“{t.quote}”</p>
-          <p className="mt-6 border-l-2 border-[#0284c7] pl-3 text-sm">
+          <p className="mt-6 border-l-2 border-[#2e6bcc] pl-3 text-sm">
             <span className="font-semibold text-slate-800">{t.author}</span>
             <span className="text-slate-300 mx-2">|</span>
             <span className="text-slate-500">{t.role}</span>
@@ -577,7 +577,7 @@ const Faq = ({ faqs }) => {
         <div>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-800">Frequently asked questions</h2>
           <p className="mt-3 text-slate-500">Everything you need to know before getting started.</p>
-          <Link to="/contact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0369a1]">
+          <Link to="/contact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#2355a6]">
             Still have questions? Talk to us <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -590,7 +590,7 @@ const Faq = ({ faqs }) => {
                 className="w-full flex items-center justify-between gap-4 py-5 text-left"
                 aria-expanded={open === i}
               >
-                <span className={`font-medium ${open === i ? 'text-[#0284c7]' : 'text-slate-800'}`}>{q}</span>
+                <span className={`font-medium ${open === i ? 'text-[#2e6bcc]' : 'text-slate-800'}`}>{q}</span>
                 <span className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center shrink-0 text-slate-600">
                   {open === i ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </span>
@@ -627,7 +627,7 @@ const PricingBand = () => (
           ['Standard', '₹14,999'],
           ['Pro', '₹28,999']
         ].map(([n, p], i) => (
-          <div key={n} className={`rounded-2xl px-6 py-5 min-w-[150px] ${i === 2 ? 'bg-[#0ea5e9] text-white' : 'bg-white/5 border border-white/10 text-white'}`}>
+          <div key={n} className={`rounded-2xl px-6 py-5 min-w-[150px] ${i === 2 ? 'bg-[#4582e6] text-white' : 'bg-white/5 border border-white/10 text-white'}`}>
             <p className="text-xs uppercase tracking-widest opacity-70">{n}</p>
             <p className="mt-1 text-2xl font-semibold">{p}</p>
             <p className="text-xs opacity-70">per year</p>

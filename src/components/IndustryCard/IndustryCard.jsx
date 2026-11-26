@@ -53,7 +53,7 @@ export const IndustryCard = ({ industry }) => {
       chipHover: 'group-hover:bg-purple-50 group-hover:text-purple-900 group-hover:border-purple-300'
     },
     'Services & Technology': {
-      borderHover: 'hover:border-sky-500 hover:shadow-[0_25px_60px_-12px_rgba(14,165,233,0.30)]',
+      borderHover: 'hover:border-sky-500 hover:shadow-[0_25px_60px_-12px_rgba(69,130,230,0.30)]',
       badge: 'bg-sky-50 text-sky-900 border-2 border-sky-300 shadow-xs',
       dot: 'bg-sky-500',
       stripe: 'from-sky-600 via-cyan-500 to-blue-400',

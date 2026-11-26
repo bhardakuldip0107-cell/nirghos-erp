@@ -63,20 +63,20 @@ export const Industries = () => {
           
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs text-slate-500 mb-4">
-            <Link to="/" className="hover:text-[#0284c7] transition">Home</Link>
+            <Link to="/" className="hover:text-[#2e6bcc] transition">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-[#0284c7] font-semibold">Industry Solutions Directory</span>
+            <span className="text-[#2e6bcc] font-semibold">Industry Solutions Directory</span>
           </div>
 
           <div className="max-w-3xl space-y-4 animate-fadeIn">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-[#0284c7] text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#0284c7]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-[#2e6bcc] text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-[#2e6bcc]" />
               <span>Full Directory of 25 Specialized Verticals</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 leading-tight">
               Tailored ERP Blueprints for{' '}
-              <span className="text-[#0284c7]">Every Business</span>
+              <span className="text-[#2e6bcc]">Every Business</span>
             </h1>
 
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
@@ -171,8 +171,8 @@ export const Industries = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 border cursor-pointer ${
                   selectedCategory === category
-                    ? 'bg-[#0284c7] text-white border-[#0284c7] shadow-md shadow-sky-500/25'
-                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-sky-300 hover:text-[#0284c7]'
+                    ? 'bg-[#2e6bcc] text-white border-[#2e6bcc] shadow-md shadow-sky-500/25'
+                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-sky-300 hover:text-[#2e6bcc]'
                 }`}
               >
                 {category}
