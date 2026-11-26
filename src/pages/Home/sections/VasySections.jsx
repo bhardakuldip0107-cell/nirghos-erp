@@ -1026,20 +1026,22 @@ export const IntegrationsHub = () => {
 /* ------------------------------------------------------------------------- */
 
 export const ClientsWall = () => (
-  <section className="relative pt-16 sm:pt-20 pb-0 bg-white overflow-hidden">
+  <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
     <Container>
       <h2 className="text-center text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-800 leading-[1.15]">
         <span className="text-[#0ea5e9]">50+</span> businesses
         <br />
         happy clients who make us
       </h2>
-    </Container>
 
-    <div className="relative mt-12 h-[360px] sm:h-[420px]">
-      <div className="absolute left-1/2 -translate-x-1/2 top-10 w-[1400px] h-[1400px] rounded-full bg-[radial-gradient(circle_at_50%_30%,#7dd3fc_0%,#0ea5e9_30%,#0369a1_60%,#0B192C_100%)] opacity-80" />
-      <div className="absolute left-1/2 -translate-x-1/2 top-10 w-[1400px] h-[1400px] rounded-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.7),transparent_40%)]" />
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
-    </div>
+      <div className="mt-10 flex justify-center">
+        <img
+          src="/india-clients-map.png"
+          alt="Nirghos ERP Pan-India Client Presence Map"
+          className="w-full max-w-[460px] h-auto object-contain animate-fadeIn drop-shadow-sm"
+        />
+      </div>
+    </Container>
   </section>
 );
 
