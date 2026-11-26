@@ -5,18 +5,18 @@
   /* ========================================================================= */
 
   /* 1. Master Linear Gradient */
-  --brand-gradient: linear-gradient(135deg, #002B80, #00A8E8);
-  --brand-gradient-hover: linear-gradient(135deg, #002060, #008fc7);
+  --brand-gradient: linear-gradient(135deg, #002B80, #007AB8);
+  --brand-gradient-hover: linear-gradient(135deg, #002060, #006396);
 
   /* 2. Direct Hex Tokens (used by SVG strokes, fills, text, and borders) */
   --brand-primary: #002B80;
   --brand-hover: #002060;
-  --brand-electric: #00A8E8;
+  --brand-electric: #007AB8;
   --brand-light: #38bdf8;
 
   /* 3. Space-Separated RGB Channels (used by Tailwind opacity utilities like /15, /50, /95) */
   --brand-primary-rgb: 0 43 128;
   --brand-hover-rgb: 0 32 96;
-  --brand-electric-rgb: 0 168 232;
+  --brand-electric-rgb: 0 122 184;
   --brand-light-rgb: 56 189 248;
 }
