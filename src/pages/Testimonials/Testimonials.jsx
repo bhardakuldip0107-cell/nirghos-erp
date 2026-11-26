@@ -256,7 +256,7 @@ export const Testimonials = () => {
           <div className="relative z-10 max-w-2xl mx-auto space-y-4">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-[#0284c7] text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>5,000+ Happy Customers</span>
+              <span>50+ Happy Customers</span>
             </span>
 
             <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">

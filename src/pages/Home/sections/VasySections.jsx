@@ -118,7 +118,7 @@ const RoundNav = ({ onPrev, onNext, size = 'md' }) => {
 /* ------------------------------------------------------------------------- */
 
 const trustItems = [
-  { icon: Building2, value: '5,000+', label: 'Trusted Clients' },
+  { icon: Building2, value: '50+', label: 'Trusted Clients' },
   { icon: Star, value: '4.8', suffix: '/5', label: 'Google Rating' },
   { icon: Headphones, value: '365-Day', label: 'Support' },
   { icon: Cloud, value: 'Cloud + Offline', label: 'ERP & POS' },
@@ -460,7 +460,7 @@ const erpTracks = {
     desc: 'From a single counter to a multi-store chain, Nirghos brings billing, inventory, purchase, accounts and customer loyalty into one simple system that your staff can learn in a day.',
     quote: 'Nirghos is a complete retail ERP, from a single shop to a multi-city store chain.',
     stats: [
-      ['5,000+', 'businesses served'],
+      ['50+', 'businesses served'],
       ['400+', 'cities across India']
     ],
     cta: { label: 'See all retail ERP features', to: '/industries/retail' },
@@ -1058,7 +1058,7 @@ export const ClientsWall = () => {
     <section className="relative pt-16 sm:pt-20 pb-0 bg-white overflow-hidden">
       <Container>
         <h2 className="text-center text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-800 leading-[1.15]">
-          <span className="text-[#0ea5e9]">5,000+</span> businesses
+          <span className="text-[#0ea5e9]">50+</span> businesses
           <br />
           happy clients who make us
         </h2>
