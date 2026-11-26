@@ -1363,49 +1363,150 @@ export const Home = () => {
     <div className="overflow-hidden pb-12 sm:pb-16">
       
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (EXACT MATCH TO USER'S SCREENSHOT - VASY / MODERN SAAS)    */}
+      {/* 1. HERO SECTION (SPLIT LAYOUT: LEFT COPY/CTA + RIGHT LAPTOP & MOBILE)     */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-8 sm:pt-14 sm:pb-10 lg:pt-16 lg:pb-12 bg-white border-b border-slate-200/80 overflow-hidden text-center">
+      <section className="relative pt-10 pb-8 sm:pt-14 sm:pb-10 lg:pt-16 lg:pb-12 bg-white border-b border-slate-200/80 overflow-hidden">
         
         {/* Subtle Modern Technical Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none opacity-85 [mask-image:radial-gradient(ellipse_85%_65%_at_50%_35%,#000_65%,transparent_100%)]"></div>
-        
-        {/* Soft Ambient Cyan Lighting on Bottom Corners */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none opacity-75 [mask-image:radial-gradient(ellipse_85%_65%_at_50%_35%,#000_65%,transparent_100%)]"></div>
         <div className="absolute -bottom-24 -left-12 w-80 h-80 bg-sky-100/60 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute -bottom-24 -right-12 w-80 h-80 bg-sky-100/60 rounded-full blur-3xl pointer-events-none"></div>
 
-        {/* Hero Content Container */}
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
-          
-          {/* Main Headline: The System That Runs Systems. */}
-          <h1 className="text-4xl sm:text-6xl md:text-[68px] lg:text-[76px] font-bold text-slate-950 tracking-tight leading-[1.08] max-w-4xl mx-auto">
-            The <span className="text-[#0284c7]">System</span> That Runs Systems.
-          </h1>
+        {/* Split Hero Content Container */}
+        <div className="relative max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            
+            {/* Left Column: Pill Badge + Headline + Subtitle + CTA */}
+            <div className="lg:col-span-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-slate-700 mb-6 animate-fadeIn">
+                <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center">
+                  <ArrowRight className="w-3 h-3" />
+                </span>
+                <span>All in One Place</span>
+              </div>
 
-          {/* Subheading */}
-          <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-            One intelligent platform connecting every department with real-time insights and AI-driven recommendations.
-          </p>
+              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold text-slate-900 tracking-tight leading-[1.12]">
+                Lead the Future with{' '}
+                <span className="text-[#0284c7]">AI-enabled</span> Cloud-based ERP Solutions &amp; Services
+              </h1>
 
-          {/* Dual Action Buttons */}
-          <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
-            <button
-              type="button"
-              onClick={() => setIsDemoModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-semibold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-            >
-              <span>Experience Nirghos</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <a
-              href="#about-section"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white font-semibold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-            >
-              <span>Discover Our Story</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
+              <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
+                Nirghos ERP empowers manufacturing, retail, wholesale, and diverse industries with customizable, AI-powered automation for real-time insights on one unified cloud platform.
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => setIsDemoModalOpen(true)}
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <span>Get Free ERP Consultation</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link
+                  to="/dashboard"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-sky-50 text-[#0284c7] border border-sky-200 font-semibold text-sm sm:text-base transition-all cursor-pointer"
+                >
+                  <span>Explore Live Demo</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Studio Angled Laptop + Floating Smartphone Mockup (Nirghos Branded) */}
+            <div className="lg:col-span-6 relative flex items-center justify-center py-6 lg:py-8">
+              {/* Circular Studio Halo behind Devices */}
+              <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-sky-100/80 via-slate-100/70 to-white border border-slate-200/60 pointer-events-none" />
+              {/* Frosted Glass Accent Block (top-left behind laptop) */}
+              <div className="hidden sm:block absolute top-10 left-8 w-36 h-12 rounded-xl bg-slate-200/70 backdrop-blur-sm border border-white/80 shadow-sm pointer-events-none animate-float-delayed" />
+
+              {/* Angled MacBook-Style Laptop */}
+              <div className="relative z-10 w-[300px] sm:w-[400px] -rotate-3 hover:rotate-0 transition-transform duration-500 -translate-x-4 sm:-translate-x-8">
+                {/* Laptop Screen Bezel */}
+                <div className="rounded-t-2xl bg-slate-900 p-2 sm:p-2.5 shadow-2xl border border-slate-700">
+                  <div className="w-1.5 h-1.5 rounded-full bg-slate-600 mx-auto mb-1.5" />
+                  <div className="rounded-lg bg-white overflow-hidden border border-slate-200 aspect-[16/10] flex flex-col">
+                    {/* Mini Navbar inside Laptop Screen */}
+                    <div className="px-3 py-1.5 border-b border-slate-100 flex items-center justify-between bg-white">
+                      <img src="/nirghos-logo-nav.png" alt="Nirghos" className="h-3.5 w-auto object-contain" />
+                      <div className="flex items-center gap-2 text-[7px] font-semibold text-slate-500">
+                        <span>Products</span>
+                        <span>Industries</span>
+                        <span className="px-1.5 py-0.5 rounded-full bg-[#0284c7] text-white">Demo</span>
+                      </div>
+                    </div>
+                    {/* Mini Hero & Metrics inside Laptop Screen */}
+                    <div className="p-3 flex-1 bg-gradient-to-br from-white via-sky-50/40 to-white grid grid-cols-12 gap-2 items-center">
+                      <div className="col-span-7 space-y-1.5">
+                        <span className="inline-block text-[6px] font-bold uppercase tracking-wider text-[#0284c7] bg-sky-50 px-1.5 py-0.5 rounded-full">
+                          All in One ERP
+                        </span>
+                        <p className="text-[10px] sm:text-[11px] font-bold text-slate-900 leading-tight">
+                          Lead the Future with <span className="text-[#0284c7]">AI-enabled</span> Nirghos ERP
+                        </p>
+                        <div className="flex gap-1.5 pt-1">
+                          <span className="px-2 py-0.5 rounded-full bg-[#0284c7] text-white text-[6px] font-bold">Get Started</span>
+                          <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[6px] font-semibold">Live POS</span>
+                        </div>
+                      </div>
+                      <div className="col-span-5 space-y-1.5">
+                        <div className="rounded-lg bg-white p-1.5 border border-sky-100 shadow-xs">
+                          <p className="text-[6px] text-slate-400 font-semibold">Today&apos;s Revenue</p>
+                          <p className="text-[10px] font-black text-slate-900">₹4,82,910</p>
+                          <p className="text-[6px] text-emerald-600 font-bold">+18.4% ↑</p>
+                        </div>
+                        <div className="rounded-lg bg-white p-1.5 border border-slate-100 shadow-xs flex items-center justify-between">
+                          <span className="text-[6px] font-bold text-slate-600">50+ Clients</span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Laptop Aluminum Base */}
+                <div className="h-3 sm:h-3.5 bg-gradient-to-b from-slate-200 to-slate-300 rounded-b-xl mx-[-10px] shadow-lg flex items-center justify-center border-t border-slate-400/40">
+                  <div className="w-12 h-1 rounded-full bg-slate-400/60" />
+                </div>
+              </div>
+
+              {/* Floating Smartphone overlapping Top-Right */}
+              <div className="relative z-20 -ml-14 sm:-ml-20 -mt-12 sm:-mt-16 rotate-6 animate-float-slow">
+                <div className="w-[120px] sm:w-[148px] rounded-[24px] bg-slate-900 p-1.5 shadow-[0_25px_50px_-12px_rgba(15,23,42,0.45)] border-2 border-slate-700">
+                  <div className="w-10 h-2.5 bg-slate-900 rounded-b-lg mx-auto mb-0.5" />
+                  <div className="rounded-[18px] bg-white overflow-hidden aspect-[9/18.5] flex flex-col">
+                    <div className="px-2.5 py-2 border-b border-slate-100 flex items-center justify-between bg-sky-50/50">
+                      <img src="/nirghos-icon.png" alt="Nirghos Mobile" className="w-4 h-4 object-contain" />
+                      <span className="text-[7px] font-bold text-[#0284c7]">NIRGHOS</span>
+                    </div>
+                    <div className="p-2.5 space-y-2 flex-1 bg-white">
+                      <div className="rounded-xl bg-[#0284c7] text-white p-2">
+                        <p className="text-[6px] opacity-80 uppercase">Mobile POS</p>
+                        <p className="text-[10px] font-black">₹1,24,500</p>
+                      </div>
+                      <div className="rounded-lg border border-slate-100 p-1.5 bg-slate-50/70">
+                        <p className="text-[6px] text-slate-400">Active Orders</p>
+                        <p className="text-[9px] font-bold text-slate-800">342 Invoices</p>
+                      </div>
+                      <div className="rounded-lg border border-slate-100 p-1.5 bg-slate-50/70">
+                        <p className="text-[6px] text-slate-400">Stock Sync</p>
+                        <p className="text-[8px] font-bold text-emerald-600">100% Live ✓</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Video Play Trigger Button (bottom-right) */}
+              <button
+                type="button"
+                onClick={() => setIsDemoModalOpen(true)}
+                aria-label="Watch Nirghos ERP Demo"
+                className="absolute bottom-2 right-2 sm:right-6 z-30 w-14 h-10 rounded-xl bg-rose-600 hover:bg-rose-500 text-white shadow-xl shadow-rose-600/30 flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
+              >
+                <Play className="w-5 h-5 fill-white" />
+              </button>
+            </div>
+
           </div>
-
         </div>
 
         {/* ========================================================================= */}
