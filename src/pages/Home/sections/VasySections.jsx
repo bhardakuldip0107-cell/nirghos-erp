@@ -820,12 +820,12 @@ export const AiBanner = ({ onWatch }) => (
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-sm text-white">
-              <Sparkles className="w-4 h-4 text-sky-300" /> Introducing <span className="text-sky-300">Nirghos AI</span>
+              <Sparkles className="w-4 h-4 text-sky-300" /> Introducing <span className="text-sky-300">Nirghos Insights</span>
             </span>
             <h2 className="mt-6 text-4xl sm:text-6xl font-semibold text-white tracking-tight">
-              Meet <span className="text-sky-300">Nirghos AI.</span>
+              Meet <span className="text-sky-300">Nirghos ERP.</span>
             </h2>
-            <p className="mt-3 text-xl sm:text-3xl font-semibold text-white">the intelligence layer of your ERP.</p>
+            <p className="mt-3 text-xl sm:text-3xl font-semibold text-white">the intelligence layer of your business.</p>
             <p className="mt-5 text-slate-300 text-base sm:text-lg">Ask questions. Get insights. Know what needs attention.</p>
 
             <div className="mt-8 flex flex-wrap gap-y-4 divide-x divide-white/10">
@@ -852,7 +852,7 @@ export const AiBanner = ({ onWatch }) => (
                 to="/features"
                 className="inline-flex items-center gap-2 rounded-xl bg-white text-slate-900 font-medium px-6 py-3.5 hover:bg-sky-50 transition"
               >
-                Explore Nirghos AI <ArrowRight className="w-4 h-4" />
+                Explore Nirghos ERP <ArrowRight className="w-4 h-4" />
               </Link>
               <button
                 type="button"
@@ -869,7 +869,7 @@ export const AiBanner = ({ onWatch }) => (
             <div className="rounded-2xl bg-white shadow-2xl p-5 max-w-md ml-auto">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-1.5 text-sm font-semibold text-slate-800">
-                  <Sparkles className="w-4 h-4 text-nirghos-primary" /> Nirghos AI
+                  <Sparkles className="w-4 h-4 text-nirghos-primary" /> Nirghos Assistant
                 </span>
                 <span className="text-[10px] rounded-full bg-emerald-50 text-emerald-600 px-2 py-0.5">Online</span>
               </div>
