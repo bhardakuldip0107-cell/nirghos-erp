@@ -7,13 +7,32 @@ import { useDemo } from '../../context/DemoContext';
 import { getIndustryBySlug, getRelatedIndustries, industriesData } from '../../data/industries';
 import { getIndustryLandingData } from '../../data/industryLandingData';
 
-const categoryHeroImages = {
-  'Industrial & Manufacturing': '/sectors/industrial-manufacturing.jpg',
-  'Trade & Commerce': '/sectors/trade-commerce.jpg',
-  'Healthcare & Life Sciences': '/sectors/healthcare-life-sciences.jpg',
-  'Institutional & Hospitality': '/sectors/institutional-hospitality.jpg',
-  'Services & Technology': '/sectors/services-technology.jpg',
-  'Energy & Resources': '/sectors/energy-resources.jpg'
+const industryHeroImages = {
+  manufacturing: '/sectors/industrial-manufacturing.jpg',
+  trading: '/industries/trading.jpg',
+  retail: '/sectors/trade-commerce.jpg',
+  construction: '/industries/construction.jpg',
+  automobile: '/industries/automobile.jpg',
+  textile: '/industries/textile.jpg',
+  pharma: '/sectors/healthcare-life-sciences.jpg',
+  'food-beverage': '/industries/food-beverage.jpg',
+  logistics: '/industries/logistics.jpg',
+  education: '/industries/education.jpg',
+  hospital: '/industries/hospital.jpg',
+  'hotel-restaurant': '/sectors/institutional-hospitality.jpg',
+  'it-software': '/sectors/services-technology.jpg',
+  'service-maintenance': '/industries/automobile.jpg',
+  agriculture: '/industries/food-beverage.jpg',
+  jewellery: '/sectors/trade-commerce.jpg',
+  chemical: '/sectors/healthcare-life-sciences.jpg',
+  electronics: '/sectors/trade-commerce.jpg',
+  printing: '/sectors/industrial-manufacturing.jpg',
+  furniture: '/industries/construction.jpg',
+  ecommerce: '/industries/trading.jpg',
+  'export-import': '/industries/logistics.jpg',
+  'oil-gas': '/sectors/energy-resources.jpg',
+  'security-facility': '/sectors/services-technology.jpg',
+  'professional-services': '/sectors/accounting-erp.jpg'
 };
 
 const problemIcons = ['AlertTriangle', 'Boxes', 'Calculator', 'BarChart3'];
@@ -63,7 +82,7 @@ export const IndustryDetails = () => {
 
   const cfg = {
     badge: industry.category,
-    heroImage: categoryHeroImages[industry.category] || '/sectors/industrial-manufacturing.jpg',
+    heroImage: industryHeroImages[slug] || '/sectors/industrial-manufacturing.jpg',
     productName: `${shortName} ERP`,
     titleTop: industry.name,
     titleAccent: 'ERP Software',
