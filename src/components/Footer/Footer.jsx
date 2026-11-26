@@ -112,12 +112,6 @@ export const Footer = () => {
             <h4 className="text-sm font-bold text-slate-900 tracking-tight">Products</h4>
             <ul className="space-y-2.5 text-xs sm:text-[13px] text-slate-600">
               <li>
-                <Link to="/ai-solutions" className="text-[#0284c7] font-bold hover:underline flex items-center gap-1">
-                  <span>AI Solutions</span>
-                  <span className="text-[9px] bg-sky-100 text-[#0284c7] px-1 rounded">NEW</span>
-                </Link>
-              </li>
-              <li>
                 <Link to="/pricing" className="hover:text-[#0284c7] font-semibold transition-colors">Pricing Plans</Link>
               </li>
               <li>

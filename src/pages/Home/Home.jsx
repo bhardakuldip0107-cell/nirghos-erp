@@ -545,7 +545,7 @@ export const Home = () => {
       badge: 'AI Cam 360 & Analytics',
       heading: 'Turn In-Store CCTV Cameras into Real-Time Business Intelligence',
       desc: 'Analyze customer footfalls, dwell time heatmaps, checkout counter queue lengths, and store conversion rates in real time directly inside your Nirghos ERP dashboard.',
-      link: '/ai-solutions',
+      link: '/features',
       diagram: {
         sources: [
           { label: 'Store Entrance Cam', icon: Zap },

@@ -849,7 +849,7 @@ export const AiBanner = ({ onWatch }) => (
 
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
-                to="/ai-solutions"
+                to="/features"
                 className="inline-flex items-center gap-2 rounded-xl bg-white text-slate-900 font-medium px-6 py-3.5 hover:bg-sky-50 transition"
               >
                 Explore Nirghos AI <ArrowRight className="w-4 h-4" />
@@ -1246,8 +1246,7 @@ const exploreCols = [
       ['Accounting & GST', '/products/accounting'],
       ['Inventory', '/products/inventory'],
       ['CRM & Loyalty', '/products/crm'],
-      ['Omnichannel', '/products/omnichannel'],
-      ['AI Solutions', '/ai-solutions']
+      ['Omnichannel', '/products/omnichannel']
     ]
   },
   {
