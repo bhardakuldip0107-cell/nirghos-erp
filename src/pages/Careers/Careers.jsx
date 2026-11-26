@@ -247,7 +247,7 @@ export const Careers = () => {
               <p className="text-xs text-slate-400 font-semibold mt-0.5">Minds Building Nirghos</p>
             </div>
             <div className="p-4 rounded-2xl bg-navy-900/60 border border-navy-800/80">
-              <p className="text-2xl sm:text-3xl font-black text-nirghos-primary">₹1,000Cr+</p>
+              <p className="text-2xl sm:text-3xl font-black text-sky-300">₹1,000Cr+</p>
               <p className="text-xs text-slate-400 font-semibold mt-0.5">Client GMV Handled</p>
             </div>
             <div className="p-4 rounded-2xl bg-navy-900/60 border border-navy-800/80">
