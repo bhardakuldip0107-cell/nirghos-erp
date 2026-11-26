@@ -820,7 +820,7 @@ export const AiBanner = ({ onWatch }) => (
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-sm text-white">
-              <Sparkles className="w-4 h-4 text-sky-300" /> Introducing <span className="text-sky-300">Nirghos Insights</span>
+              Introducing <span className="text-sky-300">Nirghos Insights</span>
             </span>
             <h2 className="mt-6 text-4xl sm:text-6xl font-semibold text-white tracking-tight">
               Meet <span className="text-sky-300">Nirghos ERP.</span>
@@ -869,7 +869,7 @@ export const AiBanner = ({ onWatch }) => (
             <div className="rounded-2xl bg-white shadow-2xl p-5 max-w-md ml-auto">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-1.5 text-sm font-semibold text-slate-800">
-                  <Sparkles className="w-4 h-4 text-nirghos-primary" /> Nirghos Assistant
+                  Nirghos Assistant
                 </span>
                 <span className="text-[10px] rounded-full bg-emerald-50 text-emerald-600 px-2 py-0.5">Online</span>
               </div>
