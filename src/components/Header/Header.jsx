@@ -186,13 +186,6 @@ export const Header = () => {
       path: '/products/crm'
     },
     {
-      title: 'Omnichannel Commerce Hub',
-      badge: 'Omnichannel Sync',
-      desc: 'Two-way catalog, order & inventory synchronization with Shopify, WooCommerce & Amazon.',
-      icon: ShoppingBag,
-      path: '/products/omnichannel'
-    },
-    {
       title: 'Trading & Wholesale ERP',
       badge: 'Wholesale & B2B',
       desc: 'Multi-warehouse distribution, tier pricing, customer credit control & automated e-way bills.',
