@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, ArrowRight, Plus, Minus, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Plus, Minus, CheckCircle2 } from 'lucide-react';
 import DemoModal from '../../components/common/DemoModal';
 
 const SubNav = () => (
@@ -11,8 +11,7 @@ const SubNav = () => (
       </span>
       <div className="flex items-center gap-6 ml-auto">
         {[
-          ['Add-Ons', '#addons'],
-          ['Notes', '#notes'],
+          ['Included', '#notes'],
           ['FAQs', '#faqs']
         ].map(([l, h]) => (
           <a key={l} href={h} className="hover:text-[#0284c7] font-medium transition">
@@ -28,35 +27,14 @@ export const Pricing = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
 
-  const oneTimeAddons = [
-    {
-      title: 'Implementation & Training',
-      price: '₹10,000',
-      unit: '/ outlet (one-time)',
-      desc: 'End-to-end store onboarding, SKU master import from Tally/Busy/Excel, hardware setup & staff training.'
-    },
-    {
-      title: 'Hybrid POS Offline Engine',
-      price: '₹25,000',
-      unit: '/ outlet (one-time)',
-      desc: 'Zero-downtime local offline billing server that syncs automatically with cloud once internet reconnects.'
-    },
-    {
-      title: 'Nirghos AI Vision & VINA Suite',
-      price: '₹12,000',
-      unit: '/ store / year',
-      desc: 'CCTV footfall counting, dwell-time heatmaps, zero-barcode produce recognition & VINA AI Co-Pilot.'
-    }
-  ];
-
   const pricingFaqs = [
     {
       q: 'How does the Nirghos ERP licensing work?',
       a: 'Nirghos ERP offers flexible annual and multi-year custom subscriptions tailored to your store count, user seats, and industry modules — with an extra 20% discount on multi-year commitments.'
     },
     {
-      q: 'What is included in the Hybrid POS add-on?',
-      a: 'The Hybrid POS engine (available as a ₹25,000/outlet one-time add-on) ensures 100% uninterrupted billing even when internet disconnects, auto-syncing all invoices back to your central cloud.'
+      q: 'Does Nirghos work offline if internet goes down?',
+      a: 'Yes! Our Hybrid POS offline engine ensures 100% uninterrupted billing even when internet disconnects, auto-syncing all invoices back to your central cloud once reconnected.'
     },
     {
       q: 'What hardware is compatible with Nirghos POS?',
@@ -64,11 +42,11 @@ export const Pricing = () => {
     },
     {
       q: 'Can I add extra outlets or users later as we grow?',
-      a: 'Yes! You can seamlessly add extra outlets (₹5,999/store/year) and billing users (₹2,999/user/year) at any time with prorated billing and zero data loss.'
+      a: 'Yes! You can seamlessly add extra outlets, warehouses, and billing users at any time with prorated billing and zero data loss.'
     },
     {
       q: 'Do you provide data migration from Tally, Busy, or Excel?',
-      a: 'Yes, our Implementation & Training package includes complete migration of your item masters, customer/vendor ledgers, and opening stock within 24–48 hours.'
+      a: 'Yes, our onboarding team handles complete migration of your item masters, customer/vendor ledgers, and opening stock within 24–48 hours.'
     }
   ];
 
@@ -109,44 +87,16 @@ export const Pricing = () => {
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-500">
             <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#0284c7]" /> Zero hidden setup surprises</span>
-            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#0284c7]" /> 20% off on multi-year commitments</span>
+            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#0284c7]" /> Multi-year commitment discounts</span>
             <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#0284c7]" /> Free Tally / Excel data migration</span>
           </div>
         </div>
       </section>
 
-      {/* Setup & Add-On Modules */}
-      <section id="addons" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-32">
-        <div className="mb-8">
-          <p className="font-mono text-[11px] tracking-[0.2em] text-[#0284c7] uppercase font-bold">Optional Setup &amp; AI Add-ons</p>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-slate-900">Scale with Hybrid POS, Onboarding &amp; AI Vision</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {oneTimeAddons.map((addon) => (
-            <div
-              key={addon.title}
-              className="rounded-3xl bg-slate-50/80 border border-slate-200/80 p-6 flex flex-col justify-between hover-lift-glow"
-            >
-              <div>
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#0284c7] bg-sky-50 border border-sky-200 px-3 py-1 rounded-full">
-                  <Sparkles className="w-3 h-3" /> Add-On
-                </span>
-                <h3 className="mt-4 text-lg font-bold text-slate-900">{addon.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{addon.desc}</p>
-              </div>
-              <div className="mt-5 pt-4 border-t border-slate-200 flex items-baseline gap-1.5">
-                <span className="text-2xl font-bold text-slate-900">{addon.price}</span>
-                <span className="text-xs font-medium text-slate-500">{addon.unit}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Notes */}
-      <section id="notes" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-mt-32">
+      <section id="notes" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-32">
         <p className="font-mono text-[11px] tracking-[0.2em] text-[#0284c7] uppercase font-bold">Before you buy</p>
-        <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">Notes on what is included</h2>
+        <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">What is included with Nirghos ERP</h2>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-8">
           {[
             [
@@ -154,16 +104,16 @@ export const Pricing = () => {
               ['Free software updates and statutory GST changes', 'Automated cloud data backups', 'Dedicated technical support']
             ],
             [
-              'Adding outlets & users',
-              ['Additional branch / store: ₹5,999 per store per year', 'Additional billing counter / user: ₹2,999 per user per year', 'Add at any time with prorated billing']
+              'Scalable outlets & users',
+              ['Add branches, godowns, and POS counters anytime', 'Prorated billing as your team expands', 'Centralized head-office multi-branch visibility']
             ],
             [
-              'Billing options',
-              ['Annual subscriptions billed once a year', 'Multi-year commitments get an extra 20% discount', 'Seamless module upgrades whenever your business grows']
+              'Flexible billing options',
+              ['Annual & multi-year subscription options', 'Extra savings on multi-year commitments', 'Seamless module upgrades whenever your business grows']
             ],
             [
-              'Optional setup & AI add-ons',
-              ['Implementation & Training: ₹10,000 / outlet (one-time)', 'Hybrid POS Offline Engine: ₹25,000 / outlet (one-time)', 'AI Vision & VINA Suite: ₹12,000 / store / year']
+              'Onboarding & migration',
+              ['End-to-end store setup and staff training', 'Fast SKU & ledger import from Tally, Busy, or Excel', 'Custom reports, barcode formats, and API integrations']
             ]
           ].map(([title, items]) => (
             <div key={title}>
