@@ -686,6 +686,14 @@ const smartFeatures = [
   }
 ];
 
+const smartFeatureImages = {
+  POS: '/sectors/trade-commerce.jpg',
+  Inventory: '/sectors/healthcare-life-sciences.jpg',
+  CRM: '/sectors/institutional-hospitality.jpg',
+  'E-Commerce': '/sectors/services-technology.jpg',
+  'Mobile App': '/sectors/industrial-manufacturing.jpg'
+};
+
 export const SmartStoreFeatures = () => {
   const [g, setG] = useState(0);
   const [s, setS] = useState(0);
@@ -754,7 +762,7 @@ export const SmartStoreFeatures = () => {
               <span className="font-mono text-[11px] text-slate-400">{pad(group.slides.length)}</span>
             </div>
 
-            <div key={`${g}-${s}`} className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_220px] gap-6 animate-fadeIn">
+            <div key={`${g}-${s}`} className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_280px] gap-6 animate-fadeIn">
               <div className="flex flex-col">
                 <span className="self-start rounded-full bg-white px-3 py-1 text-xs font-medium text-[#0369a1] shadow-sm">{group.group}</span>
                 <div className="mt-auto pt-10">
@@ -763,10 +771,18 @@ export const SmartStoreFeatures = () => {
                 </div>
               </div>
               <div className="flex items-center justify-center">
-                <div className="relative w-48 h-48">
-                  <div className="absolute inset-0 rounded-[2.2rem] bg-gradient-to-br from-[#0ea5e9] to-[#0369a1] rotate-6 opacity-20" />
-                  <div className="absolute inset-0 rounded-[2.2rem] bg-white shadow-2xl border border-slate-100 flex items-center justify-center animate-float-slow">
-                    <Icon className="w-20 h-20 text-[#0284c7]" strokeWidth={1.25} />
+                <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg bg-white group">
+                  <img
+                    src={smartFeatureImages[group.group] || '/sectors/trade-commerce.jpg'}
+                    alt={slide.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/25 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 rounded-xl bg-white/95 backdrop-blur-xs px-3 py-2 shadow-md border border-slate-100">
+                    <span className="w-7 h-7 rounded-lg bg-sky-50 text-[#0284c7] flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4" />
+                    </span>
+                    <span className="text-xs font-semibold text-slate-800 truncate">{slide.title}</span>
                   </div>
                 </div>
               </div>
