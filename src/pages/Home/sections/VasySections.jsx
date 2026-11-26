@@ -1025,14 +1025,15 @@ export const IntegrationsHub = () => {
 /* 8. Happy clients wall                                                      */
 /* ------------------------------------------------------------------------- */
 
-const OrbitStatCircle = ({ value, label, orbitClass }) => (
+const OrbitStatCircle = ({ value, label, sublabel, orbitClass }) => (
   <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-400/75 bg-sky-50/50 flex items-center justify-center shadow-sm mx-auto">
     <div className={`absolute inset-0 pointer-events-none ${orbitClass}`}>
       <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#0284c7] shadow-[0_0_10px_rgba(2,132,199,0.75)] ring-4 ring-sky-200/60" />
     </div>
     <div className="relative z-10 text-center px-3">
       <p className="text-2xl sm:text-3xl font-bold text-[#0284c7] tracking-tight">{value}</p>
-      <p className="text-xs sm:text-sm font-medium text-slate-700 mt-1">{label}</p>
+      <p className="text-xs sm:text-sm font-semibold text-slate-800 mt-1 leading-tight">{label}</p>
+      {sublabel && <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 leading-tight">{sublabel}</p>}
     </div>
   </div>
 );
@@ -1049,23 +1050,28 @@ export const ClientsWall = () => (
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-[220px_1fr_220px] gap-8 items-center">
         {/* Left 2 Orbiting Stat Circles */}
         <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-14">
-          <OrbitStatCircle value="50+" label="Happy Clients" orbitClass="animate-orbit-1" />
+          <OrbitStatCircle
+            value="50"
+            label="Total Clients"
+            sublabel="(Gujarat & Nearby States)"
+            orbitClass="animate-orbit-1"
+          />
           <OrbitStatCircle value="4.8+" label="Google Rating" orbitClass="animate-orbit-2" />
         </div>
 
-        {/* Center Pan-India Map */}
+        {/* Center Gujarat & Nearby States Map */}
         <div className="flex justify-center">
           <img
-            src="/india-clients-map.png"
-            alt="Nirghos ERP Pan-India Client Presence Map"
-            className="w-full max-w-[460px] h-auto object-contain animate-fadeIn drop-shadow-sm"
+            src="/gujarat-clients-map.png"
+            alt="Nirghos ERP Gujarat & Nearby States Client Map"
+            className="w-full max-w-[520px] h-auto object-contain animate-fadeIn drop-shadow-sm"
           />
         </div>
 
         {/* Right 2 Orbiting Stat Circles */}
         <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-14">
-          <OrbitStatCircle value="250+" label="Employees" orbitClass="animate-orbit-3" />
-          <OrbitStatCircle value="400+" label="Cities" orbitClass="animate-orbit-4" />
+          <OrbitStatCircle value="25+" label="Employees" orbitClass="animate-orbit-3" />
+          <OrbitStatCircle value="4" label="States / UTs Covered" orbitClass="animate-orbit-4" />
         </div>
       </div>
     </Container>
