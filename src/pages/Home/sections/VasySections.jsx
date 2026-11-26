@@ -1025,6 +1025,18 @@ export const IntegrationsHub = () => {
 /* 8. Happy clients wall                                                      */
 /* ------------------------------------------------------------------------- */
 
+const OrbitStatCircle = ({ value, label, orbitClass }) => (
+  <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-400/75 bg-sky-50/50 flex items-center justify-center shadow-sm mx-auto">
+    <div className={`absolute inset-0 pointer-events-none ${orbitClass}`}>
+      <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#0284c7] shadow-[0_0_10px_rgba(2,132,199,0.75)] ring-4 ring-sky-200/60" />
+    </div>
+    <div className="relative z-10 text-center px-3">
+      <p className="text-2xl sm:text-3xl font-bold text-[#0284c7] tracking-tight">{value}</p>
+      <p className="text-xs sm:text-sm font-medium text-slate-700 mt-1">{label}</p>
+    </div>
+  </div>
+);
+
 export const ClientsWall = () => (
   <section className="relative py-16 sm:py-20 bg-white overflow-hidden">
     <Container>
@@ -1034,12 +1046,27 @@ export const ClientsWall = () => (
         happy clients who make us
       </h2>
 
-      <div className="mt-10 flex justify-center">
-        <img
-          src="/india-clients-map.png"
-          alt="Nirghos ERP Pan-India Client Presence Map"
-          className="w-full max-w-[460px] h-auto object-contain animate-fadeIn drop-shadow-sm"
-        />
+      <div className="mt-12 grid grid-cols-1 lg:grid-cols-[220px_1fr_220px] gap-8 items-center">
+        {/* Left 2 Orbiting Stat Circles */}
+        <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-14">
+          <OrbitStatCircle value="50+" label="Happy Clients" orbitClass="animate-orbit-1" />
+          <OrbitStatCircle value="4.8+" label="Google Rating" orbitClass="animate-orbit-2" />
+        </div>
+
+        {/* Center Pan-India Map */}
+        <div className="flex justify-center">
+          <img
+            src="/india-clients-map.png"
+            alt="Nirghos ERP Pan-India Client Presence Map"
+            className="w-full max-w-[460px] h-auto object-contain animate-fadeIn drop-shadow-sm"
+          />
+        </div>
+
+        {/* Right 2 Orbiting Stat Circles */}
+        <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-14">
+          <OrbitStatCircle value="250+" label="Employees" orbitClass="animate-orbit-3" />
+          <OrbitStatCircle value="400+" label="Cities" orbitClass="animate-orbit-4" />
+        </div>
       </div>
     </Container>
   </section>
