@@ -197,7 +197,7 @@ export const About = () => {
               </h1>
 
               {/* Orange Horizontal Accent Line */}
-              <div className="w-16 h-1 bg-nirghos-primary rounded-full my-3"></div>
+              <div className="w-16 h-1 bg-nirghos-gradient rounded-full my-3"></div>
 
               {/* Exact Description Paragraph */}
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
@@ -209,7 +209,7 @@ export const About = () => {
                 <button
                   type="button"
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm shadow-md shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
                 >
                   Book Free Demo
                 </button>
@@ -639,7 +639,7 @@ export const About = () => {
           <div className="shrink-0 flex items-center gap-4">
             <Link
               to="/careers"
-              className="px-6 py-3.5 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
+              className="px-6 py-3.5 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
             >
               <span>View Open Roles</span>
               <ArrowRight className="w-4 h-4" />
@@ -670,7 +670,7 @@ export const About = () => {
             <button
               type="button"
               onClick={() => setIsDemoModalOpen(true)}
-              className="px-8 py-4 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-black text-sm shadow-xl shadow-orange-500/25 transition-all flex items-center gap-2.5 cursor-pointer"
+              className="px-8 py-4 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-black text-sm shadow-xl shadow-orange-500/25 transition-all flex items-center gap-2.5 cursor-pointer"
             >
               <span>Book Your Free ERP Demo</span>
               <ArrowRight className="w-4 h-4" />

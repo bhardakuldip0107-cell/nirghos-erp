@@ -63,7 +63,7 @@ const Hero = ({ cfg }) => {
             <button
               type="button"
               onClick={cfg.primary.onClick}
-              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-electric hover:bg-nirghos-primary text-white text-sm font-semibold px-6 py-3.5 transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-gradient hover:bg-nirghos-gradient text-white text-sm font-semibold px-6 py-3.5 transition"
             >
               {cfg.primary.label} <ArrowRight className="w-4 h-4" />
             </button>
@@ -94,7 +94,7 @@ const Hero = ({ cfg }) => {
             <div className="rounded-[18px] bg-white overflow-hidden">
               <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50">
                 <span className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                  <span className="w-5 h-5 rounded-md bg-nirghos-primary text-white text-[10px] flex items-center justify-center">N</span>
+                  <span className="w-5 h-5 rounded-md bg-nirghos-gradient text-white text-[10px] flex items-center justify-center">N</span>
                   Nirghos · {cfg.productName}
                 </span>
                 <span className="text-[10px] rounded-full bg-emerald-50 text-emerald-600 px-2 py-0.5">● Live</span>
@@ -132,11 +132,11 @@ const Hero = ({ cfg }) => {
                     <p className="text-[11px] font-semibold text-slate-700">This week</p>
                     <div className="mt-3 h-24 flex items-end gap-1.5">
                       {[40, 55, 48, 70, 62, 85, 74].map((h, i) => (
-                        <div key={i} className={`flex-1 self-end rounded-t ${i === 5 ? 'bg-nirghos-primary' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
+                        <div key={i} className={`flex-1 self-end rounded-t ${i === 5 ? 'bg-nirghos-gradient' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-xl bg-nirghos-primary text-white p-3">
+                  <div className="rounded-xl bg-nirghos-gradient text-white p-3">
                     <p className="text-[10px] text-sky-100">Total</p>
                     <p className="text-lg font-semibold">₹8,729</p>
                     <p className="text-[10px] text-sky-100">UPI · Card · Cash</p>
@@ -198,7 +198,7 @@ const Problems = ({ cfg }) => {
               <p className="mt-2 text-xs text-slate-500">One platform that solves them all</p>
             </div>
             {['-left-6 top-1/4', '-left-6 bottom-1/4', '-right-6 top-1/4', '-right-6 bottom-1/4'].map((pos, i) => (
-              <span key={i} className={`hidden lg:block absolute ${pos} w-3 h-3 rounded-full bg-nirghos-electric ring-4 ring-sky-100`} />
+              <span key={i} className={`hidden lg:block absolute ${pos} w-3 h-3 rounded-full bg-nirghos-gradient ring-4 ring-sky-100`} />
             ))}
           </div>
           <div className="space-y-12">{right.map((p) => Card(p, 'left'))}</div>
@@ -235,7 +235,7 @@ const WhyUs = ({ cfg }) => {
                       <span>{w}%</span>
                     </div>
                     <div className="h-1.5 rounded-full bg-slate-100">
-                      <div className="h-full rounded-full bg-nirghos-electric" style={{ width: `${w}%` }} />
+                      <div className="h-full rounded-full bg-nirghos-gradient" style={{ width: `${w}%` }} />
                     </div>
                   </div>
                 ))}
@@ -278,7 +278,7 @@ const FeatureGrid = ({ cfg }) => (
             key={title}
             className="group rounded-2xl border border-slate-200 border-l-4 border-l-slate-200 hover:border-l-nirghos-electric bg-white p-6 transition hover:shadow-card-hover"
           >
-            <span className="w-11 h-11 rounded-xl bg-sky-50 text-nirghos-primary flex items-center justify-center group-hover:bg-nirghos-electric group-hover:text-white transition">
+            <span className="w-11 h-11 rounded-xl bg-sky-50 text-nirghos-primary flex items-center justify-center group-hover:bg-nirghos-gradient group-hover:text-white transition">
               <Icon name={icon} className="w-5 h-5" />
             </span>
             <h3 className="mt-4 text-lg font-semibold text-slate-800">{title}</h3>
@@ -323,7 +323,7 @@ const Tour = ({ cfg }) => {
                   k === i ? 'border-nirghos-electric bg-white shadow-md text-slate-800 border-l-4' : 'border-slate-200 bg-white/60 text-slate-500 hover:text-slate-700'
                 }`}
               >
-                <span className={`w-8 h-8 rounded-lg flex items-center justify-center ${k === i ? 'bg-nirghos-electric text-white' : 'bg-slate-100 text-slate-500'}`}>
+                <span className={`w-8 h-8 rounded-lg flex items-center justify-center ${k === i ? 'bg-nirghos-gradient text-white' : 'bg-slate-100 text-slate-500'}`}>
                   <Icon name={icon} className="w-4 h-4" />
                 </span>
                 {label}
@@ -410,7 +410,7 @@ const Stats = ({ cfg, onBook }) => (
         <button
           type="button"
           onClick={onBook}
-          className="inline-flex items-center gap-2 rounded-xl bg-nirghos-electric hover:bg-nirghos-primary text-white text-sm font-semibold px-6 py-3.5 transition"
+          className="inline-flex items-center gap-2 rounded-xl bg-nirghos-gradient hover:bg-nirghos-gradient text-white text-sm font-semibold px-6 py-3.5 transition"
         >
           Grow Your Business Now <ArrowRight className="w-4 h-4" />
         </button>
@@ -445,7 +445,7 @@ const Comparison = ({ cfg }) => {
             <thead>
               <tr>
                 <th className="text-left font-medium text-slate-500 px-6 py-5 w-[22%]">Metrics</th>
-                <th className="px-6 py-5 bg-gradient-to-b from-nirghos-primary to-nirghos-electric text-white font-semibold rounded-t-2xl">Nirghos</th>
+                <th className="px-6 py-5 bg-nirghos-gradient text-white font-semibold rounded-t-2xl">Nirghos</th>
                 <th className="px-6 py-5 font-medium text-slate-700">Manual / Excel</th>
                 <th className="px-6 py-5 font-medium text-slate-700">Basic Billing Software</th>
               </tr>
@@ -532,7 +532,7 @@ const Related = ({ cfg }) => {
           <div className="mt-10 flex justify-center">
             <Link
               to={r.cta.to}
-              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white text-sm font-semibold px-6 py-3.5 transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-gradient hover:opacity-95 text-white text-sm font-semibold px-6 py-3.5 transition"
             >
               {r.cta.label} <ArrowRight className="w-4 h-4" />
             </Link>
@@ -627,7 +627,7 @@ const PricingBand = () => (
           ['Standard', '₹14,999'],
           ['Pro', '₹28,999']
         ].map(([n, p], i) => (
-          <div key={n} className={`rounded-2xl px-6 py-5 min-w-[150px] ${i === 2 ? 'bg-nirghos-electric text-white' : 'bg-white/5 border border-white/10 text-white'}`}>
+          <div key={n} className={`rounded-2xl px-6 py-5 min-w-[150px] ${i === 2 ? 'bg-nirghos-gradient text-white' : 'bg-white/5 border border-white/10 text-white'}`}>
             <p className="text-xs uppercase tracking-widest opacity-70">{n}</p>
             <p className="mt-1 text-2xl font-semibold">{p}</p>
             <p className="text-xs opacity-70">per year</p>

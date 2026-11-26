@@ -162,7 +162,7 @@ export const DashboardPreview = () => (
           {/* Sidebar */}
           <aside className="hidden md:flex col-span-3 lg:col-span-2 flex-col gap-1 border-r border-slate-100 bg-slate-50/60 p-4">
             <div className="flex items-center gap-2 mb-5">
-              <span className="w-7 h-7 rounded-lg bg-nirghos-primary text-white text-xs font-bold flex items-center justify-center">N</span>
+              <span className="w-7 h-7 rounded-lg bg-nirghos-gradient text-white text-xs font-bold flex items-center justify-center">N</span>
               <span className="font-semibold text-slate-800 text-sm">Nirghos</span>
             </div>
             {[
@@ -201,7 +201,7 @@ export const DashboardPreview = () => (
                 <span className="w-8 h-8 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400">
                   <Bell className="w-3.5 h-3.5" />
                 </span>
-                <span className="rounded-lg bg-nirghos-primary text-white text-[11px] font-semibold px-3 py-2">+ New Invoice</span>
+                <span className="rounded-lg bg-nirghos-gradient text-white text-[11px] font-semibold px-3 py-2">+ New Invoice</span>
               </div>
             </div>
 
@@ -230,7 +230,7 @@ export const DashboardPreview = () => (
                   {bars.map((h, i) => (
                     <div key={i} className="flex-1 h-full flex flex-col justify-end">
                       <div
-                        className={`rounded-t-md ${i === 10 ? 'bg-nirghos-primary' : 'bg-sky-200/80'}`}
+                        className={`rounded-t-md ${i === 10 ? 'bg-nirghos-gradient' : 'bg-sky-200/80'}`}
                         style={{ height: `${h}%` }}
                       />
                     </div>
@@ -384,7 +384,7 @@ export const SectorsSection = () => {
               </div>
               <Link
                 to="/industries"
-                className="group rounded-2xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white px-5 py-4 flex items-center gap-3 transition"
+                className="group rounded-2xl bg-nirghos-gradient hover:opacity-95 text-white px-5 py-4 flex items-center gap-3 transition"
               >
                 <span className="w-10 h-10 rounded-xl bg-white text-nirghos-primary flex items-center justify-center shrink-0">
                   <SectorIcon className="w-5 h-5" />
@@ -555,7 +555,7 @@ export const ErpForSection = () => {
               >
                 <span
                   className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                    active ? 'bg-nirghos-electric text-white' : 'bg-white text-slate-700 border border-slate-200'
+                    active ? 'bg-nirghos-gradient text-white' : 'bg-white text-slate-700 border border-slate-200'
                   }`}
                 >
                   <Icon className="w-6 h-6" />
@@ -566,7 +566,7 @@ export const ErpForSection = () => {
                 </span>
                 <span
                   className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-                    active ? 'bg-nirghos-electric text-white' : 'bg-white text-slate-500'
+                    active ? 'bg-nirghos-gradient text-white' : 'bg-white text-slate-500'
                   }`}
                 >
                   {active ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
@@ -593,7 +593,7 @@ export const ErpForSection = () => {
               </div>
               <Link
                 to={data.cta.to}
-                className="mt-7 inline-flex items-center gap-2 rounded-xl bg-nirghos-electric hover:bg-nirghos-primary text-white text-sm font-semibold px-5 py-3.5 transition"
+                className="mt-7 inline-flex items-center gap-2 rounded-xl bg-nirghos-gradient hover:bg-nirghos-gradient text-white text-sm font-semibold px-5 py-3.5 transition"
               >
                 {data.cta.label} <ArrowRight className="w-4 h-4" />
               </Link>
@@ -753,7 +753,7 @@ export const SmartStoreFeatures = () => {
               <span className="font-mono text-[11px] text-slate-500">{pad(s + 1)}</span>
               <div className="w-px flex-1 bg-slate-300 relative">
                 <div
-                  className="absolute top-0 left-0 w-px bg-nirghos-primary transition-all duration-500"
+                  className="absolute top-0 left-0 w-px bg-nirghos-gradient transition-all duration-500"
                   style={{ height: `${((s + 1) / group.slides.length) * 100}%` }}
                 />
               </div>
@@ -795,7 +795,7 @@ export const SmartStoreFeatures = () => {
         <div className="mt-10 flex justify-center">
           <Link
             to="/dashboard"
-            className="inline-flex items-center gap-2 rounded-xl bg-nirghos-electric hover:bg-nirghos-primary text-white text-sm font-semibold px-6 py-3.5 transition"
+            className="inline-flex items-center gap-2 rounded-xl bg-nirghos-gradient hover:bg-nirghos-gradient text-white text-sm font-semibold px-6 py-3.5 transition"
           >
             Try Nirghos Now <ArrowRight className="w-4 h-4" />
           </Link>
@@ -875,7 +875,7 @@ export const AiBanner = ({ onWatch }) => (
               </div>
               <p className="mt-4 text-sm font-medium text-slate-800">Good morning 👋</p>
               <p className="text-xs text-slate-400">How can I help you today?</p>
-              <div className="mt-4 ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-sm bg-nirghos-primary text-white text-xs px-3.5 py-2.5">
+              <div className="mt-4 ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-sm bg-nirghos-gradient text-white text-xs px-3.5 py-2.5">
                 Which products should I reorder this week?
               </div>
               <div className="mt-3 rounded-2xl rounded-bl-sm bg-slate-50 border border-slate-100 text-xs text-slate-600 px-3.5 py-3 space-y-2">
@@ -1028,7 +1028,7 @@ export const IntegrationsHub = () => {
 const OrbitStatCircle = ({ value, label, sublabel, orbitClass }) => (
   <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border border-sky-400/75 bg-sky-50/50 flex items-center justify-center shadow-sm mx-auto">
     <div className={`absolute inset-0 pointer-events-none ${orbitClass}`}>
-      <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-nirghos-primary shadow-[0_0_10px_rgb(var(--brand-primary-rgb)/0.75)] ring-4 ring-sky-200/60" />
+      <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-nirghos-gradient shadow-[0_0_10px_rgb(var(--brand-primary-rgb)/0.75)] ring-4 ring-sky-200/60" />
     </div>
     <div className="relative z-10 text-center px-3">
       <p className="text-2xl sm:text-3xl font-bold text-nirghos-primary tracking-tight">{value}</p>
@@ -1185,7 +1185,7 @@ export const TestimonialStories = ({ testimonials, onPlay }) => {
 export const CtaBanner = ({ onBook }) => (
   <section className="py-10 sm:py-14 bg-white">
     <Container>
-      <div className="relative overflow-hidden rounded-[32px] bg-nirghos-electric px-6 py-12 sm:px-12 sm:py-16">
+      <div className="relative overflow-hidden rounded-[32px] bg-nirghos-gradient px-6 py-12 sm:px-12 sm:py-16">
         <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full border border-white/20" />
         <div className="absolute right-10 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-white/20" />
 
@@ -1221,7 +1221,7 @@ export const CtaBanner = ({ onBook }) => (
               <p className="text-2xl font-semibold text-slate-800">₹4,82,350</p>
               <div className="mt-4 h-24 flex items-end gap-1.5">
                 {bars.map((h, k) => (
-                  <div key={k} className={`flex-1 self-end rounded-t ${k === 10 ? 'bg-nirghos-primary' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
+                  <div key={k} className={`flex-1 self-end rounded-t ${k === 10 ? 'bg-nirghos-gradient' : 'bg-sky-200'}`} style={{ height: `${h}%` }} />
                 ))}
               </div>
               <p className="mt-3 text-[11px] text-emerald-600 font-medium">+12.4% vs yesterday</p>

@@ -177,7 +177,7 @@ export const Login = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3.5 rounded-full font-bold text-white bg-nirghos-primary hover:bg-nirghos-primary-hover shadow-lg shadow-sky-500/25 hover:shadow-sky-500/35 flex items-center justify-center gap-2 transition-all active:scale-98 cursor-pointer text-sm"
+              className="w-full py-3.5 rounded-full font-bold text-white bg-nirghos-gradient hover:opacity-95 shadow-lg shadow-sky-500/25 hover:shadow-sky-500/35 flex items-center justify-center gap-2 transition-all active:scale-98 cursor-pointer text-sm"
             >
               <span>Sign In</span>
               <ArrowRight className="w-4 h-4 text-brand-300" />

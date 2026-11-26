@@ -44,7 +44,7 @@ export const Features = () => {
             <button
               type="button"
               onClick={openDemo}
-              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-electric hover:bg-nirghos-primary text-white text-sm font-semibold px-6 py-3.5 transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-gradient hover:bg-nirghos-gradient text-white text-sm font-semibold px-6 py-3.5 transition"
             >
               Schedule a Demo <ArrowRight className="w-4 h-4" />
             </button>
@@ -71,7 +71,7 @@ export const Features = () => {
                 className="group rounded-3xl border border-slate-200 bg-white p-7 hover:border-nirghos-electric/50 hover:shadow-card-hover transition flex flex-col"
               >
                 <div className="flex items-start justify-between">
-                  <span className="w-12 h-12 rounded-2xl bg-sky-50 text-nirghos-primary flex items-center justify-center group-hover:bg-nirghos-electric group-hover:text-white transition">
+                  <span className="w-12 h-12 rounded-2xl bg-sky-50 text-nirghos-primary flex items-center justify-center group-hover:bg-nirghos-gradient group-hover:text-white transition">
                     <DynamicIcon name={p.icon} className="w-6 h-6" />
                   </span>
                   <span className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:text-nirghos-primary transition">
@@ -107,7 +107,7 @@ export const Features = () => {
                 type="button"
                 onClick={() => setActive(p.slug)}
                 className={`flex-1 shrink-0 whitespace-nowrap rounded-xl px-4 py-3 text-sm font-medium transition ${
-                  p.slug === active ? 'bg-nirghos-electric text-white shadow' : 'text-slate-600 hover:text-slate-900'
+                  p.slug === active ? 'bg-nirghos-gradient text-white shadow' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {p.name}
@@ -128,7 +128,7 @@ export const Features = () => {
           <div className="mt-8 flex justify-center">
             <Link
               to={`/products/${current.slug}`}
-              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white text-sm font-semibold px-6 py-3.5 transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-nirghos-gradient hover:opacity-95 text-white text-sm font-semibold px-6 py-3.5 transition"
             >
               Explore {current.menuTitle} <ArrowRight className="w-4 h-4" />
             </Link>

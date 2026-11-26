@@ -59,7 +59,7 @@ export const Pricing = () => {
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
         <div className="relative max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-nirghos-primary text-xs font-bold uppercase tracking-wider mb-5 animate-fadeIn">
-            <span className="w-2 h-2 rounded-full bg-nirghos-primary animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-nirghos-gradient animate-pulse"></span>
             <span>Tailored Enterprise Pricing</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-tight text-slate-900 leading-[1.12] max-w-3xl mx-auto">
@@ -73,7 +73,7 @@ export const Pricing = () => {
             <button
               type="button"
               onClick={() => setIsDemoModalOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold px-8 py-3.5 shadow-lg shadow-sky-500/25 transition cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold px-8 py-3.5 shadow-lg shadow-sky-500/25 transition cursor-pointer"
             >
               <span>Request Custom Quote</span>
               <ArrowRight className="w-4 h-4" />
@@ -121,7 +121,7 @@ export const Pricing = () => {
               <ul className="mt-4 space-y-2.5">
                 {items.map((t) => (
                   <li key={t} className="flex gap-2.5 text-sm text-slate-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-nirghos-primary mt-2 shrink-0" /> {t}
+                    <span className="w-1.5 h-1.5 rounded-full bg-nirghos-gradient mt-2 shrink-0" /> {t}
                   </li>
                 ))}
               </ul>
@@ -161,7 +161,7 @@ export const Pricing = () => {
 
       {/* CTA Banner (Vasy.ai Sky Gradient) */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="rounded-[32px] bg-gradient-to-r from-nirghos-primary via-nirghos-electric to-nirghos-primary px-6 py-12 sm:px-12 flex flex-wrap items-center justify-between gap-6 shadow-xl shadow-sky-500/20">
+        <div className="rounded-[32px] bg-nirghos-gradient px-6 py-12 sm:px-12 flex flex-wrap items-center justify-between gap-6 shadow-xl shadow-sky-500/20">
           <div>
             <h2 className="text-3xl sm:text-4xl font-semibold text-white">Need a custom quote for your business?</h2>
             <p className="mt-2 text-sky-50">Our experts will recommend the ideal Nirghos ERP setup in a free live demo.</p>

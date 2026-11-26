@@ -212,7 +212,7 @@ export const Header = () => {
         {/* ========================================================================= */}
         {/* 1. TOP ANNOUNCEMENT BANNER (Electric Sky Gradient from Screenshot)        */}
         {/* ========================================================================= */}
-        <div className="w-full bg-gradient-to-r from-nirghos-primary via-nirghos-electric to-nirghos-primary text-white py-2 px-4 text-center select-none shadow-xs">
+        <div className="w-full bg-nirghos-gradient text-white py-2 px-4 text-center select-none shadow-xs">
           <div className="w-full max-w-[1750px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
             <span>&ldquo;Nirghos E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Nirghos ERP Solutions Pvt. Ltd.&rdquo;</span>
           </div>
@@ -366,7 +366,7 @@ export const Header = () => {
               <button
                 type="button"
                 onClick={() => setIsDemoModalOpen(true)}
-                className="px-4 py-1.5 rounded-full bg-nirghos-primary text-white font-bold text-xs shadow-sm"
+                className="px-4 py-1.5 rounded-full bg-nirghos-gradient text-white font-bold text-xs shadow-sm"
               >
                 Book Demo
               </button>

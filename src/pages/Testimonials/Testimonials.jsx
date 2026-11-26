@@ -119,7 +119,7 @@ export const Testimonials = () => {
   const displayedList = testimonials.slice(0, visibleCount);
 
   return (
-    <div className="min-h-screen bg-[#f8faff] text-slate-800 pb-24 selection:bg-nirghos-primary selection:text-white relative overflow-hidden">
+    <div className="min-h-screen bg-[#f8faff] text-slate-800 pb-24 selection:bg-nirghos-gradient selection:text-white relative overflow-hidden">
       
       {/* Blueprint Grid Pattern with Soft Accent Pixel Tiles */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.45]">
@@ -271,7 +271,7 @@ export const Testimonials = () => {
               <button
                 type="button"
                 onClick={() => setIsDemoModalOpen(true)}
-                className="px-7 py-3 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+                className="px-7 py-3 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md shadow-orange-500/20 transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
               >
                 Schedule Free Live Demo
               </button>
@@ -342,7 +342,7 @@ export const Testimonials = () => {
                   setActiveVideoModal(null);
                   setIsDemoModalOpen(true);
                 }}
-                className="w-full py-2.5 rounded-xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-xs transition"
+                className="w-full py-2.5 rounded-xl bg-nirghos-gradient hover:opacity-95 text-white font-bold text-xs transition"
               >
                 Experience This in Nirghos Live Demo
               </button>

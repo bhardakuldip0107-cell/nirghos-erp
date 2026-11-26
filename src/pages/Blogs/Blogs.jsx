@@ -287,7 +287,7 @@ export const Blogs = () => {
                 <button
                   type="button"
                   onClick={() => showToast(`Opening article: ${featuredPost.title}`, 'info')}
-                  className="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-nirghos-primary text-white font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+                  className="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-nirghos-gradient text-white font-bold text-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm"
                 >
                   <span>Read Article</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -336,7 +336,7 @@ export const Blogs = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-nirghos-primary text-white shadow-xs'
+                    ? 'bg-nirghos-gradient text-white shadow-xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >
@@ -428,7 +428,7 @@ export const Blogs = () => {
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-xs shadow-md transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
+                  className="px-6 py-3 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-xs shadow-md transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   <span>Subscribe</span>
                   <Send className="w-3.5 h-3.5" />

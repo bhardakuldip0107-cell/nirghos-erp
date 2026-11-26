@@ -171,7 +171,7 @@ export const Industries = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 border cursor-pointer ${
                   selectedCategory === category
-                    ? 'bg-nirghos-primary text-white border-nirghos-primary shadow-md shadow-sky-500/25'
+                    ? 'bg-nirghos-gradient text-white border-nirghos-primary shadow-md shadow-sky-500/25'
                     : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-sky-300 hover:text-nirghos-primary'
                 }`}
               >

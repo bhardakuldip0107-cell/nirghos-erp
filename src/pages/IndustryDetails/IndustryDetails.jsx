@@ -32,7 +32,7 @@ export const IndustryDetails = () => {
         <p className="text-slate-500 max-w-md mx-auto">The requested industry "{slug}" is not available in our directory.</p>
         <Link
           to="/industries"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-nirghos-primary text-white font-semibold text-sm hover:bg-nirghos-primary-hover transition"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-nirghos-gradient text-white font-semibold text-sm hover:opacity-95 transition"
         >
           <ArrowLeft className="w-4 h-4" /> Browse all industries
         </Link>

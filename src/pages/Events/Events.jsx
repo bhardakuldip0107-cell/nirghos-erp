@@ -204,7 +204,7 @@ export const Events = () => {
               <button
                 type="button"
                 onClick={() => handleRegister(eventsList[0])}
-                className="px-6 py-3.5 rounded-full bg-nirghos-primary text-white font-bold text-sm hover:bg-nirghos-primary-hover shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-full bg-nirghos-gradient text-white font-bold text-sm hover:opacity-95 shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2 cursor-pointer"
               >
                 <span>Reserve Free Summit Pass</span>
                 <ArrowRight className="w-4 h-4" />
@@ -231,7 +231,7 @@ export const Events = () => {
             
             <div className="lg:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3.5 py-1 rounded-full bg-nirghos-primary text-white font-mono font-bold text-xs uppercase tracking-wider shadow-xs">
+                <span className="px-3.5 py-1 rounded-full bg-nirghos-gradient text-white font-mono font-bold text-xs uppercase tracking-wider shadow-xs">
                   Flagship Event
                 </span>
                 <span className="px-3 py-1 rounded-full bg-sky-50 text-nirghos-primary border border-sky-200 text-xs font-bold">
@@ -266,7 +266,7 @@ export const Events = () => {
                 <button
                   type="button"
                   onClick={() => handleRegister(eventsList[0])}
-                  className="px-6 py-3 rounded-full bg-slate-900 hover:bg-nirghos-primary text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3 rounded-full bg-slate-900 hover:bg-nirghos-gradient text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span>Register Free Ticket</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -329,7 +329,7 @@ export const Events = () => {
                 onClick={() => setSelectedTab(tab)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   selectedTab === tab
-                    ? 'bg-nirghos-primary text-white shadow-xs'
+                    ? 'bg-nirghos-gradient text-white shadow-xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                 }`}
               >
@@ -388,7 +388,7 @@ export const Events = () => {
                 <button
                   type="button"
                   onClick={() => handleRegister(evt)}
-                  className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-nirghos-primary text-white font-bold text-xs transition shadow-xs flex items-center gap-1.5 cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-nirghos-gradient text-white font-bold text-xs transition shadow-xs flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>RSVP Now</span>
                   <ArrowRight className="w-3 h-3" />
@@ -420,7 +420,7 @@ export const Events = () => {
           <div className="shrink-0">
             <Link
               to="/contact"
-              className="px-8 py-4 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
             >
               <PhoneCall className="w-4 h-4" />
               <span>Contact Events Team</span>

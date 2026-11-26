@@ -214,7 +214,7 @@ export const Footer = () => {
               href="mailto:infinitysofttech@gmail.com" 
               className="flex items-center gap-2.5 hover:text-nirghos-primary transition group"
             >
-              <div className="w-8 h-8 rounded-lg bg-nirghos-primary text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+              <div className="w-8 h-8 rounded-lg bg-nirghos-gradient text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <Mail className="w-4 h-4" />
               </div>
               <span className="font-medium text-slate-800 group-hover:text-nirghos-primary transition">infinitysofttech@gmail.com</span>
@@ -226,7 +226,7 @@ export const Footer = () => {
               href="tel:+919409259294" 
               className="flex items-center gap-2.5 hover:text-nirghos-primary transition group"
             >
-              <div className="w-8 h-8 rounded-lg bg-nirghos-primary text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+              <div className="w-8 h-8 rounded-lg bg-nirghos-gradient text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <Phone className="w-4 h-4" />
               </div>
               <span className="font-medium text-slate-800 group-hover:text-nirghos-primary transition">+91 94092 59294</span>
@@ -361,7 +361,7 @@ export const Footer = () => {
               <button
                 type="button"
                 onClick={() => setLegalModal(null)}
-                className="px-5 py-2 bg-nirghos-primary hover:bg-nirghos-primary-hover text-white rounded-xl text-xs font-bold transition cursor-pointer"
+                className="px-5 py-2 bg-nirghos-gradient hover:opacity-95 text-white rounded-xl text-xs font-bold transition cursor-pointer"
               >
                 Close
               </button>

@@ -43,6 +43,10 @@ export default {
           dark: '#060e19',
         },
       },
+      backgroundImage: {
+        'nirghos-gradient': 'var(--brand-gradient)',
+        'nirghos-gradient-hover': 'var(--brand-gradient-hover)',
+      },
       fontFamily: {
         sans: ['Outfit', 'Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },

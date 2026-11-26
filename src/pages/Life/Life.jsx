@@ -161,7 +161,7 @@ export const Life = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 to="/careers"
-                className="px-6 py-3.5 rounded-full bg-nirghos-primary text-white font-bold text-sm hover:bg-nirghos-primary-hover shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2"
+                className="px-6 py-3.5 rounded-full bg-nirghos-gradient text-white font-bold text-sm hover:opacity-95 shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2"
               >
                 <span>Join Our Growing Team</span>
                 <ArrowRight className="w-4 h-4" />
@@ -253,7 +253,7 @@ export const Life = () => {
                   onClick={() => setActiveTab(tab)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === tab
-                      ? 'bg-nirghos-primary text-white shadow-xs'
+                      ? 'bg-nirghos-gradient text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
@@ -364,7 +364,7 @@ export const Life = () => {
           <div className="shrink-0 flex flex-wrap items-center gap-4">
             <Link
               to="/careers"
-              className="px-8 py-4 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
             >
               <span>Explore Open Roles</span>
               <ArrowRight className="w-4 h-4" />

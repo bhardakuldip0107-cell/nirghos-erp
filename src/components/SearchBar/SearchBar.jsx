@@ -112,7 +112,7 @@ export const SearchBar = ({
               navigate('/industries');
             }
           }}
-          className="px-4 sm:px-6 py-2.5 rounded-xl sm:rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white text-xs sm:text-sm font-bold shadow-md shadow-orange-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-1.5 shrink-0 cursor-pointer"
+          className="px-4 sm:px-6 py-2.5 rounded-xl sm:rounded-full bg-nirghos-gradient hover:opacity-95 text-white text-xs sm:text-sm font-bold shadow-md shadow-orange-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center gap-1.5 shrink-0 cursor-pointer"
         >
           <span>Explore</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -137,7 +137,7 @@ export const SearchBar = ({
                 className="w-full p-3.5 text-left hover:bg-sky-50/70 transition flex items-center justify-between group cursor-pointer"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-100 group-hover:bg-nirghos-primary group-hover:text-white text-nirghos-primary flex items-center justify-center transition shrink-0 shadow-2xs">
+                  <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-100 group-hover:bg-nirghos-gradient group-hover:text-white text-nirghos-primary flex items-center justify-center transition shrink-0 shadow-2xs">
                     <DynamicIcon name={ind.icon} className="w-5 h-5" />
                   </div>
                   <div>

@@ -1379,7 +1379,7 @@ export const Home = () => {
             {/* Left Column: Pill Badge + Headline + Subtitle + CTA */}
             <div className="lg:col-span-6 text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-slate-700 mb-6 animate-fadeIn">
-                <span className="w-5 h-5 rounded-full bg-nirghos-primary text-white flex items-center justify-center">
+                <span className="w-5 h-5 rounded-full bg-nirghos-gradient text-white flex items-center justify-center">
                   <ArrowRight className="w-3 h-3" />
                 </span>
                 <span>All in One Place</span>
@@ -1398,7 +1398,7 @@ export const Home = () => {
                 <button
                   type="button"
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   <span>Get Free ERP Consultation</span>
                   <ArrowRight className="w-4 h-4" />
@@ -1431,7 +1431,7 @@ export const Home = () => {
                       <div className="flex items-center gap-2 text-[7px] font-semibold text-slate-500">
                         <span>Products</span>
                         <span>Industries</span>
-                        <span className="px-1.5 py-0.5 rounded-full bg-nirghos-primary text-white">Demo</span>
+                        <span className="px-1.5 py-0.5 rounded-full bg-nirghos-gradient text-white">Demo</span>
                       </div>
                     </div>
                     {/* Mini Hero & Metrics inside Laptop Screen */}
@@ -1444,7 +1444,7 @@ export const Home = () => {
                           Lead the Future with <span className="text-nirghos-primary">AI-enabled</span> Nirghos ERP
                         </p>
                         <div className="flex gap-1.5 pt-1">
-                          <span className="px-2 py-0.5 rounded-full bg-nirghos-primary text-white text-[6px] font-bold">Get Started</span>
+                          <span className="px-2 py-0.5 rounded-full bg-nirghos-gradient text-white text-[6px] font-bold">Get Started</span>
                           <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[6px] font-semibold">Live POS</span>
                         </div>
                       </div>
@@ -1478,7 +1478,7 @@ export const Home = () => {
                       <span className="text-[7px] font-bold text-nirghos-primary">NIRGHOS</span>
                     </div>
                     <div className="p-2.5 space-y-2 flex-1 bg-white">
-                      <div className="rounded-xl bg-nirghos-primary text-white p-2">
+                      <div className="rounded-xl bg-nirghos-gradient text-white p-2">
                         <p className="text-[6px] opacity-80 uppercase">Mobile POS</p>
                         <p className="text-[10px] font-black">₹1,24,500</p>
                       </div>
@@ -1531,7 +1531,7 @@ export const Home = () => {
                     to={prod.path}
                     className="flex items-center gap-3 px-3 py-1.5 rounded-xl hover:bg-sky-50/70 transition-all group shrink-0"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-sky-50 text-nirghos-primary border border-sky-100/90 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-nirghos-primary group-hover:text-white transition-all shadow-2xs">
+                    <div className="w-9 h-9 rounded-xl bg-sky-50 text-nirghos-primary border border-sky-100/90 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-nirghos-gradient group-hover:text-white transition-all shadow-2xs">
                       <ProdIcon className="w-4 h-4" />
                     </div>
                     <div className="flex flex-col text-left leading-tight">
@@ -1572,7 +1572,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-slate-800 tracking-tight leading-tight">
               Innovative solutions for retailers, MSMEs and manufacturers
             </h2>
-            <div className="w-16 h-1 bg-nirghos-primary rounded-full mx-auto mt-3 mb-3"></div>
+            <div className="w-16 h-1 bg-nirghos-gradient rounded-full mx-auto mt-3 mb-3"></div>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
               Comprehensive solutions, modules, and features to make your stores and business units smart and automated
             </p>
@@ -1593,7 +1593,7 @@ export const Home = () => {
                     }}
                     className={`relative px-4 sm:px-5 py-2 rounded-xl sm:rounded-full text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer overflow-hidden ${
                       isActive
-                        ? 'bg-nirghos-primary text-white shadow-md shadow-sky-500/25 scale-[1.02]'
+                        ? 'bg-nirghos-gradient text-white shadow-md shadow-sky-500/25 scale-[1.02]'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
                     }`}
                   >
@@ -1815,7 +1815,7 @@ export const Home = () => {
               
               {/* Badge matching screenshot */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50/90 border border-sky-200/80 text-sky-700 text-xs font-bold uppercase tracking-wider mb-5 shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-nirghos-primary animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-nirghos-gradient animate-pulse"></span>
                 <span>All in One Retail Platform</span>
               </div>
 
@@ -1836,7 +1836,7 @@ export const Home = () => {
                 <button
                   type="button"
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="px-7 py-3.5 rounded-full bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 transition-all duration-200 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm shadow-md shadow-sky-500/25 hover:shadow-lg hover:shadow-sky-500/35 transition-all duration-200 cursor-pointer"
                 >
                   Request Demo
                 </button>
@@ -2173,7 +2173,7 @@ export const Home = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
               Press release
             </h2>
-            <div className="w-16 h-1 bg-nirghos-primary rounded-full"></div>
+            <div className="w-16 h-1 bg-nirghos-gradient rounded-full"></div>
             <p className="text-slate-300 text-sm sm:text-base pt-1 max-w-2xl">
               Official press announcements, nationwide platform launches, strategic alliances, and excellence recognitions.
             </p>
@@ -2245,7 +2245,7 @@ export const Home = () => {
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-semibold text-slate-800 tracking-tight leading-tight">
                 Have Any Questions?
               </h2>
-              <div className="w-14 h-1 bg-nirghos-primary rounded-full"></div>
+              <div className="w-14 h-1 bg-nirghos-gradient rounded-full"></div>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1 max-w-md">
                 Got ERP questions? Explore our FAQs to see how our solutions can support your business growth and daily operations.
               </p>
@@ -2358,7 +2358,7 @@ export const Home = () => {
                   setActiveStoryVideo(null);
                   setIsDemoModalOpen(true);
                 }}
-                className="w-full py-2.5 rounded-xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-xs transition"
+                className="w-full py-2.5 rounded-xl bg-nirghos-gradient hover:opacity-95 text-white font-bold text-xs transition"
               >
                 Experience This in Nirghos Live Demo
               </button>
@@ -2449,7 +2449,7 @@ export const Home = () => {
                   setSelectedPressModal(null);
                   setIsDemoModalOpen(true);
                 }}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-nirghos-gradient hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Schedule A Product Demo
               </button>
@@ -2543,7 +2543,7 @@ export const Home = () => {
               <Link
                 to="/blogs"
                 onClick={() => setSelectedBlogModal(null)}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-nirghos-gradient hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Read More on Nirghos Blogs →
               </Link>
@@ -2632,7 +2632,7 @@ export const Home = () => {
               <Link
                 to="/events"
                 onClick={() => setSelectedEventModal(null)}
-                className="w-full sm:flex-1 py-3 rounded-xl bg-nirghos-primary hover:bg-nirghos-primary-hover text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
+                className="w-full sm:flex-1 py-3 rounded-xl bg-nirghos-gradient hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg text-center"
               >
                 Explore All Corporate Events →
               </Link>
