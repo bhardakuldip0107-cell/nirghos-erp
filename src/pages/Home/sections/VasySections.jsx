@@ -1025,66 +1025,17 @@ export const IntegrationsHub = () => {
 /* 8. Happy clients wall                                                      */
 /* ------------------------------------------------------------------------- */
 
-const clientNames = [
-  'Shreeman',
-  'Samor Gold',
-  'Deepkala Heritage',
-  'Fritzberg',
-  'Laavian',
-  "Sachin's Men's World",
-  'SIA',
-  'Navbharat',
-  'Osomengel',
-  'Sequinze',
-  'Cotton House',
-  'Moodhayil Gold & Diamonds',
-  'JKJ and Sons Jewellers',
-  'Sagar Gold',
-  'Basic Casual Clothing',
-  'In Vogue'
-];
-
-const ClientChip = ({ name }) => (
-  <div className="shrink-0 w-52 h-20 rounded-2xl bg-white/80 backdrop-blur border border-white shadow-[0_8px_24px_-12px_rgba(2,132,199,0.4)] flex items-center justify-center px-4 text-center">
-    <span className="font-semibold text-slate-700 text-[15px] leading-tight">{name}</span>
-  </div>
+export const ClientsWall = () => (
+  <section className="relative py-14 sm:py-16 bg-white overflow-hidden">
+    <Container>
+      <h2 className="text-center text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-800 leading-[1.15]">
+        <span className="text-[#0ea5e9]">50+</span> businesses
+        <br />
+        happy clients who make us
+      </h2>
+    </Container>
+  </section>
 );
-
-export const ClientsWall = () => {
-  const half = Math.ceil(clientNames.length / 2);
-  const rowA = clientNames.slice(0, half);
-  const rowB = clientNames.slice(half);
-  return (
-    <section className="relative pt-16 sm:pt-20 pb-0 bg-white overflow-hidden">
-      <Container>
-        <h2 className="text-center text-3xl sm:text-4xl lg:text-[52px] font-semibold tracking-tight text-slate-800 leading-[1.15]">
-          <span className="text-[#0ea5e9]">50+</span> businesses
-          <br />
-          happy clients who make us
-        </h2>
-      </Container>
-
-      <div className="relative mt-12 h-[360px] sm:h-[420px]">
-        <div className="absolute left-1/2 -translate-x-1/2 top-10 w-[1400px] h-[1400px] rounded-full bg-[radial-gradient(circle_at_50%_30%,#7dd3fc_0%,#0ea5e9_30%,#0369a1_60%,#0B192C_100%)] opacity-80" />
-        <div className="absolute left-1/2 -translate-x-1/2 top-10 w-[1400px] h-[1400px] rounded-full bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.7),transparent_40%)]" />
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
-
-        <div className="relative pt-32 sm:pt-40 space-y-4">
-          <div className="flex gap-4 w-max animate-marquee-rtl">
-            {[...rowA, ...rowA, ...rowA].map((n, i) => (
-              <ClientChip key={`a${i}`} name={n} />
-            ))}
-          </div>
-          <div className="flex gap-4 w-max animate-marquee-rtl [animation-direction:reverse]">
-            {[...rowB, ...rowB, ...rowB].map((n, i) => (
-              <ClientChip key={`b${i}`} name={n} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 /* ------------------------------------------------------------------------- */
 /* 9. Testimonial stories slider                                              */
