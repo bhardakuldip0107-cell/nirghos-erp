@@ -306,23 +306,11 @@ export const DemoModal = ({ isOpen, onClose, type = 'book-demo', defaultIndustry
                 ></textarea>
               </div>
 
-              {/* Security / reCAPTCHA box (matching screenshot) */}
-              <div className="flex items-center gap-2.5 border border-slate-200 rounded-md p-2 bg-slate-50/80 w-fit">
-                <div className="px-2 py-1 rounded bg-[#1a73e8] text-white text-[10px] font-bold">
-                  reCAPTCHA
-                </div>
-                <div className="text-[10px] text-slate-500 leading-tight">
-                  <span className="font-semibold text-slate-700 block">protected by reCAPTCHA</span>
-                  <span className="text-slate-400 hover:underline cursor-pointer">Privacy</span> - <span className="text-slate-400 hover:underline cursor-pointer">Terms</span>
-                </div>
-                <RotateCw className="w-3.5 h-3.5 text-slate-400 ml-1 cursor-pointer hover:text-slate-600" />
-              </div>
-
-              {/* Submit Button (Exact pill style from screenshot) */}
+              {/* Submit Button */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-full bg-[#1e6cb7] hover:bg-[#185aa0] text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all active:scale-[0.99] cursor-pointer"
+                  className="w-full py-3 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all active:scale-[0.99] cursor-pointer"
                 >
                   Submit
                 </button>
