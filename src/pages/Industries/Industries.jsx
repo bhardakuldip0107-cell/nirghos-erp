@@ -4,6 +4,7 @@ import {
   Boxes, 
   Search, 
   ArrowRight, 
+  ArrowUpRight,
   Filter, 
   Sparkles, 
   CheckCircle2, 
@@ -12,7 +13,7 @@ import {
   Layers
 } from 'lucide-react';
 import { industriesData, industryCategories } from '../../data/industries';
-import IndustryCard from '../../components/IndustryCard/IndustryCard';
+import DynamicIcon from '../../components/common/DynamicIcon';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { useDemo } from '../../context/DemoContext';
 
@@ -203,12 +204,55 @@ export const Industries = () => {
 
         </div>
 
-        {/* 25 Industries Card Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredIndustries.map((industry) => (
-            <IndustryCard key={industry.slug} industry={industry} />
-          ))}
-        </div>
+        {/* 25 Industries Clean Multi-Column Directory (Card-Free Layout) */}
+        {filteredIndustries.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 pt-4">
+            {industryCategories
+              .filter((c) => c !== 'All' && (selectedCategory === 'All' || selectedCategory === c))
+              .map((category) => {
+                const items = filteredIndustries.filter((ind) => ind.category === category);
+                if (!items.length) return null;
+                return (
+                  <div key={category} className="space-y-3 animate-fadeIn">
+                    <div className="flex items-center justify-between pb-3 border-b-2 border-slate-200/80">
+                      <h2 className="text-base font-bold text-slate-900 tracking-tight">
+                        {category}
+                      </h2>
+                      <span className="font-mono text-xs font-bold text-nirghos-primary bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200/70">
+                        {String(items.length).padStart(2, '0')}
+                      </span>
+                    </div>
+
+                    <ul className="divide-y divide-slate-100">
+                      {items.map((industry) => (
+                        <li key={industry.slug}>
+                          <Link
+                            to={`/industries/${industry.slug}`}
+                            className="group flex items-center justify-between gap-3 py-3.5 px-2 -mx-2 rounded-xl hover:bg-sky-50/60 transition-all duration-150"
+                          >
+                            <div className="flex items-center gap-3 min-w-0">
+                              <span className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-nirghos-gradient text-slate-600 group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
+                                <DynamicIcon name={industry.icon} className="w-4 h-4" />
+                              </span>
+                              <div className="min-w-0">
+                                <p className="text-sm font-semibold text-slate-800 group-hover:text-nirghos-primary truncate transition-colors">
+                                  {industry.name}
+                                </p>
+                                <p className="text-xs text-slate-400 truncate mt-0.5">
+                                  {industry.tagline || industry.shortDesc}
+                                </p>
+                              </div>
+                            </div>
+                            <ArrowUpRight className="w-4 h-4 text-slate-300 group-hover:text-nirghos-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 transition-all" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredIndustries.length === 0 && (
