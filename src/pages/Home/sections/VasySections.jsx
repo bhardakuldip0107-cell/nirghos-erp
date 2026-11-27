@@ -604,11 +604,14 @@ export const ErpForSection = () => {
           <h4 className="mt-12 font-semibold text-slate-800">{data.offersTitle}</h4>
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {data.offers.map(([Icon, label]) => (
-              <div key={label} className="flex items-center gap-3 rounded-xl bg-slate-50 hover:bg-sky-50 px-4 py-3.5 text-sm text-slate-700 transition">
-                <span className="w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center shrink-0 text-slate-700">
+              <div
+                key={label}
+                className="group flex items-center gap-3 rounded-xl bg-slate-50 border border-slate-200/70 hover:bg-white hover:border-nirghos-primary hover:shadow-lg hover:shadow-sky-500/15 hover:-translate-y-0.5 px-4 py-3.5 text-sm font-medium text-slate-700 hover:text-nirghos-primary transition-all duration-200 cursor-pointer"
+              >
+                <span className="w-8 h-8 rounded-lg bg-white border border-slate-200/80 flex items-center justify-center shrink-0 text-slate-600 group-hover:bg-nirghos-gradient group-hover:text-white group-hover:border-transparent group-hover:scale-105 transition-all duration-200 shadow-2xs">
                   <Icon className="w-4 h-4" />
                 </span>
-                {label}
+                <span className="leading-snug">{label}</span>
               </div>
             ))}
           </div>
