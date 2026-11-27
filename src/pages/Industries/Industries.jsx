@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Boxes, 
@@ -17,11 +17,40 @@ import DynamicIcon from '../../components/common/DynamicIcon';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { useDemo } from '../../context/DemoContext';
 
+const industryPreviewImages = {
+  manufacturing: '/sectors/industrial-manufacturing.jpg',
+  trading: '/industries/trading.jpg',
+  retail: '/sectors/trade-commerce.jpg',
+  construction: '/industries/construction.jpg',
+  automobile: '/industries/automobile.jpg',
+  textile: '/industries/textile.jpg',
+  pharma: '/sectors/healthcare-life-sciences.jpg',
+  'food-beverage': '/industries/food-beverage.jpg',
+  logistics: '/industries/logistics.jpg',
+  education: '/industries/education.jpg',
+  hospital: '/industries/hospital.jpg',
+  'hotel-restaurant': '/sectors/institutional-hospitality.jpg',
+  'it-software': '/sectors/services-technology.jpg',
+  'service-maintenance': '/industries/service-maintenance.jpg',
+  agriculture: '/industries/agriculture.jpg',
+  jewellery: '/industries/jewellery.jpg',
+  chemical: '/industries/chemical.jpg',
+  electronics: '/industries/electronics.jpg',
+  printing: '/industries/printing.jpg',
+  furniture: '/industries/furniture.jpg',
+  ecommerce: '/industries/ecommerce.jpg',
+  'export-import': '/industries/export-import.jpg',
+  'oil-gas': '/sectors/energy-resources.jpg',
+  'security-facility': '/industries/security-facility.jpg',
+  'professional-services': '/sectors/accounting-erp.jpg'
+};
+
 export const Industries = () => {
   const { isAuthenticated, profile } = useDemo();
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('id'); // 'id' | 'name' | 'category'
+  const [activeSlug, setActiveSlug] = useState('manufacturing');
 
   // Filter and sort industries
   const filteredIndustries = useMemo(() => {
@@ -51,6 +80,14 @@ export const Industries = () => {
 
     return list;
   }, [selectedCategory, searchQuery, sortBy, isAuthenticated, profile?.slug]);
+
+  useEffect(() => {
+    if (filteredIndustries.length > 0 && !filteredIndustries.some((i) => i.slug === activeSlug)) {
+      setActiveSlug(filteredIndustries[0].slug);
+    }
+  }, [filteredIndustries, activeSlug]);
+
+  const activeIndustry = filteredIndustries.find((i) => i.slug === activeSlug) || filteredIndustries[0];
 
   return (
     <div className="space-y-16 pb-28">
@@ -204,84 +241,123 @@ export const Industries = () => {
 
         </div>
 
-        {/* 25 Industries Smart Table / Row List View (Option 2 - Card-Free) */}
-        {filteredIndustries.length > 0 && (
-          <div className="overflow-x-auto rounded-2xl border border-slate-200/90 bg-white shadow-sm animate-fadeIn">
-            <table className="w-full min-w-[820px] text-left border-collapse">
-              <thead>
-                <tr className="border-b border-slate-200 bg-slate-50/80 text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                  <th className="py-3.5 pl-5 pr-3 w-12">#</th>
-                  <th className="py-3.5 px-4">Industry / Solution</th>
-                  <th className="py-3.5 px-4">Category</th>
-                  <th className="py-3.5 px-4">Key Modules</th>
-                  <th className="py-3.5 px-4">Benchmark</th>
-                  <th className="py-3.5 pl-4 pr-5 text-right">Explore</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-sm">
-                {filteredIndustries.map((industry, idx) => (
-                  <tr
-                    key={industry.slug}
-                    className="group hover:bg-sky-50/50 transition-colors"
-                  >
-                    <td className="py-4 pl-5 pr-3 font-mono text-xs text-slate-400 font-semibold">
-                      {String(idx + 1).padStart(2, '0')}
-                    </td>
-                    <td className="py-4 px-4">
-                      <Link to={`/industries/${industry.slug}`} className="flex items-center gap-3">
-                        <span className="w-9 h-9 rounded-xl bg-slate-100 group-hover:bg-nirghos-gradient text-slate-600 group-hover:text-white flex items-center justify-center shrink-0 transition-all">
-                          <DynamicIcon name={industry.icon} className="w-4 h-4" />
-                        </span>
-                        <div className="min-w-0">
-                          <p className="font-bold text-slate-800 group-hover:text-nirghos-primary transition-colors">
-                            {industry.name}
-                          </p>
-                          <p className="text-xs text-slate-400 line-clamp-1 mt-0.5 max-w-xs">
-                            {industry.tagline || industry.shortDesc}
-                          </p>
-                        </div>
-                      </Link>
-                    </td>
-                    <td className="py-4 px-4 whitespace-nowrap">
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold bg-sky-50 text-nirghos-primary border border-sky-200/70">
-                        {industry.category}
-                      </span>
-                    </td>
-                    <td className="py-4 px-4">
-                      <div className="flex flex-wrap gap-1.5 max-w-xs">
-                        {(industry.modules || []).slice(0, 2).map((m) => (
-                          <span
-                            key={m.code || m.name}
-                            className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium whitespace-nowrap"
-                          >
-                            {m.name}
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="py-4 px-4 whitespace-nowrap">
-                      {industry.stats?.[0] ? (
-                        <div className="text-xs">
-                          <span className="font-bold text-emerald-600">{industry.stats[0].value}</span>{' '}
-                          <span className="text-slate-500">{industry.stats[0].label}</span>
-                        </div>
-                      ) : (
-                        <span className="text-xs text-slate-400">—</span>
-                      )}
-                    </td>
-                    <td className="py-4 pl-4 pr-5 text-right whitespace-nowrap">
-                      <Link
-                        to={`/industries/${industry.slug}`}
-                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold text-nirghos-primary bg-white border border-slate-200 group-hover:bg-nirghos-gradient group-hover:text-white group-hover:border-transparent transition-all shadow-2xs"
+        {/* 25 Industries Split Text-List + Live Preview (Option 4 - Card-Free) */}
+        {filteredIndustries.length > 0 && activeIndustry && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fadeIn">
+            
+            {/* Left Column: Clean Vertical Text List */}
+            <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
+              <div className="px-5 py-3.5 border-b border-slate-100 bg-slate-50/70 flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Select Industry ({filteredIndustries.length})
+                </span>
+                <span className="text-[11px] text-slate-400">Hover or click to preview</span>
+              </div>
+              <ul className="divide-y divide-slate-100 max-h-[580px] overflow-y-auto">
+                {filteredIndustries.map((industry, idx) => {
+                  const isActive = industry.slug === activeIndustry.slug;
+                  return (
+                    <li key={industry.slug}>
+                      <button
+                        type="button"
+                        onMouseEnter={() => setActiveSlug(industry.slug)}
+                        onClick={() => setActiveSlug(industry.slug)}
+                        className={`w-full text-left px-5 py-3.5 flex items-center justify-between gap-3 transition-all cursor-pointer border-l-4 ${
+                          isActive
+                            ? 'bg-sky-50/80 border-nirghos-primary text-nirghos-primary'
+                            : 'bg-white border-transparent hover:bg-slate-50 text-slate-700'
+                        }`}
                       >
-                        <span>View</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                        <div className="flex items-center gap-3 min-w-0">
+                          <span className="font-mono text-[11px] text-slate-400 w-5 shrink-0">
+                            {String(idx + 1).padStart(2, '0')}
+                          </span>
+                          <span
+                            className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                              isActive ? 'bg-nirghos-gradient text-white' : 'bg-slate-100 text-slate-500'
+                            }`}
+                          >
+                            <DynamicIcon name={industry.icon} className="w-4 h-4" />
+                          </span>
+                          <span className={`text-sm truncate ${isActive ? 'font-bold' : 'font-medium'}`}>
+                            {industry.name}
+                          </span>
+                        </div>
+                        <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${isActive ? 'text-nirghos-primary translate-x-0.5' : 'text-slate-300'}`} />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            {/* Right Column: Live Sticky Preview Panel */}
+            <div className="lg:col-span-7 lg:sticky lg:top-28 bg-white rounded-3xl border border-slate-200/90 shadow-lg overflow-hidden">
+              <div className="relative aspect-[16/9] bg-slate-100 overflow-hidden">
+                <img
+                  key={activeIndustry.slug}
+                  src={industryPreviewImages[activeIndustry.slug] || '/sectors/industrial-manufacturing.jpg'}
+                  alt={activeIndustry.name}
+                  className="w-full h-full object-cover animate-fadeIn"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent" />
+                <div className="absolute bottom-5 left-6 right-6 flex flex-wrap items-end justify-between gap-4 text-white">
+                  <div>
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider mb-2">
+                      {activeIndustry.category}
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+                      {activeIndustry.name}
+                    </h2>
+                  </div>
+                  {activeIndustry.stats?.[0] && (
+                    <div className="rounded-xl bg-white/95 backdrop-blur-md text-slate-900 px-3.5 py-2 shadow-md">
+                      <span className="text-sm font-bold text-emerald-600">{activeIndustry.stats[0].value}</span>{' '}
+                      <span className="text-xs font-medium text-slate-600">{activeIndustry.stats[0].label}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 space-y-6">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {activeIndustry.fullDesc || activeIndustry.shortDesc}
+                </p>
+
+                {activeIndustry.modules?.length > 0 && (
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400 mb-3">
+                      Core Modules Included
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {activeIndustry.modules.slice(0, 4).map((m) => (
+                        <div key={m.code || m.name} className="flex items-center gap-2.5 text-sm text-slate-700 bg-slate-50 rounded-xl px-3.5 py-2.5 border border-slate-100">
+                          <CheckCircle2 className="w-4 h-4 text-nirghos-primary shrink-0" />
+                          <span className="font-medium truncate">{m.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <Link
+                    to={`/industries/${activeIndustry.slug}`}
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm shadow-md transition"
+                  >
+                    <span>Explore {activeIndustry.name}</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    to={`/dashboard?industry=${activeIndustry.slug}`}
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-slate-200 hover:border-nirghos-primary text-nirghos-primary font-semibold text-sm transition"
+                  >
+                    <span>Try Live Workspace</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
           </div>
         )}
 

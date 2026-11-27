@@ -4,6 +4,7 @@ import ProductTemplate from '../../components/ProductTemplate/ProductTemplate';
 import DemoModal from '../../components/common/DemoModal';
 import { getProductBySlug } from '../../data/products';
 import { industriesData } from '../../data/industries';
+import { industryImages } from '../../data/industryImages';
 
 const productHeroImages = {
   pos: '/sectors/trade-commerce.jpg',
@@ -54,7 +55,7 @@ export const ProductDetails = () => {
       items: product.industries
         .map((s) => industriesData.find((i) => i.slug === s))
         .filter(Boolean)
-        .map((i) => ({ to: `/industries/${i.slug}`, name: i.name, desc: i.shortDesc, icon: i.icon, kicker: i.category })),
+        .map((i) => ({ to: `/industries/${i.slug}`, name: i.name, desc: i.shortDesc, icon: i.icon, kicker: i.category, image: industryImages[i.slug] })),
       cta: { label: 'Discover Your Business Segment', to: '/industries' }
     },
     faqs: product.faqs

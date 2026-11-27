@@ -6,34 +6,7 @@ import DemoModal from '../../components/common/DemoModal';
 import { useDemo } from '../../context/DemoContext';
 import { getIndustryBySlug, getRelatedIndustries, industriesData } from '../../data/industries';
 import { getIndustryLandingData } from '../../data/industryLandingData';
-
-const industryHeroImages = {
-  manufacturing: '/sectors/industrial-manufacturing.jpg',
-  trading: '/industries/trading.jpg',
-  retail: '/sectors/trade-commerce.jpg',
-  construction: '/industries/construction.jpg',
-  automobile: '/industries/automobile.jpg',
-  textile: '/industries/textile.jpg',
-  pharma: '/sectors/healthcare-life-sciences.jpg',
-  'food-beverage': '/industries/food-beverage.jpg',
-  logistics: '/industries/logistics.jpg',
-  education: '/industries/education.jpg',
-  hospital: '/industries/hospital.jpg',
-  'hotel-restaurant': '/sectors/institutional-hospitality.jpg',
-  'it-software': '/sectors/services-technology.jpg',
-  'service-maintenance': '/industries/service-maintenance.jpg',
-  agriculture: '/industries/agriculture.jpg',
-  jewellery: '/industries/jewellery.jpg',
-  chemical: '/industries/chemical.jpg',
-  electronics: '/industries/electronics.jpg',
-  printing: '/industries/printing.jpg',
-  furniture: '/industries/furniture.jpg',
-  ecommerce: '/industries/ecommerce.jpg',
-  'export-import': '/industries/export-import.jpg',
-  'oil-gas': '/sectors/energy-resources.jpg',
-  'security-facility': '/industries/security-facility.jpg',
-  'professional-services': '/sectors/accounting-erp.jpg'
-};
+import { industryImages } from '../../data/industryImages';
 
 const problemIcons = ['AlertTriangle', 'Boxes', 'Calculator', 'BarChart3'];
 
@@ -82,7 +55,7 @@ export const IndustryDetails = () => {
 
   const cfg = {
     badge: industry.category,
-    heroImage: industryHeroImages[slug] || '/sectors/industrial-manufacturing.jpg',
+    heroImage: industryImages[slug] || '/sectors/industrial-manufacturing.jpg',
     productName: `${shortName} ERP`,
     titleTop: industry.name,
     titleAccent: 'ERP Software',
@@ -107,7 +80,7 @@ export const IndustryDetails = () => {
     related: {
       title: 'Related industries we serve',
       subtitle: 'Explore Nirghos solutions for businesses similar to yours.',
-      items: relatedList.map((i) => ({ to: `/industries/${i.slug}`, name: i.name, desc: i.shortDesc, icon: i.icon, kicker: i.category })),
+      items: relatedList.map((i) => ({ to: `/industries/${i.slug}`, name: i.name, desc: i.shortDesc, icon: i.icon, kicker: i.category, image: industryImages[i.slug] })),
       cta: { label: 'Browse All Industries', to: '/industries' }
     },
     testimonial: landing.testimonial,

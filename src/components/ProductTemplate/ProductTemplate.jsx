@@ -490,13 +490,25 @@ const Related = ({ cfg }) => {
                 ['from-[#0B192C] to-nirghos-primary-hover', 'from-[#132842] to-nirghos-primary', 'from-[#060e19] to-[#075985]'][k % 3]
               }`}
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgb(var(--brand-light-rgb)/0.35),transparent_55%)]" />
-              <span className="absolute top-6 right-6 w-16 h-16 rounded-2xl bg-white/10 text-sky-200 flex items-center justify-center group-hover:scale-110 transition">
-                <Icon name={it.icon} className="w-8 h-8" />
+              {it.image ? (
+                <>
+                  <img
+                    src={it.image}
+                    alt={it.name}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060e19]/95 via-[#0B192C]/65 to-[#060e19]/25" />
+                </>
+              ) : (
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgb(var(--brand-light-rgb)/0.35),transparent_55%)]" />
+              )}
+              <span className="relative z-10 ml-auto mb-auto w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/15 text-sky-200 flex items-center justify-center group-hover:scale-110 transition">
+                <Icon name={it.icon} className="w-6 h-6" />
               </span>
-              <p className="relative text-xs font-semibold tracking-widest text-sky-300 uppercase">{it.kicker}</p>
-              <p className="relative mt-1 text-xl font-semibold text-white">{it.name}</p>
-              {it.desc && <p className="relative mt-1 text-sm text-slate-300 line-clamp-2">{it.desc}</p>}
+              <p className="relative z-10 text-xs font-semibold tracking-widest text-sky-300 uppercase">{it.kicker}</p>
+              <p className="relative z-10 mt-1 text-xl font-semibold text-white">{it.name}</p>
+              {it.desc && <p className="relative z-10 mt-1 text-sm text-slate-200 line-clamp-2">{it.desc}</p>}
             </Link>
           ))}
         </div>
@@ -576,40 +588,6 @@ const Faq = ({ faqs }) => {
   );
 };
 
-/* ----------------------------- Pricing band ----------------------------- */
-
-const PricingBand = () => (
-  <section className="bg-[#0B192C]">
-    <Container className="py-14 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-      <div>
-        <h2 className="text-3xl sm:text-4xl font-semibold text-white leading-tight">
-          Get Started with Smarter Business Management – At the Right Price
-        </h2>
-        <p className="mt-3 text-slate-400">Smart, simple and affordable — everything your business needs to grow faster and run smoother.</p>
-        <Link
-          to="/pricing"
-          className="mt-7 inline-flex items-center gap-2 rounded-xl border border-white/40 text-white text-sm font-semibold px-6 py-3.5 hover:bg-white/10 transition"
-        >
-          Choose Your Plan <ArrowRight className="w-4 h-4" />
-        </Link>
-      </div>
-      <div className="flex flex-wrap gap-3 lg:justify-end">
-        {[
-          ['Lite', '₹6,999'],
-          ['Standard', '₹14,999'],
-          ['Pro', '₹28,999']
-        ].map(([n, p], i) => (
-          <div key={n} className={`rounded-2xl px-6 py-5 min-w-[150px] ${i === 2 ? 'bg-nirghos-gradient text-white' : 'bg-white/5 border border-white/10 text-white'}`}>
-            <p className="text-xs uppercase tracking-widest opacity-70">{n}</p>
-            <p className="mt-1 text-2xl font-semibold">{p}</p>
-            <p className="text-xs opacity-70">per year</p>
-          </div>
-        ))}
-      </div>
-    </Container>
-  </section>
-);
-
 /* ----------------------------- Page ------------------------------------- */
 
 export const ProductTemplate = ({ cfg, onBook }) => (
@@ -626,7 +604,6 @@ export const ProductTemplate = ({ cfg, onBook }) => (
     <Related cfg={cfg} />
     <Testimonial t={cfg.testimonial} />
     <Faq faqs={cfg.faqs} />
-    <PricingBand />
     <CtaBanner onBook={onBook} />
   </div>
 );
