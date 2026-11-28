@@ -208,16 +208,6 @@ export const Header = () => {
           ? 'bg-white/95 backdrop-blur-xl shadow-md border-b border-slate-200' 
           : 'bg-white border-b border-slate-200 text-slate-800'
       }`}>
-        
-        {/* ========================================================================= */}
-        {/* 1. TOP ANNOUNCEMENT BANNER (Electric Sky Gradient from Screenshot)        */}
-        {/* ========================================================================= */}
-        <div className="w-full bg-nirghos-gradient text-white py-2 px-4 text-center select-none shadow-xs">
-          <div className="w-full max-w-[1750px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
-            <span>&ldquo;Nirghos E Barcode Solutions Pvt. Ltd.&rdquo; is now &ldquo;Nirghos ERP Solutions Pvt. Ltd.&rdquo;</span>
-          </div>
-        </div>
-
         {/* ========================================================================= */}
         {/* 2. MAIN NAVIGATION BAR                                                    */}
         {/* ========================================================================= */}
@@ -282,21 +272,6 @@ export const Header = () => {
                 }`}
               >
                 Industries
-              </NavLink>
-
-              {/* Pricing (Direct link with Save 20% pill) */}
-              <NavLink
-                to="/pricing"
-                className={({ isActive }) => `px-3 py-2 text-sm font-semibold transition-all relative flex items-center gap-1.5 ${
-                  isActive 
-                    ? 'text-nirghos-primary font-bold border-b-2 border-nirghos-primary' 
-                    : 'text-slate-700 hover:text-nirghos-primary'
-                }`}
-              >
-                <span>Pricing</span>
-                <span className="px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[9px] font-black tracking-wide border border-emerald-200">
-                  SAVE 20%
-                </span>
               </NavLink>
 
               {/* Company / Explore Nirghos ▾ */}
@@ -496,19 +471,6 @@ export const Header = () => {
                 }`}
               >
                 Industries (25 Verticals)
-              </NavLink>
-
-              <NavLink
-                to="/pricing"
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) => `block px-4 py-2.5 rounded-xl text-sm font-bold transition flex items-center justify-between ${
-                  isActive ? 'bg-sky-50 text-nirghos-primary' : 'text-slate-700 hover:bg-slate-100'
-                }`}
-              >
-                <span>Pricing Plans</span>
-                <span className="text-[10px] bg-emerald-100 text-emerald-700 font-black px-2 py-0.5 rounded-full">
-                  SAVE 20%
-                </span>
               </NavLink>
 
               <div className="pt-2 pb-1 px-4 text-[11px] font-black uppercase tracking-wider text-slate-400">

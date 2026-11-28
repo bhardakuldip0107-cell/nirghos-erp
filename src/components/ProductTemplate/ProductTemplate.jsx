@@ -156,17 +156,19 @@ const Problems = ({ cfg }) => {
     </div>
   );
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="pt-16 pb-8 sm:pt-20 sm:pb-10 bg-white">
       <Container>
         <SectionHeading title={cfg.problemsTitle} subtitle="Revealing common business challenges" />
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-[1fr_300px_1fr] gap-10 items-center">
           <div className="space-y-12">{left.map((p) => Card(p, 'right'))}</div>
           <div className="relative mx-auto w-64 h-64 sm:w-72 sm:h-72">
             <div className="absolute inset-0 rounded-full border-2 border-dashed border-sky-200 animate-[spin_40s_linear_infinite]" />
-            <div className="absolute inset-6 rounded-full bg-gradient-to-br from-sky-50 to-white border border-sky-100 flex flex-col items-center justify-center text-center px-6 shadow-inner">
-              <span className="text-5xl font-bold text-slate-900">
-                N<span className="text-nirghos-electric">.</span>
-              </span>
+            <div className="absolute inset-6 rounded-full bg-white border border-sky-100 flex flex-col items-center justify-center text-center px-6 shadow-inner">
+              <img
+                src="/nirghos-mark.jpg"
+                alt="Nirghos ERP"
+                className="w-24 h-24 sm:w-28 sm:h-28 object-contain"
+              />
               <p className="mt-2 text-xs text-slate-500">One platform that solves them all</p>
             </div>
             {['-left-6 top-1/4', '-left-6 bottom-1/4', '-right-6 top-1/4', '-right-6 bottom-1/4'].map((pos, i) => (
@@ -189,8 +191,22 @@ const WhyUs = ({ cfg }) => {
   const [active, setActive] = useState(0);
   const items = cfg.why || [];
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="pt-16 pb-8 sm:pt-20 sm:pb-10 bg-white">
       <Container>
+        {cfg.whyTopImage && (
+          <div className="mb-14 sm:mb-16">
+            {cfg.whyTopTitle && (
+              <SectionHeading title={cfg.whyTopTitle} subtitle={cfg.whyTopSub} className="mb-8" />
+            )}
+            <div className="rounded-3xl bg-white border border-slate-200/90 shadow-lg p-3 sm:p-5 overflow-hidden">
+              <img
+                src={cfg.whyTopImage}
+                alt={cfg.whyTopTitle || `${cfg.productName} End-to-End ERP Workflow`}
+                className="w-full h-auto rounded-2xl object-contain"
+              />
+            </div>
+          </div>
+        )}
         <SectionHeading title={cfg.whyTitle} subtitle={cfg.whySub} />
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           <div className="relative rounded-[28px] bg-gradient-to-br from-nirghos-primary to-[#075985] p-8 overflow-hidden min-h-[360px] flex items-center justify-center">
@@ -406,7 +422,7 @@ const defaultComparison = [
 const Comparison = ({ cfg }) => {
   const rows = cfg.comparison || defaultComparison;
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="pt-16 pb-8 sm:pt-20 sm:pb-10 bg-white">
       <Container>
         <SectionHeading
           title={`Why businesses choose Nirghos ${cfg.productName}`}
@@ -556,7 +572,7 @@ const Faq = ({ faqs }) => {
   const [open, setOpen] = useState(0);
   if (!faqs?.length) return null;
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="pt-16 pb-8 sm:pt-20 sm:pb-10 bg-white">
       <Container className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10">
         <div>
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-800">Frequently asked questions</h2>

@@ -130,49 +130,74 @@ export const Life = () => {
     <div className="space-y-20 pb-28">
       
       {/* ========================================================================= */}
-      {/* 1. HERO BANNER                                                            */}
+      {/* 1. HERO BANNER (Clean Light Sky Split Theme)                              */}
       {/* ========================================================================= */}
-      <section className="bg-gradient-to-br from-[#071328] via-[#0B1B3D] to-[#071328] text-white pt-14 pb-24 border-b border-navy-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-nirghos-primary/15 rounded-full blur-3xl pointer-events-none"></div>
+      <section className="relative bg-gradient-to-b from-sky-50/80 via-white to-white pt-12 pb-16 sm:pt-14 sm:pb-20 border-b border-slate-200/80 overflow-hidden">
+        <div className="absolute inset-0 opacity-45 bg-grid-pattern pointer-events-none"></div>
+        <div className="absolute -top-24 right-0 w-[500px] h-[350px] bg-sky-200/25 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-slate-400 mb-5">
-            <Link to="/" className="hover:text-white transition">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+          <div className="flex items-center gap-2 text-xs text-slate-500 mb-6">
+            <Link to="/" className="hover:text-nirghos-primary transition">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-nirghos-primary font-semibold">Life @ Nirghos ERP</span>
           </div>
 
-          <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-nirghos-primary/15 border border-nirghos-primary/30 text-nirghos-primary text-xs font-black uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Life @ Nirghos ERP</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-nirghos-primary text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Life @ Nirghos ERP</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-[1.12]">
+                Where Deep Passion Meets{' '}
+                <span className="text-nirghos-primary">Unstoppable Energy.</span>
+              </h1>
+
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+                We bring passion to our work and energy to every business milestone we build. At Nirghos ERP, we believe exceptional software is built by energized, empowered, and genuinely happy people.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  to="/careers"
+                  className="px-7 py-3.5 rounded-full bg-nirghos-gradient text-white font-bold text-sm hover:opacity-95 shadow-lg shadow-sky-500/25 transition-all flex items-center gap-2"
+                >
+                  <span>Join Our Growing Team</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/team"
+                  className="px-7 py-3.5 rounded-full bg-white hover:bg-sky-50 text-nirghos-primary font-bold text-sm border border-sky-200 transition-all flex items-center gap-2"
+                >
+                  <span>Meet Team Nirghos</span>
+                  <Users className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              Where Deep Passion Meets <span className="text-nirghos-primary">Unstoppable Energy.</span>
-            </h1>
-
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              We bring passion to our work and energy to every business milestone we build. At Nirghos ERP, we believe exceptional software is built by energized, empowered, and genuinely happy people.
-            </p>
-
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <Link
-                to="/careers"
-                className="px-6 py-3.5 rounded-full bg-nirghos-gradient text-white font-bold text-sm hover:opacity-95 shadow-lg shadow-orange-500/25 transition-all flex items-center gap-2"
-              >
-                <span>Join Our Growing Team</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/team"
-                className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2"
-              >
-                <span>Meet Team Nirghos</span>
-                <Users className="w-4 h-4 text-slate-300" />
-              </Link>
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl bg-white p-2">
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden">
+                  <img
+                    src="/about-team.jpg"
+                    alt="Life at Nirghos ERP"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/15 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 text-white">
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-sky-300">Culture &amp; Innovation</p>
+                      <p className="text-base font-bold">Bangalore &amp; Surat Hubs</p>
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-semibold border border-white/20">
+                      People-First Team
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

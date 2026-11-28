@@ -162,7 +162,7 @@ export const DashboardPreview = () => (
           {/* Sidebar */}
           <aside className="hidden md:flex col-span-3 lg:col-span-2 flex-col gap-1 border-r border-slate-100 bg-slate-50/60 p-4">
             <div className="flex items-center gap-2 mb-5">
-              <span className="w-7 h-7 rounded-lg bg-nirghos-gradient text-white text-xs font-bold flex items-center justify-center">N</span>
+              <img src="/nirghos-mark.jpg" alt="Nirghos" className="w-7 h-7 rounded-lg object-contain bg-white border border-slate-200/80 p-0.5 shrink-0" />
               <span className="font-semibold text-slate-800 text-sm">Nirghos</span>
             </div>
             {[

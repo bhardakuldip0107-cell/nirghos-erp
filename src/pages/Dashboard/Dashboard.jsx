@@ -321,7 +321,7 @@ export const Dashboard = () => {
     name: profile?.name || 'Apex Global Enterprises',
     owner: profile?.owner || 'Vikram Malhotra',
     email: profile?.email || 'vikram.m@apexglobal.com',
-    phone: profile?.phone || '+91 98765 43210',
+    phone: profile?.phone || '+91 84012 30372',
     currency: profile?.currency || 'USD',
     gstin: profile?.gstin || '27AAACA1234F1Z8'
   });

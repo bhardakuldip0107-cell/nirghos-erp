@@ -215,7 +215,7 @@ export const Register = () => {
                   <input
                     type="tel"
                     autoComplete="off"
-                    placeholder="e.g. +91 98765 43210"
+                    placeholder="e.g. +91 84012 30372"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full pl-10 pr-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-900 rounded-xl border-2 border-slate-200 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/15 bg-slate-50/50 focus:bg-white transition"

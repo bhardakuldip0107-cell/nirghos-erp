@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, Layers } from 'lucide-react';
 import ProductTemplate from '../../components/ProductTemplate/ProductTemplate';
 import DemoModal from '../../components/common/DemoModal';
-import { useDemo } from '../../context/DemoContext';
 import { getIndustryBySlug, getRelatedIndustries, industriesData } from '../../data/industries';
 import { getIndustryLandingData } from '../../data/industryLandingData';
 import { industryImages } from '../../data/industryImages';
@@ -12,8 +11,6 @@ const problemIcons = ['AlertTriangle', 'Boxes', 'Calculator', 'BarChart3'];
 
 export const IndustryDetails = () => {
   const { slug } = useParams();
-  const navigate = useNavigate();
-  const { setActiveIndustrySlug } = useDemo();
   const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   const industry = getIndustryBySlug(slug);
@@ -42,10 +39,6 @@ export const IndustryDetails = () => {
   }
 
   const openDemo = () => setIsDemoOpen(true);
-  const launchWorkspace = () => {
-    setActiveIndustrySlug(industry.slug);
-    navigate(`/dashboard?industry=${industry.slug}`);
-  };
 
   const shortName = industry.name.split('&')[0].trim();
   const related = getRelatedIndustries(industry.relatedSlugs || []);
@@ -61,11 +54,16 @@ export const IndustryDetails = () => {
     titleAccent: 'ERP Software',
     subtitle: `${industry.tagline} ${industry.shortDesc}`,
     primary: { label: 'Schedule a Demo', onClick: openDemo },
-    secondary: { label: 'Try Live Workspace', onClick: launchWorkspace },
     chips: (industry.modules || []).slice(0, 4).map((m) => [m.icon, m.name]),
     kpis: (industry.stats || []).map((s) => [s.label, s.value, 'Industry benchmark']),
     problemsTitle: `Common challenges in ${industry.name} and how Nirghos solves them`,
     problems: (industry.keyFeatures || []).slice(0, 4).map((f, i) => [problemIcons[i], f.title, f.desc]),
+    whyTopImage: slug === 'manufacturing' ? '/industries/manufacturing-workflow.jpg' : null,
+    whyTopTitle: slug === 'manufacturing' ? 'End-to-End Manufacturing & Fabrication ERP Workflow' : null,
+    whyTopSub:
+      slug === 'manufacturing'
+        ? 'Connect every stage of your plant — from CRM & Sales, Multi-Level BOM Design, MRP Production Planning, and Job-Work Sub-contracting to Quality Control, Purchase, Inventory, Maintenance, Asset Management, and Finance & Controlling.'
+        : null,
     whyTitle: `Why Nirghos is the best ERP for ${industry.name}`,
     whySub: industry.fullDesc,
     why: (industry.benefits || []).map((b) => {

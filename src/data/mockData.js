@@ -7,7 +7,7 @@ export const defaultCompanyProfile = {
   slug: 'manufacturing',
   owner: 'Vikram Malhotra',
   email: 'vikram.m@apexglobal.com',
-  phone: '+91 98765 43210',
+  phone: '+91 84012 30372',
   plan: 'Enterprise Multi-Branch License',
   renewalDate: 'Nov 2027',
   gstin: '27AAACA1234F1Z8',
@@ -34,7 +34,7 @@ export const demoPresetAccounts = [
     email: 'vikram@apexindustrial.com',
     industrySlug: 'manufacturing',
     industryName: 'Manufacturing & Fabrication',
-    phone: '+91 98765 43210'
+    phone: '+91 84012 30372'
   },
   {
     name: 'CareWell Multi-Specialty Hospital',

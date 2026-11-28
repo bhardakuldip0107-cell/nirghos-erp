@@ -211,25 +211,25 @@ export const Footer = () => {
           {/* Email & Phone Action Badges */}
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-[13px] font-semibold text-slate-700">
             <a 
-              href="mailto:infinitysofttech@gmail.com" 
+              href="mailto:nirghoserp@gmail.com" 
               className="flex items-center gap-2.5 hover:text-nirghos-primary transition group"
             >
               <div className="w-8 h-8 rounded-lg bg-nirghos-gradient text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <Mail className="w-4 h-4" />
               </div>
-              <span className="font-medium text-slate-800 group-hover:text-nirghos-primary transition">infinitysofttech@gmail.com</span>
+              <span className="font-medium text-slate-800 group-hover:text-nirghos-primary transition">nirghoserp@gmail.com</span>
             </a>
 
             <div className="hidden sm:block w-px h-5 bg-slate-200"></div>
 
             <a 
-              href="tel:+919409259294" 
+              href="tel:+918401230372" 
               className="flex items-center gap-2.5 hover:text-nirghos-primary transition group"
             >
               <div className="w-8 h-8 rounded-lg bg-nirghos-gradient text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <Phone className="w-4 h-4" />
               </div>
-              <span className="font-medium text-slate-800 group-hover:text-nirghos-primary transition">+91 94092 59294</span>
+              <span className="font-medium text-slate-800 group-hover:text-nirghos-primary transition">+91 84012 30372</span>
             </a>
           </div>
 

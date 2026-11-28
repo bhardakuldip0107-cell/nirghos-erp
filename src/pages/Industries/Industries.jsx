@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { industriesData, industryCategories } from '../../data/industries';
 import DynamicIcon from '../../components/common/DynamicIcon';
-import SearchBar from '../../components/SearchBar/SearchBar';
 import { useDemo } from '../../context/DemoContext';
 
 const industryPreviewImages = {
@@ -90,49 +89,7 @@ export const Industries = () => {
   const activeIndustry = filteredIndustries.find((i) => i.slug === activeSlug) || filteredIndustries[0];
 
   return (
-    <div className="space-y-16 pb-28">
-      
-      {/* Top Banner Header (Vasy.ai Clean Light Sky Theme) */}
-      <section className="bg-gradient-to-b from-sky-50/80 via-white to-white pt-14 pb-16 border-b border-slate-200/80 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-40 bg-grid-pattern pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-sky-200/25 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="relative max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-          
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-slate-500 mb-4">
-            <Link to="/" className="hover:text-nirghos-primary transition">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-nirghos-primary font-semibold">Industry Solutions Directory</span>
-          </div>
-
-          <div className="max-w-3xl space-y-4 animate-fadeIn">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-nirghos-primary text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-nirghos-primary" />
-              <span>Full Directory of 25 Specialized Verticals</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 leading-tight">
-              Tailored ERP Blueprints for{' '}
-              <span className="text-nirghos-primary">Every Business</span>
-            </h1>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              Browse our complete library of 25 dedicated industry ERP engines. Each solution is pre-packaged with distinct master databases, customized Bill of Materials, sector-specific workflows, and localized compliance rules.
-            </p>
-          </div>
-
-          {/* Quick Search in Banner */}
-          <div className="mt-8 max-w-2xl">
-            <SearchBar 
-              placeholder="Search by industry name, keyword, or module (e.g. POS, BOM, EHR, KOT)..."
-              onSearchChange={(q) => setSearchQuery(q)}
-            />
-          </div>
-
-        </div>
-      </section>
-
+    <div className="space-y-8 pt-10 pb-28">
       {/* Main Content Area */}
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 space-y-8">
         
@@ -258,10 +215,10 @@ export const Industries = () => {
                   const isActive = industry.slug === activeIndustry.slug;
                   return (
                     <li key={industry.slug}>
-                      <button
-                        type="button"
+                      <Link
+                        to={`/industries/${industry.slug}`}
                         onMouseEnter={() => setActiveSlug(industry.slug)}
-                        onClick={() => setActiveSlug(industry.slug)}
+                        onFocus={() => setActiveSlug(industry.slug)}
                         className={`w-full text-left px-5 py-3.5 flex items-center justify-between gap-3 transition-all cursor-pointer border-l-4 ${
                           isActive
                             ? 'bg-sky-50/80 border-nirghos-primary text-nirghos-primary'
@@ -284,7 +241,7 @@ export const Industries = () => {
                           </span>
                         </div>
                         <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${isActive ? 'text-nirghos-primary translate-x-0.5' : 'text-slate-300'}`} />
-                      </button>
+                      </Link>
                     </li>
                   );
                 })}
@@ -320,9 +277,19 @@ export const Industries = () => {
               </div>
 
               <div className="p-6 sm:p-8 space-y-6">
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  {activeIndustry.fullDesc || activeIndustry.shortDesc}
-                </p>
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed flex-1">
+                    {activeIndustry.fullDesc || activeIndustry.shortDesc}
+                  </p>
+
+                  <Link
+                    to={`/industries/${activeIndustry.slug}`}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm shadow-md transition shrink-0 self-start"
+                  >
+                    <span>Explore {activeIndustry.name}</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
 
                 {activeIndustry.modules?.length > 0 && (
                   <div>
@@ -339,22 +306,6 @@ export const Industries = () => {
                     </div>
                   </div>
                 )}
-
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <Link
-                    to={`/industries/${activeIndustry.slug}`}
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold text-sm shadow-md transition"
-                  >
-                    <span>Explore {activeIndustry.name}</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    to={`/dashboard?industry=${activeIndustry.slug}`}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-slate-200 hover:border-nirghos-primary text-nirghos-primary font-semibold text-sm transition"
-                  >
-                    <span>Try Live Workspace</span>
-                  </Link>
-                </div>
               </div>
             </div>
 

@@ -644,7 +644,7 @@ export const Careers = () => {
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 84012 30372"
                       value={applyForm.phone}
                       onChange={(e) => setApplyForm({ ...applyForm, phone: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-slate-300 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-slate-900"

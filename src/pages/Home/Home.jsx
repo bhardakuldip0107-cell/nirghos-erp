@@ -522,7 +522,7 @@ export const Home = () => {
           { label: 'WhatsApp', icon: MessageSquare },
           { label: 'Mobile app', icon: Smartphone }
         ],
-        hubName: 'N.',
+        hubName: 'Nirghos',
         hubSub: 'Nirghos',
         orderCard: {
           title: 'All orders',
@@ -1412,106 +1412,16 @@ export const Home = () => {
               </div>
             </div>
 
-            {/* Right Column: Studio Angled Laptop + Floating Smartphone Mockup (Nirghos Branded) */}
-            <div className="lg:col-span-6 relative flex items-center justify-center py-8 lg:py-10">
-              <div className="relative w-full max-w-[520px] mx-auto flex items-center justify-center">
-                {/* Circular Studio Halo behind Devices */}
-                <div className="absolute w-72 h-72 sm:w-[400px] sm:h-[400px] rounded-full bg-gradient-to-tr from-sky-100/80 via-slate-100/70 to-white border border-slate-200/60 pointer-events-none" />
-
-                {/* Floating Live Sync Badge (top-left) */}
-                <div className="hidden sm:flex items-center gap-2 absolute -top-3 left-2 z-20 px-3.5 py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg shadow-slate-900/5 pointer-events-none animate-float-delayed">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[11px] font-semibold text-slate-700">Cloud + Offline Sync</span>
+            {/* Right Column: Nirghos ERP + Application + Website Ecosystem Image */}
+            <div className="lg:col-span-6 relative flex flex-col items-center justify-center py-4 lg:py-6">
+              <div className="w-full max-w-[640px] mx-auto">
+                <div className="group relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-[#050814]">
+                  <img
+                    src="/hero/nirghos-ecosystem.jpg"
+                    alt="Nirghos ERP, Mobile Application, and Website"
+                    className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                  />
                 </div>
-
-                {/* Angled MacBook-Style Laptop */}
-                <div className="relative z-10 w-[88%] sm:w-[450px] -rotate-2 hover:rotate-0 transition-transform duration-500 mr-4 sm:mr-10">
-                  {/* Laptop Screen Bezel */}
-                  <div className="rounded-t-2xl bg-slate-900 p-2 sm:p-2.5 shadow-[0_28px_60px_-15px_rgba(15,23,42,0.35)] border border-slate-700/90">
-                    <div className="w-1.5 h-1.5 rounded-full bg-slate-600 mx-auto mb-1.5" />
-                    <div className="rounded-lg bg-white overflow-hidden border border-slate-200 aspect-[16/10] flex flex-col">
-                      {/* Mini Navbar inside Laptop Screen */}
-                      <div className="px-3.5 py-2 border-b border-slate-100 flex items-center justify-between bg-white">
-                        <img src="/nirghos-logo-nav.png" alt="Nirghos" className="h-4 w-auto object-contain" />
-                        <div className="flex items-center gap-2.5 text-[8px] font-semibold text-slate-500">
-                          <span>Products</span>
-                          <span>Industries</span>
-                          <span className="px-2 py-0.5 rounded-full bg-nirghos-gradient text-white">Live Demo</span>
-                        </div>
-                      </div>
-                      {/* Mini Hero & Metrics inside Laptop Screen */}
-                      <div className="p-3.5 sm:p-4 flex-1 bg-gradient-to-br from-white via-sky-50/40 to-white grid grid-cols-12 gap-3 items-center">
-                        <div className="col-span-7 space-y-2">
-                          <span className="inline-block text-[7px] font-bold uppercase tracking-wider text-nirghos-primary bg-sky-50 px-2 py-0.5 rounded-full border border-sky-100">
-                            All in One ERP
-                          </span>
-                          <p className="text-[11px] sm:text-[13px] font-bold text-slate-900 leading-snug">
-                            Lead the Future with <span className="text-nirghos-primary">AI-enabled</span> Nirghos ERP
-                          </p>
-                          <div className="flex gap-1.5 pt-0.5">
-                            <span className="px-2.5 py-1 rounded-full bg-nirghos-gradient text-white text-[7px] font-bold shadow-xs">Get Started</span>
-                            <span className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[7px] font-semibold">Live POS</span>
-                          </div>
-                        </div>
-                        <div className="col-span-5 space-y-2">
-                          <div className="rounded-xl bg-white p-2 border border-sky-100 shadow-xs">
-                            <p className="text-[7px] text-slate-400 font-semibold">Today&apos;s Revenue</p>
-                            <p className="text-[11px] sm:text-xs font-black text-slate-900">₹4,82,910</p>
-                            <p className="text-[7px] text-emerald-600 font-bold">+18.4% ↑</p>
-                          </div>
-                          <div className="rounded-xl bg-white p-2 border border-slate-100 shadow-xs flex items-center justify-between">
-                            <span className="text-[7px] font-bold text-slate-700">50+ Clients</span>
-                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Laptop Aluminum Base */}
-                  <div className="h-3 sm:h-3.5 bg-gradient-to-b from-slate-200 to-slate-300 rounded-b-xl -mx-2.5 shadow-lg flex items-center justify-center border-t border-slate-400/40">
-                    <div className="w-14 h-1 rounded-full bg-slate-400/60" />
-                  </div>
-                </div>
-
-                {/* Floating Smartphone anchored cleanly at Bottom-Right */}
-                <div className="absolute right-0 sm:right-2 -bottom-4 sm:-bottom-2 z-20 rotate-3 hover:rotate-0 transition-transform duration-500 animate-float-slow">
-                  <div className="w-[104px] sm:w-[138px] rounded-[22px] bg-slate-900 p-1.5 shadow-[0_25px_50px_-12px_rgba(15,23,42,0.45)] border-2 border-slate-700">
-                    <div className="w-9 h-2 bg-slate-900 rounded-b-lg mx-auto mb-0.5" />
-                    <div className="rounded-[16px] bg-white overflow-hidden aspect-[9/18.5] flex flex-col">
-                      <div className="px-2 py-1.5 border-b border-slate-100 flex items-center justify-between bg-sky-50/60">
-                        <img src="/nirghos-icon.png" alt="Nirghos Mobile" className="w-3.5 h-3.5 object-contain" />
-                        <span className="text-[7px] font-bold text-nirghos-primary">NIRGHOS</span>
-                      </div>
-                      <div className="p-2 space-y-1.5 flex-1 bg-white">
-                        <div className="rounded-xl bg-nirghos-gradient text-white p-2">
-                          <p className="text-[6px] opacity-85 uppercase">Mobile POS</p>
-                          <p className="text-[10px] font-black">₹1,24,500</p>
-                        </div>
-                        <div className="rounded-lg border border-slate-100 p-1.5 bg-slate-50/70">
-                          <p className="text-[6px] text-slate-400">Active Orders</p>
-                          <p className="text-[8.5px] font-bold text-slate-800">342 Invoices</p>
-                        </div>
-                        <div className="rounded-lg border border-slate-100 p-1.5 bg-slate-50/70">
-                          <p className="text-[6px] text-slate-400">Stock Sync</p>
-                          <p className="text-[8px] font-bold text-emerald-600">100% Live ✓</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Video Play Trigger Button (bottom-left of mockup) */}
-                <button
-                  type="button"
-                  onClick={() => setIsDemoModalOpen(true)}
-                  aria-label="Watch Nirghos ERP Demo"
-                  className="absolute -bottom-3 left-2 sm:left-4 z-30 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white hover:bg-sky-50 text-slate-800 border border-slate-200 shadow-lg shadow-slate-900/10 text-xs font-semibold transition-transform hover:scale-105 cursor-pointer"
-                >
-                  <span className="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center">
-                    <Play className="w-3 h-3 fill-white ml-0.5" />
-                  </span>
-                  <span>Watch Demo</span>
-                </button>
               </div>
             </div>
 
