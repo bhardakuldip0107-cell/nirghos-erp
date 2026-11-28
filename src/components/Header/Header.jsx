@@ -34,7 +34,6 @@ import {
   ScanLine,
   ShoppingBag
 } from 'lucide-react';
-import { useDemo } from '../../context/DemoContext';
 import DemoModal from '../common/DemoModal';
 
 export const Header = () => {
@@ -46,7 +45,6 @@ export const Header = () => {
   const headerNavRef = useRef(null);
   const hoverTimeoutRef = useRef(null);
 
-  const { isAuthenticated, profile, logoutUser } = useDemo();
   const location = useLocation();
 
   useEffect(() => {
@@ -289,41 +287,15 @@ export const Header = () => {
                       : 'text-slate-700 hover:text-nirghos-primary'
                   }`}
                 >
-                  <span>Company</span>
+                  <span>About</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'explore' ? 'rotate-180 text-nirghos-primary' : 'text-slate-500'}`} />
                 </button>
               </div>
 
             </nav>
 
-            {/* Right Action: Sign In & Book a Demo Button */}
+            {/* Right Action: Book a Demo Button */}
             <div className="hidden md:flex items-center gap-3.5">
-              
-              {isAuthenticated ? (
-                <div className="flex items-center gap-2">
-                  <Link
-                    to="/dashboard"
-                    className="px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center gap-1.5 transition"
-                  >
-                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    <span>{profile?.name?.split(' ')[0] || 'My ERP'}</span>
-                  </Link>
-                  <button
-                    onClick={logoutUser}
-                    className="text-xs text-slate-500 hover:text-rose-600 transition"
-                  >
-                    Logout
-                  </button>
-                </div>
-              ) : (
-                <Link
-                  to="/login"
-                  className="px-3 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 transition"
-                >
-                  Sign In
-                </Link>
-              )}
-
               {/* BOOK A DEMO BUTTON (vasy.ai style glowing cyan button) */}
               <button
                 type="button"
@@ -493,7 +465,7 @@ export const Header = () => {
               ))}
 
               <div className="pt-2 pb-1 px-4 text-[11px] font-black uppercase tracking-wider text-slate-400">
-                Company & Explore
+                About & Explore
               </div>
               {exploreCards.map((item) => (
                 <Link
