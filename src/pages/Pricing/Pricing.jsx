@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Plus, Minus, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Plus, Minus } from 'lucide-react';
 import DemoModal from '../../components/common/DemoModal';
 
 const SubNav = () => (
@@ -53,45 +53,6 @@ export const Pricing = () => {
   return (
     <div className="bg-white min-h-screen text-slate-900">
       <SubNav />
-
-      {/* Vasy.ai Style Light Sky Hero with Custom Quote CTA */}
-      <section className="relative bg-gradient-to-b from-sky-50/80 via-white to-white border-b border-slate-200/80 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
-        <div className="relative max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-nirghos-primary text-xs font-bold uppercase tracking-wider mb-5 animate-fadeIn">
-            <span className="w-2 h-2 rounded-full bg-nirghos-gradient animate-pulse"></span>
-            <span>Tailored Enterprise Pricing</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-tight text-slate-900 leading-[1.12] max-w-3xl mx-auto">
-            Custom ERP pricing built for{' '}
-            <span className="text-nirghos-primary">your exact scale</span>
-          </h1>
-          <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Every retail store, warehouse, and manufacturing plant has unique workflows. Book a quick consultation and get a transparent quote customized for your outlets and modules.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => setIsDemoModalOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full bg-nirghos-gradient hover:opacity-95 text-white font-bold px-8 py-3.5 shadow-lg shadow-sky-500/25 transition cursor-pointer"
-            >
-              <span>Request Custom Quote</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-white hover:bg-slate-50 text-nirghos-primary border-2 border-nirghos-primary font-bold px-7 py-3.5 transition"
-            >
-              Talk to Sales
-            </Link>
-          </div>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-500">
-            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-nirghos-primary" /> Zero hidden setup surprises</span>
-            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-nirghos-primary" /> Multi-year commitment discounts</span>
-            <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-nirghos-primary" /> Free Tally / Excel data migration</span>
-          </div>
-        </div>
-      </section>
 
       {/* Notes */}
       <section id="notes" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-14 scroll-mt-32">
