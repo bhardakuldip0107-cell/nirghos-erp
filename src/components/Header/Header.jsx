@@ -207,6 +207,15 @@ export const Header = () => {
           : 'bg-white border-b border-slate-200 text-slate-800'
       }`}>
         {/* ========================================================================= */}
+        {/* 1. TOP ANNOUNCEMENT BANNER                                                */}
+        {/* ========================================================================= */}
+        <div className="w-full bg-nirghos-gradient text-white py-2 px-4 text-center select-none shadow-xs">
+          <div className="w-full max-w-[1750px] mx-auto flex items-center justify-center gap-2 text-xs sm:text-sm font-bold tracking-wide">
+            <span>Special Launch Offer : Invest in ERP. Get Your Website &amp; App FREE</span>
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
         {/* 2. MAIN NAVIGATION BAR                                                    */}
         {/* ========================================================================= */}
         <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-8 relative" ref={headerNavRef}>
