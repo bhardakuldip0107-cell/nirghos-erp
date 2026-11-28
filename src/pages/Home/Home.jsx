@@ -1414,12 +1414,12 @@ export const Home = () => {
 
             {/* Right Column: Nirghos ERP + Application + Website Ecosystem Image */}
             <div className="lg:col-span-6 relative flex flex-col items-center justify-center py-4 lg:py-6">
-              <div className="w-full max-w-[640px] mx-auto">
-                <div className="group relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-[#050814]">
+              <div className="w-full max-w-[660px] mx-auto">
+                <div className="group relative">
                   <img
-                    src="/hero/nirghos-ecosystem.jpg"
+                    src="/hero/nirghos-ecosystem.png"
                     alt="Nirghos ERP, Mobile Application, and Website"
-                    className="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto object-contain drop-shadow-[0_22px_38px_rgba(15,23,42,0.18)] group-hover:scale-[1.02] transition-transform duration-500"
                   />
                 </div>
               </div>
